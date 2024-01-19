@@ -146,40 +146,16 @@ export function mergeDatasets(
         : new Map([...(obj2 ?? new Map())]);
 }
 
-// -----
-// Define functions for removing indent in string into Array.prototype
-// @see; https://stackoverflow.com/questions/62415501/typescript-cant-use-array-prototype
-// -----
-declare global {
-    interface Array<T> {
-        min(): number;
-        flatten(): any[];
-    }
-}
-
-// ----
-// Remove indent in string given especially heardoc
-// @see: https://tex2e.github.io/blog/javascript/dedent
-// ----
-/**
- * Get smallest of the numbers in array
- */
-Array.prototype.min = function() {
-    return Math.min.apply(null, this);
-};
-Array.prototype.flatten = function() {
-    return Array.prototype.concat.apply([], this);
-};
-
 /**
  * Remove indent in string given especially heardoc
  * @param str
+ * @see: https://tex2e.github.io/blog/javascript/dedent
  */
 export function deIndent(str: string): string {
     function scan(str: string, regex: RegExp) {
-        if (!regex.global) throw "regex must have 'global' flag set";
+        if (!regex.global) throw new Error("regex must have 'global' flag set");
         let m, result = [];
-        while (m = regex.exec(str)) {
+        while ((m = regex.exec(str))) {
             m.shift();
             result.push(m);
         }
@@ -187,10 +163,13 @@ export function deIndent(str: string): string {
     }
 
     str = str.trim();
-    const margin = scan(str, /^( +)/gm)
-        .flatten()
-        .map((line: string) => line.length)
-        .min();
+    const margin = Math.min.apply(
+        null, (
+            Array.prototype.concat.apply(
+                [], scan(str, /^( +)/gm)
+            ).map((line: string) => line.length)
+        )
+    );
 
     return str
         .replace(new RegExp(`^ {${margin}}`, 'gm'), '')

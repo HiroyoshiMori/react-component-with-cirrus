@@ -3,7 +3,7 @@ import React, {
 } from "react";
 import {
     ImageSrcSetProps,
-    MediaProps,
+    MediaProps, SourceSrcProps,
     SourceSrcsetProps,
 } from "../@types";
 import {
@@ -103,19 +103,56 @@ export const Media = (props: MediaProps) => {
                         {...datasetShown}
                     >
                         {
-                            props.source && props.source.length > 0 && props.source.map((source: SourceSrcsetProps, idx: number) => {
-                                return (
-                                    <Fragment key={idx}>
-                                        <Source {...source} />
-                                    </Fragment>
-                                );
-                            })
+                            props.source && props.source.length > 0 && props.source.map(
+                                (source: SourceSrcsetProps, idx: number) => {
+                                    return (
+                                        <Fragment key={idx}>
+                                            <Source {...source} />
+                                        </Fragment>
+                                    );
+                                }
+                            )
                         }
                         <Media
                             {...props.img}
                         />
                     </Tag>
-                ) : <Fragment />
+                ) : (element === 'audio' || element === 'video') ? function () {
+                    // Remake variable for rest of props
+                    const {
+                        element: itemElement,
+                        sources,
+                        controlsList: controlData,
+                        children,
+                        classes = [],
+                        attributes = {},
+                        datasets,
+                        ...mediaProps
+                    } = props;
+                    const controlsList = controlData?.join(' ');
+                    return (
+                        <Tag
+                            {...mediaProps}
+                            controlsList={controlsList}
+                            className={classes.join(' ')}
+                            {...attributes}
+                            {...datasetShown}
+                        >
+                            {
+                                sources && sources.length > 0 && sources.map(
+                                    (source: SourceSrcProps, idx: number) => {
+                                        return (
+                                            <Fragment key={idx}>
+                                                <Source {...source} />
+                                            </Fragment>
+                                        );
+                                    }
+                                )
+                            }
+                            {children}
+                        </Tag>
+                    );
+                }() : <Fragment />
             }
         </Fragment>
     );

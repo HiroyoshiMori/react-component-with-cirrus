@@ -30,7 +30,7 @@ export const Ruby = (props: RubyProps) => {
             'ruby', 'rp', 'rt',
         ], {}
     );
-    const {datasets, datasetShown} = initializeDatasets(
+    const {datasetShown} = initializeDatasets(
         props['datasets'] as RubyDatasets, [
             'ruby', 'rp', 'rt',
         ], new Map()
