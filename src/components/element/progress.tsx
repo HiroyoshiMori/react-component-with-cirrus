@@ -10,7 +10,6 @@ export const Progress = (props: ProgressProps) => {
         children,
         value,
         max: maxValue,
-        size,
         classes = [],
         attributes = {},
         datasets = new Map(),
