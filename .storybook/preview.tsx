@@ -1,6 +1,8 @@
 import {Preview} from "@storybook/react";
 // import renderHTML from './render.html';
 import DocumentationTemplate from './DocumentationTemplate.mdx';
+/* Prevent nowrap when description has detail */
+import './css/style.css';
 
 const preview: Preview = {
   parameters: {
