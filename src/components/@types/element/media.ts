@@ -1,24 +1,27 @@
 import {
+    AudioHTMLAttributes,
     EmbedHTMLAttributes,
     HTMLAttributes,
     ObjectHTMLAttributes,
     ReactNode,
-    SourceHTMLAttributes,
+    SourceHTMLAttributes, VideoHTMLAttributes,
 } from "react";
 import {
-    CommonDatasetType,
+    CommonDatasetType, ControlsListTypes,
     CrossOriginTypes,
     DecodingTypes,
     FetchPolicyTypes,
-    LoadingTypes,
+    LoadingTypes, PreloadTypes,
     ReferrerPolicyTypes
 } from "../index";
 
 /** Type definition of property for media */
-export type MediaProps = EmbedProps
+export type MediaProps = AudioProps
+    | EmbedProps
     | ImageProps
     | ObjectProps
-    | PictureProps;
+    | PictureProps
+    | VideoProps;
 /** Type definition of property for embed */
 export type EmbedProps = {
     element: 'embed';
@@ -43,9 +46,9 @@ export type ImageProps = {
     imageSizes?: ImageSizesProps;
     crossOrigin?: CrossOriginTypes;
     decoding?: DecodingTypes;
-    elementTiming?: string;
-    fetchPolicy?: FetchPolicyTypes;
-    isMap?: boolean;
+    elementtiming?: string;
+    fetchpolicy?: FetchPolicyTypes;
+    ismap?: '';
     loading?: LoadingTypes;
     referrerPolicy?: ReferrerPolicyTypes;
     useMap?: string;
@@ -58,12 +61,13 @@ export type ObjectProps = {
     element: 'object';
     name?: string;
     id?: string;
-    data: DataTypeProps[];
+    data: string;
+    type: string;
+    children?: ReactNode;
     form?: string;
     width?: number;
     height?: number;
     useMap?: string;
-    children?: ReactNode;
     classes?: string[];
     attributes?: ObjectHTMLAttributes<HTMLObjectElement>;
     datasets?: CommonDatasetType;
@@ -78,8 +82,9 @@ export type PictureProps = {
     attributes?: HTMLAttributes<HTMLPictureElement>;
     datasets?: CommonDatasetType;
 };
-/** Type definition of property for picture */
+/** Type definition of property for source */
 export type SourceProps = SourceSrcProps | SourceSrcsetProps;
+/** Type definition of common property for source */
 export type SourceCommonProps = {
     id?: string;
     type?: string;
@@ -90,12 +95,47 @@ export type SourceCommonProps = {
     attributes?: SourceHTMLAttributes<HTMLSourceElement>;
     datasets?: CommonDatasetType;
 };
+/** Type definition for property for source which is used for audio/video */
 export type SourceSrcProps = SourceCommonProps & {
     src: string;
 };
+/** Type definition for property for source which is used for picture */
 export type SourceSrcsetProps = SourceCommonProps & {
     srcSet: string;
     sizes?: number|string;
+};
+/** Type definition of property for common audio/video */
+export type AudioVideoCommonProps = {
+    src?: string;
+    sources?: SourceSrcProps[];
+    children?: ReactNode;
+    autoPlay?: boolean;
+    controls?: boolean;
+    controlsList?: (ControlsListTypes|string)[];
+    crossOrigin?: CrossOriginTypes;
+    disableRemotePlayback?: boolean;
+    loop?: boolean;
+    muted?: boolean;
+    playsInline?: boolean;
+    preload?:PreloadTypes;
+};
+/** Type definition of property for audio */
+export type AudioProps = AudioVideoCommonProps & {
+    element: 'audio',
+    classes?: string[];
+    attributes?: AudioHTMLAttributes<HTMLAudioElement>;
+    datasets?: CommonDatasetType;
+};
+/** Type definition of property for video */
+export type VideoProps = AudioVideoCommonProps & {
+    element: 'video';
+    width?: number;
+    height?: number;
+    disablePictureInPicture?: boolean;
+    poster?: string;
+    classes?: string[];
+    attributes?: VideoHTMLAttributes<HTMLVideoElement>;
+    datasets?: CommonDatasetType;
 };
 
 /** Type definition of sizes/srcset for image */
@@ -108,9 +148,4 @@ export type ImageSrcSetProps = {
     mediaQuery: string[];
     mediaSize: number|string;
     src: string;
-};
-/** Type definition of data/type for object */
-export type DataTypeProps = {
-    data: string;
-    type: string;
 };

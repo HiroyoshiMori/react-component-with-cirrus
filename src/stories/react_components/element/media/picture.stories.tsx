@@ -1,30 +1,30 @@
 import React from "react";
-import {Media} from "../../../components";
+import {Media} from "../../../../components";
+import {deIndent} from "../../../../utils";
 // @ts-ignore
-import AssetsImage from '../../assets/assets.png';
+import AssetsImage from '../../../assets/assets.png';
 // @ts-ignore
-import ContextImage from '../../assets/context.png';
+import ContextImage from '../../../assets/context.png';
 // @ts-ignore
-import StylingImage from '../../assets/styling.png';
-import {deIndent} from "../../../utils";
+import StylingImage from '../../../assets/styling.png';
 
+/**
+ * The &lt;picture&gt; HTML element contains
+ * zero or more &lt;source&gt; elements and one &lt;img&gt; element
+ * to offer alternative versions of an image for different display/device scenarios.<br>
+ * Credits: Media files are Copyright file-examples.com | https://file-examples.com/
+ */
 export default {
     component: Media,
     tags: ['autodocs'],
     title: 'React Component/Element/Media/Picture',
     parameters: {
         componentSubtitle: 'The Picture element',
-        docs: {
-            description: {
-                component: 'The <picture> HTML element contains zero or more <source> elements and one <img> element '
-                        + 'to offer alternative versions of an image for different display/device scenarios.',
-            },
-        },
     },
     argTypes: {
         element: {
             control: 'none',
-            description: 'Switcher for Media component to render <picture>',
+            description: 'Switcher for Media component to render &lt;picture&gt;',
             type: {
                 required: true,
             },
@@ -48,7 +48,7 @@ export default {
         },
         img: {
             control: 'text',
-            description: '<img> property in this element',
+            description: '&lt;img&gt; property in this element',
             type: {
                 required: true,
             },
@@ -60,7 +60,7 @@ export default {
         },
         sources: {
             control: 'object',
-            description: '<source> properties in this element.',
+            description: '&lt;source&gt; properties in this element.',
             table: {
                 type: {
                     summary: 'SourceSrcsetProps[]',
@@ -95,7 +95,7 @@ export default {
                 defaultValue: {
                     summary: 'undefined',
                     detail: 'When undefined, treated as []',
-                }
+                },
             },
         },
         attributes: {
@@ -155,11 +155,6 @@ const pictureProps = {
         element: 'img',
         src: AssetsImage,
     },
-    classes: ['test-class'],
-    attributes: {'aria-label': 'Label Text'},
-    datasets: new Map([
-        ['id', 'picture-id'], ['name', 'Picture Name'],
-    ]),
 };
 
 /** Default picture */
@@ -178,7 +173,7 @@ export const PictureWithID = {
 };
 
 /** Picture with style classes */
-export const PictureWithClasses = {
+export const PictureWithStyleClasses = {
     ...DefaultPicture,
     args: {
         classes: ['test-class1', 'test-class2'],

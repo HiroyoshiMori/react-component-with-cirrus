@@ -1,12 +1,12 @@
 import React, {
     Fragment,
 } from "react";
+import {sprintf} from "sprintf-js";
 import {
     CommonDatasetType,
     SourceProps, SourceSrcProps, SourceSrcsetProps,
 } from "../@types";
-import {convertDataSet} from "../../utils";
-import {sprintf} from "sprintf-js";
+import {convertDataSet, joinClasses} from "../common";
 
 export const Source = (props: SourceProps) => {
     let src, srcSet, media = '', sizes = '', restProps;
@@ -51,7 +51,7 @@ export const Source = (props: SourceProps) => {
                 media={media || undefined}
                 sizes={sizes || undefined}
                 {...restProps}
-                className={classes?.join(' ')}
+                className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}
             />

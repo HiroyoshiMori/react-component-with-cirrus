@@ -1,29 +1,32 @@
 import React from "react";
-import {CROSS_ORIGINS, DECODINGS, FETCH_POLICIES, LOADINGS, Media, REFERRER_POLICIES} from "../../../components";
-import {deIndent} from "../../../utils";
+import {CROSS_ORIGINS, DECODINGS, FETCH_POLICIES, LOADINGS, Media, REFERRER_POLICIES} from "../../../../components";
+import {deIndent} from "../../../../utils";
 // @ts-ignore
-import AssetsImage from '../../assets/assets.png';
+import ContextImage from '../../../assets/context.png';
 // @ts-ignore
-import ContextImage from '../../assets/context.png';
+import StylingImage from '../../../assets/styling.png';
 // @ts-ignore
-import StylingImage from '../../assets/styling.png';
+import ExampleImage from '../../../assets/file_example_PNG_500kB.png';
+// @ts-ignore
+import ExampleImageX2 from '../../../assets/file_example_PNG_1MB.png';
+// @ts-ignore
+import ExampleImageX4 from '../../../assets/file_example_PNG_2100kB.png';
 
+/**
+ * The &lt;img&gt; HTML element embeds an image into the document.<br>
+ * Credits: Media files are Copyright file-examples.com | https://file-examples.com/
+ */
 export default {
     title: 'React Component/Element/Media/Img',
     component: Media,
     tags: ['autodocs'],
     parameters: {
         componentSubtitle: 'The Image Embed element',
-        docs: {
-            description: {
-                component: 'The <img> HTML element embeds an image into the document.',
-            },
-        },
     },
     argTypes: {
         element: {
             control: 'none',
-            description: 'Switcher for Media component to render <img>',
+            description: 'Switcher for Media component to render &lt;img&gt;',
             type: {
                 required: true,
             },
@@ -150,7 +153,7 @@ export default {
                 },
             },
         },
-        elementTiming: {
+        elementtiming: {
             control: 'text',
             description: 'Marks the image for observation by the PerformanceElementTiming',
             table: {
@@ -162,7 +165,7 @@ export default {
                 },
             },
         },
-        fetchPolicy: {
+        fetchpolicy: {
             control: 'select',
             options: ['Default'].concat(FETCH_POLICIES),
             mapping: {
@@ -178,15 +181,17 @@ export default {
                 },
             },
         },
-        isMap: {
-            control: 'boolean',
+        ismap: {
+            control: 'none',
             description: 'Indicates that the image is part of a server-side map',
             table: {
-                type: 'boolean',
+                type: {
+                    summary: '""',
+                    detail: 'only "", empty string, is acceptable',
+                },
             },
             defaultValue: {
                 summary: 'undefined',
-                detail: 'treated as false'
             },
         },
         loading: {
@@ -243,7 +248,7 @@ export default {
                 defaultValue: {
                     summary: 'undefined',
                     detail: 'When undefined, treated as []',
-                }
+                },
             },
         },
         attributes: {
@@ -281,15 +286,15 @@ export default {
                 defaultValue: {
                     summary: 'undefined',
                     detail: 'When undefined, treated as new Map()'
-                }
-            }
-        }
+                },
+            },
+        },
     },
 };
 // Default image property
 const imgDefaultProps = {
     element: 'img',
-    src: AssetsImage,
+    src: ExampleImage,
 };
 // Image with srcset without media query
 const imgSrcSetProps = {
@@ -297,10 +302,10 @@ const imgSrcSetProps = {
     imageSizes: {
         srcSet: [{
             mediaSize: '2.0x',
-            src: ContextImage,
+            src: ExampleImageX4,
         }, {
             mediaSize: '1.5x',
-            src: StylingImage,
+            src: ExampleImageX2,
         }],
     },
 };
@@ -327,19 +332,17 @@ const imgSrcSetSizesProps = {
         defaultSize: 800,
     },
 };
+console.debug('viewport: ' + Math.max(document.documentElement.clientWidth, window.innerWidth || 0));
 
 // ---------------------------------------------------------------------------
 // Stories
 // ---------------------------------------------------------------------------
 /** Default Image */
 export const DefaultImage = {
-    render: (args: any) => {
-        console.debug('viewport: ' + Math.max(document.documentElement.clientWidth, window.innerWidth || 0));
-        return (<Media
-            {...imgDefaultProps}
-            {...args}
-        />);
-    },
+    render: (args: any) => <Media
+        {...imgDefaultProps}
+        {...args}
+    />,
 };
 /** Image with ID */
 export const ImageWithID = {
@@ -383,9 +386,9 @@ export const ImageWithOtherAttributes = {
     args: {
         crossOrigin: 'anonymous',
         decoding: 'sync',
-        elementTiming: 'test-timing',
-        fetchPolicy: 'low',
-        isMap: false,
+        elementtiming: 'test-timing',
+        fetchpolicy: 'low',
+        ismap: '',
         loading: 'lazy',
         referrerPolicy: 'same-origin',
         useMap: '',

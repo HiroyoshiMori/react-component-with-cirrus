@@ -1,9 +1,6 @@
 import {
     CommonDatasetType,
 } from "./@types";
-import {
-    convertDataSet,
-} from "../utils";
 
 /**
  * Common Initialize function for attributes/classes
@@ -61,3 +58,29 @@ export const initializeDatasets = <T extends {}, K extends keyof T>(
     });
     return {datasets, datasetShown};
 };
+
+/**
+ * Convert style classes to white-space separated string
+ * @param classes Array of style classes
+ * @param separator Separator between each style class
+ */
+export function joinClasses(classes: string[] | undefined, separator: string = ' ') {
+    return classes?.join
+        ? classes.join(separator)
+        : undefined;
+}
+
+/**
+ * Convert Map to Object for dataset of HTML elements which as key of 'data-*'
+ * @param dataSet
+ */
+export function convertDataSet(dataSet: Map<string, any>) {
+    let props = {} as any;
+    if (dataSet.keys) {
+        for (const key of dataSet.keys()) {
+            const attributeKey = `data-${key}`;
+            props[attributeKey] = dataSet.get(key);
+        }
+    }
+    return props;
+}

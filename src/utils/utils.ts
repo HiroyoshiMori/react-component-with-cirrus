@@ -53,6 +53,14 @@ export function getWeekNumber(date: Date) {
 }
 
 /**
+ *  Capitalize first letter of string
+ *  @param str
+ */
+export function capitalizeFirstLetter(str: string): string {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+/**
  * Check value in array with Regex.
  * 
  * @param arr array to check values
@@ -70,19 +78,6 @@ export function ArrayRegexIncludes(arr: Array<string|number>, regex: RegExp) {
 }
 
 /**
- * Convert Map to Object for dataset of HTML elements which as key of 'data-*'
- * @param dataSet
- */
-export function convertDataSet(dataSet: Map<string, any>) {
-    let props = {} as any;
-    for (const key of dataSet.keys()) {
-        const attributeKey = `data-${key}`;
-        props[attributeKey] = dataSet.get(key);
-    }
-    return props;
-}
-
-/**
  * Generate random ID
  */
 export function generateId(): string {
@@ -95,16 +90,21 @@ export function generateId(): string {
  * Combine arrays as string with connector
  * @param items item arrays connect with connector
  * @param connector connector string
+ * @param type
  * @see https://qiita.com/yama-t/items/d533f3385a53f887a3b0
  */
-export function arrayCombine(items: any[], connector: string = '-'): any[] {
+export function arrayCombine(
+    items: any[], connector: string = '-', type: ('string'|'array') = 'string'
+): any[] {
     const combine = (arr1: any[], arr2: any[]) => {
         if (arr1.length === 0) {
             return arr2;
         }
         return arr1.reduce((arr, v1) => {
             arr2.forEach(v2 => {
-                const res = v1 + (v2 ? (connector + v2) : v2);
+                const res = type === 'string'
+                    ? (v1 + (v2 ? (connector + v2) : v2))
+                    : [v1, v2];
                 arr.push(res);
             });
             return arr;

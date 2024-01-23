@@ -1,16 +1,14 @@
 import React, {
     Fragment,
 } from "react";
+import {sprintf} from "sprintf-js";
 import {
     ImageSrcSetProps,
     MediaProps, SourceSrcProps,
     SourceSrcsetProps,
 } from "../@types";
-import {
-    convertDataSet,
-} from "../../utils";
-import {sprintf} from "sprintf-js";
 import {Source} from "./source";
+import {convertDataSet, joinClasses} from "../common";
 
 export const Media = (props: MediaProps) => {
     const {
@@ -21,6 +19,7 @@ export const Media = (props: MediaProps) => {
         ...restProps
     } = props;
 
+    // Initialize
     const Tag = element;
     const datasetShown = convertDataSet(datasets);
 
@@ -30,7 +29,7 @@ export const Media = (props: MediaProps) => {
                 (element === 'embed') ? (
                     <Tag
                         {...restProps}
-                        className={classes.join(' ')}
+                        className={joinClasses(classes)}
                         {...attributes}
                         {...datasetShown}
                     />
@@ -81,7 +80,7 @@ export const Media = (props: MediaProps) => {
                                 {...imgProps}
                                 srcSet={srcSet || undefined}
                                 sizes={sizes || undefined}
-                                className={classes.join(' ')}
+                                className={joinClasses(classes)}
                                 {...attributes}
                                 {...datasetShown}
                             />
@@ -90,7 +89,7 @@ export const Media = (props: MediaProps) => {
                 }() : (element === 'object') ? (
                     <Tag
                         {...restProps}
-                        className={classes.join(' ')}
+                        className={joinClasses(classes)}
                         {...attributes}
                         {...datasetShown}
                     >
@@ -98,7 +97,7 @@ export const Media = (props: MediaProps) => {
                     </Tag>
                 ) : (element === 'picture') ? (
                     <Tag
-                        className={classes.join(' ')}
+                        className={joinClasses(classes)}
                         {...attributes}
                         {...datasetShown}
                     >
@@ -134,7 +133,7 @@ export const Media = (props: MediaProps) => {
                         <Tag
                             {...mediaProps}
                             controlsList={controlsList}
-                            className={classes.join(' ')}
+                            className={joinClasses(classes)}
                             {...attributes}
                             {...datasetShown}
                         >
