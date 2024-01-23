@@ -20,6 +20,6 @@ export type HrProps = {
 export type BrProps = {
     element: 'br'|'wbr';
     classes?: string[];
-    attributes?: HTMLAttributes<HTMLHRElement>;
+    attributes?: HTMLAttributes<HTMLBRElement>;
     datasets?: CommonDatasetType;
 };

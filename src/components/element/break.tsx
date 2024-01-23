@@ -4,9 +4,7 @@ import React, {
 import {
     BreakProps,
 } from "../@types";
-import {
-    convertDataSet,
-} from "../../utils";
+import {convertDataSet, joinClasses} from "../common";
 
 export const Break = (props: BreakProps) => {
     const {
@@ -22,7 +20,7 @@ export const Break = (props: BreakProps) => {
     return (
         <Fragment>
             <Tag
-                className={classes.join(' ')}
+                className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}
             />
