@@ -14,16 +14,16 @@ import {
     SelectProps,
 } from "../@types";
 import {
+    convertDataSet,
     initialize,
-    initializeDatasets,
+    initializeDatasets, joinClasses,
 } from "../common";
 import {
-    convertDataSet,
     mergeDatasets,
     mergeHtmlAttributes,
     mergeStyleClasses,
 } from "../../utils";
-import {Break} from "../element/break";
+import {Break} from "../element";
 
 export const Select = (props: SelectProps) => {
     const {
@@ -66,7 +66,7 @@ export const Select = (props: SelectProps) => {
                 multiple={multiple}
                 required={required}
                 size={size}
-                className={classes.select?.join(' ')}
+                className={joinClasses(classes.select)}
                 {...attributes.select}
                 {...datasetShown.select}
             >
@@ -171,7 +171,7 @@ const OptGroup = (props: OptGroupProps) => {
                 id={id}
                 label={label}
                 disabled={disabled}
-                className={classes.optgroup?.join(' ')}
+                className={joinClasses(classes.optgroup)}
                 {...attributes.optgroup}
                 {...datasetShown.optgroup}
             >
@@ -233,7 +233,7 @@ const Option = (props: OptionProps) => {
                 label={label ?? value ?? children}
                 selected={selected}
                 disabled={disabled}
-                className={classes.join(' ')}
+                className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}
             >

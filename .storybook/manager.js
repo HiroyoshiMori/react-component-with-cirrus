@@ -5,3 +5,6 @@ addons.setConfig({
         showRoots: true,
     },
 });
+// module.exports = {
+//     alias: { prettier$: require.resolve('prettier/standalone') },
+// };

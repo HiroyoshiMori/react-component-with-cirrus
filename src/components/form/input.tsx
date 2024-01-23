@@ -13,7 +13,7 @@ import {
 } from "../element";
 import {
     initialize,
-    initializeDatasets,
+    initializeDatasets, joinClasses,
 } from "../common";
 import {
     generateId,
@@ -66,14 +66,14 @@ export const FormInput = (props: FormInputProps) => {
     return (
         <Fragment>
             <div
-                className={classes.div?.join(' ')}
+                className={joinClasses(classes.div)}
                 {...attributes.div}
                 {...datasetShown.div}
             >
                 { label && (
                     <Label
                         htmlFor={props.inputProps.id}
-                        className={classes.label?.join(' ')}
+                        className={joinClasses(classes.label)}
                         {...attributes.label}
                         {...datasetShown.label}
                     >
@@ -87,7 +87,7 @@ export const FormInput = (props: FormInputProps) => {
                 )}
                 { footnotes && (
                     <span
-                        className={classes.footnotes?.join(' ')}
+                        className={joinClasses(classes.footnotes)}
                         {...attributes.footnotes}
                         {...datasetShown.footnotes}
                     >

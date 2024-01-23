@@ -1,6 +1,11 @@
-import {Fragment} from "react";
-import {HeadingProps} from "../@types";
-import {convertDataSet} from "../../utils";
+import React, {
+    Fragment,
+} from "react";
+import {
+    cssFramework,
+    HeadingProps,
+} from "../@types";
+import {convertDataSet, joinClasses} from "../common";
 
 export const Heading = (props: HeadingProps) => {
     const {
@@ -22,13 +27,21 @@ export const Heading = (props: HeadingProps) => {
         default:
             Tag = 'h3';
     }
+    const defaultClasses = cssFramework.getDefaultStyleClass(
+        'header', Tag
+    );
+    defaultClasses?.forEach((styleClass) => {
+        if (Array.isArray(classes) && !classes.includes(styleClass)) {
+            classes.push(styleClass);
+        }
+    });
     const datasetShown = convertDataSet(datasets);
 
     return (
         <Fragment>
             <Tag
                 id={id}
-                className={classes.join(' ')}
+                className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}
             >

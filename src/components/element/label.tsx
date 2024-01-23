@@ -4,9 +4,7 @@ import React, {
 import {
     LabelProps,
 } from "../@types";
-import {
-    convertDataSet,
-} from "../../utils";
+import {convertDataSet, joinClasses} from "../common";
 
 export const Label = (props: LabelProps) => {
     const {
@@ -23,7 +21,7 @@ export const Label = (props: LabelProps) => {
         <Fragment>
             <label
                 htmlFor={htmlFor}
-                className={classes.join(' ')}
+                className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}
             >

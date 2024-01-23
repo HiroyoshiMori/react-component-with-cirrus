@@ -4,9 +4,7 @@ import React, {
 import {
     TextareaProps,
 } from "../@types";
-import {
-    convertDataSet,
-} from "../../utils";
+import {convertDataSet, joinClasses} from "../common";
 
 export const Textarea = (props: TextareaProps) => {
     const {
@@ -23,7 +21,7 @@ export const Textarea = (props: TextareaProps) => {
         <Fragment>
             <textarea
                 {...props}
-                className={classes.join(' ')}
+                className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}
             >

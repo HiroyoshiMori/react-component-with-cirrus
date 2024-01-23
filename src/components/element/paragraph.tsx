@@ -4,7 +4,7 @@ import React, {
 import {
     ParagraphProps,
 } from "../@types";
-import {convertDataSet} from "../../utils";
+import {convertDataSet, joinClasses} from "../common";
 
 export const Paragraph = (props: ParagraphProps) => {
     const {
@@ -20,7 +20,7 @@ export const Paragraph = (props: ParagraphProps) => {
         <Fragment>
             <p
                 id={id}
-                className={classes.join(' ')}
+                className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}
             >

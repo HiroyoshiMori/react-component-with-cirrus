@@ -10,7 +10,7 @@ import {
     InsProps,
     QuoteProps,
 } from "../@types";
-import {convertDataSet} from "../../utils";
+import {convertDataSet, joinClasses} from "../common";
 
 export const Container = (props: ContainerProps) => {
     const {
@@ -61,7 +61,7 @@ export const Container = (props: ContainerProps) => {
             <Tag
                 id={id}
                 {...additionalProps}
-                className={classes.join(' ')}
+                className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}
             >

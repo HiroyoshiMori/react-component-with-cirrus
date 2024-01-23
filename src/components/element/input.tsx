@@ -21,9 +21,7 @@ import {
     InputTextProps,
     InputUrlProps,
 } from "../@types";
-import {
-    convertDataSet,
-} from "../../utils";
+import {convertDataSet, joinClasses} from "../common";
 
 export const Input = (props: InputProps) => {
     const {
@@ -32,6 +30,7 @@ export const Input = (props: InputProps) => {
         datasets = new Map(),
     } = props;
 
+    // Initialize
     const itemProps = switchComponent(props);
     const datasetShown = convertDataSet(datasets);
 
@@ -39,7 +38,7 @@ export const Input = (props: InputProps) => {
         <Fragment>
             <input
                 {...itemProps}
-                className={classes.join(' ')}
+                className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}
             />

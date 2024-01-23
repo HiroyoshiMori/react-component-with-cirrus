@@ -1,6 +1,10 @@
-import {Fragment} from "react";
-import {TimeProps} from "../@types";
-import {convertDataSet} from "../../utils";
+import React, {
+    Fragment,
+} from "react";
+import {
+    TimeProps,
+} from "../@types";
+import {convertDataSet, joinClasses} from "../common";
 
 export const Time = (props: TimeProps) => {
     const {
@@ -22,7 +26,7 @@ export const Time = (props: TimeProps) => {
         <Fragment>
             <time
                 dateTime={dateTime}
-                className={classes.join(' ')}
+                className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}
             >

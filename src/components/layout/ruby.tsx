@@ -10,7 +10,7 @@ import {
 } from "../@types";
 import {
     initialize,
-    initializeDatasets,
+    initializeDatasets, joinClasses,
 } from "../common";
 
 export const Ruby = (props: RubyProps) => {
@@ -39,7 +39,7 @@ export const Ruby = (props: RubyProps) => {
     return (
         <Fragment>
             <ruby
-                className={classes.ruby?.join(' ')}
+                className={joinClasses(classes.ruby)}
                 {...attributes.ruby}
                 {...datasetShown.ruby}
             >
