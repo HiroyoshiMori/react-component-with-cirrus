@@ -10,6 +10,7 @@ import {
 export type FigureProps = {
     children?: ReactNode;
     label?: ReactNode;
+    labelPosition?: 'first'|'last';
     classes?: FigureClasses;
     attributes?: FigureAttributes;
     datasets?: FigureDatasets;
