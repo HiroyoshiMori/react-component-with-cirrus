@@ -74,7 +74,7 @@ const DefaultObject = {
     element: 'object',
     data: ExampleImage,
     type: 'image/png',
-};;
+};
 
 /** Default object */
 export const Default = {
