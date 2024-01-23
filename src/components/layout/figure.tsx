@@ -6,7 +6,7 @@ import {
     FigureClasses, FigureDatasets,
     FigureProps,
 } from "../@types";
-import {convertDataSet, initialize, initializeDatasets, joinClasses} from "../common";
+import {initialize, initializeDatasets, joinClasses} from "../common";
 
 export const Figure = (props: FigureProps) => {
     const {
@@ -26,7 +26,7 @@ export const Figure = (props: FigureProps) => {
             'figure', 'caption',
         ], {}
     )
-    const {datasets, datasetShown} = initializeDatasets(
+    const {datasetShown} = initializeDatasets(
         props['datasets'] as FigureDatasets, [
             'figure', 'caption',
         ], new Map()
