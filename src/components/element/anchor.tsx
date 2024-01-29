@@ -2,7 +2,7 @@ import React, {
     Fragment,
 } from "react";
 import {AProps} from "../@types";
-import {convertDataSet} from "../common";
+import {convertDataSet, joinClasses} from "../common";
 
 export const Anchor = (props: AProps) => {
     const {
@@ -24,6 +24,9 @@ export const Anchor = (props: AProps) => {
             <a
                 {...restProps}
                 ping={ping?.join(', ')}
+                className={joinClasses(classes)}
+                {...attributes}
+                {...datasetShown}
             >
                 {children}
             </a>

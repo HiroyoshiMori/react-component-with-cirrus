@@ -2,7 +2,7 @@ import React, {
     Fragment,
 } from "react";
 import {
-    Button as ButtonType,
+    TypeButton,
     cssFramework,
 } from "../@types";
 import {
@@ -11,7 +11,7 @@ import {
 } from "../common";
 import {ArrayRegexIncludes} from "../../utils";
 
-export const LayoutButton = (props: ButtonType) => {
+export const LayoutButton = (props: TypeButton) => {
     const {
         element = 'button',
         children,
@@ -35,8 +35,8 @@ export const LayoutButton = (props: ButtonType) => {
             }
         })
     }
-    (['colorType', 'size'] as Array<keyof ButtonType>)
-        .forEach((k: keyof ButtonType) => {
+    (['colorType', 'size'] as Array<keyof TypeButton>)
+        .forEach((k: keyof TypeButton) => {
             if (props[k]) {
                 const val = props[k] as string;
                 let pattern;

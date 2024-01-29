@@ -81,8 +81,8 @@ export function ArrayRegexIncludes(arr: Array<string|number>, regex: RegExp) {
  * Generate random ID
  */
 export function generateId(): string {
-    var S="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-    var N=16
+    const S="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    const N=16
     return Array.from(crypto.getRandomValues(new Uint8Array(N))).map((n)=>S[n%S.length]).join('')
 }
 

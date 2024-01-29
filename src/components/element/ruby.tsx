@@ -17,6 +17,7 @@ const Ruby = (props: RubyProps) => {
         classes = [],
         attributes = {},
         datasets = new Map(),
+        ...restProps
     } = props;
 
     // Initialize
@@ -25,6 +26,7 @@ const Ruby = (props: RubyProps) => {
     return (
         <Fragment>
             <ruby
+                {...restProps}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}

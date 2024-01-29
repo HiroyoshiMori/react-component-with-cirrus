@@ -22,6 +22,7 @@ export const DataList = (props: DataListProps) => {
     return (
         <Fragment>
             <datalist
+                {...restProps}
                 id={id}
                 className={joinClasses(classes)}
                 {...attributes}
@@ -39,14 +40,16 @@ export const DataList = (props: DataListProps) => {
                         } = option;
                         const datasetShown = convertDataSet(datasets);
                         return (
-                            <Option
-                                {...optionProps}
-                                className={joinClasses(classes)}
-                                {...attributes}
-                                {...datasetShown}
-                            >
-                                {children}
-                            </Option>
+                            <Fragment key={idx}>
+                                <Option
+                                    {...optionProps}
+                                    className={joinClasses(classes)}
+                                    {...attributes}
+                                    {...datasetShown}
+                                >
+                                    {children}
+                                </Option>
+                            </Fragment>
                         )
                     })
                 }

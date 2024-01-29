@@ -45,7 +45,7 @@ export const Table = (props: TableProps) => {
                         return (
                             <Fragment>
                                 <caption
-                                    {...restProps}
+                                    {...itemProps}
                                     className={joinClasses(classes)}
                                     {...attributes}
                                     {...datasetShown}
@@ -125,7 +125,7 @@ export const Table = (props: TableProps) => {
                                 >
                                 {
                                     rows && rows.length > 0 && rows.map((row, idx: number) => (
-                                        <TableRow {...row} />
+                                        <TableRow key={idx} {...row} />
                                     ))
                                 }
                                 </thead>
@@ -155,7 +155,7 @@ export const Table = (props: TableProps) => {
                                 >
                                 {
                                     rows && rows.length > 0 && rows.map((row, idx: number) => (
-                                        <TableRow {...row} />
+                                        <TableRow key={idx} {...row} />
                                     ))
                                 }
                                 </tfoot>
@@ -200,7 +200,7 @@ const TableRow = (props: TrProps | TheadRowProps) => {
                             ...cellProps
                         } = cell;
                         return (
-                            <Fragment>
+                            <Fragment key={idx}>
                                 <Tag
                                     {...cellProps}
                                     className={joinClasses(classes)}
@@ -233,26 +233,28 @@ const Tbody = (props: TbodyProps[] | TrProps | TrProps[]) => {
                 } = row as TbodyProps;
                 const datasetShown = convertDataSet(datasets);
                 return (
-                    <tbody
-                        {...TbodyProps}
-                        className={joinClasses(classes)}
-                        {...attributes}
-                        {...datasetShown}
-                    >
-                    {
-                        rows && rows.length > 0 && rows.map((data, idx: number) => (
-                            <Fragment key={idx}>
-                                <TableRow
-                                    {...data}
-                                />
-                            </Fragment>
-                        ))
-                    }
-                    </tbody>
+                    <Fragment key={idx}>
+                        <tbody
+                            {...TbodyProps}
+                            className={joinClasses(classes)}
+                            {...attributes}
+                            {...datasetShown}
+                        >
+                        {
+                            rows && rows.length > 0 && rows.map((data, idx: number) => (
+                                <Fragment key={idx}>
+                                    <TableRow
+                                        {...data}
+                                    />
+                                </Fragment>
+                            ))
+                        }
+                        </tbody>
+                    </Fragment>
                 );
             } else {
                 return (
-                    <TableRow
+                    <TableRow key={idx}
                         {...row as TrProps}
                     />
                 );
