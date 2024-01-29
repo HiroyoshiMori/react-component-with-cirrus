@@ -658,7 +658,6 @@ export type SelectProps = ElementCommonProps & {
     size?: number;
     attributes?: SelectHTMLAttributes<HTMLSelectElement>;
 };
-// TODO: slot
 /** Type definition of property for slot */
 export type SlotProps = ElementCommonProps & {
     element?: 'slot';
