@@ -2,16 +2,17 @@ import React, {
     Fragment,
 } from "react";
 import {
-    BreakProps,
+    TypeBreak,
 } from "../@types";
 import {convertDataSet, joinClasses} from "../common";
 
-export const Break = (props: BreakProps) => {
+export const Break = (props: TypeBreak) => {
     const {
-        element,
+        element = 'br',
         classes = [],
         attributes = {},
         datasets = new Map(),
+        ...restProps
     } = props;
 
     const Tag = element;
@@ -20,6 +21,7 @@ export const Break = (props: BreakProps) => {
     return (
         <Fragment>
             <Tag
+                {...restProps}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}

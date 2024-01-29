@@ -1,15 +1,15 @@
 import React, {
     Fragment,
 } from "react";
-import {
-    LabelProps,
-} from "../@types";
+import {OptionProps} from "../@types";
 import {convertDataSet, joinClasses} from "../common";
 
-export const Label = (props: LabelProps) => {
+export const Option = (props: OptionProps) => {
     const {
-        element: elementType = 'label',
+        value,
+        label,
         children,
+        selected = false,
         classes = [],
         attributes = {},
         datasets = new Map(),
@@ -21,14 +21,17 @@ export const Label = (props: LabelProps) => {
 
     return (
         <Fragment>
-            <label
+            <option
                 {...restProps}
+                value={value ?? children}
+                label={label ?? value ?? children}
+                selected={selected}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}
             >
                 {children}
-            </label>
+            </option>
         </Fragment>
     );
 };

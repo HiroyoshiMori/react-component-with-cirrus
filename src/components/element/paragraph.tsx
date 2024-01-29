@@ -2,24 +2,25 @@ import React, {
     Fragment,
 } from "react";
 import {
-    ParagraphProps,
+    PProps,
 } from "../@types";
 import {convertDataSet, joinClasses} from "../common";
 
-export const Paragraph = (props: ParagraphProps) => {
+export const Paragraph = (props: PProps) => {
     const {
-        id,
+        element: elementType = 'p',
         children,
         classes = [],
         attributes = {},
         datasets = new Map(),
+        ...restProps
     } = props;
 
     const datasetShown = convertDataSet(datasets);
     return (
         <Fragment>
             <p
-                id={id}
+                {...restProps}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}

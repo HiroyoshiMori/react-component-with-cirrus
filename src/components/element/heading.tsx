@@ -9,12 +9,13 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Heading = (props: HeadingProps) => {
     const {
-        id,
+        element: elementType = 'heading',
         level,
         children,
         classes = [],
         attributes = {},
         datasets = new Map(),
+        ...restProps
     } = props;
 
     let Tag;
@@ -40,7 +41,7 @@ export const Heading = (props: HeadingProps) => {
     return (
         <Fragment>
             <Tag
-                id={id}
+                {...restProps}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}

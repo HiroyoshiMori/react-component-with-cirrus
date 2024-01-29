@@ -8,10 +8,12 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Textarea = (props: TextareaProps) => {
     const {
+        element: elementType = 'textarea',
         children,
         classes = [],
         attributes = {},
         datasets = new Map(),
+        ...restProps
     } = props;
 
     // Initialize
@@ -20,7 +22,7 @@ export const Textarea = (props: TextareaProps) => {
     return (
         <Fragment>
             <textarea
-                {...props}
+                {...restProps}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}

@@ -6,13 +6,15 @@ import {ArrayRegexIncludes} from "../../utils";
 
 export const Progress = (props: ProgressProps) => {
     const {
-        id,
+        element: elementType = 'progress',
         children,
-        value,
         max: maxValue,
+        colorType,
+        size,
         classes = [],
         attributes = {},
         datasets = new Map(),
+        ...restProps
     } = props;
 
     // Initialize
@@ -38,8 +40,7 @@ export const Progress = (props: ProgressProps) => {
     return (
         <Fragment>
             <progress
-                id={id}
-                value={value}
+                {...restProps}
                 max={maxValue}
                 className={joinClasses(classes)}
                 {...attributes}

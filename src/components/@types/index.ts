@@ -147,10 +147,16 @@ export const FETCH_POLICIES = [
 export const LOADINGS = [
     'eager', 'lazy',
 ];
-// list of referrer policies
-export const REFERRER_POLICIES = [
-    'no-referrer', 'no-referrer-when-downgrade', 'origin', 'origin-when-cross-origin',
-    'same-origin', 'strict-origin', 'strict-origin-when-cross-origin', 'unsafe-url',
+// list of sandbox
+export const SANDBOXES = [
+    'allow-download', 'allow-downloads-without-user-activation', 'allow-forms', 'allow-modals',
+    'allow-orientation-lock', 'allow-pointer-lock', 'allow-popups', 'allow-popups-to-escape-sandobox',
+    'allow-presentation', 'allow-same-origin', 'allow-scripts', 'allow-storage-access-by-user-activation',
+    'allow-top-navigation', 'allow-top-navigation-by-user-activation', 'allow-top-navigation-to-custom-protocols',
+];
+// list of link as
+export const LINK_AS = [
+    'audio', 'document', 'embed', 'fetch', 'font', 'image', 'object', 'script', 'style', 'track', 'video', 'worker',
 ];
 
 /** Type definition for cross origin */
@@ -161,8 +167,10 @@ export type DecodingTypes = typeof DECODINGS[number];
 export type FetchPolicyTypes = typeof FETCH_POLICIES[number];
 /** Type definition for loading */
 export type LoadingTypes = typeof LOADINGS[number];
-/** Type definition for referrer policies */
-export type ReferrerPolicyTypes = typeof REFERRER_POLICIES[number];
+/** Type definition for sandbox */
+export type SandboxTypes = typeof SANDBOXES[number];
+/** Type definition for link as */
+export type LinkAsTypes = typeof LINK_AS[number];
 
 // ----------------------------------------------------------------------
 // Global type/variable definition for input
@@ -231,10 +239,6 @@ export type ControlsListTypes = typeof CONTROLS_LIST[number];
 // ----------------------------------------------------------------------
 // Global common type/variable definition
 // ----------------------------------------------------------------------
-/** Type definition for common attributes */
-export type CommonProps = {
-    id?: string;
-};
 /** Type definition for common datasets */
 export type CommonDatasetType = Map<string, string>;
 

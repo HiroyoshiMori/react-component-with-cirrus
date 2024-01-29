@@ -12,7 +12,6 @@ import {
     InputImageProps,
     InputNumberProps,
     InputPasswordProps,
-    InputProps,
     InputRadioProps,
     InputRangeProps,
     InputSearchProps,
@@ -20,11 +19,13 @@ import {
     InputTelProps,
     InputTextProps,
     InputUrlProps,
+    InputProps,
 } from "../@types";
 import {convertDataSet, joinClasses} from "../common";
 
 export const Input = (props: InputProps) => {
     const {
+        element: elementType = 'input',
         classes = [],
         attributes = {},
         datasets = new Map(),

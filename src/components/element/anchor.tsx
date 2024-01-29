@@ -1,15 +1,15 @@
 import React, {
     Fragment,
 } from "react";
-import {
-    LabelProps,
-} from "../@types";
-import {convertDataSet, joinClasses} from "../common";
+import {AProps} from "../@types";
+import {convertDataSet} from "../common";
 
-export const Label = (props: LabelProps) => {
+export const Anchor = (props: AProps) => {
     const {
-        element: elementType = 'label',
+        element: elementType = 'a',
+        inline,
         children,
+        ping,
         classes = [],
         attributes = {},
         datasets = new Map(),
@@ -21,14 +21,12 @@ export const Label = (props: LabelProps) => {
 
     return (
         <Fragment>
-            <label
+            <a
                 {...restProps}
-                className={joinClasses(classes)}
-                {...attributes}
-                {...datasetShown}
+                ping={ping?.join(', ')}
             >
                 {children}
-            </label>
+            </a>
         </Fragment>
     );
 };

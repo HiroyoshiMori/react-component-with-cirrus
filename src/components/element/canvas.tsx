@@ -2,14 +2,16 @@ import React, {
     Fragment,
 } from "react";
 import {
-    LabelProps,
+    CanvasProps,
 } from "../@types";
 import {convertDataSet, joinClasses} from "../common";
 
-export const Label = (props: LabelProps) => {
+export const Canvas = (props: CanvasProps) => {
     const {
-        element: elementType = 'label',
+        element: elementType = 'canvas',
         children,
+        width = 300,
+        height = 150,
         classes = [],
         attributes = {},
         datasets = new Map(),
@@ -17,18 +19,20 @@ export const Label = (props: LabelProps) => {
     } = props;
 
     // Initialize
-    const datasetShown = convertDataSet(datasets);
+    const datasetShow = convertDataSet(datasets);
 
     return (
         <Fragment>
-            <label
+            <canvas
                 {...restProps}
+                width={width}
+                height={height}
                 className={joinClasses(classes)}
                 {...attributes}
-                {...datasetShown}
+                {...datasetShow}
             >
                 {children}
-            </label>
+            </canvas>
         </Fragment>
     );
 };

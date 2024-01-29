@@ -4,13 +4,14 @@ import React, {
 import {sprintf} from "sprintf-js";
 import {
     ImageSrcSetProps,
-    MediaProps, SourceSrcProps,
+    SourceSrcProps,
     SourceSrcsetProps,
+    TypeMedia,
 } from "../@types";
 import {Source} from "./source";
 import {convertDataSet, joinClasses} from "../common";
 
-export const Media = (props: MediaProps) => {
+export const Media = (props: TypeMedia) => {
     const {
         element,
         classes = [],
@@ -33,6 +34,15 @@ export const Media = (props: MediaProps) => {
                         {...attributes}
                         {...datasetShown}
                     />
+                ) : (element === 'object') ? (
+                    <Tag
+                        {...restProps}
+                        className={joinClasses(classes)}
+                        {...attributes}
+                        {...datasetShown}
+                    >
+                        {props.children}
+                    </Tag>
                 ) : (element === 'img') ? function() {
                     // Remake variable for rest of props
                     const {
@@ -86,16 +96,7 @@ export const Media = (props: MediaProps) => {
                             />
                         </Fragment>
                     );
-                }() : (element === 'object') ? (
-                    <Tag
-                        {...restProps}
-                        className={joinClasses(classes)}
-                        {...attributes}
-                        {...datasetShown}
-                    >
-                        {props.children}
-                    </Tag>
-                ) : (element === 'picture') ? (
+                }() : (element === 'picture') ? (
                     <Tag
                         className={joinClasses(classes)}
                         {...attributes}
@@ -106,7 +107,10 @@ export const Media = (props: MediaProps) => {
                                 (source: SourceSrcsetProps, idx: number) => {
                                     return (
                                         <Fragment key={idx}>
-                                            <Source {...source} />
+                                            <Source
+                                                {...source}
+                                                element={'source'}
+                                            />
                                         </Fragment>
                                     );
                                 }
@@ -142,7 +146,9 @@ export const Media = (props: MediaProps) => {
                                     (source: SourceSrcProps, idx: number) => {
                                         return (
                                             <Fragment key={idx}>
-                                                <Source {...source} />
+                                                <Source
+                                                    {...source}
+                                                />
                                             </Fragment>
                                         );
                                     }

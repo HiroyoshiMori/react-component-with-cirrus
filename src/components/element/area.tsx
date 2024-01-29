@@ -1,37 +1,33 @@
 import React, {
     Fragment,
 } from "react";
-import {
-    TimeProps,
-} from "../@types";
+import {AreaProps} from "../@types";
 import {convertDataSet, joinClasses} from "../common";
 
-export const Time = (props: TimeProps) => {
+export const Area = (props: AreaProps) => {
     const {
-        children,
-        dateTime,
+        element: elementType = 'area',
+        alt,
+        coords,
         classes = [],
         attributes = {},
         datasets = new Map(),
+        ...restProps
     } = props;
 
     // Initialize
-    // TODO: Add datetime pattern later
-    // see: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time#usage_notes
-    // ... code here
-
     const datasetShown = convertDataSet(datasets);
 
     return (
         <Fragment>
-            <time
-                dateTime={dateTime}
+            <area
+                {...restProps}
+                alt={alt}
+                coords={coords?.map((coordinates) => coordinates.join(',')).join(',')}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}
-            >
-                {children}
-            </time>
+            />
         </Fragment>
     );
 };

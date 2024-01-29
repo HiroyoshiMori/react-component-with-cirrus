@@ -2,14 +2,19 @@ import React, {
     Fragment,
 } from "react";
 import {
-    LabelProps,
+    DetailsProps,
 } from "../@types";
-import {convertDataSet, joinClasses} from "../common";
+import {
+    convertDataSet,
+    joinClasses,
+} from "../common";
+import {Container} from "./index";
 
-export const Label = (props: LabelProps) => {
+export const Details = (props: DetailsProps) => {
     const {
-        element: elementType = 'label',
         children,
+        open = true,
+        summary,
         classes = [],
         attributes = {},
         datasets = new Map(),
@@ -21,14 +26,21 @@ export const Label = (props: LabelProps) => {
 
     return (
         <Fragment>
-            <label
+            <details
                 {...restProps}
+                open={open}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}
             >
+                { summary && (
+                    <Container
+                        {...summary}
+                        element={'summary'}
+                    />
+                )}
                 {children}
-            </label>
+            </details>
         </Fragment>
     );
 };

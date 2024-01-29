@@ -2,13 +2,16 @@ import React, {
     Fragment,
 } from "react";
 import {
-    ButtonProps,
+    Button as ButtonType,
     cssFramework,
 } from "../@types";
-import {convertDataSet, joinClasses} from "../common";
+import {
+    convertDataSet,
+    joinClasses,
+} from "../common";
 import {ArrayRegexIncludes} from "../../utils";
 
-export const Button = (props: ButtonProps) => {
+export const LayoutButton = (props: ButtonType) => {
     const {
         element = 'button',
         children,
@@ -22,8 +25,18 @@ export const Button = (props: ButtonProps) => {
     } = props;
 
     // Initialize
-    (['colorType', 'size'] as Array<keyof ButtonProps>)
-        .forEach((k: keyof ButtonProps) => {
+    if (element === 'a' || element === 'div') {
+        const defaultClasses = cssFramework.getDefaultStyleClass(
+            'button', element
+        );
+        defaultClasses?.forEach((styleClass: string) => {
+            if (!classes.includes(styleClass)) {
+                classes.push(styleClass);
+            }
+        })
+    }
+    (['colorType', 'size'] as Array<keyof ButtonType>)
+        .forEach((k: keyof ButtonType) => {
             if (props[k]) {
                 const val = props[k] as string;
                 let pattern;

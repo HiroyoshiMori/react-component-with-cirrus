@@ -8,7 +8,7 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Code = (props: CodeProps) => {
     const {
-        id,
+        element: elementType = 'code',
         children,
         "data-lang": dataLang,
         dark,
@@ -16,6 +16,7 @@ export const Code = (props: CodeProps) => {
         classes = [],
         attributes = {},
         datasets = new Map(),
+        ...restProps
     } = props;
 
     // Initialize
@@ -36,7 +37,7 @@ export const Code = (props: CodeProps) => {
         <Fragment>
             <WrapTag>
                 <code
-                    id={id}
+                    {...restProps}
                     data-lang={dataLang}
                     className={joinClasses(classes)}
                     {...attributes}
