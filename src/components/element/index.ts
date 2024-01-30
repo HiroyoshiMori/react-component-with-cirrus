@@ -29,6 +29,7 @@ export * from './ruby';
 export * from './script';
 export * from './select';
 export * from './source';
+export * from './style';
 export * from './svg';
 export * from './table';
 export * from './textarea';
