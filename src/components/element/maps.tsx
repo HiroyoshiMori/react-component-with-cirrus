@@ -38,12 +38,14 @@ export const Maps = (props: MapProps) => {
                         } = area;
                         const datasetShown = convertDataSet(datasets);
                         return (
-                            <Area
-                                {...areaProps}
-                                className={joinClasses(classes)}
-                                {...attributes}
-                                {...datasetShown}
-                            />
+                            <Fragment key={idx}>
+                                <Area
+                                    {...areaProps}
+                                    className={joinClasses(classes)}
+                                    {...attributes}
+                                    {...datasetShown}
+                                />
+                            </Fragment>
                         )
                     })
                 }
