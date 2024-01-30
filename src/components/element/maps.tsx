@@ -1,0 +1,54 @@
+import React, {
+    Fragment,
+} from "react";
+import {MapProps} from "../@types";
+import {convertDataSet, joinClasses} from "../common";
+import {Area} from "./area";
+
+export const Maps = (props: MapProps) => {
+    const {
+        element: elementType = 'map',
+        children,
+        areas = [],
+        classes = [],
+        attributes = {},
+        datasets = new Map(),
+        ...mapProps
+    } = props;
+
+    // Initialize
+    const datasetShown = convertDataSet(datasets);
+
+    return (
+        <Fragment>
+            <map
+                {...mapProps}
+                className={joinClasses(classes)}
+                {...attributes}
+                {...datasetShown}
+            >
+                {
+                    areas && areas.length > 0 && areas.map((area, idx: number) => {
+                        const {
+                            element: elementType = 'area',
+                            classes = [],
+                            attributes = {},
+                            datasets = new Map(),
+                            ...areaProps
+                        } = area;
+                        const datasetShown = convertDataSet(datasets);
+                        return (
+                            <Area
+                                {...areaProps}
+                                className={joinClasses(classes)}
+                                {...attributes}
+                                {...datasetShown}
+                            />
+                        )
+                    })
+                }
+                {children}
+            </map>
+        </Fragment>
+    );
+};

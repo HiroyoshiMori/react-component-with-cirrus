@@ -1,22 +1,60 @@
 import {
-    AbbrProps, AddressProps, AProps, ArticleProps, AsideProps, AudioProps,
-    BdiProps, BdoProps, BlockQuoteProps, BProps, BrProps, ButtonProps,
-    CiteProps, DataProps, DelProps, DfnProps, DivProps,
-    EmbedProps, EmProps,
+    AbbrProps,
+    AddressProps,
+    AProps,
+    ArticleProps,
+    AsideProps,
+    AudioProps,
+    BdiProps,
+    BdoProps,
+    BlockQuoteProps,
+    BProps,
+    BrProps,
+    ButtonProps,
+    CiteProps,
+    DataProps,
+    DelProps,
+    DfnProps,
+    DivProps,
+    DlProps,
+    EmbedProps,
+    EmProps,
     FooterProps,
-    HeaderProps, HrProps,
+    HeaderProps,
+    HrProps,
     ImgProps,
-    InsProps, IProps,
+    InsProps,
+    IProps,
     KbdProps,
-    MainProps, MarkProps,
+    LegendProps,
+    MainProps,
+    MarkProps,
+    MenuProps,
+    MeterProps,
     NavProps,
+    NoScriptProps,
     ObjectProps,
-    PictureProps, PreProps,
+    OlProps,
+    PictureProps,
+    PreProps,
     QProps,
-    SampProps, SectionProps, SmallProps, SpanProps, SProps, StrongProps, SubProps, SummaryProps, SupProps,
+    SampProps,
+    SearchProps,
+    SectionProps,
+    SlotProps,
+    SmallProps,
+    SpanProps,
+    SProps,
+    StrongProps,
+    SubProps,
+    SummaryProps,
+    SupProps, TemplateProps,
     TimeProps,
+    TrackProps,
+    UlProps,
     UProps,
-    VarProps, VideoProps,
+    VarProps,
+    VideoProps,
     WbrProps
 } from "./html_element";
 import {
@@ -41,18 +79,22 @@ export type TypeBlockContainer = DivProps
     | BlockQuoteProps
     | FooterProps
     | HeaderProps
+    | LegendProps
     | MainProps
     | NavProps
+    | NoScriptProps
     | PreProps
+    | SearchProps
     | SectionProps
-    | SummaryProps;
+    | SummaryProps
+    | TemplateProps;
 /** Type definition of property for inline containers */
 export type TypeInlineContainer = SpanProps
     | AProps
     | AbbrProps
     | BProps
-    | BdoProps
     | BdiProps
+    | BdoProps
     | CiteProps
     | DataProps
     | DelProps
@@ -62,16 +104,21 @@ export type TypeInlineContainer = SpanProps
     | InsProps
     | KbdProps
     | MarkProps
+    | MeterProps
     | QProps
     | SProps
     | SampProps
+    | SlotProps
     | SmallProps
     | StrongProps
     | SubProps
     | SupProps
     | TimeProps
+    | TrackProps
     | UProps
     | VarProps;
+/** Type definition of property for list */
+export type TypeList = DlProps | MenuProps | OlProps | UlProps;
 /** Type definition of property for media */
 export type TypeMedia = AudioProps
     | EmbedProps

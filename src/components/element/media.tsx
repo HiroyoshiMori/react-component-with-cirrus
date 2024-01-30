@@ -127,6 +127,7 @@ export const Media = (props: TypeMedia) => {
                         sources,
                         controlsList: controlData,
                         children,
+                        track,
                         classes = [],
                         attributes = {},
                         datasets,
@@ -141,6 +142,28 @@ export const Media = (props: TypeMedia) => {
                             {...attributes}
                             {...datasetShown}
                         >
+                            {
+                                track && function () {
+                                    const {
+                                        element: elementType = 'track',
+                                        classes = [],
+                                        attributes = {},
+                                        datasets = new Map(),
+                                        ...trackProps
+                                    } = track;
+                                    const datasetShown = convertDataSet(datasets);
+                                    return (
+                                        <Fragment>
+                                            <track
+                                                {...trackProps}
+                                                className={joinClasses(classes)}
+                                                {...attributes}
+                                                {...datasetShown}
+                                            />
+                                        </Fragment>
+                                    );
+                                }()
+                            }
                             {
                                 sources && sources.length > 0 && sources.map(
                                     (source: SourceSrcProps, idx: number) => {
