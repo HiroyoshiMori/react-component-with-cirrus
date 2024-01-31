@@ -6,7 +6,7 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Svg = (props: SvgProps) => {
     const {
-        element: elementType = 'svg',
+        element: _,
         children,
         classes = [],
         attributes = {},

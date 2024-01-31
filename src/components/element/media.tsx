@@ -46,7 +46,7 @@ export const Media = (props: TypeMedia) => {
                 ) : (element === 'img') ? function() {
                     // Remake variable for rest of props
                     const {
-                        element: itemElement,
+                        element: _,
                         imageSizes,
                         classes = [],
                         attributes = {},
@@ -123,7 +123,7 @@ export const Media = (props: TypeMedia) => {
                 ) : (element === 'audio' || element === 'video') ? function () {
                     // Remake variable for rest of props
                     const {
-                        element: itemElement,
+                        element: _,
                         sources,
                         controlsList: controlData,
                         children,
@@ -145,7 +145,7 @@ export const Media = (props: TypeMedia) => {
                             {
                                 track && function () {
                                     const {
-                                        element: elementType = 'track',
+                                        element: _,
                                         classes = [],
                                         attributes = {},
                                         datasets = new Map(),

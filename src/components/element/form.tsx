@@ -6,7 +6,7 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Form = (props: FormProps) => {
     const {
-        element: elementType = 'form',
+        element: _,
         children,
         classes = [],
         attributes = {},

@@ -6,7 +6,7 @@ import {Option} from "./option";
 
 export const DataList = (props: DataListProps) => {
     const {
-        element: elementType = 'datalist',
+        element: _,
         id = generateId(),
         children,
         options = [],
@@ -31,7 +31,7 @@ export const DataList = (props: DataListProps) => {
                 {
                     options && options.length > 0 && options.map((option, idx: number) => {
                         const {
-                            element: elementType = 'option',
+                            element: _,
                             children,
                             classes = [],
                             attributes = {},

@@ -7,7 +7,7 @@ import {Container} from "./container";
 
 export const Fieldset = (props: FieldsetProps) => {
     const {
-        element: elementType = 'fieldset',
+        element: _,
         caption,
         children,
         classes = [],

@@ -6,7 +6,7 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Link = (props: LinkProps) => {
     const {
-        element: elementType = 'link',
+        element: _,
         itemProp,
         classes = [],
         attributes = {},

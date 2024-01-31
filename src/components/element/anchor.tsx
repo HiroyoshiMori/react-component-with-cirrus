@@ -6,7 +6,7 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Anchor = (props: AProps) => {
     const {
-        element: elementType = 'a',
+        element: _,
         children,
         ping,
         rel,

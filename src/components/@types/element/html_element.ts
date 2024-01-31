@@ -89,7 +89,7 @@ export type AreaProps = ElementCommonProps & {
     href?: string;
     ping?: string[];
     referrerPolicy?: React.HTMLAttributeReferrerPolicy;
-    rel?: string;
+    rel?: string[];
     shape?: 'rect' | 'circle' | 'poly' | 'default',
     target?: TargetTypes;
     attributes?: AreaHTMLAttributes<HTMLAreaElement>;
@@ -350,6 +350,7 @@ export type IProps = InlineCommonProps & {
 /** Type definition of property for iframe (in iframe component) */
 export type IframeProps = ElementCommonProps & {
     element?: 'iframe';
+    title: string;
     src?: string;
     width?: number;
     height?: number;

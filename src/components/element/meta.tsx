@@ -6,7 +6,7 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Meta = (props: MetaProps) => {
     const {
-        element: elementType = 'meta',
+        element: _,
         itemProp,
         classes = [],
         attributes = {},

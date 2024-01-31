@@ -6,7 +6,7 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Output = (props: OutputProps) => {
     const {
-        element: elementType = 'output',
+        element: _,
         children,
         classes = [],
         attributes = {},

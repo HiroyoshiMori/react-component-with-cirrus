@@ -6,7 +6,8 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Iframe = (props: IframeProps) => {
     const {
-        element: elementType = 'iframe',
+        element: _,
+        title,
         classes = [],
         attributes = {},
         datasets = new Map(),
@@ -20,6 +21,7 @@ export const Iframe = (props: IframeProps) => {
         <Fragment>
             <iframe
                 {...iframeProps}
+                title={title}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}

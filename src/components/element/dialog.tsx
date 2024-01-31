@@ -6,7 +6,7 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Dialog = (props: DialogProps) => {
     const {
-        element: elementType = 'dialog',
+        element: _,
         open = true,
         children,
         classes = [],

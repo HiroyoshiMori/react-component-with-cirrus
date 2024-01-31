@@ -10,9 +10,9 @@ import {
     joinClasses,
 } from "../common";
 
-const Ruby = (props: RubyProps) => {
+export const Ruby = (props: RubyProps) => {
     const {
-        element: elementType = 'ruby',
+        element: _,
         items,
         classes = [],
         attributes = {},
@@ -33,12 +33,67 @@ const Ruby = (props: RubyProps) => {
             >
                 {
                     items && items.length > 0 && items.map((c: RtProps, idx: number) => {
+                        const {
+                            element: _,
+                            preParenthesis: preRp,
+                            postParenthesis: postRp,
+                            classes = [],
+                            attributes = {},
+                            datasets = new Map(),
+                            ...rtProps
+                        } = c;
+                        const datasetShown = convertDataSet(datasets);
                         return (
                             <Fragment key={idx}>
                                 {c.label}
-                                {c.useRp && c.preParenthesis ? <rp>{c.preParenthesis.children}</rp> : <Fragment />}
-                                <rt>{c.ruby}</rt>
-                                {c.useRp && c.postParenthesis ? <rp>{c.postParenthesis.children}</rp> : <Fragment />}
+                                {c.useRp && preRp ? function() {
+                                    const {
+                                        element: _,
+                                        classes = [],
+                                        attributes = {},
+                                        datasets = new Map(),
+                                        ...rpProps
+                                    } = preRp;
+                                    const datasetShown = convertDataSet(datasets);
+                                    return (
+                                        <rp
+                                            {...rpProps}
+                                            className={joinClasses(classes)}
+                                            {...attributes}
+                                            {...datasetShown}
+                                        >
+                                            {preRp.children}
+                                        </rp>
+                                    );
+                                }() : <Fragment />}
+                                <rt
+                                    {...rtProps}
+                                    className={joinClasses(classes)}
+                                    {...attributes}
+                                    {...datasetShown}
+                                >
+                                    {c.ruby}
+                                </rt>
+                                {c.useRp && postRp ? function() {
+                                    const {
+                                        element: _,
+                                        classes = [],
+                                        attributes = {},
+                                        datasets = new Map(),
+                                        ...rpProps
+                                    } = postRp;
+                                    const datasetShown = convertDataSet(datasets);
+                                    return (
+                                        <rp
+                                            {...rpProps}
+                                            className={joinClasses(classes)}
+                                            {...attributes}
+                                            {...datasetShown}
+                                        >
+                                            {postRp.children}
+                                        </rp>
+                                    );
+                                }() : <Fragment />}
                             </Fragment>
                         );
                     })
@@ -47,6 +102,3 @@ const Ruby = (props: RubyProps) => {
         </Fragment>
     );
 };
-
-Ruby.displayName = 'Ruby';
-export {Ruby};

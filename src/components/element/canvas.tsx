@@ -8,7 +8,7 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Canvas = (props: CanvasProps) => {
     const {
-        element: elementType = 'canvas',
+        element: _,
         children,
         width = 300,
         height = 150,

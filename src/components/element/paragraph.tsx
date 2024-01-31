@@ -8,7 +8,7 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Paragraph = (props: PProps) => {
     const {
-        element: elementType = 'p',
+        element: _,
         children,
         classes = [],
         attributes = {},

@@ -8,7 +8,7 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Label = (props: LabelProps) => {
     const {
-        element: elementType = 'label',
+        element: _,
         children,
         classes = [],
         attributes = {},

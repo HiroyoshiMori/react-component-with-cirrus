@@ -18,7 +18,7 @@ import {
 
 export const Select = (props: SelectProps) => {
     const {
-        element: elementType = 'select',
+        element: _,
         options = [],
         selectedValue,
         classes = [],
@@ -41,7 +41,7 @@ export const Select = (props: SelectProps) => {
                 {
                     options && options.length > 0 && options.map((opt, idx: number) => {
                         const {
-                            element: elementType,
+                            element: _,
                             classes = [],
                             datasets = new Map(),
                             ...itemProps

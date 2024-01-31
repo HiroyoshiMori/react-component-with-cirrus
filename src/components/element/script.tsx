@@ -6,7 +6,7 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Script = (props: ScriptProps) => {
     const {
-        element: elementType = 'script',
+        element: _,
         children,
         classes = [],
         attributes = {},

@@ -6,6 +6,7 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Option = (props: OptionProps) => {
     const {
+        element: _,
         value,
         label,
         children,

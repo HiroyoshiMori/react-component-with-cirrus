@@ -8,7 +8,7 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Table = (props: TableProps) => {
     const {
-        element: elementType = 'table',
+        element: _,
         caption,
         colgroup,
         thead,
@@ -34,7 +34,7 @@ export const Table = (props: TableProps) => {
                 {
                     caption && function() {
                         const {
-                            element: elementType = 'caption',
+                            element: _,
                             children,
                             classes = [],
                             attributes = {},
@@ -59,7 +59,7 @@ export const Table = (props: TableProps) => {
                 {
                     colgroup && colgroup.length > 0 && colgroup.map((colgrp, idx: number) => {
                         const {
-                            element: elementType = 'colgroup',
+                            element: _,
                             span,
                             cols = [],
                             classes = [],
@@ -67,6 +67,7 @@ export const Table = (props: TableProps) => {
                             datasets = new Map(),
                             ...itemProps
                         } = colgrp;
+                        const datasetShown = convertDataSet(datasets);
                         return (
                             <Fragment key={idx}>
                                 <colgroup
@@ -79,13 +80,14 @@ export const Table = (props: TableProps) => {
                                     {
                                         cols && cols.length > 0 && cols.map((col, idx: number) => {
                                             const {
-                                                element: elementType = 'col',
+                                                element: _,
                                                 span,
                                                 classes = [],
                                                 attributes = {},
                                                 datasets = new Map(),
                                                 ...colsProps
                                             } = col;
+                                            const datasetShown = convertDataSet(datasets);
                                             return (
                                                 <Fragment key={idx}>
                                                     <col
@@ -107,7 +109,7 @@ export const Table = (props: TableProps) => {
                 {
                     thead && function() {
                         const {
-                            element: elementType = 'thead',
+                            element: _,
                             rows = [],
                             classes = [],
                             attributes = {},
@@ -137,7 +139,7 @@ export const Table = (props: TableProps) => {
                 {
                     tfoot && function() {
                         const {
-                            element: elementType = 'tfoot',
+                            element: _,
                             rows = [],
                             classes = [],
                             attributes = {},
@@ -170,7 +172,7 @@ export const Table = (props: TableProps) => {
 
 const TableRow = (props: TrProps | TheadRowProps) => {
     const {
-        element: elementType = 'tr',
+        element: _,
         cells = [],
         classes = [],
         attributes = {},
@@ -199,6 +201,7 @@ const TableRow = (props: TrProps | TheadRowProps) => {
                             datasets = new Map(),
                             ...cellProps
                         } = cell;
+                        const datasetShown = convertDataSet(datasets);
                         return (
                             <Fragment key={idx}>
                                 <Tag
@@ -227,7 +230,7 @@ const Tbody = (props: TbodyProps[] | TrProps | TrProps[]) => {
                         const isTbody = Object.hasOwn(row, 'rows');
                         if (isTbody) {
                             const {
-                                element: elementType = 'tbody',
+                                element: _,
                                 rows = [],
                                 classes = [],
                                 attributes = {},

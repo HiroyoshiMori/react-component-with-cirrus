@@ -6,7 +6,7 @@ import {ArrayRegexIncludes} from "../../utils";
 
 export const Progress = (props: ProgressProps) => {
     const {
-        element: elementType = 'progress',
+        element: _,
         children,
         max: maxValue,
         colorType,

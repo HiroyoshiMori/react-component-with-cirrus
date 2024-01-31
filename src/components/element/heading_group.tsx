@@ -14,6 +14,7 @@ import {Paragraph} from "./index";
 
 export const HeadingGroup = (props: HgroupProps) => {
     const {
+        element: _,
         heading,
         paragraphs = [],
         classes = [],

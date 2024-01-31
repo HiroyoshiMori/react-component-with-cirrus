@@ -8,7 +8,7 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Textarea = (props: TextareaProps) => {
     const {
-        element: elementType = 'textarea',
+        element: _,
         children,
         classes = [],
         attributes = {},

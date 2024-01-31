@@ -6,9 +6,11 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Area = (props: AreaProps) => {
     const {
-        element: elementType = 'area',
+        element: _,
         alt,
         coords,
+        ping = [],
+        rel = [],
         classes = [],
         attributes = {},
         datasets = new Map(),
@@ -24,6 +26,8 @@ export const Area = (props: AreaProps) => {
                 {...restProps}
                 alt={alt}
                 coords={coords?.map((coordinates) => coordinates.join(',')).join(',')}
+                ping={ping.join(' ')}
+                rel={rel.join(' ')}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}

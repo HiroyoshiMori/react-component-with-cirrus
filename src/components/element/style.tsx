@@ -6,7 +6,7 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Style = (props: StyleProps) => {
     const {
-        element: elementType = 'style',
+        element: _,
         scoped,
         children,
         classes = [],

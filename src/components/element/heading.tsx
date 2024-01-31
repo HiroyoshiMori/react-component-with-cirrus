@@ -9,7 +9,7 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Heading = (props: HeadingProps) => {
     const {
-        element: elementType = 'heading',
+        element: _,
         level,
         children,
         classes = [],

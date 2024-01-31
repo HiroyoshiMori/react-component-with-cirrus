@@ -11,7 +11,7 @@ import {
 
 export const Figure = (props: FigureProps) => {
     const {
-        element: elementType = 'figure',
+        element: _,
         caption,
         captionPosition = 'first',
         children,

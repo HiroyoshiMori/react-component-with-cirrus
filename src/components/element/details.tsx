@@ -12,6 +12,7 @@ import {Container} from "./index";
 
 export const Details = (props: DetailsProps) => {
     const {
+        element: _,
         children,
         open = true,
         summary,

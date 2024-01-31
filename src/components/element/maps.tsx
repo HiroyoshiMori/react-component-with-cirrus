@@ -7,7 +7,7 @@ import {Area} from "./area";
 
 export const Maps = (props: MapProps) => {
     const {
-        element: elementType = 'map',
+        element: _,
         children,
         areas = [],
         classes = [],
@@ -30,7 +30,7 @@ export const Maps = (props: MapProps) => {
                 {
                     areas && areas.length > 0 && areas.map((area, idx: number) => {
                         const {
-                            element: elementType = 'area',
+                            element: _,
                             classes = [],
                             attributes = {},
                             datasets = new Map(),

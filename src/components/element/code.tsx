@@ -8,7 +8,7 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Code = (props: CodeProps) => {
     const {
-        element: elementType = 'code',
+        element: _,
         children,
         "data-lang": dataLang,
         dark,
