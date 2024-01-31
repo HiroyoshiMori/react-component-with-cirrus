@@ -7,9 +7,9 @@ import {convertDataSet, joinClasses} from "../common";
 export const Anchor = (props: AProps) => {
     const {
         element: elementType = 'a',
-        inline,
         children,
         ping,
+        rel,
         classes = [],
         attributes = {},
         datasets = new Map(),
@@ -23,7 +23,8 @@ export const Anchor = (props: AProps) => {
         <Fragment>
             <a
                 {...restProps}
-                ping={ping?.join(', ')}
+                ping={ping?.join(' ')}
+                rel={rel?.join(' ')}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}
