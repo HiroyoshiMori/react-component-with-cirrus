@@ -414,8 +414,8 @@ export type LabelProps = ElementCommonProps & {
     htmlFor?: string;
     attributes?: LabelHTMLAttributes<HTMLLabelElement>;
 };
-/** Type definition of property for legend (used in fieldset / in container component) */
-export type LegendProps = ElementCommonProps & {
+/** Type definition of property for legend (in container component / used in fieldset / in container component) */
+export type LegendProps = BlockCommonProps & {
     element: 'legend';
     children?: ReactNode;
     attributes?: HTMLAttributes<HTMLLegendElement>;
@@ -482,7 +482,7 @@ export type MetaProps = ElementCommonProps & {
     attributes?: MetaHTMLAttributes<HTMLMetaElement>;
 };
 /** Type definition of property for meter (in container component) */
-export type MeterProps = ElementCommonProps & {
+export type MeterProps = InlineCommonProps & {
     element: 'meter';
     children?: ReactNode;
     min?: number;
@@ -498,8 +498,8 @@ export type NavProps = BlockCommonProps & {
     element: 'nav';
     attributes?: HTMLAttributes<HTMLElement>;
 };
-/** Type definition of property for noscript */
-export type NoScriptProps = ElementCommonProps & {
+/** Type definition of property for noscript (in container component) */
+export type NoScriptProps = BlockCommonProps & {
     element: 'noscript';
     children?: ReactNode;
     attributes?: HTMLAttributes<HTMLElement>;
@@ -517,7 +517,7 @@ export type ObjectProps = MediaCommonProps & {
     useMap?: string;
     attributes?: ObjectHTMLAttributes<HTMLObjectElement>;
 };
-/** Type definition of property for ol */
+/** Type definition of property for ol (in list component) */
 export type OlProps = ElementCommonProps & {
     element: 'ol';
     items?: (
@@ -642,7 +642,7 @@ export type ScriptProps = ElementCommonProps & {
     attributes?: ScriptHTMLAttributes<HTMLScriptElement>;
 };
 /** Type definition of property for search (in container component) */
-export type SearchProps = ElementCommonProps & {
+export type SearchProps = BlockCommonProps & {
     element?: 'search';
     children?: ReactNode;
     attributes?: HTMLAttributes<HTMLElement>;
@@ -667,7 +667,7 @@ export type SelectProps = ElementCommonProps & {
     attributes?: SelectHTMLAttributes<HTMLSelectElement>;
 };
 /** Type definition of property for slot (in container component) */
-export type SlotProps = ElementCommonProps & {
+export type SlotProps = BlockCommonProps & {
     element?: 'slot';
     children?: ReactNode;
     attributes?: SlotHTMLAttributes<HTMLSlotElement>;
@@ -750,7 +750,7 @@ export type TdProps = TableCellProps & {
     element?: 'td';
 };
 /** Type definition of property for template (in container component) */
-export type TemplateProps = ElementCommonProps & {
+export type TemplateProps = BlockCommonProps & {
     element?: 'template';
     children?: ReactNode;
     shadowRootMode?: 'open' | 'closed';
@@ -814,7 +814,7 @@ export type TrProps = ElementCommonProps & {
     attributes?: HTMLAttributes<HTMLTableRowElement>;
 };
 /** Type definition of property for track (used in audio/video) */
-export type TrackProps = ElementCommonProps & {
+export type TrackProps = BlockCommonProps & {
     element?: 'track';
     src: string;
     default?: boolean;

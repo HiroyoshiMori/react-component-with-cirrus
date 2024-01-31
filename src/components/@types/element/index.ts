@@ -90,7 +90,6 @@ export type TypeBlockContainer = DivProps
     | TemplateProps;
 /** Type definition of property for inline containers */
 export type TypeInlineContainer = SpanProps
-    | AProps
     | AbbrProps
     | BProps
     | BdiProps
@@ -114,7 +113,6 @@ export type TypeInlineContainer = SpanProps
     | SubProps
     | SupProps
     | TimeProps
-    | TrackProps
     | UProps
     | VarProps;
 /** Type definition of property for list */
