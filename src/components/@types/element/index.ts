@@ -1,7 +1,6 @@
 import {
     AbbrProps,
     AddressProps,
-    AProps,
     ArticleProps,
     AsideProps,
     AudioProps,
@@ -50,7 +49,6 @@ import {
     SummaryProps,
     SupProps, TemplateProps,
     TimeProps,
-    TrackProps,
     UlProps,
     UProps,
     VarProps,
