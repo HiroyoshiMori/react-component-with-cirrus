@@ -2,6 +2,7 @@ import React, {
     Fragment,
 } from "react";
 import {
+    RpProps,
     RtProps,
     RubyProps
 } from "../@types";
@@ -32,73 +33,82 @@ export const Ruby = (props: RubyProps) => {
                 {...datasetShown}
             >
                 {
-                    items && items.length > 0 && items.map((c: RtProps, idx: number) => {
+                    Array.isArray(items) && items.length > 0 && items.map((item: RtProps, idx: number) => {
                         const {
-                            element: _,
-                            preParenthesis: preRp,
-                            postParenthesis: postRp,
-                            classes = [],
-                            attributes = {},
-                            datasets = new Map(),
+                            children,
                             ...rtProps
-                        } = c;
-                        const datasetShown = convertDataSet(datasets);
+                        } = item;
                         return (
                             <Fragment key={idx}>
-                                {c.label}
-                                {c.useRp && preRp ? function() {
-                                    const {
-                                        element: _,
-                                        classes = [],
-                                        attributes = {},
-                                        datasets = new Map(),
-                                        ...rpProps
-                                    } = preRp;
-                                    const datasetShown = convertDataSet(datasets);
-                                    return (
-                                        <rp
-                                            {...rpProps}
-                                            className={joinClasses(classes)}
-                                            {...attributes}
-                                            {...datasetShown}
-                                        >
-                                            {preRp.children}
-                                        </rp>
-                                    );
-                                }() : <Fragment />}
-                                <rt
-                                    {...rtProps}
-                                    className={joinClasses(classes)}
-                                    {...attributes}
-                                    {...datasetShown}
-                                >
-                                    {c.ruby}
-                                </rt>
-                                {c.useRp && postRp ? function() {
-                                    const {
-                                        element: _,
-                                        classes = [],
-                                        attributes = {},
-                                        datasets = new Map(),
-                                        ...rpProps
-                                    } = postRp;
-                                    const datasetShown = convertDataSet(datasets);
-                                    return (
-                                        <rp
-                                            {...rpProps}
-                                            className={joinClasses(classes)}
-                                            {...attributes}
-                                            {...datasetShown}
-                                        >
-                                            {postRp.children}
-                                        </rp>
-                                    );
-                                }() : <Fragment />}
+                                <Rt {...rtProps}>{children}</Rt>
                             </Fragment>
                         );
                     })
                 }
             </ruby>
         </Fragment>
+    );
+};
+
+export const Rt = (props: RtProps) => {
+    const {
+        element: _,
+        label,
+        children,
+        useRp,
+        preParenthesis: preRp,
+        postParenthesis: postRp,
+        classes = [],
+        attributes = {},
+        datasets = new Map(),
+        ...rtProps
+    } = props;
+
+    // Initialize
+    const datasetShown = convertDataSet(datasets);
+
+    return (
+        <Fragment>
+            {label}
+            {useRp && preRp ? (
+                <Rp {...preRp} />
+            ) : <Fragment />}
+            <rt
+                {...rtProps}
+                className={joinClasses(classes)}
+                {...attributes}
+                {...datasetShown}
+            >
+                {children}
+            </rt>
+            {useRp && postRp ? (
+                <Rp {...postRp} />
+            ) : <Fragment />}
+        </Fragment>
+    );
+};
+
+export const Rp = (props: RpProps) => {
+    const {
+        element: _,
+        children,
+        classes = [],
+        attributes = {},
+        datasets = new Map(),
+        ...rpProps
+    } = props;
+
+    // Initialize
+    const datasetShown = convertDataSet(datasets);
+
+    return (
+        <rp
+            {...rpProps}
+            className={joinClasses(classes)}
+            {...attributes}
+            {...datasetShown}
+        >
+            {props.children}
+        </rp>
     );
 };

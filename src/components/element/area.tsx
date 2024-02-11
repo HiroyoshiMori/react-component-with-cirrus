@@ -9,8 +9,8 @@ export const Area = (props: AreaProps) => {
         element: _,
         alt,
         coords,
-        ping = [],
-        rel = [],
+        ping,
+        rel,
         classes = [],
         attributes = {},
         datasets = new Map(),
@@ -25,9 +25,15 @@ export const Area = (props: AreaProps) => {
             <area
                 {...restProps}
                 alt={alt}
-                coords={coords?.map((coordinates) => coordinates.join(',')).join(',')}
-                ping={ping.join(' ')}
-                rel={rel.join(' ')}
+                coords={
+                    Array.isArray(coords) ? coords?.map(
+                        (coordinates) => Array.isArray(coordinates)
+                            ? coordinates.join(',')
+                            : coordinates
+                    ).join(',') : undefined
+                }
+                ping={Array.isArray(ping) ? ping?.join(' ') : undefined}
+                rel={Array.isArray(rel) ? rel?.join(' ') : undefined}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}

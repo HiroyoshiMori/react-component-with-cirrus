@@ -21,7 +21,12 @@ const preview: Preview = {
       page: DocumentationTemplate,
       toc: true,
     },
-  },
+    cssFrameworkSwitcher: {
+      frameworks: [
+        { id: 'Cirrus-UI', srcPath: '/assets/cirrus-ui/cirrus-all.css' },  // ID and css path
+        { id: 'Bulma', srcPath: '/assets/bulma/bulma.css' },
+      ],
+    },  },
 };
 
 export default preview;

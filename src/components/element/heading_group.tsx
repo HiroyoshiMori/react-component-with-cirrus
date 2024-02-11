@@ -39,7 +39,7 @@ export const HeadingGroup = (props: HgroupProps) => {
                     element={'heading'}
                 />
                 {
-                    paragraphs && paragraphs.length > 0 && paragraphs.map((p: PProps, idx: number) => {
+                    Array.isArray(paragraphs) && paragraphs.length > 0 && paragraphs.map((p: PProps, idx: number) => {
                         return (
                             <Fragment key={idx}>
                                 <Paragraph

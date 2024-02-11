@@ -1,4 +1,4 @@
-import {CommonDatasetType} from "../components";
+import {CommonDatasetType} from "../components/@types";
 
 /**
  * Sleep like other languages.
@@ -58,6 +58,34 @@ export function getWeekNumber(date: Date) {
  */
 export function capitalizeFirstLetter(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+/**
+ * Convert ReactNode to string
+ *
+ * @param element
+ * @see https://github.com/kevinzwhuang/react-to-string/blob/master/src/react-to-string.js
+ */
+export function reactNodeToString(element: any): string {
+    if (!element) {
+        return '';
+    }
+
+    switch (typeof element) {
+        case 'string':
+            return element;
+        case 'number':
+            return String(element);
+    }
+
+    if (Array.isArray(element)) {
+        return element.map((el) => reactNodeToString(el)).join('');
+    }
+    if (element.props && element.props.children) {
+        return reactNodeToString(element.props.children);
+    }
+
+    return '';
 }
 
 /**

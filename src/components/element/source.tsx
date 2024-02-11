@@ -4,42 +4,73 @@ import React, {
 import {sprintf} from "sprintf-js";
 import {
     CommonDatasetType,
-    SourceProps, SourceSrcProps, SourceSrcsetProps,
+    SourceProps, SourceSrcProps, SourceSrcsetProps, SrcSetProps,
 } from "../@types";
 import {convertDataSet, joinClasses} from "../common";
 
 export const Source = (props: SourceProps) => {
-    let src, srcSet, media = '', sizes = '', restProps;
+    let src, media = '', restProps;
+    let srcset: string | undefined ='';
+    let sizes: string | undefined = '';
+    let mediaQuery: string[] | undefined;
     let classes, attributes, datasets: CommonDatasetType = new Map();
+
+    if (props === undefined || props === null) {
+        return <Fragment />;
+    }
 
     if (Object.hasOwn(props, 'src')) {
         ({
             src,
+            media: mediaQuery = [],
             classes = [],
             attributes = {},
             datasets = new Map(),
             ...restProps
         } = (props as SourceSrcProps));
-    } else if (Object.hasOwn(props, 'srcset')) {
-        let mediaData, sizesData;
+        if (mediaQuery && Array.isArray(mediaQuery) && mediaQuery.length > 0) {
+            media = sprintf('(%s)', mediaQuery.join(') and ('));
+        }
+    } else if (Object.hasOwn(props, 'srcSet')) {
+        let defaultSize, srcSets;
+        let con: string = '';
         ({
-            srcSet,
-            media: mediaData,
-            sizes: sizesData,
+            srcSet: srcSets,
+            media: mediaQuery = [],
+            defaultSize,
             classes = [],
             attributes = {},
             datasets = new Map(),
             ...restProps
         } = (props as SourceSrcsetProps));
-        if (mediaData) {
-            media = sprintf(
-                '(%s)', mediaData.join(') and (')
+        if (srcSets && Array.isArray(srcSets) && srcSets.length > 0) {
+            srcSets.forEach((s: SrcSetProps) => {
+                const mediaSize = s.mediaSize
+                    ? (typeof s.mediaSize === 'number' ? (s.mediaSize + 'w') : s.mediaSize)
+                    : undefined;
+                srcset += sprintf(
+                    '%s%s %s', con, s.src, mediaSize ?? ''
+                );
+                con = ', ';
+            });
+        }
+        if (defaultSize) {
+            sizes += sprintf('%s%s', sizes ? con : '', (typeof defaultSize === 'number')
+                ? (defaultSize + 'w') : defaultSize
             );
+            if (restProps.src !== undefined) {
+                srcset += sprintf(
+                    '%s%s %s', con, restProps.src, (typeof defaultSize === 'number')
+                        ? (defaultSize + 'w') : defaultSize
+                );
+            }
         }
-        if (sizesData) {
-            sizes = typeof sizesData === 'number'
-                ? (sizesData + 'px') : sizesData;
+        if (mediaQuery && Array.isArray(mediaQuery) && mediaQuery.length > 0) {
+            media = sprintf('(%s)', mediaQuery.join(') and ('));
         }
+    }
+    if (restProps && Object.hasOwn(restProps, 'element')) {
+        delete restProps.element;
     }
     const datasetShown = convertDataSet(datasets);
 
@@ -47,7 +78,7 @@ export const Source = (props: SourceProps) => {
         <Fragment>
             <source
                 src={src}
-                srcSet={srcSet}
+                srcSet={srcset || undefined}
                 media={media || undefined}
                 sizes={sizes || undefined}
                 {...restProps}

@@ -23,8 +23,8 @@ export const Anchor = (props: AProps) => {
         <Fragment>
             <a
                 {...restProps}
-                ping={ping?.join(' ')}
-                rel={rel?.join(' ')}
+                ping={Array.isArray(ping) ? ping?.join(' ') : undefined}
+                rel={Array.isArray(rel) ? rel?.join(' ') : undefined}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}

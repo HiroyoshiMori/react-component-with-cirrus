@@ -5,32 +5,32 @@ import {
 /**
  * Common Initialize function for attributes/classes
  * @param obj Object to initialize
- * @param arr keys to loop to initialize
  * @param initValue initial value when undefined
- * @param getDefaultValue function to get default value after initialize
+ * @param defaultValues
  */
-export const initialize = <T extends {}, K extends keyof T>(
-    obj: T, arr: Array<K>, initValue: T[K],
-    getDefaultValue?: (k: K) => string[] | undefined,
+export const initialize = <T extends object, K extends keyof T>(
+    obj: T|undefined, initValue: T,
+    defaultValues?: Map<K, any> | string[] | undefined,
 ): T => {
     if (obj === undefined) {
-        obj = Object.create({});
+        obj = structuredClone(initValue as T);
     }
-    arr.forEach((k: K) => {
-        if (obj[k] === undefined) {
-            obj[k] = structuredClone(initValue as T[K]);
+    if (defaultValues !== undefined) {
+        if (Array.isArray(obj) && Array.isArray(defaultValues)) {
+            defaultValues?.forEach((v) => {
+                if(!(obj as Array<string>).includes(v)) {
+                    (obj as Array<string>).push(v);
+                }
+            });
+        } else if (defaultValues instanceof Map) {
+            defaultValues.forEach((v, k: K) => {
+                if (obj && !Object.hasOwn(obj, k)) {
+                    obj[k] = v;
+                }
+            });
         }
-        if (getDefaultValue !== undefined && Array.isArray(obj[k])) {
-            const val = getDefaultValue(k);
-            if (val) {
-                val.forEach((v) => {
-                    if(!(obj[k] as Array<string>).includes(v)) {
-                        (obj[k] as Array<string>).push(v);
-                    }
-                });
-            }
-        }
-    });
+    }
+
     return obj;
 };
 
@@ -65,7 +65,7 @@ export const initializeDatasets = <T extends {}, K extends keyof T>(
  * @param separator Separator between each style class
  */
 export function joinClasses(classes: string[] | undefined, separator: string = ' ') {
-    return classes?.join
+    return Array.isArray(classes) && classes.length > 0 && classes.join
         ? classes.join(separator)
         : undefined;
 }

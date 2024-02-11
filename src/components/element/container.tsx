@@ -9,6 +9,7 @@ import {convertDataSet, joinClasses} from "../common";
 export const Container = (props: TypeContainer) => {
     const {
         element: itemType,
+        inline,
         children,
         classes = [],
         attributes = {},
@@ -19,7 +20,7 @@ export const Container = (props: TypeContainer) => {
     let Tag: any;
     const additionalProps = restProps !== undefined
         ? {...restProps} : {};
-    if (props.inline) {
+    if (inline) {
         Tag = props.element ?? 'span';
     } else {
         Tag = props.element ?? 'div';

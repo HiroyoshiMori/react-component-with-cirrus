@@ -2,7 +2,8 @@ import React, {
     Fragment,
 } from "react";
 import {
-    TableProps, TbodyProps, TheadRowProps, TrProps,
+    CaptionProps, ColGroupProps, ColProps,
+    TableProps, TbodyProps, TfootProps, TheadProps, TheadRowProps, TrProps,
 } from "../@types";
 import {convertDataSet, joinClasses} from "../common";
 
@@ -32,196 +33,147 @@ export const Table = (props: TableProps) => {
                 {...datasetShown}
             >
                 {
-                    caption && function() {
-                        const {
-                            element: _,
-                            children,
-                            classes = [],
-                            attributes = {},
-                            datasets = new Map(),
-                            ...itemProps
-                        } = caption;
-                        const datasetShown = convertDataSet(datasets);
-                        return (
-                            <Fragment>
-                                <caption
-                                    {...itemProps}
-                                    className={joinClasses(classes)}
-                                    {...attributes}
-                                    {...datasetShown}
-                                >
-                                    {children}
-                                </caption>
-                            </Fragment>
-                        );
-                    }()
+                    caption && (
+                        <Caption {...caption} />
+                    )
                 }
                 {
-                    colgroup && colgroup.length > 0 && colgroup.map((colgrp, idx: number) => {
-                        const {
-                            element: _,
-                            span,
-                            cols = [],
-                            classes = [],
-                            attributes = {},
-                            datasets = new Map(),
-                            ...itemProps
-                        } = colgrp;
-                        const datasetShown = convertDataSet(datasets);
-                        return (
-                            <Fragment key={idx}>
-                                <colgroup
-                                    {...itemProps}
-                                    span={span}
-                                    className={joinClasses(classes)}
-                                    {...attributes}
-                                    {...datasetShown}
-                                >
-                                    {
-                                        cols && cols.length > 0 && cols.map((col, idx: number) => {
-                                            const {
-                                                element: _,
-                                                span,
-                                                classes = [],
-                                                attributes = {},
-                                                datasets = new Map(),
-                                                ...colsProps
-                                            } = col;
-                                            const datasetShown = convertDataSet(datasets);
-                                            return (
-                                                <Fragment key={idx}>
-                                                    <col
-                                                        {...colsProps}
-                                                        span={span}
-                                                        className={joinClasses(classes)}
-                                                        {...attributes}
-                                                        {...datasetShown}
-                                                    />
-                                                </Fragment>
-                                            );
-                                        })
-                                    }
-                                </colgroup>
-                            </Fragment>
-                        );
-                    })
+                    Array.isArray(colgroup) && colgroup.length > 0 && colgroup.map(
+                        (colgroup, idx: number) => (
+                            <ColGroup key={idx} {...colgroup} />
+                        )
+                    )
                 }
                 {
-                    thead && function() {
-                        const {
-                            element: _,
-                            rows = [],
-                            classes = [],
-                            attributes = {},
-                            datasets = new Map(),
-                            ...itemProps
-                        } = thead;
-                        const datasetShown = convertDataSet(datasets);
-                        return (
-                            <Fragment>
-                                <thead
-                                    {...itemProps}
-                                    className={joinClasses(classes)}
-                                    {...attributes}
-                                    {...datasetShown}
-                                >
-                                {
-                                    rows && rows.length > 0 && rows.map((row, idx: number) => (
-                                        <TableRow key={idx} {...row} />
-                                    ))
-                                }
-                                </thead>
-                            </Fragment>
-                        );
-                    }()
+                    thead && (
+                        <THeadFoot
+                            {...thead}
+                            element={'thead'}
+                        />
+                    )
                 }
                 <Tbody {...tbody} />
                 {
-                    tfoot && function() {
-                        const {
-                            element: _,
-                            rows = [],
-                            classes = [],
-                            attributes = {},
-                            datasets = new Map(),
-                            ...itemProps
-                        } = tfoot;
-                        const datasetShown = convertDataSet(datasets);
-                        return (
-                            <Fragment>
-                                <tfoot
-                                    {...itemProps}
-                                    className={joinClasses(classes)}
-                                    {...attributes}
-                                    {...datasetShown}
-                                >
-                                {
-                                    rows && rows.length > 0 && rows.map((row, idx: number) => (
-                                        <TableRow key={idx} {...row} />
-                                    ))
-                                }
-                                </tfoot>
-                            </Fragment>
-                        );
-                    }()
+                    tfoot && (
+                        <THeadFoot
+                            {...tfoot}
+                            element={'tfoot'}
+                        />
+                    )
                 }
             </table>
         </Fragment>
     )
 };
 
-const TableRow = (props: TrProps | TheadRowProps) => {
+export const Caption = (props: CaptionProps) => {
     const {
         element: _,
-        cells = [],
+        children,
         classes = [],
         attributes = {},
         datasets = new Map(),
-        ...restProps
+        ...captionProps
     } = props;
-
-    // Initialize
     const datasetShown = convertDataSet(datasets);
-
     return (
         <Fragment>
-            <tr
-                {...restProps}
+            <caption
+                {...captionProps}
+                className={joinClasses(classes)}
+                {...attributes}
+                {...datasetShown}
+            >
+                {children}
+            </caption>
+        </Fragment>
+    );
+};
+
+export const ColGroup = (props: ColGroupProps) => {
+    const {
+        element: _,
+        span,
+        cols = [],
+        classes = [],
+        attributes = {},
+        datasets = new Map(),
+        ...colGroupProps
+    } = props;
+    const datasetShown = convertDataSet(datasets);
+    return (
+        <Fragment>
+            <colgroup
+                {...colGroupProps}
+                span={span}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}
             >
                 {
-                    cells && cells.length > 0 && cells.map((cell, idx: number) => {
-                        const {
-                            element: Tag = 'td',
-                            children,
-                            classes = [],
-                            attributes = {},
-                            datasets = new Map(),
-                            ...cellProps
-                        } = cell;
-                        const datasetShown = convertDataSet(datasets);
-                        return (
-                            <Fragment key={idx}>
-                                <Tag
-                                    {...cellProps}
-                                    className={joinClasses(classes)}
-                                    {...attributes}
-                                    {...datasetShown}
-                                >
-                                    {children}
-                                </Tag>
-                            </Fragment>
-                        );
-                    })
+                    Array.isArray(cols) && cols.length > 0 && cols.map(
+                        (col, idx: number) => <Col key={idx} {...col} />
+                    )
                 }
-            </tr>
+            </colgroup>
         </Fragment>
     );
 };
 
-const Tbody = (props: TbodyProps[] | TrProps | TrProps[]) => {
+export const Col = (props: ColProps) => {
+    const {
+        element: _,
+        span,
+        classes = [],
+        attributes = {},
+        datasets = new Map(),
+        ...colsProps
+    } = props;
+    const datasetShown = convertDataSet(datasets);
+    return (
+        <Fragment>
+            <col
+                {...colsProps}
+                span={span}
+                className={joinClasses(classes)}
+                {...attributes}
+                {...datasetShown}
+            />
+        </Fragment>
+    );
+};
+
+export const THeadFoot = (props: TheadProps | TfootProps) => {
+    const {
+        element: Tag,
+        rows = [],
+        classes = [],
+        attributes = {},
+        datasets = new Map(),
+        ...itemProps
+    } = props;
+    const datasetShown = convertDataSet(datasets);
+
+
+    return (
+        <Fragment>
+            <Tag
+                {...itemProps}
+                className={joinClasses(classes)}
+                {...attributes}
+                {...datasetShown}
+            >
+            {
+                Array.isArray(rows) && rows.length > 0 && rows.map((row, idx: number) => (
+                    <TableRow key={idx} {...row} />
+                ))
+            }
+            </Tag>
+        </Fragment>
+    );
+};
+
+export const Tbody = (props: TbodyProps[] | TrProps | TrProps[]) => {
     if (Array.isArray(props)) {
         return (
             <Fragment>
@@ -247,7 +199,7 @@ const Tbody = (props: TbodyProps[] | TrProps | TrProps[]) => {
                                         {...datasetShown}
                                     >
                                     {
-                                        rows && rows.length > 0 && rows.map((data, idx: number) => (
+                                        Array.isArray(rows) && rows.length > 0 && rows.map((data, idx: number) => (
                                             <Fragment key={idx}>
                                                 <TableRow
                                                     {...data}
@@ -276,4 +228,55 @@ const Tbody = (props: TbodyProps[] | TrProps | TrProps[]) => {
             />
         );
     }
+};
+
+export const TableRow = (props: TrProps | TheadRowProps) => {
+    const {
+        element: _,
+        cells = [],
+        classes = [],
+        attributes = {},
+        datasets = new Map(),
+        ...restProps
+    } = props;
+
+    // Initialize
+    const datasetShown = convertDataSet(datasets);
+
+    return (
+        <Fragment>
+            <tr
+                {...restProps}
+                className={joinClasses(classes)}
+                {...attributes}
+                {...datasetShown}
+            >
+                {
+                    Array.isArray(cells) && cells.length > 0 && cells.map((cell, idx: number) => {
+                        const {
+                            element: Tag = 'td',
+                            children,
+                            classes = [],
+                            attributes = {},
+                            datasets = new Map(),
+                            ...cellProps
+                        } = cell;
+                        const datasetShown = convertDataSet(datasets);
+                        return (
+                            <Fragment key={idx}>
+                                <Tag
+                                    {...cellProps}
+                                    className={joinClasses(classes)}
+                                    {...attributes}
+                                    {...datasetShown}
+                                >
+                                    {children}
+                                </Tag>
+                            </Fragment>
+                        );
+                    })
+                }
+            </tr>
+        </Fragment>
+    );
 };

@@ -21,6 +21,7 @@ export const Meta = (props: MetaProps) => {
         <Fragment>
             <meta
                 {...metaProps}
+                itemProp={''}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}

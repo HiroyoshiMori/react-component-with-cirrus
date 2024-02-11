@@ -22,17 +22,30 @@ import {
     InputProps,
 } from "../@types";
 import {convertDataSet, joinClasses} from "../common";
+import {generateId} from "../../utils";
+import {DataList} from "./datalist";
 
 export const Input = (props: InputProps) => {
     const {
+        element: _,
         classes = [],
         attributes = {},
         datasets = new Map(),
+        ...restProps
     } = props;
 
     // Initialize
-    const itemProps = switchComponent(props);
+    let itemProps = switchComponent(restProps);
     const datasetShown = convertDataSet(datasets);
+    let datalistOptions;
+    if (Object.hasOwn(itemProps, 'datalist') && Array.isArray(itemProps.datalist)) {
+        datalistOptions = itemProps.datalist.map((val: string) => ({
+            element: 'option',
+            value: val,
+        }));
+        delete itemProps.datalist;
+        itemProps.list = itemProps.list ?? generateId();
+    }
 
     return (
         <Fragment>
@@ -42,6 +55,14 @@ export const Input = (props: InputProps) => {
                 {...attributes}
                 {...datasetShown}
             />
+            {
+                datalistOptions && (
+                    <DataList
+                        id={itemProps.list}
+                        options={datalistOptions}
+                    />
+                )
+            }
         </Fragment>
     );
 };

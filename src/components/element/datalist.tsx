@@ -29,7 +29,7 @@ export const DataList = (props: DataListProps) => {
                 {...datasetShown}
             >
                 {
-                    options && options.length > 0 && options.map((option, idx: number) => {
+                    Array.isArray(options) && options.length > 0 && options.map((option, idx: number) => {
                         const {
                             element: _,
                             children,

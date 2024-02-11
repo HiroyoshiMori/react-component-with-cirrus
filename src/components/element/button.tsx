@@ -3,63 +3,31 @@ import React, {
 } from "react";
 import {
     ButtonProps,
-    cssFramework,
 } from "../@types";
-import {convertDataSet, joinClasses} from "../common";
-import {ArrayRegexIncludes} from "../../utils";
+import {convertDataSet, initialize, joinClasses} from "../common";
+import {getCssFramework} from "../index";
 
 export const Button = (props: ButtonProps) => {
     const {
         element = 'button',
         children,
         onClick,
-        colorType,
-        size,
-        classes = [],
+        classes: _classes,
         attributes = {},
         datasets = new Map(),
         ...restProps
     } = props;
 
     // Initialize
-    (['colorType', 'size'] as Array<keyof ButtonProps>)
-        .forEach((k: keyof ButtonProps) => {
-            if (props[k]) {
-                const val = props[k] as string;
-                let pattern;
-                switch (k) {
-                    case 'colorType':
-                        switch(true) {
-                            case /^text-/.test(val):
-                                pattern = '^text-(' + cssFramework.COLORS.join('|') + ')$';
-                                break;
-                            case /^bg-/.test(val):
-                                pattern = '^bg-(' + cssFramework.COLORS.join('|') + ')$';
-                                break;
-                            case /^border-/.test(val):
-                                pattern = '^border-(' + cssFramework.COLORS.join('|') + ')$';
-                                break;
-                        }
-                        break;
-                    case 'size':
-                        const sizeList = [...cssFramework.RESPONSIVE];
-                        if (sizeList.indexOf('md') > -1) {
-                            sizeList.splice(sizeList.indexOf('md'), 1)
-                        }
-                        pattern = '^btn--(' + sizeList.join('|') + ')$';
-                        break;
-                }
-                if (pattern && !ArrayRegexIncludes(classes, new RegExp(/pattern/))) {
-                    classes.push(val);
-                }
-            }
-        });
-    const Tag = element;
     const datasetShown = convertDataSet(datasets);
+    const classes = initialize(
+        props?.classes, [],
+        getCssFramework().getDefaultStyleClass('button', element)
+    );
 
     return (
         <Fragment>
-            <Tag
+            <button
                 {...restProps}
                 onClick={onClick}
                 className={joinClasses(classes)}
@@ -67,7 +35,7 @@ export const Button = (props: ButtonProps) => {
                 {...datasetShown}
             >
                 {children}
-            </Tag>
+            </button>
         </Fragment>
     );
 };

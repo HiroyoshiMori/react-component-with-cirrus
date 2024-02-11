@@ -1,11 +1,11 @@
 import React, {
     Fragment,
 } from "react";
-import {MapProps} from "../@types";
+import {ImageMapProps} from "../@types";
 import {convertDataSet, joinClasses} from "../common";
 import {Area} from "./area";
 
-export const Maps = (props: MapProps) => {
+export const ImageMap = (props: ImageMapProps) => {
     const {
         element: _,
         children,
@@ -28,7 +28,7 @@ export const Maps = (props: MapProps) => {
                 {...datasetShown}
             >
                 {
-                    areas && areas.length > 0 && areas.map((area, idx: number) => {
+                    Array.isArray(areas) && areas.length > 0 && areas.map((area, idx: number) => {
                         const {
                             element: _,
                             classes = [],

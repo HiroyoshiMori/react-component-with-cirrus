@@ -39,7 +39,7 @@ export const Select = (props: SelectProps) => {
                 {...datasetShown}
             >
                 {
-                    options && options.length > 0 && options.map((opt, idx: number) => {
+                    Array.isArray(options) && options.length > 0 && options.map((opt, idx: number) => {
                         const {
                             element: _,
                             classes = [],
@@ -98,7 +98,7 @@ export const Select = (props: SelectProps) => {
     );
 };
 
-const OptGroup = (props: OptGroupProps) => {
+export const OptGroup = (props: OptGroupProps) => {
     const {
         options = [],
         selectedValue,

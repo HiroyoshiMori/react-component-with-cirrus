@@ -25,7 +25,7 @@ export const Option = (props: OptionProps) => {
             <option
                 {...restProps}
                 value={value ?? children}
-                label={label ?? value ?? children}
+                label={label ?? (children ? undefined : value)}
                 selected={selected}
                 className={joinClasses(classes)}
                 {...attributes}

@@ -2,9 +2,9 @@ import React, {
     Fragment,
 } from "react";
 import {
-    cssFramework,
+    getCssFramework,
     HeadingProps,
-} from "../@types";
+} from "../index";
 import {convertDataSet, joinClasses} from "../common";
 
 export const Heading = (props: HeadingProps) => {
@@ -28,10 +28,10 @@ export const Heading = (props: HeadingProps) => {
         default:
             Tag = 'h3';
     }
-    const defaultClasses = cssFramework.getDefaultStyleClass(
-        'header', Tag
+    const defaultClasses = getCssFramework().getDefaultStyleClass(
+        'heading', Tag
     );
-    defaultClasses?.forEach((styleClass) => {
+    defaultClasses?.forEach((styleClass: string) => {
         if (Array.isArray(classes) && !classes.includes(styleClass)) {
             classes.push(styleClass);
         }

@@ -257,11 +257,11 @@ export const ZINDEXES = responsiveCompatible([
 ]);
 // list of Misc
 export const MISC = [
-    'pull-left', 'pull-right',
-    'text-ellipsis', 'text-break',
-    'center', 'center-all',
-    'overlay', 'text-justify', 'text-left', 'text-right', 'text-center',
-    'disabled', 'unselectable', 'round-xs', 'round-full', 'no-outline', 'shadow',
+    'u-pull-left', 'u-pull-right',
+    'u-text-ellipsis', 'u-text-break',
+    'u-center', 'u-center-all',
+    'u-overlay', 'u-text-justify', 'u-text-left', 'u-text-right', 'u-text-center',
+    'u-disabled', 'u-unselectable', 'u-round-xs', 'u-round-full', 'u-no-outline', 'u-shadow',
 ];
 
 // list of input sizes
@@ -275,24 +275,54 @@ export const INPUT_SIZES = arrayCombine([[
  * @param element
  * @param subType
  */
-export const getDefaultStyleClass = (type: string, element: string, subType: string | undefined = undefined) => {
-    switch (type) {
+export const getDefaultStyleClass = (type: string, element: string | undefined = '', subType: string | undefined = undefined) => {
+    switch (type.toLowerCase()) {
         case 'block':
-            switch (element) {
+            switch (element.toLowerCase()) {
                 case 'a':
                     return ['u-block'];
             }
             break;
+        case 'box':
+            return [];
+        case 'breadcrumb':
+            return [];
         case 'button':
-            switch (element) {
+            switch (element.toLowerCase()) {
                 case 'a':
                     return ['btn'];
                 case 'div':
                     return ['btn'];
             }
             break;
+        case 'column':
+            switch (subType?.toLowerCase()) {
+                case 'multiple':
+                    return ['columns'];
+                default:
+                    return ['column'];
+            }
+        case 'content':
+            return [];
+        case 'checkbox':
+        case 'radio':
+            switch (element.toLowerCase()) {
+                case 'container':
+                    return [
+                        getStylePrefix(subType) + 'control',
+                        getStylePrefix(subType) + type,
+                    ];
+                case 'footnote':
+                    return ['info'];
+                case 'label':
+                    return [getStylePrefix(subType) + 'label'];
+                default:
+                    return [getStylePrefix(subType) + 'input'];
+            }
+        case 'delete':
+            return [];
         case 'divider':
-            switch (subType) {
+            switch (subType?.toLowerCase()) {
                 case 'vertical':
                     return ['divider--v'];
                 default:
@@ -300,10 +330,12 @@ export const getDefaultStyleClass = (type: string, element: string, subType: str
             }
         case 'dropdown':
             return ['list-dropdown'];
+        case 'fieldset':
+            return ['form-group'];
         case 'figure':
             return ['fig'];
-        case 'header':
-            switch (element) {
+        case 'heading':
+            switch (element.toLowerCase()) {
                 case 'h1':
                     return ['headline-1'];
                 case 'h2':
@@ -320,15 +352,26 @@ export const getDefaultStyleClass = (type: string, element: string, subType: str
             }
         case 'icon':
             return ['icon'];
+        case 'image':
+            return [];
         case 'menu':
-            switch (subType) {
+            switch (subType?.toLowerCase()) {
                 case 'item':
                     return ['menu-item'];
                 default:
                     return ['menu'];
             }
+        case 'message':
+            switch (subType?.toLowerCase()) {
+                case 'header':
+                    return [];
+                case 'body':
+                    return [];
+                default:
+                    return ['toast'];
+            }
         case 'modal':
-            switch (subType) {
+            switch (subType?.toLowerCase()) {
                 case 'content':
                     return ['modal-content'];
                 case 'header':
@@ -342,12 +385,20 @@ export const getDefaultStyleClass = (type: string, element: string, subType: str
                 default:
                     return ['modal', 'modal--visible'];
             }
+        case 'notification':
+            return [];
         case 'pagination':
             switch (subType) {
+                case 'list':
+                    return [];
                 case 'item':
                     return ['pagination-item'];
                 case 'item-subtitle':
                     return ['pagination-item-subtitle'];
+                case 'link':
+                    return [];
+                case 'ellipsis':
+                    return [];
                 case 'prev':
                     return ['pagination-item', 'pagination-prev'];
                 case 'next':
@@ -368,17 +419,24 @@ export const getDefaultStyleClass = (type: string, element: string, subType: str
                 default:
                     return ['placeholder'];
             }
+        case 'progress':
+            return [];
+        case 'table':
+            return [];
         case 'tag':
             return ['tag'];
-        case 'toast':
-            return ['toast'];
+        case 'title':
+            return [];
         case 'tooltip':
             return ['tooltip'];
     }
     return [];
 };
 
-export const getStylePrefix = (type: string) => {
+export const getStylePrefix = (type: string|undefined) => {
+    if (type === undefined) {
+        return '';
+    }
     switch (type.toLowerCase()) {
         case 'background':
             return 'bg-';
@@ -390,12 +448,16 @@ export const getStylePrefix = (type: string) => {
             return 'u-border-';
         case 'box-shadow':
             return 'u-shadow-';
+        case 'button':
+            return 'btn--';
         case 'column':
             return 'col-';
         case 'filter':
             return 'u-blur-';
         case 'font-weight':
             return 'font-';
+        case 'form':
+            return 'form-ext-';
         case 'grid':
             return 'grid-gap-';
         case 'height':
@@ -443,4 +505,18 @@ export const getStylePrefix = (type: string) => {
         default:
             return 'u-';
     }
+};
+
+/**
+ * Get aria-label for type specified
+ * @param type
+ * @param subType
+ */
+export const getDefaultAdditionalAttributes = (
+    type?: string, subType?: string
+): Array<{[key: string]: string|number|boolean}> => {
+    if (type !== undefined) {
+        // Nothing to do at this moment
+    }
+    return [];
 };

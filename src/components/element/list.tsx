@@ -1,13 +1,14 @@
 import React, {
     Fragment,
 } from "react";
-import {DdProps, DtProps, LiProps, ScriptProps, TemplateProps, TypeList} from "../@types";
+import {DdProps, DlItemProps, DtProps, LiProps, OlProps, ScriptProps, TemplateProps, TypeList} from "../@types";
 import {convertDataSet, joinClasses} from "../common";
+import {getCssFramework} from "../index";
 
 export const List = (props: TypeList) => {
     const {
         element: Tag = 'ul',
-        items = [],
+        items: _,
         classes = [],
         attributes = {},
         datasets = new Map(),
@@ -16,6 +17,21 @@ export const List = (props: TypeList) => {
 
     // Initialize
     const datasetShown = convertDataSet(datasets);
+    const items = Array.isArray(props.items)
+        ? props.items : [props.items];
+
+    if (Tag === 'ol' && (props as OlProps).type && Array.isArray(classes)) {
+        const styleClasses = getCssFramework().getDefaultStyleClass(
+            'list', Tag, (props as OlProps).type
+        );
+        if (styleClasses.length > 0) {
+            styleClasses.forEach((style) => {
+                if (!classes.includes(style)) {
+                    classes.push(style);
+                }
+            });
+        }
+    }
 
     return (
         <Fragment>
@@ -28,11 +44,11 @@ export const List = (props: TypeList) => {
                 {
                     items && function() {
                         if (Tag === 'dl') {
-                            const itemList = items as [DtProps|DtProps[], DdProps|DdProps[]][];
+                            const itemList = items as DlItemProps[];
                             return (
                                 <Fragment>
                                     {
-                                        itemList.length > 0 && itemList.map((item: [DtProps|DtProps[], DdProps|DdProps[]], idx: number) => {
+                                        Array.isArray(itemList) && itemList.length > 0 && itemList.map((item: DlItemProps, idx: number) => {
                                             return (
                                                 <Fragment key={idx}>
                                                     <DlItemList {...item} />
@@ -47,7 +63,7 @@ export const List = (props: TypeList) => {
                             return (
                                 <Fragment>
                                     {
-                                        itemList.length > 0 && itemList.map((item: LiProps|ScriptProps|TemplateProps, idx: number) => (
+                                        Array.isArray(itemList) && itemList.length > 0 && itemList.map((item: LiProps|ScriptProps|TemplateProps, idx: number) => (
                                             <Fragment key={idx}>
                                                 <ListItem {...item} />
                                             </Fragment>
@@ -63,7 +79,7 @@ export const List = (props: TypeList) => {
     );
 };
 
-const ListItem = (props: LiProps|ScriptProps|TemplateProps) => {
+export const ListItem = (props: LiProps|ScriptProps|TemplateProps) => {
     const {
         element: ItemTag = 'li',
         children,
@@ -87,33 +103,40 @@ const ListItem = (props: LiProps|ScriptProps|TemplateProps) => {
     );
 };
 
-const DlItemList = (props: [DtProps|DtProps[], DdProps|DdProps[]]) => {
-    const [dtItem, ddItem] = props;
+export const DlItemList = (props: DlItemProps) => {
+    const dtItem = props[0];
+    const ddItem = props[1];
 
     return (
         <Fragment>
-            <DItem {...dtItem} element={'dt'} />
-            <DItem {...ddItem} element={'dd'} />
+            <DItem items={dtItem} element={'dt'} />
+            <DItem items={ddItem} element={'dd'} />
         </Fragment>
     )
 };
-const DItem = (
-    props: (DtProps | DtProps[] | DdProps | DdProps[]),
-    element: 'dt'|'dd'
+export const DItem = (
+    props: {
+        element: 'dt'|'dd',
+        items: DtProps|DtProps[]|DdProps|DdProps[],
+    }
 ) => {
-    if (Array.isArray(props)) {
+    const {
+        element,
+        items,
+    } = props;
+    if (Array.isArray(items)) {
         return (
             <Fragment>
                 {
-                    props.length > 0 && props.map((item, idx: number) => {
+                    items.length > 0 && items.map((item, idx: number) => {
                         const {
                             children,
-                            ...dtItemProps
+                            ...itemProps
                         } = item;
                         return (
                             <Fragment key={idx}>
                                 <Item
-                                    {...dtItemProps}
+                                    {...itemProps}
                                     element={element}
                                 >
                                     {children}
@@ -127,12 +150,12 @@ const DItem = (
     } else {
         const {
             children,
-            ...dtItemProps
-        } = props;
+            ...itemProps
+        } = items as DtProps | DdProps;
         return (
             <Fragment>
                 <Item
-                    {...dtItemProps}
+                    {...itemProps}
                     element={element}
                 >
                     {children}
@@ -141,7 +164,7 @@ const DItem = (
         );
     }
 };
-const Item = (props: DtProps | DdProps) => {
+export const Item = (props: DtProps | DdProps) => {
     const {
         element: Tag = 'dd',
         children,

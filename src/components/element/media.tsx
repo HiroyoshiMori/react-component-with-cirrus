@@ -46,7 +46,7 @@ export const Media = (props: TypeMedia) => {
                 ) : (element === 'img') ? function() {
                     // Remake variable for rest of props
                     const {
-                        element: _,
+                        element: Tag,
                         imageSizes,
                         classes = [],
                         attributes = {},
@@ -59,11 +59,12 @@ export const Media = (props: TypeMedia) => {
                     let con: string = '';
                     if (imageSizes) {
                         imageSizes.srcSet?.forEach((s: ImageSrcSetProps) => {
-                            const mediaSize = typeof s.mediaSize === 'number'
-                                ? (s.mediaSize + 'w') : s.mediaSize;
-                            if (s.mediaQuery) {
+                            const mediaSize = s.mediaSize
+                                ? (typeof s.mediaSize === 'number' ? (s.mediaSize + 'w') : s.mediaSize)
+                                : undefined;
+                            if (Array.isArray(s.mediaQuery)) {
                                 sizes += sprintf(
-                                    '%s(%s) %s', con, s.mediaQuery.join(') and ('), mediaSize
+                                    '%s(%s) %s', con, s.mediaQuery.join(') and ('), mediaSize ?? ''
                                 );
                             }
                             srcSet += sprintf(
@@ -103,7 +104,7 @@ export const Media = (props: TypeMedia) => {
                         {...datasetShown}
                     >
                         {
-                            props.source && props.source.length > 0 && props.source.map(
+                            Array.isArray(props.source) && props.source.length > 0 && props.source.map(
                                 (source: SourceSrcsetProps, idx: number) => {
                                     return (
                                         <Fragment key={idx}>
@@ -118,6 +119,7 @@ export const Media = (props: TypeMedia) => {
                         }
                         <Media
                             {...props.img}
+                            element={'img'}
                         />
                     </Tag>
                 ) : (element === 'audio' || element === 'video') ? function () {
@@ -133,7 +135,9 @@ export const Media = (props: TypeMedia) => {
                         datasets,
                         ...mediaProps
                     } = props;
-                    const controlsList = controlData?.join(' ');
+                    const controlsList = Array.isArray(controlData)
+                        ? controlData.join(' ')
+                        : undefined;
                     return (
                         <Tag
                             {...mediaProps}
@@ -165,7 +169,7 @@ export const Media = (props: TypeMedia) => {
                                 }()
                             }
                             {
-                                sources && sources.length > 0 && sources.map(
+                                Array.isArray(sources) && sources.length > 0 && sources.map(
                                     (source: SourceSrcProps, idx: number) => {
                                         return (
                                             <Fragment key={idx}>
