@@ -1,7 +1,9 @@
-import {Media} from "../../../../components";
+import {
+    Media,
+} from "../../../../components";
+import {deIndent} from "../../../../utils";
 // @ts-ignore
 import ExampleImage from '../../../assets/file_example_PNG_500kB.png';
-import {deIndent} from "../../../../utils";
 
 /**
  * The &lt;object&gt; HTML element represent an external resource, which can be
@@ -9,7 +11,7 @@ import {deIndent} from "../../../../utils";
  * Credits: Media files are Copyright file-examples.com | https://file-examples.com/
  */
 export default {
-    title: 'React Component/Element/Media/Object',
+    title: 'React Component/Element/Embed/Object',
     component: Media,
     tags: ['autodocs'],
     parameters: {

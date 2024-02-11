@@ -1,4 +1,11 @@
-import {Button, cssFramework, FORM_ENCTYPES, FORM_METHODS} from "../../../components";
+import React, {Fragment} from "react";
+import {action} from "@storybook/addon-actions";
+import {
+    Button,
+    Container,
+    FORM_ENCTYPES,
+    FORM_METHODS,
+} from "../../../components";
 import {deIndent} from "../../../utils";
 
 /**
@@ -7,25 +14,37 @@ import {deIndent} from "../../../utils";
  * Once activated, it then performs an action, such as submitting a form or opening a dialog.
  */
 export default{
-    title: 'React Component/Element/Button/Button',
+    title: 'React Component/Element/Button',
     component: Button,
     tags: ['autodocs'],
     parameters: {
         componentSubtitle: 'The Button element',
     },
+    decorators: [
+        (Story: any) => (
+            <Fragment>
+                <form id={'form-id'}>
+                </form>
+                <Story />
+                <Container
+                    element={'div'}
+                    popover={'auto'}
+                    id={'popover'}
+                >
+                    This is popover content.
+                </Container>
+            </Fragment>
+        ),
+    ],
     argTypes: {
         element: {
-            control: 'select',
-            options: ['button', 'a', 'div'],
+            control: 'none',
             description: 'Switcher for Button component',
             type:{
                 required: true,
             },
             table: {
                 type: {
-                    summary: 'button|a|div',
-                },
-                defaultValue: {
                     summary: 'button',
                 },
             },
@@ -78,38 +97,7 @@ export default{
                 },
             },
         },
-        colorType: {
-            control: 'select',
-            options: ['Default'].concat(cssFramework.COLORS),
-            mapping: {
-                Default: undefined,
-            },
-            table: {
-                type: {
-                    summary: cssFramework.COLORS.join('|'),
-                },
-                defaultValue: {
-                    summary: 'undefined',
-                },
-            },
-        },
-        size: {
-            control: 'select',
-            options: ['Default', 'xs', 'sm', 'lg', 'xl'],
-            mapping: {
-                Default: undefined,
-            },
-            table: {
-                type: {
-                    summary: 'xs|sm|lg|xl',
-                },
-                defaultValue: {
-                    summary: 'undefined',
-                },
-            },
-        },
         type: {
-            if: {arg: 'element', eq: 'button'},
             control: 'select',
             options: ['Default', 'submit', 'reset', 'button'],
             mapping: {
@@ -126,12 +114,11 @@ export default{
             },
         },
         value: {
-            if: {arg: 'element', eq: 'button'},
             control: 'text',
-            description: 'Defines the value associated with the button\s name when it\s submitted with the form data',
+            description: 'Defines the value associated with the button\'s name when it\'s submitted with the form data',
             table: {
                 type: {
-                    summary: 'string',
+                    summary: 'string | number | boolean',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -139,7 +126,6 @@ export default{
             },
         },
         disabled: {
-            if: {arg: 'element', eq: 'button'},
             control: 'boolean',
             description: 'Prevent the user from interacting with the button',
             table: {
@@ -152,7 +138,6 @@ export default{
             },
         },
         form: {
-            if: {arg: 'element', eq: 'button'},
             control: 'text',
             description: 'The &lt;form&gt; element to associate the button with. Must be the <code>id</code> of '
                         + 'a <code>&lt;form&gt;</code> in the same document.',
@@ -166,11 +151,10 @@ export default{
             },
         },
         formAction: {
-            if: {arg: 'element', eq: 'button'},
             control: 'text',
             description: 'The URL that processes the information submitted by the button. '
-                        + 'Overrides the action attribute of the button\s form owner. '
-                        + 'Does nothing if there\s no form owner.',
+                        + 'Overrides the action attribute of the button\'s form owner. '
+                        + 'Does nothing if there\'s no form owner.',
             table: {
                 type: {
                     summary: 'string',
@@ -181,7 +165,7 @@ export default{
             },
         },
         formEnctype: {
-            if: {arg: 'element', eq: 'button'},
+            if: {arg: 'type', eq: 'submit'},
             control: 'select',
             options: ['Default'].concat(FORM_ENCTYPES),
             mapping: {
@@ -198,14 +182,14 @@ export default{
             },
         },
         formMethod: {
-            if: {arg: 'element', eq: 'button'},
+            if: {arg: 'type', eq: 'submit'},
             control: 'select',
             options: ['Default'].concat(FORM_METHODS),
             mapping: {
                 Default: undefined,
             },
             description: 'Specifies the HTTP method used to submit the form. '
-                        + 'If specified, this attribute overrides the method attribute of the button\s form owner.',
+                        + 'If specified, this attribute overrides the method attribute of the button\'s form owner.',
             table: {
                 type: {
                     summary: FORM_METHODS.join('|'),
@@ -216,10 +200,10 @@ export default{
             },
         },
         formNoValidate: {
-            if: {arg: 'element', eq: 'button'},
+            if: {arg: 'type', eq: 'submit'},
             control: 'boolean',
             description: 'Specifies that the form is not to be validated when it is submitted. '
-                        + 'If specified, it overrides the novalidate attribute of the button\s form owner.',
+                        + 'If specified, it overrides the novalidate attribute of the button\'s form owner.',
             table: {
                 type: {
                     summary: 'boolean',
@@ -229,7 +213,7 @@ export default{
                 },
             },
         },
-        popoverTarget: {
+        popovertarget: {
             if: {arg: 'element', eq: 'button'},
             control: 'text',
             description: 'Turns a &lt;button&gt; element into a popover control button; '
@@ -243,7 +227,7 @@ export default{
                 },
             },
         },
-        popoverTargetAction: {
+        popovertargetaction: {
             if: {arg: 'element', eq: 'button'},
             control: 'select',
             options: ['Default', 'hide', 'show', 'toggle'],
@@ -316,28 +300,52 @@ export default{
         },
     },
 };
-
 /** Default button */
 export const Default = {
     render: (args: any) => <Button
         element='button'
+        onClick={action('clicked')}
         {...args}
     >
         This is button Label
     </Button>,
 };
-/** Button with element 'a' */
-export const ButtonWithA = {
+/** Button with disabled */
+export const ButtonDisabled = {
     ...Default,
     args: {
-        element: 'a',
+        disabled: true,
     },
 };
-/** Button with element 'div' */
-export const ButtonWithDiv = {
+/** Button with type and value */
+export const ButtonWithTypeValue = {
     ...Default,
     args: {
-        element: 'div',
+        type: 'button',
+        name: 'button_name',
+        value: 'Button Value',
+        onClick: undefined,
+    },
+};
+/** Button with popover */
+export const ButtonWithPopover = {
+    ...Default,
+    args: {
+        popovertarget: 'popover',
+        popovertargetaction: 'toggle',
+    },
+};
+/** Button with other attributes */
+export const ButtonWithOtherAttributes = {
+    ...Default,
+    args: {
+        type: 'submit',
+        form: 'form-id',
+        formAction: './test_form',
+        formEncType: 'multipart/form-data',
+        formMethod: 'get',
+        formNoValidate: true,
+        formTarget: '_self',
     },
 };
 /** Button with style classes */

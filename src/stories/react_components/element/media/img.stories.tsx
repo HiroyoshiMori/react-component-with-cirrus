@@ -1,5 +1,11 @@
 import React from "react";
-import {CROSS_ORIGINS, DECODINGS, FETCH_POLICIES, LOADINGS, Media, REFERRER_POLICIES} from "../../../../components";
+import {
+    CROSS_ORIGINS,
+    DECODINGS,
+    FETCH_POLICIES,
+    LOADINGS,
+    Media,
+} from "../../../../components";
 import {deIndent} from "../../../../utils";
 // @ts-ignore
 import ContextImage from '../../../assets/context.png';
@@ -17,7 +23,7 @@ import ExampleImageX4 from '../../../assets/file_example_PNG_2100kB.png';
  * Credits: Media files are Copyright file-examples.com | https://file-examples.com/
  */
 export default {
-    title: 'React Component/Element/Media/Img',
+    title: 'React Component/Element/Embed/Img',
     component: Media,
     tags: ['autodocs'],
     parameters: {
@@ -26,12 +32,12 @@ export default {
     argTypes: {
         element: {
             control: 'none',
-            description: 'Switcher for Media component to render &lt;img&gt;',
+            description: 'Switcher for <code>Media</code> component to render &lt;img&gt;',
             type: {
                 required: true,
             },
             table: {
-                defaultValue: {
+                type: {
                     summary: 'img',
                 },
             },
@@ -211,15 +217,11 @@ export default {
             },
         },
         referrerPolicy: {
-            control: 'select',
-            options: ['Default'].concat(REFERRER_POLICIES),
-            mapping: {
-                'Default': undefined,
-            },
+            control: 'text',
             description: 'Indicates which referrer to use when fetching the resource',
             table: {
                 type: {
-                    summary: REFERRER_POLICIES.join('|'),
+                    summary: 'React.HTMLAttributeReferrerPolicy',
                 },
                 defaultValue: {
                     summary: 'undefined',

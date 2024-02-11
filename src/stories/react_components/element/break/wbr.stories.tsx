@@ -1,5 +1,7 @@
 import {Fragment} from "react";
-import {Break} from "../../../../components";
+import {
+    Break,
+} from "../../../../components";
 import {deIndent} from "../../../../utils";
 
 /**
@@ -16,21 +18,19 @@ export default {
     decorators: [
         (Story: any) => (
             <Fragment>
-                This is pre-sentence.
-                <Story />
-                This is post-sentence.
+                This is longlonglonglonglonglonglonglonglonglonglonglonglonglonglong<Story />longlonglonglonglonglonglonglonglonglonglonglong word.
             </Fragment>
         )
     ],
     argTypes: {
         element: {
             control: 'none',
-            description: 'Switcher for Media component to render &lt;wbr&gt;',
+            description: 'Switcher for <code>Break</code> component to render &lt;wbr&gt;',
             type: {
                 required: true,
             },
             table: {
-                defaultValue: {
+                type: {
                     summary: 'wbr',
                 },
             },

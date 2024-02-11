@@ -1,4 +1,9 @@
-import {CONTROLS_LIST, CROSS_ORIGINS, Media, PRELOADS} from "../../../../components";
+import {
+    CONTROLS_LIST,
+    CROSS_ORIGINS,
+    Media,
+    PRELOADS,
+} from "../../../../components";
 import {deIndent} from "../../../../utils";
 // @ts-ignore
 import FileExampleMp4 from '../../../assets/file_example_MP4_480_1_5MG.mp4';
@@ -12,7 +17,7 @@ import AssetsImage from '../../../assets/assets.png';
  * Credits: Media files are Copyright file-examples.com | https://file-examples.com/
  */
 export default {
-    title: 'React Component/Element/Media/Video',
+    title: 'React Component/Element/Embed/Video',
     component: Media,
     tags: ['autodocs'],
     parameters: {
@@ -21,13 +26,13 @@ export default {
     argTypes: {
         element: {
             control: 'none',
-            description: 'Switcher for Media component to render &lt;video&gt;',
+            description: 'Switcher for <code>Media</code> component to render &lt;video&gt;',
             type: {
                 required: true,
             },
             table: {
-                defaultValue: {
-                    summary: 'img',
+                type: {
+                    summary: 'video',
                 },
             },
         },

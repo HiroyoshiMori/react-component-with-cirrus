@@ -1,4 +1,6 @@
-import {Code} from "../../../components";
+import {
+    Code,
+} from "../../../components";
 import {deIndent} from "../../../utils";
 
 /**
@@ -7,7 +9,7 @@ import {deIndent} from "../../../utils";
  * By default, the content text is displayed using the user agent's default monospace font.
  */
 export default {
-    title: 'React Component/Element/Block/Code',
+    title: 'React Component/Element/Code',
     component: Code,
     tags: ['autodocs'],
     parameters: {

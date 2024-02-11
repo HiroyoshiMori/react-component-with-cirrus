@@ -1,5 +1,7 @@
-import {Icons} from "../../../components";
 import {icon} from "@fortawesome/fontawesome-svg-core/import.macro";
+import {
+    Icons,
+} from "../../../components";
 
 /**
  * Represents a range of fontawesome icon.

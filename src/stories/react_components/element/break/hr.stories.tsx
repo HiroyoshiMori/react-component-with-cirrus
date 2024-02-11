@@ -1,5 +1,7 @@
 import {Fragment} from "react";
-import {Break} from "../../../../components";
+import {
+    Break,
+} from "../../../../components";
 import {deIndent} from "../../../../utils";
 
 /**
@@ -25,12 +27,12 @@ export default {
     argTypes: {
         element: {
             control: 'none',
-            description: 'Switcher for Media component to render &lt;hr&gt;',
+            description: 'Switcher for <code>Break</code> component to render &lt;hr&gt;',
             type: {
                 required: true,
             },
             table: {
-                defaultValue: {
+                type: {
                     summary: 'hr',
                 },
             },

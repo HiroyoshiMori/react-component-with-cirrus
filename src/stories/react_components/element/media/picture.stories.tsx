@@ -1,5 +1,7 @@
 import React from "react";
-import {Media} from "../../../../components";
+import {
+    Media,
+} from "../../../../components";
 import {deIndent} from "../../../../utils";
 // @ts-ignore
 import AssetsImage from '../../../assets/assets.png';
@@ -15,21 +17,21 @@ import StylingImage from '../../../assets/styling.png';
  * Credits: Media files are Copyright file-examples.com | https://file-examples.com/
  */
 export default {
+    title: 'React Component/Element/Embed/Picture',
     component: Media,
     tags: ['autodocs'],
-    title: 'React Component/Element/Media/Picture',
     parameters: {
         componentSubtitle: 'The Picture element',
     },
     argTypes: {
         element: {
             control: 'none',
-            description: 'Switcher for Media component to render &lt;picture&gt;',
+            description: 'Switcher for <code>Media</code> component to render &lt;picture&gt;',
             type: {
                 required: true,
             },
             table: {
-                defaultValue: {
+                type: {
                     summary: 'picture',
                 },
             },
@@ -143,13 +145,17 @@ const pictureProps = {
     element: 'picture',
     id: 'picture-id',
     source: [{
-        media: ['max-width: 600px', 'min-width: 400px'],
-        srcset: ContextImage,
-        sizes: '100w',
+        srcSet: [{
+            src: ContextImage,
+            mediaQuery: ['max-width: 600px', 'min-width: 400px'],
+        }],
+        defaultSize: '100w',
     }, {
-        media: ['max-width: 400px'],
-        srcset: StylingImage,
-        sizes: '90w',
+        srcSet: [{
+            src: StylingImage,
+            media: ['max-width: 400px'],
+        }],
+        defaultSize: '90w',
     }],
     img: {
         element: 'img',

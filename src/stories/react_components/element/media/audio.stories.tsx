@@ -1,4 +1,9 @@
-import {CONTROLS_LIST, CROSS_ORIGINS, Media, PRELOADS} from "../../../../components";
+import {
+    CONTROLS_LIST,
+    CROSS_ORIGINS,
+    Media,
+    PRELOADS,
+} from "../../../../components";
 import {deIndent} from "../../../../utils";
 // @ts-ignore
 import ExampleAudioMp3 from '../../../assets/file_example_MP3_700KB.mp3';
@@ -12,7 +17,7 @@ import ExampleAudioOgg from '../../../assets/file_example_OOG_1MG.ogg';
  * Credits: Media files are Copyright file-examples.com | https://file-examples.com/
  */
 export default {
-    title: 'React Component/Element/Media/Audio',
+    title: 'React Component/Element/Embed/Audio',
     component: Media,
     tags: ['autodocs'],
     parameters: {
@@ -21,13 +26,13 @@ export default {
     argTypes: {
         element: {
             control: 'none',
-            description: 'Switcher for Media component to render &lt;audio&gt;',
+            description: 'Switcher for <code>Media</code> component to render &lt;audio&gt;',
             type: {
                 required: true,
             },
             table: {
-                defaultValue: {
-                    summary: 'img',
+                type: {
+                    summary: 'audio',
                 },
             },
         },
