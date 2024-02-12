@@ -1,6 +1,6 @@
 {
   "name": "@hiroyoshi-mori/react-components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "Hiroyoshi Mori",
     "email": "mori@scriptlab.tokyo"
@@ -21,7 +21,7 @@
     "jest": "npx jest",
     "test-storybook": "test-storybook",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build -o "
+    "build-storybook": "storybook build -o docs/"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
@@ -100,7 +100,8 @@
     "react",
     "typescript",
     "component",
-    "cirrus"
+    "cirrus-ui",
+    "bulma"
   ],
   "license": "MPL-2.0",
   "bugs": {

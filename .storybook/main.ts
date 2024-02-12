@@ -30,5 +30,16 @@ const config: StorybookConfig = {
   typescript: {
     reactDocgen: 'react-docgen',
   },
+  managerHead: (head) => `
+    ${head}
+    <style>
+      span.li {
+          display: list-item;
+          list-style-type: disc;
+          margin-left: 2em;
+          text-align: -webkit-match-parent;
+      }
+    </style>
+ `,
 };
 export default config;

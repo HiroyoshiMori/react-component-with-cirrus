@@ -552,7 +552,6 @@ export type OptGroupProps = ElementCommonProps & {
     is: 'optgroup';
     label: string;
     options: OptionProps[];
-    selectedValue?: string;
     disabled?: boolean;
     attributes?: OptgroupHTMLAttributes<HTMLOptGroupElement>;
 };
@@ -563,7 +562,6 @@ export type OptionProps = ElementCommonProps & {
     children: string;
     value?: string;
     label?: string;
-    selected?: boolean;
     disabled?: boolean;
     attributes?: OptionHTMLAttributes<HTMLOptionElement>;
 };

@@ -34,6 +34,7 @@ export const Select = (props: SelectProps) => {
         <Fragment>
             <select
                 {...restProps}
+                defaultValue={selectedValue}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}
@@ -52,7 +53,6 @@ export const Select = (props: SelectProps) => {
                                 <Fragment key={idx}>
                                     <OptGroup
                                         {...item}
-                                        selectedValue={selectedValue}
                                         classes={classes}
                                         attributes={item.attributes}
                                         datasets={datasets}
@@ -74,14 +74,10 @@ export const Select = (props: SelectProps) => {
                             )
                         } else {
                             const item = itemProps as OptionProps;
-                            const selected = item.value
-                                ? item.value === selectedValue
-                                : item.children === selectedValue;
                             return (
                                 <Fragment>
                                     <Option
                                         {...item}
-                                        selected={selected}
                                         classes={classes}
                                         attributes={item.attributes}
                                         datasets={datasets}
@@ -101,7 +97,6 @@ export const Select = (props: SelectProps) => {
 export const OptGroup = (props: OptGroupProps) => {
     const {
         options = [],
-        selectedValue,
         classes = [],
         attributes = {},
         datasets = new Map(),
@@ -128,14 +123,10 @@ export const OptGroup = (props: OptGroupProps) => {
                             datasets = new Map(),
                             ...restProps
                         } = opt;
-                        const selected = opt.value
-                            ? opt.value === selectedValue
-                            : children === selectedValue;
                         return (
                             <Fragment key={idx}>
                                 <Option
                                     {...restProps}
-                                    selected={selected}
                                     classes={classes}
                                     attributes={attributes}
                                     datasets={datasets}

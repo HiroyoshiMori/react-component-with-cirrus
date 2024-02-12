@@ -10,7 +10,6 @@ export const Option = (props: OptionProps) => {
         value,
         label,
         children,
-        selected = false,
         classes = [],
         attributes = {},
         datasets = new Map(),
@@ -26,7 +25,6 @@ export const Option = (props: OptionProps) => {
                 {...restProps}
                 value={value ?? children}
                 label={label ?? (children ? undefined : value)}
-                selected={selected}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}
