@@ -8,6 +8,7 @@ export const Output = (props: OutputProps) => {
     const {
         element: _,
         children,
+        htmlFor = [],
         classes = [],
         attributes = {},
         datasets = new Map(),
@@ -21,6 +22,7 @@ export const Output = (props: OutputProps) => {
         <Fragment>
             <output
                 {...outputProps}
+                htmlFor={htmlFor && Array.isArray(htmlFor) && htmlFor.length > 0 ? htmlFor.join(' ') : undefined}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}

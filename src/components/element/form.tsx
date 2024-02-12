@@ -8,6 +8,7 @@ export const Form = (props: FormProps) => {
     const {
         element: _,
         children,
+        acceptCharset: charsets = [],
         classes = [],
         attributes = {},
         datasets = new Map(),
@@ -16,11 +17,14 @@ export const Form = (props: FormProps) => {
 
     // Initialize
     const datasetShown = convertDataSet(datasets);
+    const acceptCharset = charsets && Array.isArray(charsets)
+        ? charsets.join(' ') : undefined;
 
     return (
         <Fragment>
             <form
                 {...formProps}
+                acceptCharset={acceptCharset}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}

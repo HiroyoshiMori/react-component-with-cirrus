@@ -569,7 +569,7 @@ export type OptionProps = ElementCommonProps & {
 export type OutputProps = ElementCommonProps & {
     element?: 'output';
     children?: ReactNode;
-    for?: string;
+    htmlFor?: string[];
     form?: string;
     name?: string;
     attributes?: OutputHTMLAttributes<HTMLOutputElement>;
@@ -795,7 +795,7 @@ export type TextareaProps = ElementCommonProps & {
     autoCapitalize?: AutoCapitalizeTypes;
     autoComplete?: AutoCompleteTypes;
     dir?: 'auto'|'ltr'|'rtl';
-    dirName?: string;
+    dirname?: string;
     form?: string;
     wrap?: TextWrapTypes;
     attributes?: TextareaHTMLAttributes<HTMLTextAreaElement>;
@@ -1148,7 +1148,7 @@ export type InputSearchProps = InputCommonProps & {
     defaultValue?: string | number | boolean;
     autoComplete?: AutoCompleteTypes;
     dir?: 'auto'|'ltr'|'rtl';
-    dirName?: string;
+    dirname?: string;
     list?: string;
     datalist?: string[];
     maxLength?: number;
@@ -1191,7 +1191,7 @@ export type InputTextProps = InputCommonProps & {
     defaultValue?: string | number | boolean;
     autoComplete?: AutoCompleteTypes;
     dir?: 'auto'|'ltr'|'rtl';
-    dirName?: string;
+    dirname?: string;
     list?: string;
     datalist?: string[];
     maxlength?: number;

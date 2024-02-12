@@ -206,9 +206,12 @@ export function deIndent(str: string): string {
 }
 
 export function linkInStoryBook (label: string, title: string, story?: string) {
-    const baseUrl = title.replace(/\//g, '-').toLowerCase()
+    const baseUrl = title
+        .replace(/\//g, '-')
+        .replace(/ /g, '-')
+        .toLowerCase()
     const Url = sprintf(
-        '/?path=%s--%s', baseUrl, story ? story.toLowerCase() : 'docs'
+        '/?path=/docs/%s--%s', baseUrl, story ? story.toLowerCase() : 'docs'
     );
     return sprintf(
         '<a href="%s">%s</a>', Url, label
