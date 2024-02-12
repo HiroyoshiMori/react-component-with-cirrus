@@ -1,6 +1,6 @@
 {
   "name": "@hiroyoshi-mori/react-components",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": {
     "name": "Hiroyoshi Mori",
     "email": "mori@scriptlab.tokyo"
@@ -96,7 +96,7 @@
     "type": "git",
     "url": "https://github.com/HiroyoshiMori/react-components"
   },
-  "keyword": [
+  "keywords": [
     "react",
     "typescript",
     "component",
