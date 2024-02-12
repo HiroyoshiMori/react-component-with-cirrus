@@ -108,13 +108,13 @@ export default {
             control: 'boolean',
             description: deIndent(`
                             Cause the browser to treat the linked URL as a download. Can be used with or without a <code>filename</code> value:
-                            <span className="li">
+                            <span class="li">
                                 Without a value, the browser will suggest a filename/extension, generated from various sources:
-                                <span className="li">The Content-Disposition HTTP header</span>
-                                <span className="li">The final segment in the URL path</span>
-                                <span className="li">The media type (from the Content-Type header, the start of a data: URL, or Blob.type for a blob: URL)</span>
+                                <span class="li">The Content-Disposition HTTP header</span>
+                                <span class="li">The final segment in the URL path</span>
+                                <span class="li">The media type (from the Content-Type header, the start of a data: URL, or Blob.type for a blob: URL)</span>
                             </span>
-                            <span className="li">
+                            <span class="li">
                                 filename: defining a value suggests it as the filename. &sol; and &bsol; characters are converted to underscores (_).
                                 Filesystems may forbid other characters in filenames, so browsers will adjust the suggested name if necessary.
                             </span>

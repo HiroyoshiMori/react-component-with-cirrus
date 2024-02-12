@@ -86,16 +86,16 @@ export default {
             description: deIndent(`
                         Details the coordinates of the shape attribute in size, shape, and placement of an &lt;area&gt;.
                         This attribute must be not be used if <code>shape</code> is set to <code>default</code>.
-                        <span className="li">
+                        <span class="li">
                             <code>rect</code>: the value is <code>x1,y1,x2,y2</code>.
                             The value specifies the coordinates of the top-left and bottom-right
                              corner of the rectangle.
                         </span>
-                        <span className="li">
+                        <span class="li">
                             <code>circle</code>: the value is <code>x,y,radius</code>.
                             Value specifies the coordinates of the circle center and the radius.
                         </span>
-                        <span className="li">
+                        <span class="li">
                             <code>poly</code>: the value is <code>x1,y1,x2,y2,...,xn,yn</code>.
                             Value specifies the coordinates of the edges of the polygon.
                         </span>
