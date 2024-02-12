@@ -11,9 +11,11 @@ import ExampleImage from '../../assets/file_example_PNG_500kB.png';
  * The &lt;area&gt; HTML element defines an area inside an image map that has predefined clickable areas.
  * An image map allows geometric areas on an image to be associated with hypertext links.
  * This element is used only within a &lt;map&gt; element.
+ *
+ * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area
  */
 export default {
-    title: 'React Component/Element/Area',
+    title: 'React Component/Element/Embed/Area',
     component: Area,
     tags: ['autodocs'],
     parameters: {
@@ -84,21 +86,19 @@ export default {
             description: deIndent(`
                         Details the coordinates of the shape attribute in size, shape, and placement of an &lt;area&gt;.
                         This attribute must be not be used if <code>shape</code> is set to <code>default</code>.
-                        <ul>
-                            <li>
-                                <code>rect</code>: the value is <code>x1,y1,x2,y2</code>.
-                                The value specifies the coordinates of the top-left and bottom-right
-                                 corner of the rectangle.
-                            </li>
-                            <li>
-                                <code>circle</code>: the value is <code>x,y,radius</code>.
-                                Value specifies the coordinates of the circle center and the radius.
-                            </li>
-                            <li>
-                                <code>poly</code>: the value is <code>x1,y1,x2,y2,...,xn,yn</code>.
-                                Value specifies the coordinates of the edges of the polygon.
-                            </li>
-                        </ul>
+                        <span className="li">
+                            <code>rect</code>: the value is <code>x1,y1,x2,y2</code>.
+                            The value specifies the coordinates of the top-left and bottom-right
+                             corner of the rectangle.
+                        </span>
+                        <span className="li">
+                            <code>circle</code>: the value is <code>x,y,radius</code>.
+                            Value specifies the coordinates of the circle center and the radius.
+                        </span>
+                        <span className="li">
+                            <code>poly</code>: the value is <code>x1,y1,x2,y2,...,xn,yn</code>.
+                            Value specifies the coordinates of the edges of the polygon.
+                        </span>
                         The values are numbers of CSS pixels.
                     `),
             table: {

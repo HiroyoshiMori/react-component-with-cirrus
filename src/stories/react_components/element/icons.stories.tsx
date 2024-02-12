@@ -7,7 +7,7 @@ import {
  * Represents a range of fontawesome icon.
  */
 export default {
-    title: 'React Component/Element/Label/Icons',
+    title: 'React Component/Element/Icons',
     component: Icons,
     tags: ['autodocs'],
     parameters: {

@@ -10,10 +10,12 @@ import {action} from "@storybook/addon-actions";
  * file, email addresses, locations in the same page, or anything else a URL can address.
  * Content within each &lt;a&gt; should indicate the link's destination. If the <code>href</code> attribute is present,
  * pressing the enter key while focused on the &lt;a&gt; element will activate it.
+ *
+ * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
  */
 export default {
     title: 'React Component/Element/Anchor',
-    component: 'Anchor',
+    component: Anchor,
     tags: ['autodocs'],
     parameters: {
         componentSubtitle: 'The Anchor element',
@@ -106,20 +108,16 @@ export default {
             control: 'boolean',
             description: deIndent(`
                             Cause the browser to treat the linked URL as a download. Can be used with or without a <code>filename</code> value:
-                            <ul style="display: inline-block;">
-                                <li>
-                                    Without a value, the browser will suggest a filename/extension, generated from various sources:
-                                    <ul>
-                                        <li>The Content-Disposition HTTP header</li>
-                                        <li>The final segment in the URL path</li>
-                                        <li>The media type (from the Content-Type header, the start of a data: URL, or Blob.type for a blob: URL)</li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    filename: defining a value suggests it as the filename. &sol; and &bsol; characters are converted to underscores (_).
-                                    Filesystems may forbid other characters in filenames, so browsers will adjust the suggested name if necessary.
-                                 </li>
-                            </ul>
+                            <span className="li">
+                                Without a value, the browser will suggest a filename/extension, generated from various sources:
+                                <span className="li">The Content-Disposition HTTP header</span>
+                                <span className="li">The final segment in the URL path</span>
+                                <span className="li">The media type (from the Content-Type header, the start of a data: URL, or Blob.type for a blob: URL)</span>
+                            </span>
+                            <span className="li">
+                                filename: defining a value suggests it as the filename. &sol; and &bsol; characters are converted to underscores (_).
+                                Filesystems may forbid other characters in filenames, so browsers will adjust the suggested name if necessary.
+                            </span>
                     `),
             table: {
                 type: {

@@ -4,10 +4,12 @@ import {
 import {deIndent} from "../../../utils";
 
 /**
- * The &lt;h1&gt; to &;t;h6&gt; HTML elements represent six levels of section headings.
+ * The &lt;h1&gt; to &lt;h6&gt; HTML elements represent six levels of section headings.
  * &lt;h1&gt; is the highest section level and &lt;h6&gt; is the lowest. By default,
  * all heading elements create a block-level box in the layout, starting on a new line
  * and taking up the full width available in their containing block.
+ *
+ * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
  */
 export default {
     title: 'React Component/Element/Headline/Heading',

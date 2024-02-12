@@ -34,13 +34,6 @@ export const Default = {
         {...args}
     />,
 };
-/** Option group with selected value */
-export const OptGroupWithSelectedValue = {
-    ...Default,
-    args: {
-        selectedValue: 'option2',
-    },
-};
 /** Option group with disabled */
 export const OptGroupWithDisabled = {
     ...Default,

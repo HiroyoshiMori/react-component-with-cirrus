@@ -24,7 +24,7 @@ export const TextWithDir = {
     ...Default,
     args: {
         dir: 'ltr',
-        dirName: 'text-dir',
+        dirname: 'text-dir',
     },
 };
 /** Text with datalist */

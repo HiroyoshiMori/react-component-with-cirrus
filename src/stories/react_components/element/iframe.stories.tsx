@@ -1,12 +1,262 @@
 import {
     Iframe,
 } from "../../../components";
+import {deIndent} from "../../../utils";
 
+/**
+ * The &lt;iframe&gt; HTML element represents a nested browsing context, embedding another
+ * HTML page into the current one.
+ *
+ * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
+ */
 export default {
+    title: 'React Component/Element/Iframe',
     component: Iframe,
     tags: ['autodocs'],
     parameters: {
         componentSubtitle: 'The Inline Frame element',
+    },
+    argTypes: {
+        element: {
+            control: 'none',
+            description: 'Switcher for <code>Iframe</code> component to render &lt;iframe&gt;',
+            table: {
+                type: {
+                    summary: 'iframe',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        id: {
+            control: 'text',
+            description: 'ID for element',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        title: {
+            control: 'text',
+            type: {
+                required: true,
+            },
+            description: 'Description of the embedded content',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+            },
+        },
+        src: {
+            control: 'text',
+            description: 'The URL of the page to embed. Use a value of <code>about:blank</code> to embed an empty page.',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        width: {
+            control: {type: 'number', min: 0},
+            description: 'The width of the frame in CSS pixels. Default is 300.',
+            table: {
+                type: {
+                    summary: 'number',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        height: {
+            control: {type: 'number', min: 0},
+            description: 'The height of the frame in CSS pixels. Default is 150.',
+            table: {
+                type: {
+                    summary: 'number',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        allow: {
+            control: 'object',
+            description: 'Specifies a Permissions Policy for the &lt;iframe&gt;',
+            table: {
+                type: {
+                    summary: '*|()|self|src|string[]',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        allowFullscreen: {
+            control: 'boolean',
+            description: 'Set <code>true</code> if the &lt;iframe&gt; can activate fullscreen mode',
+            table: {
+                type: {
+                    summary: 'boolean',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        loading: {
+            control: 'select',
+            options: ['Default', 'eager', 'lazy'],
+            mapping: {
+                Default: undefined,
+            },
+            description: 'Defer loading of the iframe until it reaches a calculated distance from the visual viewport',
+            table: {
+                type: {
+                    summary: 'eager|lazy',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        name: {
+            control: 'string',
+            description: 'A targetable name for the embedded browsing context',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        referrerPolicy: {
+            control: 'select',
+            options: [
+                'Default',
+                'no-referrer', 'no-referrer-when-downgrade',
+                'origin', 'origin-when-cross-origin',
+                'same-origin', 'strict-origin', 'strict-origin-when-cross-origin',
+                'unsafe-url',
+            ],
+            mapping: {
+                Default: undefined,
+            },
+            description: 'Indicates which referrer to send when fetching the frame\'s resource:<br />'
+                        + 'Default:strict-origin-when-cross-origin ',
+            table: {
+                type: {
+                    summary: 'no-referrer|no-referrer-when-downgrade|origin|origin-when-cross-origin'
+                            + '|same-origin|strict-origin|strict-origin-when-cross-origin|unsafe-url',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        sandbox: {
+            control: 'select',
+            options: [
+                'Default',
+                'allow-downloads', 'allow-downloads-without-user-activation',
+                'allow-forms', 'allow-modals', 'allow-orientation-lock',
+                'allow-pointer-lock', 'allow-popups', 'allow-popups-to-escape-sandbox',
+                'allow-presentation', 'allow-same-origin', 'allow-scripts',
+                'allow-storage-access-by-user-activation', 'allow-top-navigation',
+                'allow-top-navigation-by-user-activation',
+                'allow-top-navigation-to-custom-protocols',
+            ],
+            mapping: {
+                Default: undefined,
+            },
+            description: 'Controls the restriction applied to the content embedded in the &lt;iframe&gt;.',
+            table: {
+                type: {
+                    summary: 'allow-downloads|allow-downloads-without-user-activation|allow-forms|allow-modals'
+                            + '|allow-orientation-lock|allow-pointer-lock|allow-popups|allow-popups-to-escape-sandbox'
+                            + '|allow-presentation|allow-same-origin|allow-scripts'
+                            + '|allow-storage-access-by-user-activation|allow-top-navigation'
+                            + '|allow-top-navigation-by-user-activation|allow-top-navigation-to-custom-protocols',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        srcDoc: {
+            control: 'text',
+            description: 'Inline HTML to embed, overriding the src attributes.',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        classes: {
+            control: 'object',
+            description: 'Style classes',
+            table: {
+                type: {
+                    summary: 'string[]',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as []',
+                },
+            },
+        },
+        attributes: {
+            control: 'object',
+            description: 'Additional attributes',
+            table: {
+                type: {
+                    summary: 'IframeHTMLAttributes<HTMLIFrameElement>',
+                    detail: deIndent(`
+                            e.g.,
+                            { 'aria-label': 'This is Label' }
+                        `),
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as {}',
+                },
+            },
+        },
+        datasets: {
+            control: 'object',
+            description: 'Datasets. "data-" is added at the beginning of all keys',
+            table: {
+                type: {
+                    summary: 'Map<string, string>',
+                    detail: deIndent(`
+                            e.g.,
+                            new Map([
+                                ['id', 'this-is-id'],
+                                ['name', 'This is Name'],
+                            ]);
+                            => data-id="this-is-id" data-name="This is Name"
+                        `),
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as new Map()'
+                },
+            },
+        },
     },
 };
 // default iframe src
