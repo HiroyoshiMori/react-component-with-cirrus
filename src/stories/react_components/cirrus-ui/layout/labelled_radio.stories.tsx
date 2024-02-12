@@ -1,5 +1,5 @@
 import {action} from "@storybook/addon-actions";
-import {LabelledRadio} from "../../../../components/cirrus-ui";
+import {LabelledRadio} from "../../../../components";
 
 export default {
     component: LabelledRadio,

@@ -1,4 +1,4 @@
-import {CommonDatasetType} from "../components/@types";
+import {CommonDatasetType} from "../components";
 
 /**
  * Sleep like other languages.

@@ -1,4 +1,4 @@
-import {CheckboxGroup} from "../../../../components/cirrus-ui";
+import {CheckboxGroup} from "../../../../components";
 
 export default {
     component: CheckboxGroup,

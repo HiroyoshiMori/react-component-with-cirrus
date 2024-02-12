@@ -1,7 +1,7 @@
 import {Fragment} from "react";
 import {
     Caption,
-} from "../../../../components/cirrus-ui";
+} from "../../../../components";
 
 export default {
     component: Caption,

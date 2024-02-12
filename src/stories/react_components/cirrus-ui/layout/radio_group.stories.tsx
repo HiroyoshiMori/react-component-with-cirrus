@@ -1,4 +1,4 @@
-import {RadioGroup} from "../../../../components/cirrus-ui";
+import {RadioGroup} from "../../../../components";
 
 export default {
     component: RadioGroup,
