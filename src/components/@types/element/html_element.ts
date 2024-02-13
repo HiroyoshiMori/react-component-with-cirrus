@@ -455,7 +455,7 @@ export type LinkProps = ElementCommonProps & {
     integrity?: string;
     mediaQuery?: string[];
     referrerPolicy?: React.HTMLAttributeReferrerPolicy;
-    sizes?: string;
+    sizes?: 'any'|[number, number];
     title?: string;
     attributes?: LinkHTMLAttributes<HTMLLinkElement>;
 };
