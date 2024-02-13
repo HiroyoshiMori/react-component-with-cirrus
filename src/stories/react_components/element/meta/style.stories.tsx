@@ -1,7 +1,15 @@
 import {Fragment} from "react";
 import {Style} from "../../../../components";
+import {deIndent} from "../../../../utils";
 
+/**
+ * The &lt;style&gt; HTML element contains style information for a document, or part of a document.
+ * It contains CSS, which is applied to the contents of the document containing the &lt;style&gt; element.
+ *
+ * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
+ */
 export default {
+    title: 'React Component/Element/Meta/Style',
     component: Style,
     tags: ['autodocs'],
     parameters: {
@@ -16,6 +24,139 @@ export default {
             </Fragment>
         ),
     ],
+    argTypes: {
+        element: {
+            control: 'none',
+            description: 'Switcher for <code>Style</code> component to render &lt;style&gt;',
+            table: {
+                type: {
+                    summary: 'style',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        scoped: {
+            control: 'none',
+            type: {
+                required: true,
+            },
+            description: 'Indicate element as scoped',
+        },
+        id: {
+            control: 'text',
+            description: 'ID for element',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        children: {
+            control: 'text',
+            description: 'Content of this element',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        mediaQuery: {
+            control: 'object',
+            description: 'Defines which media the style should be applied to',
+            table: {
+                type: {
+                    summary: 'string[]',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        nonce: {
+            control: 'text',
+            description: 'A cryptographic nonce (humber used once) used to allow inline styles in '
+                        + 'a style-src Content-Security-Policy',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        title: {
+            control: 'text',
+            description: 'Specifies alternative stylesheet sets',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        classes: {
+            control: 'object',
+            description: 'Style classes',
+            table: {
+                type: {
+                    summary: 'string[]',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as []',
+                },
+            },
+        },
+        attributes: {
+            control: 'object',
+            description: 'Additional attributes',
+            table: {
+                type: {
+                    summary: 'StyleHTMLAttributes<HTMLStyleElement>',
+                    detail: deIndent(`
+                            e.g.,
+                            { 'aria-label': 'This is Label' }
+                        `),
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as {}',
+                },
+            },
+        },
+        datasets: {
+            control: 'object',
+            description: 'Datasets. "data-" is added at the beginning of all keys',
+            table: {
+                type: {
+                    summary: 'Map<string, string>',
+                    detail: deIndent(`
+                            e.g.,
+                            new Map([
+                                ['id', 'this-is-id'],
+                                ['name', 'This is Name'],
+                            ]);
+                            => data-id="this-is-id" data-name="This is Name"
+                        `),
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as new Map()'
+                },
+            },
+        },
+    },
 };
 /** Default style */
 export const Default = {
