@@ -5,7 +5,6 @@ import {
     List,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
-import {HTMLAttributes} from "react";
 
 /**
  * The &lt;dt&gt; element specifies a term in a description or definition list, and as such must be

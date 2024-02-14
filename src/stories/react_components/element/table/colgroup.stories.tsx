@@ -162,7 +162,7 @@ export const Default = {
 };
 /** Colgroup with span */
 export const ColGroupWithSpan = {
-    render: (args: any) => <Fragment>
+    render: () => <Fragment>
         <ColGroup cols={[{}]} />
         <ColGroup span={2} cols={[{}, {}]} />
         <ColGroup cols={[{}]} />

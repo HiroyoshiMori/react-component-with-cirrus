@@ -5,7 +5,6 @@ import {
     List,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
-import {HTMLAttributes} from "react";
 
 /**
  * The &lt;dd&gt; HTML element provides the description, definition, or value for the preceding
