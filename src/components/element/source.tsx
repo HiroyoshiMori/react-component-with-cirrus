@@ -61,7 +61,7 @@ export const Source = (props: SourceProps) => {
         }
         if (mediaSizes && Array.isArray(mediaSizes)) {
             con = '';
-            mediaSizes.map((mediaSize: SourceSizesProps, idx: number) => {
+            mediaSizes.forEach((mediaSize: SourceSizesProps, idx: number) => {
                 sizes += sprintf(
                     '%s(%s) %s',
                     con, mediaSize.mediaQuery.join(') and ('),

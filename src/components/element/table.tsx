@@ -55,8 +55,8 @@ export const Table = (props: TableProps) => {
                 {
                     tbody && Array.isArray(tbody) ? tbody.map((tbody: TbodyProps|TrProps, idx: number) => {
                         return (Object.hasOwn(tbody, 'rows'))
-                            ? <Tbody {...(tbody as TbodyProps)} element={'tbody'} />
-                            : <TableRow {...(tbody as TrProps)} element={'tr'} />;
+                            ? <Tbody key={idx} {...(tbody as TbodyProps)} element={'tbody'} />
+                            : <TableRow key={idx} {...(tbody as TrProps)} element={'tr'} />;
                     }) : function() {
                         return (Object.hasOwn(tbody, 'rows'))
                             ? <Tbody {...(tbody as TbodyProps)} element={'tbody'} />

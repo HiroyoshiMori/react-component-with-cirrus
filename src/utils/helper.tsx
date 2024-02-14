@@ -23,7 +23,7 @@ export function linkInStoryBook (label: string, title: string, story?: string): 
     return ReactDOMServer.renderToString(
         <Fragment>
             <a href={Url} onClick={
-                (e) => navigate({
+                () => navigate({
                     title: title,
                     story: 'docs',
                 })
