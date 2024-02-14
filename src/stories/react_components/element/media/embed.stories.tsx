@@ -15,7 +15,7 @@ import {deIndent} from "../../../../utils";
  * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed
  */
 export default {
-    title: 'React Component/Element/Embed/Embed',
+    title: 'React Component/Element/Media/Embed',
     component: Media,
     tags: ['autodocs'],
     parameters: {

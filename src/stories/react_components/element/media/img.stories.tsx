@@ -23,7 +23,7 @@ import ExampleImageX4 from '../../../assets/file_example_PNG_2100kB.png';
  * Credits: Media files are Copyright file-examples.com | https://file-examples.com/
  */
 export default {
-    title: 'React Component/Element/Embed/Img',
+    title: 'React Component/Element/Media/Img',
     component: Media,
     tags: ['autodocs'],
     parameters: {

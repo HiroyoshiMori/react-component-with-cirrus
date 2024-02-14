@@ -56,7 +56,7 @@ export default {
                 required: true,
             },
             description: deIndent(`
-                            Ruby text components of a ruby annotation
+                            Ruby text components of a ruby annotation<br />
                             👉 See:&nbsp;
                         `)
                         + linkInStoryBook(

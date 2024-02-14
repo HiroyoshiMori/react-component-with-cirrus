@@ -11,7 +11,7 @@ import ExampleImage from '../../../assets/file_example_PNG_500kB.png';
  * Credits: Media files are Copyright file-examples.com | https://file-examples.com/
  */
 export default {
-    title: 'React Component/Element/Embed/Object',
+    title: 'React Component/Element/Media/Object',
     component: Media,
     tags: ['autodocs'],
     parameters: {

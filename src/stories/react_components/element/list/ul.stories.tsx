@@ -3,8 +3,15 @@ import {
     getCssFramework,
     List,
 } from "../../../../components";
+import {deIndent, linkInStoryBook} from "../../../../utils";
 
+/**
+ * The &lt;ul&gt; HTML element represents an unordered list of items, typically rendered as bulleteed list.
+ *
+ * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul
+ */
 export default {
+    title: 'React Component/Element/List/Ul',
     component: List,
     tags: ['autodocs'],
     parameters: {
@@ -17,8 +24,115 @@ export default {
             >
                 <Story />
             </Container>
-        )
-    ]
+        ),
+    ],
+    argTypes: {
+        element: {
+            control: 'none',
+            description: 'Switcher for <code>List</code> component to render &lt;ul&gt;',
+            table: {
+                type: {
+                    summary: 'ul',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        id: {
+            control: 'text',
+            description: 'ID for element',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        items: {
+            control: 'object',
+            description: deIndent(`
+                            Item of the list<br />
+                            👉 See:&nbsp;
+                        `)
+                        + linkInStoryBook(
+                            'LilProps', 'React Component/Element/List/Li'
+                        ) + ' / '
+                        + linkInStoryBook(
+                            'ScriptProps', 'React Component/Element/Script'
+                        ) + ' / '
+                        + linkInStoryBook(
+                            'TemplateProps', 'React Component/Element/Container/Template'
+                        ),
+            table: {
+                type: {
+                    summary: deIndent(`
+                                (
+                                    LiProps
+                                    | ScriptProps & {element: 'script'}
+                                    | TemplateProps & {element: 'template'}
+                                )[]
+                            `),
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        classes: {
+            control: 'object',
+            description: 'Style classes',
+            table: {
+                type: {
+                    summary: 'string[]',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as []',
+                },
+            },
+        },
+        attributes: {
+            control: 'object',
+            description: 'Additional attributes',
+            table: {
+                type: {
+                    summary: 'HTMLAttributes<HTMLUListElement>',
+                    detail: deIndent(`
+                            e.g.,
+                            { 'aria-label': 'This is Label' }
+                        `),
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as {}',
+                },
+            },
+        },
+        datasets: {
+            control: 'object',
+            description: 'Datasets. "data-" is added at the beginning of all keys',
+            table: {
+                type: {
+                    summary: 'Map<string, string>',
+                    detail: deIndent(`
+                            e.g.,
+                            new Map([
+                                ['id', 'this-is-id'],
+                                ['name', 'This is Name'],
+                            ]);
+                            => data-id="this-is-id" data-name="This is Name"
+                        `),
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as new Map()'
+                },
+            },
+        },
+    },
 };
 /** Default unordered list */
 export const Default = {

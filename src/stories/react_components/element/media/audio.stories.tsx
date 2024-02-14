@@ -17,7 +17,7 @@ import ExampleAudioOgg from '../../../assets/file_example_OOG_1MG.ogg';
  * Credits: Media files are Copyright file-examples.com | https://file-examples.com/
  */
 export default {
-    title: 'React Component/Element/Embed/Audio',
+    title: 'React Component/Element/Media/Audio',
     component: Media,
     tags: ['autodocs'],
     parameters: {

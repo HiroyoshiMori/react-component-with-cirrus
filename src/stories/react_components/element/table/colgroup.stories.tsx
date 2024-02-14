@@ -79,7 +79,7 @@ export default {
         cols: {
             control: 'object',
             description: deIndent(`
-                            Columns in this group
+                            Columns in this group<br />
                             👉 See:&nbsp;
                         `)
                         + linkInStoryBook(
