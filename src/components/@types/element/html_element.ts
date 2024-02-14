@@ -759,7 +759,7 @@ export type TableProps = ElementCommonProps & {
     colgroup?: ColGroupProps[];
     thead?: TheadProps;
     tfoot?: TfootProps;
-    tbody: TbodyProps[] | TrProps | TrProps[];
+    tbody: TbodyProps | TbodyProps[] | TrProps | TrProps[];
     attributes?: TableHTMLAttributes<HTMLTableElement>;
 };
 /** Type definition of property for tbody (used in table) */
@@ -967,7 +967,8 @@ export type SourceSrcProps = SourceCommonProps & {
 };
 /** Type definition for property for source which is used for picture */
 export type SourceSrcsetProps = SourceCommonProps & {
-    srcSet: SrcSetProps[];
+    srcSet: SrcSetInSourceProps[];
+    sizes?: SourceSizesProps[];
     defaultSize?: number|string;
 };
 /** Type definition of property for table cell */
@@ -991,9 +992,14 @@ export type ImageSrcSetProps = {
     src: string;
 };
 /** Type definition of srcset for source */
-export type SrcSetProps = {
+export type SrcSetInSourceProps = {
     mediaSize?: number|string;
     src: string;
+};
+/** Type definition of sizes for source */
+export type SourceSizesProps = {
+    mediaQuery: string[],
+    size: number|string;
 };
 /** Type definition of item property for dl */
 export type DlItemProps = [
