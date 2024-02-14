@@ -2,8 +2,17 @@ import {Fragment} from "react";
 import {
     Col,
 } from "../../../../components";
+import {deIndent} from "../../../../utils";
 
+/**
+ * The %lt;col&gt; HTML element defines one or more columns in a column group represented by its parent
+ * &lt;colgroup&gt; element. The &lt;col&gt; element is only valid as a child of a &lt;colgroup&gt;
+ * element that has no span attribute defined.
+ *
+ * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col
+ */
 export default {
+    title: 'React Component/Element/Table/Col',
     component: Col,
     tags: ['autodocs'],
     parameters: {
@@ -34,6 +43,95 @@ export default {
             </Fragment>
         ),
     ],
+    argTypes: {
+        element: {
+            control: 'none',
+            description: 'Switcher for <code>Col</code> component to render &lt;col&gt;',
+            table: {
+                type: {
+                    summary: 'col',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        id: {
+            control: 'text',
+            description: 'ID for element',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        span: {
+            control: {type: 'number', min: 1},
+            description: 'Specifies the number of consecutive columns the &lt;col&gt; element spans.',
+            table: {
+                type: {
+                    summary: 'number',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        classes: {
+            control: 'object',
+            description: 'Style classes',
+            table: {
+                type: {
+                    summary: 'string[]',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as []',
+                },
+            },
+        },
+        attributes: {
+            control: 'object',
+            description: 'Additional attributes',
+            table: {
+                type: {
+                    summary: 'ColHTMLAttributes<HTMLTableColElement>',
+                    detail: deIndent(`
+                            e.g.,
+                            { 'aria-label': 'This is Label' }
+                        `),
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as {}',
+                },
+            },
+        },
+        datasets: {
+            control: 'object',
+            description: 'Datasets. "data-" is added at the beginning of all keys',
+            table: {
+                type: {
+                    summary: 'Map<string, string>',
+                    detail: deIndent(`
+                            e.g.,
+                            new Map([
+                                ['id', 'this-is-id'],
+                                ['name', 'This is Name'],
+                            ]);
+                            => data-id="this-is-id" data-name="This is Name"
+                        `),
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as new Map()'
+                },
+            },
+        },
+    },
 };
 // Default col
 const DefaultCol1 = {

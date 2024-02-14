@@ -1,38 +1,59 @@
 import {Fragment} from "react";
-import {
-    OptGroup,
-} from "../../../../components";
+import {THeadFoot} from "../../../../components";
 import {deIndent, linkInStoryBook} from "../../../../utils";
 
 /**
- * The &lt;optgroup&gt; HTML element creates a grouping of options with a &lt;select&gt; element.
+ * The &lt;thead&gt; HTML element encapsulates a set of table rows (&lt;tr&gt; elements), indicating
+ * that they comprise the head of a table with information about the table's columns.
+ * This is usually is the form of column headers (&lt;th&gt; elements).
  *
- * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup
+ * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead
  */
 export default {
-    title: 'React Component/Element/Select/OptGroup',
-    component: OptGroup,
+    title: 'React Component/Element/Table/Thead',
+    component: THeadFoot,
     tags: ['autodocs'],
     parameters: {
-        componentSubtitle: 'The Option Group element',
+        componentSubtitle: 'The Table Head element',
     },
     decorators: [
         (Story: any) => (
             <Fragment>
-                <select>
-                    <option>--- Please selection option ---</option>
-                    <Story/>
-                </select>
+                <table>
+                    <Story />
+                    <tbody>
+                    <tr>
+                        <td>Cell 1-1</td>
+                        <td>Cell 1-2</td>
+                        <td>Cell 1-3</td>
+                    </tr>
+                    <tr>
+                        <td>Cell 2-1</td>
+                        <td>Cell 2-2</td>
+                        <td>Cell 2-3</td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th id={'footer1'}>Foot 1</th>
+                        <th id={'footer2'}>Foot 2</th>
+                        <th id={'footer3'}>Foot 3</th>
+                    </tr>
+                    </tfoot>
+                </table>
             </Fragment>
         ),
     ],
     argTypes: {
         element: {
             control: 'none',
-            description: 'Switcher for <code>OptGroup</code> component to render &lt;optgroup&gt;',
+            type: {
+                required: true,
+            },
+            description: 'Switcher for <code>THeadFoot</code> component to render &lt;thead&gt;',
             table: {
                 type: {
-                    summary: 'optgroup',
+                    summary: 'thead',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -51,57 +72,21 @@ export default {
                 },
             },
         },
-        is: {
-            control: 'none',
-            type: {
-                required: true,
-            },
-            description: 'Options in option group',
-            table: {
-                type: {
-                    summary: 'optgroup',
-                },
-            },
-        },
-        label: {
-            control: 'text',
-            type: {
-                required: true,
-            },
-            description: 'Option group label',
-            table: {
-                type: {
-                    summary: 'string',
-                },
-            },
-        },
-        options: {
+        row: {
             control: 'object',
             type: {
                 required: true,
             },
             description: deIndent(`
-                            Options in group<br />
+                            Rows in table head<br />
                             👉 See:&nbsp;
                         `)
-                        + linkInStoryBook(
-                            'OptionProps', 'React Component/Element/Select/Option'
-                        ),
+                + linkInStoryBook(
+                    'TheadRowProps which allows only ThProps as cells', 'React Component/Element/Table/Tr'
+                ),
             table: {
                 type: {
-                    summary: 'OptionProps[]',
-                },
-            },
-        },
-        disabled: {
-            control: 'boolean',
-            description: 'True if disable options in the group',
-            table: {
-                type: {
-                    summary: 'boolean',
-                },
-                defaultValue: {
-                    summary: 'undefined',
+                    summary: 'TheadRowProps[]',
                 },
             },
         },
@@ -123,7 +108,7 @@ export default {
             description: 'Additional attributes',
             table: {
                 type: {
-                    summary: 'OptgroupHTMLAttributes<HTMLOptGroupElement>',
+                    summary: 'HTMLAttributes<HTMLTableSectionElement>',
                     detail: deIndent(`
                             e.g.,
                             { 'aria-label': 'This is Label' }
@@ -158,51 +143,49 @@ export default {
         },
     },
 };
-/** Default option group */
+/** Default table head */
 export const Default = {
-    render: (args: any) => <OptGroup
-        is={'optgroup'}
-        label={'Option Group'}
-        options={[
-            {value: 'option1', children: 'Option 1'},
-            {value: 'option2', children: 'Option 2'},
-            {children: 'Option 3'},
-            {value: 'option4', children: 'Option 4'},
+    render: (args: any) => <THeadFoot
+        element={'thead'}
+        rows={[
+            {
+                element: 'tr',
+                cells: [
+                    {element: 'th', children: 'Head 1'},
+                    {element: 'th', children: 'Head 2'},
+                    {element: 'th', children: 'Head 3'},
+                ],
+            },
         ]}
         {...args}
     />,
 };
-/** Option group with disabled */
-export const OptGroupWithDisabled = {
-    ...Default,
-    args: {
-        disabled: true,
-    },
-};
-/** Option group with style classes */
-export const OptGroupWithStyleClasses = {
+/** Table head with style classes */
+export const TableHeadWithStyleClasses = {
     ...Default,
     args: {
         classes: ['test-class1', 'test-class2'],
     },
 };
-/** Option group with additional attributes */
-export const OptGroupWithAdditionalAttributes = {
+/** Table head with additional attributes */
+export const TableHeadWithAdditionalAttributes = {
     ...Default,
     args: {
         attributes: {
-            'aria-label': 'Option Group Label',
-            'aria-placeholder': 'Option Group Placeholder',
+            'aria-label': 'Table Head Label',
+            'aria-placeholder': 'Table Head Placeholder',
         },
     },
 };
-/** Option group with datasets */
-export const OptGroupWithDatasets = {
+/** Table head with datasets */
+export const TableHeadWithDatasets = {
     ...Default,
     args: {
         datasets: new Map([
-            ['id', 'data-optgroup-id'],
-            ['name', 'Data Option Group Name'],
+            ['id', 'data-thead-id'],
+            ['name', 'Data Table Head Name'],
         ]),
     },
 };
+
+

@@ -1,33 +1,61 @@
-import {
-    Media,
-} from "../../../../components";
-// @ts-ignore
-import ExampleImage from '../../../assets/file_example_PNG_500kB.png';
-// @ts-ignore
-import FileExampleMp4 from '../../../assets/file_example_MP4_480_1_5MG.mp4';
+import {Fragment} from "react";
+import {TableCell} from "../../../../components";
 import {deIndent} from "../../../../utils";
 
 /**
- * The &lt;embed&gt; HTML element embeds external content at the specified point in the document.
- * This content is provided by an external application or other source of interactive content such
- * as a browser plugin.
+ * The &lt;td&gt; element defines a cell of a table that contains data and may be used as a child
+ * of the &lt;tr&gt; element.
  *
- * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed
+ * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td
  */
 export default {
-    title: 'React Component/Element/Embed/Embed',
-    component: Media,
+    title: 'React Component/Element/Table/Td',
+    component: TableCell,
     tags: ['autodocs'],
     parameters: {
-        componentSubtitle: 'The Embed External Content element',
+        componentSubtitle: 'The Table Data Cell element',
     },
-    argTypes: {
+    decorators: [
+        (Story: any) => (
+            <Fragment>
+                <table>
+                    <thead>
+                    <tr>
+                        <th id={'header1'}>Head 1</th>
+                        <th id={'header2'}>Head 2</th>
+                        <th id={'header3'}>Head 3</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <Story/>
+                        <td>Cell 1-2</td>
+                        <td>Cell 1-3</td>
+                    </tr>
+                    <tr>
+                        <td>Cell 2-1</td>
+                        <td>Cell 2-2</td>
+                        <td>Cell 2-3</td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th id={'footer1'}>Foot 1</th>
+                        <th id={'footer2'}>Foot 2</th>
+                        <th id={'footer3'}>Foot 3</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </Fragment>
+        ),
+    ],
+    argType: {
         element: {
             control: 'none',
-            description: 'Switcher for <code>Embed</code> component to render &lt;embed&gt;',
+            description: 'Switcher for <code>TableCell</code> component to render &lt;td&gt;',
             table: {
                 type: {
-                    summary: 'embed',
+                    summary: 'td',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -46,45 +74,21 @@ export default {
                 },
             },
         },
-        src: {
+        children: {
             control: 'text',
-            type: {
-                required: true,
-            },
-            description: 'The URL of the resource being embedded',
+            description: 'Content of this element',
             table: {
                 type: {
-                    summary: 'string',
-                },
-            },
-        },
-        type: {
-            control: 'text',
-            description: 'The MIME type to use to select the plugin to instantiate',
-            table: {
-                type: {
-                    summary: 'string',
+                    summary: 'ReactNode',
                 },
                 defaultValue: {
                     summary: 'undefined',
                 },
             },
         },
-        title: {
-            control: 'text',
-            description: 'Specifies title of the external content',
-            table: {
-                type: {
-                    summary: 'string',
-                },
-                defaultValue: {
-                    summary: 'undefined',
-                },
-            },
-        },
-        width: {
+        colSpan: {
             control: {type: 'number', min: 1},
-            description: 'The displayed width of the resource, in CSS pixel',
+            description: 'Indicates how many columns the data cell spans or extends',
             table: {
                 type: {
                     summary: 'number',
@@ -94,12 +98,25 @@ export default {
                 },
             },
         },
-        height: {
+        rowSpan: {
             control: {type: 'number', min: 1},
-            description: 'The displayed height of the resource, in CSS pixel',
+            description: 'Indicates how many rows the data cell spans or expands',
             table: {
                 type: {
                     summary: 'number',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        headers: {
+            control: 'object',
+            description: 'Contains a list of each corresponding to the <code>id</code> attribute of '
+                        + 'the &lt;th&gt; elements that provide headings for this table cell.',
+            table: {
+                type: {
+                    summary: 'string[]',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -124,7 +141,7 @@ export default {
             description: 'Additional attributes',
             table: {
                 type: {
-                    summary: 'EmbedHTMLAttributes<HTMLEmbedElement>',
+                    summary: 'TdHTMLAttributes<HTMLTableCellElement>',
                     detail: deIndent(`
                             e.g.,
                             { 'aria-label': 'This is Label' }
@@ -159,51 +176,60 @@ export default {
         },
     }
 };
-// Default embed
-const DefaultEmbed = {
-    element: 'embed',
-    src: ExampleImage,
-    type: 'image/png',
-};
-/** Default embed */
+/** Default table cell */
 export const Default = {
-    render: (args: any) => <Media
-        {...DefaultEmbed}
+    render: (args: any) => <TableCell
+        element={'td'}
         {...args}
-    />,
+    >
+        Cell 1-1
+    </TableCell>,
 };
-/** Embed video */
-export const EmbedVideo = {
+/** Table cell with colspan */
+export const TableCellWithColSpan = {
     ...Default,
     args: {
-        src: FileExampleMp4,
-        type: 'video/mp4',
+        colSpan: 2,
     },
 };
-/** Embed with style classes */
-export const EmbedWithStyleClasses = {
+/** Table cell with rowspan */
+export const TableCellWithRowSpan = {
+    ...Default,
+    args: {
+        rowSpan: 2,
+    },
+};
+/** Table cell with headers */
+export const TableCellWithHeaders = {
+    ...Default,
+    args: {
+        headers: ['header1', 'footer1'],
+    },
+};
+/** Table cell with style classes */
+export const TableCellWithStyleClasses = {
     ...Default,
     args: {
         classes: ['test-class1', 'test-class2'],
     },
 };
-/** Embed with additional attributes */
-export const EmbedWithAdditionalAttributes = {
+/** Table cell with additional attributes */
+export const TableCellWithAdditionalAttributes = {
     ...Default,
     args: {
         attributes: {
-            'aria-label': 'Embed Label',
-            'aria-placeholder': 'Embed Placeholder',
+            'aria-label': 'Table Cell Label',
+            'aria-placeholder': 'Table Cell Placeholder',
         },
     },
 };
-/** Embed with datasets */
-export const EmbedWithDatasets = {
+/** Table cell with datasets */
+export const TableCellWithDatasets = {
     ...Default,
     args: {
         datasets: new Map([
-            ['id', 'data-embed-id'],
-            ['name', 'Data Embed Name'],
+            ['id', 'data-td-id'],
+            ['name', 'Data Table Cell Name'],
         ]),
     },
 };

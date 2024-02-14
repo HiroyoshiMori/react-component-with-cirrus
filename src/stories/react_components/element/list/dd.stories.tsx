@@ -4,12 +4,107 @@ import {
     DtProps,
     List,
 } from "../../../../components";
+import {deIndent} from "../../../../utils";
+import {HTMLAttributes} from "react";
 
+/**
+ * The &lt;dd&gt; HTML element provides the description, definition, or value for the preceding
+ * term (&lt;dt&gtl) in a description list (&lt;dl&gt;).
+ *
+ * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd
+ */
 export default {
+    title: 'React Component/Element/List/Dd',
     component: DItem,
     tags: ['autodocs'],
     parameters: {
         componentSubtitle: 'The Description Details element',
+    },
+    argTypes: {
+        element: {
+            control: 'none',
+            description: 'Switcher for <code>DItem</code> component to render &lt;dd&gt;',
+            table: {
+                type: {
+                    summary: 'dd',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        id: {
+            control: 'text',
+            description: 'ID for element',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        children: {
+            control: 'text',
+            description: 'The description, definition, or value',
+            table: {
+                type: {
+                    summary: 'ReactNode',
+                },
+            },
+        },
+        classes: {
+            control: 'object',
+            description: 'Style classes',
+            table: {
+                type: {
+                    summary: 'string[]',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as []',
+                },
+            },
+        },
+        attributes: {
+            control: 'object',
+            description: 'Additional attributes',
+            table: {
+                type: {
+                    summary: 'HTMLAttributes<HTMLElement>',
+                    detail: deIndent(`
+                            e.g.,
+                            { 'aria-label': 'This is Label' }
+                        `),
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as {}',
+                },
+            },
+        },
+        datasets: {
+            control: 'object',
+            description: 'Datasets. "data-" is added at the beginning of all keys',
+            table: {
+                type: {
+                    summary: 'Map<string, string>',
+                    detail: deIndent(`
+                            e.g.,
+                            new Map([
+                                ['id', 'this-is-id'],
+                                ['name', 'This is Name'],
+                            ]);
+                            => data-id="this-is-id" data-name="This is Name"
+                        `),
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as new Map()'
+                },
+            },
+        },
     },
 };
 // Default description details */
