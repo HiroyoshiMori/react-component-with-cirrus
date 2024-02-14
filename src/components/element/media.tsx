@@ -30,6 +30,8 @@ export const Media = (props: TypeMedia) => {
                 (element === 'embed') ? (
                     <Tag
                         {...restProps}
+                        width={props.width && props.width > 0 ? props.width : undefined}
+                        height={props.height && props.height > 0 ? props.height : undefined}
                         className={joinClasses(classes)}
                         {...attributes}
                         {...datasetShown}

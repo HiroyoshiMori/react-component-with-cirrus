@@ -16,7 +16,7 @@ export const AUTOCOMPLETES = [
     'bday', 'bday-day', 'bday-month', 'bday-year',
     'sex',
     'tel', 'tel-country-code', 'tel-national', 'tel-area-code', 'tel-local', 'tel-extension',
-    'impp', 'url', 'photo',
+    'impp', 'url', 'photo', 'webauthn',
 ];
 // list of input modes
 export const INPUT_MODES = [

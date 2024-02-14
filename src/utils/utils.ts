@@ -1,5 +1,4 @@
 import {CommonDatasetType} from "../components";
-import {sprintf} from "sprintf-js";
 
 /**
  * Sleep like other languages.
@@ -205,15 +204,4 @@ export function deIndent(str: string): string {
         .replace(/^\n/, '');
 }
 
-export function linkInStoryBook (label: string, title: string, story?: string) {
-    const baseUrl = title
-        .replace(/\//g, '-')
-        .replace(/ /g, '-')
-        .toLowerCase()
-    const Url = sprintf(
-        '/?path=/docs/%s--%s', baseUrl, story ? story.toLowerCase() : 'docs'
-    );
-    return sprintf(
-        '<a href="%s">%s</a>', Url, label
-    );
-}
+export * from './helper';

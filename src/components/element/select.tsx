@@ -21,6 +21,7 @@ export const Select = (props: SelectProps) => {
         element: _,
         options = [],
         selectedValue,
+        size,
         classes = [],
         attributes = {},
         datasets = new Map(),
@@ -35,6 +36,7 @@ export const Select = (props: SelectProps) => {
             <select
                 {...restProps}
                 defaultValue={selectedValue}
+                size={size && size > 0 ? size : undefined}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}

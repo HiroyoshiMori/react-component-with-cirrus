@@ -9,7 +9,7 @@ This modules is set of react components which uses Font Awesome Free for some ic
 
 ## Quick install
 
-### NPM (Planned)
+### NPM
 
 ```shell
 npm install @hiroyoshi-mori/react-components
@@ -17,7 +17,7 @@ npm install @hiroyoshi-mori/react-components
 
 ** or **
 
-### Yarn (Planned)
+### Yarn
 
 ``` shell
 yarn @hiroyoshi-mori/react-components
@@ -27,7 +27,7 @@ yarn @hiroyoshi-mori/react-components
 
 After installation, you can import components into your project using this snippet:
 ```typescript
-import * as ReactComponents from '@hiroyoshi-mori/react-component';
+import * as CustomComponents from '@hiroyoshi-mori/react-component';
 ```
 
 ## Browser Support
