@@ -14,7 +14,6 @@ const config: StorybookConfig = {
     "@storybook/addon-interactions",
     "storybook-addon-deep-controls",
     '@hiroyoshi-mori/storybook-css-framework-switcher',
-    "@storybook/addon-mdx-gfm"
   ],
   framework: {
     name: "@storybook/react-webpack5",

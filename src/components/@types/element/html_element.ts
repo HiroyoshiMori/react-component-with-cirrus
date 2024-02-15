@@ -1025,7 +1025,8 @@ export type InputButtonProps = InputCommonProps & {
 /** Type definition of property for input[type=checkbox] */
 export type InputCheckboxProps = InputCommonProps & {
     type: 'checkbox';
-    defaultChecked?: boolean;
+    value?: string | number | boolean;
+    checked?: boolean;
     required?: boolean;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
@@ -1047,12 +1048,12 @@ export type InputDateProps = InputCommonProps & {
     defaultValue?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     autoComplete?: AutoCompleteTypes;
-    max?: number;
-    min?: number;
+    max?: string;
+    min?: string;
     pattern?: string;
     readOnly?: boolean;
     required?: boolean;
-    step?: number;
+    step?: number|'any';
     list?: string;
     datalist?: string[];
 };
@@ -1132,7 +1133,8 @@ export type InputPasswordProps = InputCommonProps & {
 /** Type definition of property for input[type=radio] */
 export type InputRadioProps = InputCommonProps & {
     type: 'radio';
-    defaultChecked?: boolean;
+    value?: string | number | boolean;
+    checked?: boolean;
     required?: boolean;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };

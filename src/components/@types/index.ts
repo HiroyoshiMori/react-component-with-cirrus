@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------
 // Global type/variable definition for general tags
 // ----------------------------------------------------------------------
-// list of autocomplete
+/** list of autocomplete */
 export const AUTOCOMPLETES = [
     'off', 'on',
     'name', 'honorific-prefix', 'given-name', 'additional-name', 'family-name', 'honorific-suffix', 'nickname',
@@ -17,15 +17,15 @@ export const AUTOCOMPLETES = [
     'sex',
     'tel', 'tel-country-code', 'tel-national', 'tel-area-code', 'tel-local', 'tel-extension',
     'impp', 'url', 'photo', 'webauthn',
-];
-// list of input modes
+] as const;
+/** list of input modes */
 export const INPUT_MODES = [
     'none', 'text', 'tel', 'url', 'email', 'numeric', 'decimal', 'search',
-];
-// list of text wraps
+] as const;
+/** list of text wraps */
 export const TEXT_WRAPS = [
     'hard', 'soft', 'off',
-];
+] as const;
 
 /** Type definition for autocomplete */
 export type AutoCompleteTypes = typeof AUTOCOMPLETES[number];
@@ -34,33 +34,33 @@ export type InputModeTypes = typeof INPUT_MODES[number];
 /** Type definition for text wrap */
 export type TextWrapTypes = typeof TEXT_WRAPS[number];
 
-// list of cross origin
+/** list of cross origin */
 export const CROSS_ORIGINS = [
     'anonymous', 'use-credentials',
-];
-// list of decoding
+] as const;
+/*+ list of decoding */
 export const DECODINGS = [
     'auto', 'sync', 'async',
-];
-// list of fetch policy
+] as const;
+/** list of fetch policy */
 export const FETCH_POLICIES = [
     'auto', 'high', 'low',
-];
-// list of loading
+] as const;
+/** list of loading */
 export const LOADINGS = [
     'eager', 'lazy',
-];
-// list of sandbox
+] as const;
+/** list of sandbox */
 export const SANDBOXES = [
     'allow-download', 'allow-downloads-without-user-activation', 'allow-forms', 'allow-modals',
     'allow-orientation-lock', 'allow-pointer-lock', 'allow-popups', 'allow-popups-to-escape-sandobox',
     'allow-presentation', 'allow-same-origin', 'allow-scripts', 'allow-storage-access-by-user-activation',
     'allow-top-navigation', 'allow-top-navigation-by-user-activation', 'allow-top-navigation-to-custom-protocols',
-];
-// list of link as
+] as const;
+/** list of link as */
 export const LINK_AS = [
     'audio', 'document', 'embed', 'fetch', 'font', 'image', 'object', 'script', 'style', 'track', 'video', 'worker',
-];
+] as const;
 
 /** Type definition for cross origin */
 export type CrossOriginTypes = typeof CROSS_ORIGINS[number];
@@ -78,47 +78,46 @@ export type LinkAsTypes = typeof LINK_AS[number];
 // ----------------------------------------------------------------------
 // Global type/variable definition for input
 // ----------------------------------------------------------------------
-// list of input[type=text] types
+/** list of input[type=text] types */
 export const INPUT_TEXT_TYPES = [
     'text', 'search', 'email', 'url', 'tel', 'password', 'number',
-];
-// list of input types
+] as const;
+/** list of input types */
 export const INPUT_TYPES = INPUT_TEXT_TYPES || [
     'checkbox', 'radio',
     'date', 'time',
     'color', 'file',
     'range',
-];
-// List of input states
+] as const;
+/** List of input states */
 export const INPUT_STATES = [
     'focused', 'disabled', 'success', 'error',
-];
-// list of form enctypes
+] as const;
+/** list of form enctypes */
 export const FORM_ENCTYPES = [
     'application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain',
-];
-// list of form methods
+] as const;
+/** list of form methods */
 export const FORM_METHODS = [
     'get', 'post', 'dialog',
-];
-// list of targets
+] as const;
+/** list of targets */
 export const TARGETS = [
     '_self', '_blank', '_parent', '_top',
-];
-// list of autocapitalizes
+] as const;
+/** list of autocapitalizes */
 export const AUTOCAPITALIZES = [
     'none', 'off', 'sentences', 'on', 'words',
-];
-// list of preload
+] as const;
+/** list of preload */
 export const PRELOADS = [
     'none', 'metadata', 'auto', '',
-];
-// list of controlslist
+] as const;
+/** list of controls list */
 export const CONTROLS_LIST = [
     'nofullscreen', 'nodownload', 'noremoteplayback',
     'play', 'timeline', 'volume',
-
-];
+] as const;
 
 /** Type definition for field types of input[type=text] */
 export type InputTextTypes = typeof INPUT_TEXT_TYPES[number];
@@ -136,7 +135,7 @@ export type TargetTypes = typeof TARGETS[number] | string;
 export type AutoCapitalizeTypes = typeof AUTOCAPITALIZES[number];
 /** Type definition for preload */
 export type PreloadTypes = typeof PRELOADS[number];
-/** Type definition for controlslist */
+/** Type definition for controls list */
 export type ControlsListTypes = typeof CONTROLS_LIST[number];
 
 // ----------------------------------------------------------------------
