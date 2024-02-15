@@ -46,6 +46,56 @@ export const Input = (props: InputProps) => {
         delete itemProps.datalist;
         itemProps.list = itemProps.list ?? generateId();
     }
+    if (Object.hasOwn(itemProps, 'step') && typeof itemProps.step === 'number') {
+        if (itemProps.step < 1) {
+            delete itemProps.step;
+        }
+    }
+    if (Object.hasOwn(itemProps, 'maxLength')) {
+        if (typeof itemProps.maxLength === 'number') {
+            if (itemProps.maxLength < 0) {
+                delete itemProps.maxLength;
+            }
+        } else {
+            delete itemProps.maxLength;
+        }
+    }
+    if (Object.hasOwn(itemProps, 'minLength')) {
+        if (typeof itemProps.minLength === 'number') {
+            if (itemProps.minLength < 0) {
+                delete itemProps.minLength;
+            }
+        } else {
+            delete itemProps.minLength;
+        }
+    }
+    if (Object.hasOwn(itemProps, 'size')) {
+        if (typeof itemProps.size === 'number') {
+            if (itemProps.size < 1) {
+                delete itemProps.size;
+            }
+        } else {
+            delete itemProps.size;
+        }
+    }
+    if (Object.hasOwn(itemProps, 'width')) {
+        if (typeof itemProps.width === 'number') {
+            if (itemProps.width < 1) {
+                delete itemProps.width;
+            }
+        } else {
+            delete itemProps.width;
+        }
+    }
+    if (Object.hasOwn(itemProps, 'height')) {
+        if (typeof itemProps.height === 'number') {
+            if (itemProps.height < 1) {
+                delete itemProps.height;
+            }
+        } else {
+            delete itemProps.height;
+        }
+    }
 
     return (
         <Fragment>
