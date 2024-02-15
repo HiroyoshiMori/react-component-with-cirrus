@@ -1,13 +1,255 @@
 import {action} from "@storybook/addon-actions";
 import {
+    AUTOCOMPLETES,
     Input,
 } from "../../../../components";
+import {deIndent} from "../../../../utils";
 
+/**
+ * &lt;input&gt; elements of type <code>number</code> are used to let the user enter a number. They include built-in
+ * validation to reject non-numerical entries.
+ *
+ * The browser may opt to provide stepper arrows to let the user increase and decrease the value using their mouse or
+ * by tapping with a fingertip.
+ *
+ * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number
+ */
 export default {
+    title: 'React Component/Element/Input/Number',
     component: Input,
     tags: ['autodocs'],
     parameters: {
         componentSubtitle: 'The Input (Form Input) element - number',
+    },
+    argTypes: {
+        element: {
+            control: 'none',
+            description: 'Switcher for <code>Input</code> component to render &lt;input&gt;',
+            table: {
+                type: {
+                    summary: 'input',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        type: {
+            control: 'none',
+            type: {
+                required: true,
+            },
+            description: 'Switcher for <code>Input</code> component to render number',
+            table: {
+                type: {
+                    summary: 'number',
+                },
+            },
+        },
+        id: {
+            control: 'text',
+            description: 'ID for element',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        defaultValue: {
+            control: 'number',
+            description: 'Specifies value when initialized',
+            table: {
+                type: {
+                    summary: 'number',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        autoComplete: {
+            control: 'select',
+            options: ['Default'].concat(AUTOCOMPLETES),
+            mapping: {
+                Default: undefined,
+            },
+            table: {
+                type: {
+                    summary: 'on|off|name|honorific-prefix|given-name|additional-name|family-name|honorific-suffix'
+                        + '|nickname|email|username|new-password|current-password|one-time-code|organization-title'
+                        + '|organization|street-address|shipping|billing|address-line1|address-line2|address-line3'
+                        + '|address-level4|address-level3|address-level2|address-level1|country|country-name'
+                        + '|postal-code|cc-name|cc-given-name|cc-additional-name|cc-family-name|cc-number|cc-exp'
+                        + '|cc-exp-month|cc-exp-year|cc-csc|cc-type|transaction-currency|transaction-amount'
+                        + '|language|bday|bday-day|bday-month|bday-year|sex|tel|tel-country-code|tel-national'
+                        + '|tel-area-code|tel-local|tel-extension|impp|url|photo|webauthn',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        list: {
+            control: 'string',
+            description: 'The id of a &lt;datalist&gt; element located in the same document',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        datalist: {
+            control: 'object',
+            description: 'A list of predefined values to the user for this input',
+            table: {
+                type: {
+                    summary: 'string[]',
+                },
+            },
+        },
+        max: {
+            control: 'number',
+            description: 'The largest number to accept',
+            table: {
+                type: {
+                    summary: 'number',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        min: {
+            control: 'number',
+            description: 'The smallest number to accept',
+            table: {
+                type: {
+                    summary: 'number',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        step: {
+            control: {type: 'number', min: 1},
+            description: 'Specifies the granularity that the value must adhere to, or the special value any',
+            table: {
+                type: {
+                    summary: 'number | "any"',
+                },
+                defaultVale: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        placeholder: {
+            control: 'text',
+            description: 'Provides a brief hint to the user as to what kind of information is expected '
+                + 'in the field',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        readOnly: {
+            control: 'boolean',
+            description: 'Indicates that the user cannot modify the value of the control',
+            table: {
+                type: {
+                    summary: 'boolean',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        required: {
+            control: 'boolean',
+            description: 'Specifies that the user must fill in a value before submitting a form',
+            table: {
+                type: {
+                    summary: 'boolean',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        onChange: {
+            action: 'changed',
+            description: 'Function called when value is changed',
+            table: {
+                type: {
+                    summary: 'function',
+                    detail: '(e: React.ChangeEvent<HTMLInputElement>) => void',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        classes: {
+            control: 'object',
+            description: 'Style classes',
+            table: {
+                type: {
+                    summary: 'string[]',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as []',
+                },
+            },
+        },
+        attributes: {
+            control: 'object',
+            description: 'Additional attributes',
+            table: {
+                type: {
+                    summary: 'InputHTMLAttributes<HTMLInputElement>',
+                    detail: deIndent(`
+                            e.g.,
+                            { 'aria-label': 'This is Label' }
+                        `),
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as {}',
+                },
+            },
+        },
+        datasets: {
+            control: 'object',
+            description: 'Datasets. "data-" is added at the beginning of all keys',
+            table: {
+                type: {
+                    summary: 'Map<string, string>',
+                    detail: deIndent(`
+                            e.g.,
+                            new Map([
+                                ['id', 'this-is-id'],
+                                ['name', 'This is Name'],
+                            ]);
+                            => data-id="this-is-id" data-name="This is Name"
+                        `),
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as new Map()'
+                },
+            },
+        },
     },
 };
 /** Default number */

@@ -48,7 +48,7 @@ export const LabelledCheckbox = (props: LabelledCheckboxProps) => {
                 <Input
                     {...checkboxProps}
                     type={'checkbox'}
-                    defaultChecked={checked}
+                    checked={checked}
                     classes={inputClasses}
                 />
                 {children}

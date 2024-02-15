@@ -1,4 +1,4 @@
-import {Fragment, HTMLAttributes} from "react";
+import {Fragment} from "react";
 import {
     Rp,
 } from "../../../../components";

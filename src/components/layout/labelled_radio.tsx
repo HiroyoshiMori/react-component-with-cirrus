@@ -48,7 +48,7 @@ export const LabelledRadio = (props: LabelledRadioProps) => {
                 <Input
                     {...radioProps}
                     type={'radio'}
-                    defaultChecked={checked}
+                    checked={checked}
                     classes={inputClasses}
                 />
                 {children}
