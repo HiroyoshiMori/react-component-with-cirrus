@@ -17,6 +17,18 @@ export default {
         componentSubtitle: 'The Paragraph element',
     },
     argTypes: {
+        element: {
+            control: 'none',
+            description: 'Switcher for <code>Paragraph</code> component to render &lt;p&gt;',
+            table: {
+                type: {
+                    summary: '"p"|"paragraph"',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
         id: {
             control: 'text',
             description: 'ID for element',

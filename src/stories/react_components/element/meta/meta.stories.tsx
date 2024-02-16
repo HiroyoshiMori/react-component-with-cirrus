@@ -32,7 +32,7 @@ export default {
             description: 'Switcher for <code>Meta</code> component to render &lt;meta&gt;',
             table: {
                 type: {
-                    summary: 'meta',
+                    summary: '"meta"',
                 },
                 defaultValue: {
                     summary: 'undefined',

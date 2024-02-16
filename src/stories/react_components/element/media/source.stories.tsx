@@ -30,7 +30,7 @@ export default {
             description: 'Switcher for <code>Source</code> component to render &lt;source&gt;',
             table: {
                 type: {
-                    summary: 'source',
+                    summary: '"source"',
                 },
                 defaultValue: {
                     summary: 'undefined',

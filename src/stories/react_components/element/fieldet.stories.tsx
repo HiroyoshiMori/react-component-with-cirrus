@@ -24,7 +24,7 @@ export default {
             description: 'Switcher for <code>Fieldset</code> component to render &lt;fieldset&gt;',
             table: {
                 type: {
-                    summary: 'fieldset',
+                    summary: '"fieldset"',
                 },
                 defaultValue: {
                     summary: 'undefined',

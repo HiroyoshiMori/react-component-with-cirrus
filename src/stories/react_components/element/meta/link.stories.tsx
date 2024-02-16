@@ -34,7 +34,7 @@ export default {
             description: 'Switcher for <code>Link</code> component to render &lt;link&gt;',
             table: {
                 type: {
-                    summary: 'iframe',
+                    summary: '"iframe"',
                 },
                 defaultValue: {
                     summary: 'undefined',

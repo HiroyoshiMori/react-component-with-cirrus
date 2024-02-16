@@ -25,7 +25,7 @@ export default {
             description: 'Switcher for <code>DItem</code> component to render &lt;dd&gt;',
             table: {
                 type: {
-                    summary: 'dd',
+                    summary: '"dd"',
                 },
                 defaultValue: {
                     summary: 'undefined',

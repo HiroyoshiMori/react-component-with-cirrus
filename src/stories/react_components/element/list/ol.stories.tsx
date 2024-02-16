@@ -35,7 +35,7 @@ export default {
             description: 'Switcher for <code>List</code> component to render &lt;ol&gt;',
             table: {
                 type: {
-                    summary: 'ol',
+                    summary: '"ol"',
                 },
                 defaultValue: {
                     summary: 'undefined',

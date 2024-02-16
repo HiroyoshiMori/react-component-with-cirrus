@@ -45,7 +45,7 @@ export default {
             description: 'Switcher for <code>ColGroup</code> component to render &lt;colgroup&gt;',
             table: {
                 type: {
-                    summary: 'colgroup',
+                    summary: '"colgroup"',
                 },
                 defaultValue: {
                     summary: 'undefined',

@@ -26,13 +26,13 @@ export default {
     argTypes: {
         element: {
             control: 'none',
-            description: 'Switcher for <code>Media</code> component to render &lt;audio&gt;',
             type: {
                 required: true,
             },
+            description: 'Switcher for <code>Media</code> component to render &lt;audio&gt;',
             table: {
                 type: {
-                    summary: 'audio',
+                    summary: '"audio"',
                 },
             },
         },
@@ -134,7 +134,7 @@ export default {
             description: 'Indicates whether to use CORS to fetch the related audio',
             table: {
                 type: {
-                    summary: CROSS_ORIGINS.join('|'),
+                    summary: '"' + CROSS_ORIGINS.join('"|"') + '"',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -200,7 +200,7 @@ export default {
                 + 'the best user experience regarding what content is loaded before the audio is played',
             table: {
                 type: {
-                    summary: PRELOADS.join('|'),
+                    summary: '"' + PRELOADS.join('"|"') + '"',
                     detail: 'Empty string: Synonym of the auto',
                 },
                 defaultValue: {

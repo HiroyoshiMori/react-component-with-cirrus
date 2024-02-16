@@ -22,7 +22,7 @@ export default {
             description: 'Switcher for <code>Dialog</code> component to render &lt;dialog&gt;',
             table: {
                 type: {
-                    summary: 'dialog',
+                    summary: '"dialog"',
                 },
                 defaultValue: {
                     summary: 'undefined',

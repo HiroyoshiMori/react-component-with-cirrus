@@ -34,7 +34,7 @@ export default {
             description: 'Switcher for <code>Option</code> component to render &lt;option&gt;',
             table: {
                 type: {
-                    summary: 'option',
+                    summary: '"option"',
                 },
                 defaultValue: {
                     summary: 'undefined',

@@ -19,6 +19,18 @@ export default {
         componentSubtitle: 'The HTML Section Heading elements',
     },
     argTypes: {
+        element: {
+            control: 'none',
+            description: 'Switcher for <code>Heading</code> component to render &lt;h1&gt;-&lt;h6&gt;',
+            table: {
+                type: {
+                    summary: '"h1"|"h2"|"h3"|"h4"|"h5"|"h6"|"heading"',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
         id: {
             control: 'text',
             description: 'ID for element',

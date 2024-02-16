@@ -26,7 +26,7 @@ export default {
             description: 'Switcher for <code>Input</code> component to render &lt;input&gt;',
             table: {
                 type: {
-                    summary: 'input',
+                    summary: '"input"',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -41,7 +41,7 @@ export default {
             description: 'Switcher for <code>Input</code> component to render image',
             table: {
                 type: {
-                    summary: 'image',
+                    summary: '"image"',
                 },
             },
         },
@@ -138,7 +138,7 @@ export default {
                         + 'the server',
             table: {
                 type: {
-                    summary: FORM_ENCTYPES.join('|'),
+                    summary: '"' + FORM_ENCTYPES.join('"|"') + '"',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -154,7 +154,7 @@ export default {
             description: 'Indicating the HTTP method to use when submitting the form\'s data;',
             table: {
                 type: {
-                    summary: FORM_METHODS.join('|'),
+                    summary: '"' + FORM_METHODS.join('"|"') + '"',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -183,7 +183,7 @@ export default {
                         + 'after submitting the form',
             table: {
                 type: {
-                    summary: TARGETS.join('|') + '|string',
+                    summary: '"' + TARGETS.join('"|"') + '"|string',
                 },
                 defaultValue: {
                     summary: 'undefined',

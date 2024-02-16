@@ -39,7 +39,7 @@ export default {
             description: 'Switcher for <code>Input</code> component to render &lt;input&gt;',
             table: {
                 type: {
-                    summary: 'input',
+                    summary: '"input"',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -54,7 +54,7 @@ export default {
             description: 'Switcher for <code>Input</code> component to render checkbox',
             table: {
                 type: {
-                    summary: 'checkbox',
+                    summary: '"checkbox"',
                 },
             },
         },

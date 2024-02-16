@@ -53,7 +53,7 @@ export default {
             description: 'Switcher for <code>THeadFoot</code> component to render &lt;tfoot&gt;',
             table: {
                 type: {
-                    summary: 'tfoot',
+                    summary: '"tfoot"',
                 },
                 defaultValue: {
                     summary: 'undefined',

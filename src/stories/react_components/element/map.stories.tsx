@@ -38,7 +38,7 @@ export default {
             description: 'Switcher for <code>ImageMap</code> component to render &lt;map&gt;',
             table: {
                 type: {
-                    summary: 'map',
+                    summary: '"map"',
                 },
                 defaultValue: {
                     summary: 'undefined',

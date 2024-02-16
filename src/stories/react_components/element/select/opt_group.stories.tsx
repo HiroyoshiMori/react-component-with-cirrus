@@ -32,7 +32,7 @@ export default {
             description: 'Switcher for <code>OptGroup</code> component to render &lt;optgroup&gt;',
             table: {
                 type: {
-                    summary: 'optgroup',
+                    summary: '"optgroup"',
                 },
                 defaultValue: {
                     summary: 'undefined',

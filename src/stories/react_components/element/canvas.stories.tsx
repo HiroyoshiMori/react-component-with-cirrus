@@ -22,7 +22,7 @@ export default {
             description: 'Switcher for <code>Canvas</code> component to render &lt;canvas&gt;',
             table: {
                 type: {
-                    summary: 'canvas',
+                    summary: '"canvas"',
                 },
                 defaultValue: {
                     summary: 'undefined',

@@ -32,7 +32,7 @@ export default {
             description: 'Switcher for <code>Script</code> component to render &lt;script&gt;',
             table: {
                 type: {
-                    summary: 'script',
+                    summary: '"script"',
                 },
                 defaultValue: {
                     summary: 'undefined',

@@ -40,7 +40,7 @@ export default {
             description: 'Switcher for <code>Output</code> component to render &lt;output&gt;',
             table: {
                 type: {
-                    summary: 'output',
+                    summary: '"output"',
                 },
                 defaultValue: {
                     summary: 'undefined',

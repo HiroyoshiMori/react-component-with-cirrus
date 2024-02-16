@@ -26,13 +26,13 @@ export default {
     argTypes: {
         element: {
             control: 'none',
-            description: 'Switcher for <code>Media</code> component to render &lt;picture&gt;',
             type: {
                 required: true,
             },
+            description: 'Switcher for <code>Media</code> component to render &lt;picture&gt;',
             table: {
                 type: {
-                    summary: 'picture',
+                    summary: '"picture"',
                 },
             },
         },

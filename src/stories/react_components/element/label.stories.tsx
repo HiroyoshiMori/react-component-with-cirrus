@@ -21,7 +21,7 @@ export default {
             description: 'Switcher for <code>Label</code> component to render &lt;label&gt;',
             table: {
                 type: {
-                    summary: 'label',
+                    summary: '"label"',
                 },
                 defaultValue: {
                     summary: 'undefined',

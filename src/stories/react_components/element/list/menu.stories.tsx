@@ -34,7 +34,7 @@ export default {
             description: 'Switcher for <code>List</code> component to render &lt;menu&gt;',
             table: {
                 type: {
-                    summary: 'menu',
+                    summary: '"menu"',
                 },
                 defaultValue: {
                     summary: 'undefined',

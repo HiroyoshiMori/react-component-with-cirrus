@@ -20,6 +20,18 @@ export default {
         componentSubtitle: 'The Figure with Optional Caption element',
     },
     argTypes: {
+        element: {
+            control: 'none',
+            description: 'Switcher for <code>Figure</code> component to render &lt;figure&gt;',
+            table: {
+                type: {
+                    summary: '"figure"',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
         children: {
             control: 'object',
             description: 'Content of element',

@@ -32,7 +32,7 @@ export default {
             },
             table: {
                 type: {
-                    summary: 'br',
+                    summary: '"br"',
                 },
             },
         },

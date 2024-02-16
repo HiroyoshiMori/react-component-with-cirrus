@@ -22,7 +22,7 @@ export default {
             description: 'Switcher for <code>Iframe</code> component to render &lt;iframe&gt;',
             table: {
                 type: {
-                    summary: 'iframe',
+                    summary: '"iframe"',
                 },
                 defaultValue: {
                     summary: 'undefined',

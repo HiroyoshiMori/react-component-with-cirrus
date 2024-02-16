@@ -16,6 +16,18 @@ export default {
         componentSubtitle: 'The inline Code element',
     },
     argTypes: {
+        element: {
+            control: 'none',
+            description: 'Switcher for <code>Code</code> component to render &lt;code&gt;',
+            table: {
+                type: {
+                    summary: '"code"',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
         id: {
             control: 'text',
             description: 'ID for element',

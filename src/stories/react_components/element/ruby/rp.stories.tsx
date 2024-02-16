@@ -41,7 +41,7 @@ export default {
             description: 'Switcher for <code>Rp</code> component to render &lt;rp&gt;',
             table: {
                 type: {
-                    summary: 'rp',
+                    summary: '"rp"',
                 },
                 defaultValue: {
                     summary: 'undefined',

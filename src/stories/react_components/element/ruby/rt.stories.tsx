@@ -37,7 +37,7 @@ export default {
             description: 'Switcher for <code>Rt</code> component to render &lt;rt&gt;',
             table: {
                 type: {
-                    summary: 'rt',
+                    summary: '"rt"',
                 },
                 defaultValue: {
                     summary: 'undefined',

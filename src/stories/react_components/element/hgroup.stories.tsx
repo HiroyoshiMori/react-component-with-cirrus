@@ -22,7 +22,7 @@ export default {
             description: 'Switcher for <code>HeadingGroup</code> component to render &lt;hgroup&gt;',
             table: {
                 type: {
-                    summary: 'hgroup',
+                    summary: '"hgroup"',
                 },
                 defaultValue: {
                     summary: 'undefined',

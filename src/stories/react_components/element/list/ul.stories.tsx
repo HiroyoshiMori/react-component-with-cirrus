@@ -32,7 +32,7 @@ export default {
             description: 'Switcher for <code>List</code> component to render &lt;ul&gt;',
             table: {
                 type: {
-                    summary: 'ul',
+                    summary: '"ul"',
                 },
                 defaultValue: {
                     summary: 'undefined',

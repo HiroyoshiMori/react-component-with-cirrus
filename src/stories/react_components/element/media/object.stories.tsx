@@ -18,6 +18,111 @@ export default {
         componentSubtitle: 'The External Object element',
     },
     argTypes: {
+        element: {
+            control: 'none',
+            description: 'Switcher for <code>Media</code> component to render &lt;object&gt;',
+            table: {
+                type: {
+                    summary: '"object"',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        name: {
+            control: 'text',
+            description: 'Specifies the name of valid browsing context (HTML5), or the name of the control (HTML4)',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        data: {
+            control: 'text',
+            type: {
+                required: true,
+            },
+            description: 'Specifies the address of the resource as a valid URL',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+            },
+        },
+        type: {
+            control: 'text',
+            type: {
+                required: true,
+            },
+            description: 'Specifies the content type of the resource specified by <code>data</code>',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+            },
+        },
+        children: {
+            control: 'text',
+            description: 'Content of the object',
+            table: {
+                type: {
+                    summary: 'ReactNode',
+                },
+            },
+        },
+        form: {
+            control: 'text',
+            description: 'Specifies the form name which this element is associated with (its form owner)',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        width: {
+            control: {type: 'number', min: 1},
+            description: 'Specifies the width of the display resource, in CSS pixels',
+            table: {
+                type: {
+                    summary: 'number',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        height: {
+            control: {type: 'number', min: 1},
+            description: 'Specifies the height of the display resource, in CSS pixels',
+            table: {
+                type: {
+                    summary: 'number',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        useMap: {
+            control: 'text',
+            description: 'Specifies a hash-name reference to a &lt;map&gt;',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
         classes: {
             control: 'object',
             description: 'Style classes',

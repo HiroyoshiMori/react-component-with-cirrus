@@ -24,10 +24,13 @@ export default {
     argTypes: {
         element: {
             control: 'none',
+            type: {
+                required: true,
+            },
             description: 'Switcher for <code>Embed</code> component to render &lt;embed&gt;',
             table: {
                 type: {
-                    summary: 'embed',
+                    summary: '"embed"',
                 },
                 defaultValue: {
                     summary: 'undefined',

@@ -67,11 +67,14 @@ export default {
         },
         dir: {
             control: 'radio',
-            options: ['ltr', 'rtl'],
+            options: ['Default', 'auto', 'ltr', 'rtl'],
+            mapping: {
+                Default: undefined,
+            },
             description: 'Store the direction in which text should be rendered in this element\'s contents',
             table: {
                 type: {
-                    summary: '"ltr" | "rtl"',
+                    summary: '"auto" | "ltr" | "rtl"',
                 },
                 defaultValue: {
                     summary: 'undefined',

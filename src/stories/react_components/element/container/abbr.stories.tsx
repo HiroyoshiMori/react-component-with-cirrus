@@ -17,10 +17,10 @@ export default {
     argTypes: {
         element: {
             control: 'none',
-            description: 'Switcher for <code>Container</code> component to render &lt;abbr&gt;',
             type: {
                 required: true,
             },
+            description: 'Switcher for <code>Container</code> component to render &lt;abbr&gt;',
             table: {
                 type: {
                     summary: '"abbr"',
@@ -28,7 +28,7 @@ export default {
             },
         },
         inline: {
-            control: 'boolean',
+            control: 'none',
             description: 'Indicate inline-level element',
             type: {
                 required: true,

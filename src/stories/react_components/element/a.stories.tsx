@@ -171,7 +171,7 @@ export default {
                         + '(a tab, window, or &lt;iframe&gt;).',
             table: {
                 type: {
-                    summary: TARGETS.join('|'),
+                    summary: '"' + TARGETS.join('"|"') + '"',
                 },
                 defaultValue: {
                     summary: 'undefined',

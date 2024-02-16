@@ -44,7 +44,7 @@ export default {
             description: 'Switcher for <code>Tbody</code> component to render &lt;tbody&gt;',
             table: {
                 type: {
-                    summary: 'tbody',
+                    summary: '"tbody"',
                 },
                 defaultValue: {
                     summary: 'undefined',

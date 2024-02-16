@@ -33,7 +33,7 @@ export default {
             },
             table: {
                 type: {
-                    summary: 'hr',
+                    summary: '"hr"',
                 },
             },
         },

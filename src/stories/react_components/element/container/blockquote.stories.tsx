@@ -4,8 +4,18 @@ import {
     Container,
     Figure,
 } from "../../../../components";
+import {deIndent} from "../../../../utils";
 
+/**
+ * The &lt;blockquote&gt; HTML element indicates that the enclosed text is an extended quotation. Usually
+ * this is rendered visually by indentation (see Notes for how to change it). A URL for the source of the
+ * quotation may be given using the <code>cite</code> attribute, while text representation of the source
+ * can be given using the &lt;site&gt; element.
+ *
+ * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote
+ */
 export default {
+    title: 'React Component/Element/Container/Block/Blockquote',
     component: Container,
     tags: ['autodocs'],
     parameters: {
@@ -37,6 +47,95 @@ export default {
             </Fragment>
         ),
     ],
+    argTypes: {
+        element: {
+            control: 'none',
+            description: 'Switcher for <code>Container</code> component to render &lt;blockquote&gt;',
+            table: {
+                type: {
+                    summary: '"blockquote"',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        id: {
+            control: 'text',
+            description: 'ID for element',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        children: {
+            control: 'text',
+            description: 'Content of component',
+            table: {
+                type: {
+                    summary: 'ReactNode',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        classes: {
+            control: 'object',
+            description: 'Style classes',
+            table: {
+                type: {
+                    summary: 'string[]',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as []',
+                },
+            },
+        },
+        attributes: {
+            control: 'object',
+            description: 'Additional attributes',
+            table: {
+                type: {
+                    summary: 'BlockquoteHTMLAttributes<HTMLQuoteElement>',
+                    detail: deIndent(`
+                            e.g.,
+                            { 'aria-label': 'This is Label' }
+                        `),
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as {}',
+                },
+            },
+        },
+        datasets: {
+            control: 'object',
+            description: 'Datasets. "data-" is added at the beginning of all keys',
+            table: {
+                type: {
+                    summary: 'Map<string, string>',
+                    detail: deIndent(`
+                            e.g.,
+                            new Map([
+                                ['id', 'this-is-id'],
+                                ['name', 'This is Name'],
+                            ]);
+                            => data-id="this-is-id" data-name="This is Name"
+                        `),
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as new Map()'
+                },
+            },
+        },
+    },
 };
 // Default blockquote
 const DefaultBlockQuote = {

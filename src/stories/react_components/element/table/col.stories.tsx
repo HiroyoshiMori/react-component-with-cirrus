@@ -49,7 +49,7 @@ export default {
             description: 'Switcher for <code>Col</code> component to render &lt;col&gt;',
             table: {
                 type: {
-                    summary: 'col',
+                    summary: '"col"',
                 },
                 defaultValue: {
                     summary: 'undefined',

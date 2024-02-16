@@ -45,7 +45,7 @@ export default{
             },
             table: {
                 type: {
-                    summary: 'button',
+                    summary: '"button"',
                 },
             },
         },
@@ -174,7 +174,7 @@ export default{
             description: 'Specified how to encode the form data that is submitted',
             table: {
                 type: {
-                    summary: FORM_ENCTYPES.join('|'),
+                    summary: '"' + FORM_ENCTYPES.join('"|"') + '"',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -192,7 +192,7 @@ export default{
                         + 'If specified, this attribute overrides the method attribute of the button\'s form owner.',
             table: {
                 type: {
-                    summary: FORM_METHODS.join('|'),
+                    summary: '"' + FORM_METHODS.join('"|"') + '"',
                 },
                 defaultValue: {
                     summary: 'undefined',

@@ -31,7 +31,7 @@ export default {
             },
             table: {
                 type: {
-                    summary: 'wbr',
+                    summary: '"wbr"',
                 },
             },
         },

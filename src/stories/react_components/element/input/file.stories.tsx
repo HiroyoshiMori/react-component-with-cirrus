@@ -23,7 +23,7 @@ export default {
             description: 'Switcher for <code>Input</code> component to render &lt;input&gt;',
             table: {
                 type: {
-                    summary: 'input',
+                    summary: '"input"',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -38,7 +38,7 @@ export default {
             description: 'Switcher for <code>Input</code> component to render file',
             table: {
                 type: {
-                    summary: 'file',
+                    summary: '"file"',
                 },
             },
         },

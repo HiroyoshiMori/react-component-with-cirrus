@@ -54,7 +54,7 @@ export default {
             description: 'Switcher for <code>TableRow</code> component to render &lt;tr&gt;',
             table: {
                 type: {
-                    summary: 'tr',
+                    summary: '"tr"',
                 },
                 defaultValue: {
                     summary: 'undefined',

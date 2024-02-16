@@ -26,13 +26,13 @@ export default {
     argTypes: {
         element: {
             control: 'none',
-            description: 'Switcher for <code>Media</code> component to render &lt;video&gt;',
             type: {
                 required: true,
             },
+            description: 'Switcher for <code>Media</code> component to render &lt;video&gt;',
             table: {
                 type: {
-                    summary: 'video',
+                    summary: '"video"',
                 },
             },
         },
@@ -158,7 +158,7 @@ export default {
             description: 'Indicates whether to use CORS to fetch the related video',
             table: {
                 type: {
-                    summary: CROSS_ORIGINS.join('|'),
+                    summary: '"' + CROSS_ORIGINS.join('"|"') + '"',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -249,7 +249,7 @@ export default {
                         + 'the best user experience regarding what content is loaded before the video is played',
             table: {
                 type: {
-                    summary: PRELOADS.join('|'),
+                    summary: '"' + PRELOADS.join('"|"') + '"',
                     detail: 'Empty string: Synonym of the auto',
                 },
                 defaultValue: {

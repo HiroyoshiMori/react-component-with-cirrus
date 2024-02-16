@@ -31,7 +31,7 @@ export default {
             description: 'Switcher for <code>Ruby</code> component to render &lt;ruby&gt;',
             table: {
                 type: {
-                    summary: 'ruby',
+                    summary: '"ruby"',
                 },
                 defaultValue: {
                     summary: 'undefined',

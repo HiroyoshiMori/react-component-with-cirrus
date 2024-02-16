@@ -31,7 +31,7 @@ export default {
             description: 'Switcher for <code>ListItem</code> component to render &lt;li&gt;',
             table: {
                 type: {
-                    summary: 'li',
+                    summary: '"li"',
                 },
                 defaultValue: {
                     summary: 'undefined',

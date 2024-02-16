@@ -40,7 +40,7 @@ export default {
             description: 'Switcher for <code>DataList</code> component to render &lt;datalist&gt;',
             table: {
                 type: {
-                    summary: 'datalist',
+                    summary: '"datalist"',
                 },
                 defaultValue: {
                     summary: 'undefined',

@@ -25,7 +25,7 @@ export default {
             description: 'Switcher for <code>List</code> component to render &lt;dl&gt;',
             table: {
                 type: {
-                    summary: 'dl',
+                    summary: '"dl"',
                 },
                 defaultValue: {
                     summary: 'undefined',

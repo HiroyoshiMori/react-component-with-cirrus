@@ -32,13 +32,13 @@ export default {
     argTypes: {
         element: {
             control: 'none',
-            description: 'Switcher for <code>Media</code> component to render &lt;img&gt;',
             type: {
                 required: true,
             },
+            description: 'Switcher for <code>Media</code> component to render &lt;img&gt;',
             table: {
                 type: {
-                    summary: 'img',
+                    summary: '"img"',
                 },
             },
         },
@@ -136,7 +136,7 @@ export default {
             description: 'Indicates if the fetching image must be done using a CORS',
             table: {
                 type: {
-                    summary: CROSS_ORIGINS.join('|'),
+                    summary: '"' + CROSS_ORIGINS.join('"|"') + '"',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -152,7 +152,7 @@ export default {
             description: 'A hint to the browser as to whether it should perform image decoding along with',
             table: {
                 type: {
-                    summary: DECODINGS.join('|'),
+                    summary: '"' + DECODINGS.join('"|"') + '"',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -180,7 +180,7 @@ export default {
             description: 'A hit of the relative priority to use when fetching the image',
             table: {
                 type: {
-                    summary: FETCH_POLICIES.join('|'),
+                    summary: '"' + FETCH_POLICIES.join('"|"') + '"',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -209,7 +209,7 @@ export default {
             description: 'Indicates how the browser should load the image',
             table: {
                 type: {
-                    summary: LOADINGS.join('|'),
+                    summary: '"' + LOADINGS.join('"|"') + '"',
                 },
                 defaultValue: {
                     summary: 'undefined',

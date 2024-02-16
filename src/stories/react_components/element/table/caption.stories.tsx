@@ -37,7 +37,7 @@ export default {
             description: 'Switcher for <code>Caption</code> component to render &lt;caption&gt;',
             table: {
                 type: {
-                    summary: 'caption',
+                    summary: '"caption"',
                 },
                 defaultValue: {
                     summary: 'undefined',

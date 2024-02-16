@@ -61,7 +61,7 @@ export default {
             description: 'Switcher for <code>TableCell</code> component to render &lt;th&gt;',
             table: {
                 type: {
-                    summary: 'th',
+                    summary: '"th"',
                 },
                 defaultValue: {
                     summary: 'undefined',
