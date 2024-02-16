@@ -206,7 +206,7 @@ export type ColGroupProps = ElementCommonProps & {
 /** Type definition of property for data (in container component) */
 export type DataProps = InlineCommonProps & {
     element: 'data';
-    value: string;
+    value: string|number;
     children?: ReactNode;
     attributes?: DataHTMLAttributes<HTMLDataElement>;
 }
@@ -1148,6 +1148,8 @@ export type InputRangeProps = InputCommonProps & {
     max?: number;
     min?: number;
     step?: number;
+    readOnly?: boolean;
+    required?: boolean;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 /** Type definition of property for input[type=search] */
@@ -1165,6 +1167,8 @@ export type InputSearchProps = InputCommonProps & {
     placeholder?: string;
     readOnly?: boolean;
     required?: boolean;
+    size?: number,
+    spellCheck?: "true"|"false"|"";
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 /** Type definition of property for input[type=submit] */
@@ -1216,6 +1220,8 @@ export type InputUrlProps = InputCommonProps & {
     type: 'url';
     defaultValue?: string | number | boolean;
     autoComplete?: AutoCompleteTypes;
+    dir?: 'auto'|'ltr'|'rtl';
+    dirname?: string;
     list?: string;
     datalist?: string[];
     maxlength?: number;
@@ -1224,5 +1230,6 @@ export type InputUrlProps = InputCommonProps & {
     placeholder?: string;
     readOnly?: boolean;
     required?: boolean;
+    spellCheck?: "true"|"false"|"";
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
