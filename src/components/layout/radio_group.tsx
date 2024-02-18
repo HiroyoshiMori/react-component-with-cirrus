@@ -19,15 +19,16 @@ export const RadioGroup = (props: RadioGroupProps) => {
         items,
         currentValue,
         footnotes,
+        noDefaultClass = false,
         ...restProps
     } = props;
 
     // Initialize
     const divClasses = initialize(
         restProps?.classes, [],
-        getCssFramework().getDefaultStyleClass(
+        !noDefaultClass ? getCssFramework().getDefaultStyleClass(
             'radio', 'container', 'form'
-        )
+        ) : []
     );
 
     return (
@@ -62,13 +63,14 @@ export const RadioGroup = (props: RadioGroupProps) => {
                     footnotes && function () {
                         const {
                             children,
+                            noDefaultClass = false,
                             ...pProps
                         } = footnotes;
                         const spanClasses = initialize(
                             pProps.classes, [],
-                            getCssFramework().getDefaultStyleClass(
+                            !noDefaultClass ? getCssFramework().getDefaultStyleClass(
                                 'radio', 'footnote', 'form'
-                            ),
+                            ) : [],
                         );
                         return (
                             <Fragment>

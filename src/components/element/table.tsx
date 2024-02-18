@@ -5,23 +5,31 @@ import {
     CaptionProps, ColGroupProps, ColProps,
     TableProps, TbodyProps, TdProps, TfootProps, TheadProps, TheadRowProps, ThProps, TrProps,
 } from "../@types";
-import {convertDataSet, joinClasses} from "../common";
+import {convertDataSet, initialize, joinClasses} from "../common";
+import {getCssFramework} from "../index";
 
 export const Table = (props: TableProps) => {
     const {
-        element: _,
+        element,
         caption,
         colgroup,
         thead,
         tfoot,
         tbody,
-        classes = [],
+        noDefaultClass = false,
+        classes: _,
         attributes = {},
         datasets = new Map(),
         ...restProps
     } = props;
 
     // Initialize
+    const classes = initialize(
+        props['classes'], [],
+        !noDefaultClass ? getCssFramework().getDefaultStyleClass(
+            'table', element
+        ) : []
+    );
     const datasetShown = convertDataSet(datasets);
 
     return (

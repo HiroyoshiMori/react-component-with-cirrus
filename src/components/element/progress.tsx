@@ -1,19 +1,25 @@
 import {Fragment} from "react";
 import {ProgressProps} from "../@types";
-import {convertDataSet, joinClasses} from "../common";
+import {convertDataSet, initialize, joinClasses} from "../common";
+import {getCssFramework} from "../index";
 
 export const Progress = (props: ProgressProps) => {
     const {
-        element: _,
+        element,
         children,
         max: maxValue,
-        classes = [],
+        classes: _,
         attributes = {},
         datasets = new Map(),
         ...restProps
     } = props;
 
     // Initialize
+    const classes = initialize(
+        props['classes'], [], getCssFramework().getDefaultStyleClass(
+            'progress', element,
+        )
+    );
     const datasetShown = convertDataSet(datasets);
 
     return (

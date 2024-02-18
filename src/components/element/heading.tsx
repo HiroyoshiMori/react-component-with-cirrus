@@ -12,6 +12,7 @@ export const Heading = (props: HeadingProps) => {
         element: _,
         level,
         children,
+        noDefaultClass = false,
         classes = [],
         attributes = {},
         datasets = new Map(),
@@ -28,9 +29,9 @@ export const Heading = (props: HeadingProps) => {
         default:
             Tag = 'h3';
     }
-    const defaultClasses = getCssFramework().getDefaultStyleClass(
+    const defaultClasses = !noDefaultClass ? getCssFramework().getDefaultStyleClass(
         'heading', Tag
-    );
+    ) : [];
     defaultClasses?.forEach((styleClass: string) => {
         if (Array.isArray(classes) && !classes.includes(styleClass)) {
             classes.push(styleClass);

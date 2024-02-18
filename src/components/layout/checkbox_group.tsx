@@ -17,15 +17,16 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
         items,
         currentValues,
         footnotes,
+        noDefaultClass = false,
         ...restProps
     } = props;
 
     // Initialize
     const divClasses = initialize(
         restProps?.classes, [],
-        getCssFramework().getDefaultStyleClass(
+        !noDefaultClass ? getCssFramework().getDefaultStyleClass(
             'checkbox', 'container', 'form'
-        )
+        ) : []
     );
 
     return (
@@ -60,13 +61,14 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
                     footnotes && function () {
                         const {
                             children,
+                            noDefaultClass = false,
                             ...pProps
                         } = footnotes;
                         const spanClasses = initialize(
                             pProps.classes, [],
-                            getCssFramework().getDefaultStyleClass(
+                            !noDefaultClass ? getCssFramework().getDefaultStyleClass(
                                 'radio', 'footnote', 'form'
-                            ),
+                            ) : [],
                         );
                         return (
                             <Fragment>

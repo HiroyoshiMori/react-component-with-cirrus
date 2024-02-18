@@ -17,6 +17,7 @@ export const LayoutButton = (props: TypeButton) => {
         element = 'button',
         children,
         onClick,
+        noDefaultClass = false,
         classes = [],
         attributes = {},
         datasets = new Map(),
@@ -25,9 +26,9 @@ export const LayoutButton = (props: TypeButton) => {
 
     // Initialize
     if (element === 'a' || element === 'div') {
-        const defaultClasses = getCssFramework().getDefaultStyleClass(
+        const defaultClasses = !noDefaultClass ? getCssFramework().getDefaultStyleClass(
             'button', element
-        );
+        ) : [];
         defaultClasses?.forEach((styleClass: string) => {
             if (!classes.includes(styleClass)) {
                 classes.push(styleClass);

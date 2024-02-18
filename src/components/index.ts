@@ -1,3 +1,4 @@
+import * as Dummy from './@types/framework/dummy';
 import * as Bulma from './@types/framework/bulma';
 import * as CirrusUi from './@types/framework/cirrus-ui';
 
@@ -7,8 +8,9 @@ export const getCssFramework = () => {
         case 'Bulma':
             styleCss = Bulma; break;
         case 'Cirrus-UI':
+            styleCss = CirrusUi; break;
         default:
-            styleCss = CirrusUi;
+            styleCss = Dummy;
     }
     return styleCss;
 }
@@ -21,6 +23,7 @@ export type ColorTypes = typeof cssFramework.COLORS[number];
 export type AlternativeSizeTypes = typeof cssFramework.ALTERNATIVE_SIZES[number];
 
 export * from './@types';
+export * from './common';
 export * from './element';
 export * from './form';
 export * from './layout';

@@ -9,6 +9,7 @@ export const List = (props: TypeList) => {
     const {
         element: Tag = 'ul',
         items: _,
+        noDefaultClass = false,
         classes = [],
         attributes = {},
         datasets = new Map(),
@@ -21,9 +22,9 @@ export const List = (props: TypeList) => {
         ? props.items : [props.items];
 
     if (Tag === 'ol' && (props as OlProps).type && Array.isArray(classes)) {
-        const styleClasses = getCssFramework().getDefaultStyleClass(
+        const styleClasses = !noDefaultClass ? getCssFramework().getDefaultStyleClass(
             'list', Tag, (props as OlProps).type
-        );
+        ) : [];
         if (styleClasses.length > 0) {
             styleClasses.forEach((style) => {
                 if (!classes.includes(style)) {

@@ -12,6 +12,7 @@ export const Button = (props: ButtonProps) => {
         element = 'button',
         children,
         onClick,
+        noDefaultClass = false,
         classes: _classes,
         attributes = {},
         datasets = new Map(),
@@ -22,7 +23,7 @@ export const Button = (props: ButtonProps) => {
     const datasetShown = convertDataSet(datasets);
     const classes = initialize(
         props?.classes, [],
-        getCssFramework().getDefaultStyleClass('button', element)
+        !noDefaultClass ? getCssFramework().getDefaultStyleClass('button', element) : []
     );
 
     return (

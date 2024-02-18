@@ -146,8 +146,8 @@ export type BrProps = ElementCommonProps & {
 export type ButtonProps = ElementCommonProps & {
     element?: 'button';
     name?: string;
-    children: ReactNode;
-    onClick?: (e: React.MouseEvent<HTMLButtonElement|HTMLAnchorElement|HTMLDivElement>) => void;
+    children?: ReactNode;
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
     type?: 'submit'|'reset'|'button';
     value?: string | number | boolean;
     disabled?: boolean;
@@ -897,6 +897,7 @@ export type ElementCommonProps = {
     id?: string;
     lang?: string;
     popover?: 'auto'|'manual';
+    noDefaultClass?: boolean;
     classes?: string[];
     datasets?: CommonDatasetType;
 };
