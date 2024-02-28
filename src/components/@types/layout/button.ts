@@ -5,32 +5,36 @@ import React, {
 } from "react";
 import {
     AlternativeSizeTypes,
-    ButtonColorTypes,
-    ElementCommonProps,
+    ButtonColorTypes, DivProps,
+    ElementCommonProps, TypeButton,
 } from "../../index";
 
 /** Type definition of property for button(by <a>) */
-export type AButtonProps = ElementCommonProps & {
+export type AButtonProps = ElementCommonProps<HTMLAnchorElement, AnchorHTMLAttributes<HTMLAnchorElement>> & {
     element?: 'a';
     name?: string;
     children: ReactNode;
     colorType?: ButtonColorTypes;
     size?: AlternativeSizeTypes;
-    attributes?: AnchorHTMLAttributes<HTMLAnchorElement>;
 } & ({
     href: string;
-    onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+    onClick?: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 } | {
     href?: string;
-    onClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+    onClick: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 });
 /** Type definition of property for button(by <div>) */
-export type DivButtonProps = ElementCommonProps & {
+export type DivButtonProps = ElementCommonProps<HTMLDivElement, HTMLAttributes<HTMLDivElement>> & {
     element?: 'div';
     name?: string;
     children: ReactNode;
-    onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+    onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
     colorType?: ButtonColorTypes;
     size?: AlternativeSizeTypes;
-    attributes?: HTMLAttributes<HTMLDivElement>;
-}
+};
+
+/** Type definition of property for buttons */
+export type ButtonsProps = Omit<DivProps, 'children'> & {
+    element: 'div',
+    items: TypeButton | TypeButton[];
+};

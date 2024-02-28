@@ -2,6 +2,7 @@ import React, {
     Fragment,
 } from "react";
 import {
+    AProps,
     MeterProps,
     TypeContainer,
 } from "../@types";
@@ -9,7 +10,7 @@ import {convertDataSet, joinClasses} from "../common";
 
 export const Container = (props: TypeContainer) => {
     const {
-        element: itemType,
+        element,
         inline,
         children,
         classes = [],
@@ -73,6 +74,8 @@ export const Container = (props: TypeContainer) => {
             <Tag
                 {...additionalProps}
                 className={joinClasses(classes)}
+                ping={Object.hasOwn(additionalProps, 'ping') && Array.isArray((additionalProps as AProps).ping) ? (additionalProps as AProps).ping?.join(' ') : undefined}
+                rel={Object.hasOwn(additionalProps, 'rel') && Array.isArray((additionalProps as AProps).rel) ? (additionalProps as AProps).rel?.join(' ') : undefined}
                 {...attributes}
                 {...datasetShown}
             >

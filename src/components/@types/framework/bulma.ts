@@ -1,3 +1,4 @@
+import {HTMLAttributes} from "react";
 import {arrayCombine} from "../../../utils";
 
 /**
@@ -245,33 +246,66 @@ export const INPUT_SIZES = arrayCombine([[
  * @param element
  * @param subType
  */
-export const getDefaultStyleClass = (type: string, element: string | undefined = '', subType: string | undefined = undefined) => {
+export const getDefaultStyleClass = (
+    type: string, element: string = '', subType?: string
+) => {
     switch (type.toLowerCase()) {
         case 'block':
             return ['block'];
         case 'box':
             return ['box'];
         case 'breadcrumb':
-            return ['breadcrumb'];
-        case 'button':
-            return ['button'];
-        case 'card':
-            switch (subType?.toLowerCase()) {
-                case 'header':
-                    return ['card-header'];
-                case 'header-title':
-                    return ['card-header-title'];
-                case 'header-icon':
-                    return ['card-header-icon'];
-                case 'image':
-                    return ['card-image'];
-                case 'footer':
-                    return ['card-footer'];
-                case 'footer-item':
-                    return ['card-footer-item'];
+            switch (element?.toLowerCase()) {
+                case 'li':
+                    return [];
                 default:
-                    return ['card-content'];
+                    return ['breadcrumb'];
             }
+        case 'button':
+            switch (subType?.toLowerCase()) {
+                case 'delete':
+                    return ['delete'];
+                default:
+                    return ['button'];
+            }
+        case 'buttons':
+            return ['buttons'];
+        case 'card':
+            return ['card'];
+        case 'card-header':
+            return ['card-header'];
+        case 'card-header-title':
+            return ['card-header-title'];
+        case 'card-header-icon':
+            switch (element.toLowerCase()) {
+                case 'span':
+                    return ['icon'];
+                case 'icons':
+                    break;
+                default:
+                    return ['card-header-icon'];
+            }
+            break;
+        case 'card-image':
+            switch (element.toLowerCase()) {
+                case 'figure':
+                    return ['image'];
+                case 'img':
+                    break;
+                default:
+                    return ['card-image'];
+            }
+            break;
+        case 'card-content':
+            return ['card-content'];
+        case 'card-footer':
+            return ['card-footer'];
+        case 'card-footer-item':
+            return ['card-footer-item'];
+        case 'columns':
+            return ['columns'];
+        case 'column':
+            return ['column'];
         case 'content':
             return ['content'];
         case 'checkbox':
@@ -289,22 +323,38 @@ export const getDefaultStyleClass = (type: string, element: string | undefined =
         case 'delete':
             return ['delete'];
         case 'divider':
-            return [getStylePrefix(type) + 'divider'];
+            return [getStylePrefix(element) + 'divider'];
         case 'dropdown':
             switch (subType?.toLowerCase()) {
-                case 'menu':
-                    return ['dropdown-menu'];
-                case 'trigger':
-                    return ['dropdown-trigger'];
-                case 'content':
-                    return ['dropdown-content'];
-                case 'item':
-                    return ['dropdown-item'];
-                case 'divider':
-                    return ['dropdown-divider'];
+                case 'is-active':
+                    return ['is-active'];
                 default:
                     return ['dropdown'];
             }
+        case 'dropdown-menu':
+            return ['dropdown-menu'];
+        case 'dropdown-trigger':
+            switch (element.toLowerCase()) {
+                case 'button':
+                    return [];
+                case 'span':
+                    return ['icon'];
+                case 'icons':
+                    return [];
+                default:
+                    return ['dropdown-trigger'];
+            }
+        case 'dropdown-content':
+            return ['dropdown-content'];
+        case 'dropdown-item':
+            switch (subType?.toLowerCase()) {
+                case 'is-active':
+                    return ['is-active'];
+                default:
+                    return ['dropdown-item'];
+            }
+        case 'dropdown-divider':
+            return ['dropdown-divider'];
         case 'fieldset':
             return ['is-grouped'];
         case 'figure':
@@ -336,7 +386,10 @@ export const getDefaultStyleClass = (type: string, element: string | undefined =
         case 'icon':
             return ['icon'];
         case 'image':
-            return ['image'];
+            switch (element.toLowerCase()) {
+                default:
+                    return ['image'];
+            }
         case 'list':
             switch (element.toLowerCase()) {
                 case 'ol':
@@ -355,42 +408,125 @@ export const getDefaultStyleClass = (type: string, element: string | undefined =
             }
             break;
         case 'menu':
-            switch (subType?.toLowerCase()) {
-                case 'label':
-                    return ['menu-label'];
-                case 'list':
-                    return ['menu-list'];
-                case 'item':
-                    return [];
-                default:
-                    return ['menu'];
+            return ['menu'];
+        case 'menu-label':
+            return ['menu-label'];
+        case 'menu-list':
+            return ['menu-list'];
+        case 'menu-item':
+            switch (element.toLowerCase()) {
+                case 'a':
+                    switch (subType?.toLowerCase()) {
+                        case 'is-active':
+                            return ['is-active'];
+                    }
             }
+            return [];
         case 'message':
-            switch (subType?.toLowerCase()) {
-                case 'header':
-                    return ['message-header'];
-                case 'body':
-                    return ['message-body'];
+            return ['message'];
+        case 'message-header':
+            switch (element.toLowerCase()) {
+                case 'button':
+                    switch (subType?.toLowerCase()) {
+                        case 'delete':
+                            return ['delete'];
+                    }
+                    break;
+                case 'p':
+                    break;
                 default:
-                    return ['message'];
+                    return ['message-header'];
             }
+            break;
+        case 'message-body':
+            return ['message-body'];
         case 'modal':
             switch (subType?.toLowerCase()) {
-                case 'background':
-                    return ['modal-background'];
-                case 'content':
-                    return ['modal-card'];
-                case 'header':
-                    return ['modal-card-header'];
-                case 'body':
-                    return ['modal-card-body'];
-                case 'footer':
-                    return ['modal-card-footer'];
-                case 'overlay':
-                    return ['delete'];
+                case 'is-active':
+                    return ['is-active'];
                 default:
                     return ['modal', 'is-active'];
             }
+        case 'modal-background':
+            return ['modal-background'];
+        case 'modal-close':
+            return ['modal-close'];
+        case 'modal-content':
+            return ['modal-content'];
+        case 'modal-card':
+            return ['modal-card'];
+        case 'modal-card-header':
+            return ['modal-card-head'];
+        case 'modal-card-body':
+            return ['modal-card-body'];
+        case 'modal-card-footer':
+            switch (element.toLowerCase()) {
+                case 'button':
+                    switch (subType?.toLowerCase()) {
+                        case 'ok':
+                            return ['button', 'is-success'];
+                        case 'cancel':
+                            return ['button'];
+                    }
+                    break;
+                default:
+                    return ['modal-card-foot'];
+            }
+            break;
+        case 'modal-overlay':
+            return ['delete'];
+        case 'navbar':
+            return ['navbar'];
+        case 'navbar-brand':
+            switch (element.toLowerCase()) {
+                case 'a':
+                    switch (subType?.toLowerCase()) {
+                        case 'item':
+                            return ['navbar-item'];
+                        case 'burger':
+                            return ['navbar-burger'];
+                    }
+                    break;
+                default:
+                    return ['navbar-brand'];
+            }
+            break;
+        case 'navbar-burger':
+            return ['navbar-burger'];
+        case 'navbar-dropdown':
+            return ['navbar-dropdown'];
+        case 'navbar-item':
+            switch (element.toLowerCase()) {
+                case 'div':
+                    switch (subType?.toLowerCase()) {
+                        case 'hasDropdown':
+                            return ['navbar-item', 'has-dropdown', 'is-hoverable'];
+                    }
+                    break;
+                case 'hr':
+                    return ['navbar-divider'];
+                default:
+                    switch (subType?.toLowerCase()) {
+                        case 'label':
+                            return ['navbar-link'];
+                        default:
+                            return ['navbar-item'];
+                    }
+            }
+            break;
+        case 'navbar-menu':
+            switch (element.toLowerCase()) {
+                case 'div':
+                    switch (subType?.toLowerCase()) {
+                        case 'start':
+                            return ['navbar-start'];
+                        case 'end':
+                            return ['navbar-end'];
+                        default:
+                            return ['navbar-menu'];
+                    }
+            }
+            break;
         case 'notification':
             return ['notification'];
         case 'pagination':
@@ -399,6 +535,8 @@ export const getDefaultStyleClass = (type: string, element: string | undefined =
                     return ['pagination-list'];
                 case 'item':
                     return [];
+                case 'current':
+                    return ['is-current'];
                 case 'item-subtitle':
                     return [];
                 case 'link':
@@ -407,11 +545,41 @@ export const getDefaultStyleClass = (type: string, element: string | undefined =
                     return ['pagination-ellipsis'];
                 case 'prev':
                     return ['pagination-previous'];
+                case 'prev:disabled':
+                    return ['pagination-previous', 'is-disabled'];
                 case 'next':
                     return ['pagination-next'];
+                case 'next:disabled':
+                    return ['pagination-next', 'is-disabled'];
                 default:
                     return ['pagination'];
             }
+        case 'panel':
+            return ['panel'];
+        case 'panel-heading':
+            return ['panel-heading'];
+        case 'panel-block':
+            switch (element.toLowerCase()) {
+                case 'a':
+                    switch (subType?.toLowerCase()) {
+                        case 'icon':
+                            return ['icon'];
+                        default:
+                            return ['panel-block'];
+                    }
+                default:
+                    return ['panel-block'];
+            }
+        case 'panel-tabs':
+            return ['panel-tabs'];
+        case 'panel-tab-item':
+            switch (subType?.toLowerCase()) {
+                case 'active':
+                    return ['is-active'];
+            }
+            break;
+        case 'panel-icon':
+            return ['panel-icon'];
         case 'placeholder':
             switch (subType) {
                 case 'icon':
@@ -429,11 +597,22 @@ export const getDefaultStyleClass = (type: string, element: string | undefined =
             return ['progress'];
         case 'table':
             return ['table'];
+        case 'tabs':
+            return ['tabs'];
+        case 'tab-item':
+            switch (element.toLowerCase()) {
+                case 'li':
+                    switch (subType?.toLowerCase()) {
+                        case 'active':
+                            return ['is-active'];
+                    }
+                    break;
+            }
+            break;
+        case 'tags':
+            return ['tags'];
         case 'tag':
-            switch (subType) {
-                case 'multiple':
-                    return ['tags'];
-                case 'single':
+            switch (element.toLowerCase()) {
                 default:
                     return ['tag'];
             }
@@ -473,30 +652,110 @@ export const getStylePrefix = (type: string|undefined) => {
 /**
  * Get aria-label for type specified
  * @param type
+ * @param element
  * @param subType
  */
 export const getDefaultAdditionalAttributes = (
-    type?: string, subType?: string
-): Array<{[key: string]: string|number|boolean}> => {
+    type?: string, element?: string, subType?: string
+): Map<keyof HTMLAttributes<HTMLElement>, string> => {
     if (type !== undefined) {
         switch (type.toLowerCase()) {
             case 'breadcrumb':
-                return [{
-                    'aria-label': 'breadcrumbs',
-                }];
-            case 'dropdown':
-                switch (subType?.toLowerCase()) {
-                    case 'menu':
-                        return [{
-                            role: 'menu',
-                        }];
+                return new Map([
+                    ['aria-label', 'breadcrumbs'],
+                ]);
+            case 'card-header-icon':
+                switch (element?.toLowerCase()) {
+                    case 'button':
+                        return new Map([
+                            ['aria-label', 'more options'],
+                        ]);
+                    case 'icons':
+                        return new Map([
+                            ['aria-hidden', 'true'],
+                        ]);
+                }
+                break;
+            case 'dropdown-trigger':
+                switch (element?.toLowerCase()) {
+                    case 'button':
+                        return new Map([
+                            ['aria-haspopup', 'true'],
+                            ['aria-controls', '%%DROPDOWN_MENU_ID%%'],
+                        ]);
+                    case 'icons':
+                        return new Map([
+                            ['aria-hidden', 'true'],
+                        ]);
+                }
+                break;
+            case 'dropdown-menu':
+                return new Map([
+                    ['role', 'menu'],
+                ]);
+            case 'message-header':
+                switch (element?.toLowerCase()) {
+                    case 'delete':
+                        return new Map([
+                            ['aria-label', 'delete'],
+                        ]);
+                }
+                break;
+            case 'modal-close':
+                return new Map([
+                    ['aria-label', 'close'],
+                ]);
+            case 'navbar':
+                return new Map([
+                    ['role', 'navigation'],
+                    ['aria-label', 'navigation']
+                ]);
+            case 'navbar-brand':
+                switch (element?.toLowerCase()) {
+                    case 'a':
+                        switch (subType?.toLowerCase()) {
+                            case 'burger':
+                                return new Map([
+                                    ['role', 'button'],
+                                    ['aria-label', 'menu'],
+                                    ['aria-expanded', 'false'],
+                                ]);
+                        }
+                        break;
                 }
                 break;
             case 'pagination':
-                return [{
-                    role: 'navigation',
-                }];
+                switch (subType) {
+                    case 'list':
+                    case 'item':
+                    case 'current':
+                    case 'item-subtitle':
+                    case 'link':
+                    case 'ellipsis':
+                    case 'prev':
+                    case 'prev-disabled':
+                    case 'next':
+                    case 'next-disabled':
+                        break;
+                    case 'link:current':
+                        return new Map([
+                            ['aria-current', 'page'],
+                        ]);
+                    default:
+                        return new Map([
+                            ['role', 'navigation'],
+                        ]);
+                }
+                break;
+            case 'pagination-link':
+                switch (subType?.toLowerCase()) {
+                    case 'current':
+                        return new Map([
+                            ['aria-current', 'page'],
+                        ]);
+                }
+                break;
         }
     }
-    return [];
+    return new Map();
 };

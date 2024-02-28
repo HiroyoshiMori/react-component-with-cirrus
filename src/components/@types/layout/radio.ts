@@ -12,10 +12,9 @@ export type LabelledRadioProps = LabelProps & {
     currentValue?: string | number | boolean;
 };
 /** Type definition of property for radio group */
-export type RadioGroupProps = ElementCommonProps & {
+export type RadioGroupProps = ElementCommonProps<HTMLDivElement, HTMLAttributes<HTMLDivElement>> & {
     name?: string;
     items: LabelledRadioProps[];
     currentValue?: string | number | boolean;
     footnotes?: PProps;
-    attributes?: HTMLAttributes<HTMLDivElement>;
 };

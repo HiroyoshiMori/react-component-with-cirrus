@@ -1,4 +1,3 @@
-export * from './anchor';
 export * from './area';
 export * from './break';
 export * from './button';

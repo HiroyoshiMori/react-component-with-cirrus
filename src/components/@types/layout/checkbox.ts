@@ -12,10 +12,9 @@ export type LabelledCheckboxProps = LabelProps & {
     currentValues?: (string | number | boolean)[];
 };
 /** Type definition of property for checkbox group */
-export type CheckboxGroupProps = ElementCommonProps & {
+export type CheckboxGroupProps = ElementCommonProps<HTMLDivElement, HTMLAttributes<HTMLDivElement>> & {
     name?: string;
     items: LabelledCheckboxProps[];
     currentValues?: (string | number | boolean)[];
     footnotes?: PProps;
-    attributes?: HTMLAttributes<HTMLDivElement>;
 };

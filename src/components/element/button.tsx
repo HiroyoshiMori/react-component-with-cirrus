@@ -22,8 +22,10 @@ export const Button = (props: ButtonProps) => {
     // Initialize
     const datasetShown = convertDataSet(datasets);
     const classes = initialize(
-        props?.classes, [],
-        !noDefaultClass ? getCssFramework().getDefaultStyleClass('button', element) : []
+        props['classes'], [],
+        !noDefaultClass
+            ? getCssFramework().getDefaultStyleClass('button', element)
+            : []
     );
 
     return (

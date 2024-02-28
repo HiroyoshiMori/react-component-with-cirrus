@@ -1,4 +1,6 @@
 // List of responsive breaks
+import {HTMLAttributes} from "react";
+
 export const RESPONSIVE = [];
 // List of columns
 export const COLUMNS = [];
@@ -102,9 +104,10 @@ export const getStylePrefix = (type: string|undefined) => {
  * Get aria-label for type specified
  * @param type
  * @param subType
+ * @param element
  */
 export const getDefaultAdditionalAttributes = (
-    type?: string, subType?: string
-): Array<{[key: string]: string|number|boolean}> => {
-    return [];
+    type?: string, element?: string, subType?: string
+): Map<keyof HTMLAttributes<HTMLElement>, string> => {
+    return new Map();
 };

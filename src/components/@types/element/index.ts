@@ -1,64 +1,78 @@
 import {
-    AbbrProps,
-    AddressProps,
-    ArticleProps,
-    AsideProps,
-    AudioProps,
-    BdiProps,
-    BdoProps,
-    BlockQuoteProps,
-    BProps,
-    BrProps,
-    ButtonProps,
+    Fragment,
+} from "react";
+import {
+    AbbrProps, AddressProps, AProps, ArticleProps, AsideProps, AudioProps,
+    BdiProps, BdoProps, BlockQuoteProps, BProps, BrProps, ButtonProps,
     CiteProps,
-    DataProps,
-    DelProps,
-    DfnProps,
-    DivProps,
-    DlProps,
-    EmbedProps,
-    EmProps,
+    DataProps, DelProps, DfnProps, DivProps, DlProps, ElementBaseProps,
+    EmbedProps, EmProps,
     FooterProps,
-    HeaderProps,
-    HrProps,
-    ImgProps,
-    InsProps,
-    IProps,
+    HeaderProps, HrProps,
+    ImgProps, InsProps, IProps,
     KbdProps,
     LegendProps,
-    MainProps,
-    MarkProps,
-    MenuProps,
-    MeterProps,
-    NavProps,
-    NoScriptProps,
-    ObjectProps,
-    OlProps,
-    PictureProps,
-    PreProps,
+    MainProps, MarkProps, MenuProps, MeterProps,
+    NavProps, NoScriptProps,
+    ObjectProps, OlProps,
+    PictureProps, PreProps,
     QProps,
-    SampProps,
-    SearchProps,
-    SectionProps,
-    SlotProps,
-    SmallProps,
-    SpanProps,
-    SProps,
-    StrongProps,
-    SubProps,
-    SummaryProps,
-    SupProps, TemplateProps,
-    TimeProps,
-    UlProps,
-    UProps,
-    VarProps,
-    VideoProps,
-    WbrProps
+    SampProps, SearchProps, SectionProps, SlotProps, SmallProps, SpanProps, SProps, StrongProps,
+    SubProps, SummaryProps, SupProps,
+    TemplateProps, TimeProps,
+    UlProps, UProps,
+    VarProps, VideoProps,
+    WbrProps,
 } from "./html_element";
 import {
     AButtonProps,
     DivButtonProps,
 } from "../layout";
+import {
+    Area,
+    Break,
+    Button,
+    Canvas,
+    Caption,
+    Code,
+    Col,
+    ColGroup,
+    Container,
+    DataList,
+    Details,
+    Dialog,
+    DItem,
+    Fieldset,
+    FigCaption,
+    Figure,
+    Form,
+    Heading,
+    HeadingGroup,
+    Iframe,
+    ImageMap,
+    Input,
+    Label,
+    Link,
+    List,
+    ListItem,
+    Media,
+    Meta,
+    OptGroup,
+    Option,
+    Output,
+    Paragraph,
+    Progress,
+    Rp,
+    Rt,
+    Ruby,
+    Script,
+    Select,
+    Source,
+    Style,
+    Svg,
+    Table, TableCell, TableRow,
+    Tbody, Textarea, THeadFoot
+} from "../../element";
 
 export * from './html_element';
 export * from './icons';
@@ -88,6 +102,7 @@ export type TypeBlockContainer = DivProps
     | TemplateProps;
 /** Type definition of property for inline containers */
 export type TypeInlineContainer = SpanProps
+    | AProps
     | AbbrProps
     | BProps
     | BdiProps
@@ -114,7 +129,7 @@ export type TypeInlineContainer = SpanProps
     | UProps
     | VarProps;
 /** Type definition of property for list */
-export type TypeList = DlProps | MenuProps | OlProps | UlProps;
+export type TypeList<T extends ElementBaseProps | string = string> = DlProps | MenuProps<T> | OlProps<T> | UlProps<T>;
 /** Type definition of property for media */
 export type TypeMedia = AudioProps
     | EmbedProps
@@ -122,3 +137,128 @@ export type TypeMedia = AudioProps
     | ObjectProps
     | PictureProps
     | VideoProps;
+
+export const getComponent = (obj: any) => {
+    if (obj && typeof obj === 'object' && Object.hasOwn(obj, 'element')) {
+        const element = obj.element;
+        switch (element.toLowerCase()) {
+            case 'a': case 'abbr': case 'address': case 'article': case 'aside':
+            case 'b': case 'bdi': case 'bdo': case 'blockquote':
+            case 'cite':
+            case 'data': case 'del': case 'dfn': case 'div':
+            case 'em':
+            case 'footer':
+            case 'header':
+            case 'i': case 'ins':
+            case 'kbd':
+            case 'legend':
+            case 'main': case 'mark': case 'meter':
+            case 'nav': case 'noscript':
+            case 'pre':
+            case 'q':
+            case 's': case 'samp': case 'search': case 'selection': case 'slot':
+            case 'small': case 'span': case 'strong': case 'sub': case 'sup':
+            case 'template': case 'time': case 'track':
+            case 'u':
+            case 'var':
+                return Container;
+            case 'area':
+                return Area;
+            case 'audio': case 'embed': case 'img': case 'object': case 'picture': case 'video':
+                return Media;
+            case 'br': case 'hr': case 'wbr':
+                return Break;
+            case 'button':
+                return Button;
+            case 'canvas':
+                return Canvas;
+            case 'caption':
+                return Caption;
+            case 'code':
+                return Code;
+            case 'col':
+                return Col;
+            case 'colgroup':
+                return ColGroup;
+            case 'datalist':
+                return DataList;
+            case 'dd':
+                return DItem;
+            case 'details':
+                return Details;
+            case 'dialog':
+                return Dialog;
+            case 'dl': case 'menu': case 'ol': case 'ul':
+                return List;
+            case 'dt':
+                return DItem;
+            case 'fieldset':
+                return Fieldset;
+            case 'figcaption':
+                return FigCaption;
+            case 'figure':
+                return Figure;
+            case 'form':
+                return Form;
+            case 'h1': case 'h2': case 'h3': case 'h4': case 'h5': case 'h6': case 'heading':
+                return Heading;
+            case 'hgroup': case 'heading-group':
+                return HeadingGroup;
+            case 'iframe':
+                return Iframe;
+            case 'input':
+                return Input;
+            case 'label':
+                return Label;
+            case 'li':
+                return ListItem;
+            case 'link':
+                return Link;
+            case 'map':
+                return ImageMap;
+            case 'meta':
+                return Meta;
+            case 'optgroup':
+                return OptGroup;
+            case 'option':
+                return Option;
+            case 'output':
+                return Output;
+            case 'p': case 'paragraph':
+                return Paragraph;
+            case 'progress':
+                return Progress;
+            case 'rp':
+                return Rp;
+            case 'rt':
+                return Rt;
+            case 'ruby':
+                return Ruby;
+            case 'script':
+                return Script;
+            case 'select':
+                return Select;
+            case 'source':
+                return Source;
+            case 'style':
+                return Style;
+            case 'svg':
+                return Svg;
+            case 'table':
+                return Table;
+            case 'tbody':
+                return Tbody;
+            case 'td':
+                return TableCell;
+            case 'textarea':
+                return Textarea;
+            case 'tfoot': case 'thead':
+                return THeadFoot;
+            case 'th':
+                return TableCell;
+            case 'tr':
+                return TableRow;
+        }
+    }
+    return Fragment;
+};

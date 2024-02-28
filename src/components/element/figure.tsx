@@ -2,6 +2,7 @@ import React, {
     Fragment,
 } from "react";
 import {
+    FigcaptionProps,
     FigureProps,
 } from "../@types";
 import {
@@ -33,51 +34,38 @@ export const Figure = (props: FigureProps) => {
                 {...datasetShown}
             >
                 {
-                    caption && captionPosition !== 'last' && function() {
-                        const {
-                            children,
-                            classes = [],
-                            attributes = {},
-                            datasets = new Map(),
-                            ...restCaptionProps
-                        } = caption;
-                        const datasetShown = convertDataSet(datasets);
-                        return (
-                            <figcaption
-                                {...restCaptionProps}
-                                className={joinClasses(classes)}
-                                {...attributes}
-                                {...datasetShown}
-                            >
-                                {children}
-                            </figcaption>
-                        );
-                    }()
+                    caption && captionPosition !== 'last'  ? (
+                        <FigCaption {...caption} />
+                    ) : <Fragment />
                 }
                 {children}
                 {
-                    caption && captionPosition === 'last' && function() {
-                        const {
-                            children,
-                            classes = [],
-                            attributes = {},
-                            datasets = new Map(),
-                            ...restCaptionProps
-                        } = caption;
-                        const datasetShown = convertDataSet(datasets);
-                        return (
-                            <figcaption
-                                {...restCaptionProps}
-                                className={joinClasses(classes)}
-                                {...attributes}
-                                {...datasetShown}
-                            >
-                                {children}
-                            </figcaption>
-                        );
-                    }()
+                    caption && captionPosition === 'last' ? (
+                        <FigCaption {...caption} />
+                    ) : <Fragment />
                 }
             </figure>
         </Fragment>
+    );
+};
+
+export const FigCaption = (props: FigcaptionProps) => {
+    const {
+        children,
+        classes = [],
+        attributes = {},
+        datasets = new Map(),
+        ...restCaptionProps
+    } = props;
+    const datasetShown = convertDataSet(datasets);
+    return (
+        <figcaption
+            {...restCaptionProps}
+            className={joinClasses(classes)}
+            {...attributes}
+            {...datasetShown}
+        >
+            {children}
+        </figcaption>
     );
 };

@@ -1,3 +1,4 @@
+import {HTMLAttributes} from "react";
 import {arrayCombine} from "../../../utils";
 
 /**
@@ -293,14 +294,19 @@ export const getDefaultStyleClass = (type: string, element: string | undefined =
                     return ['btn'];
                 case 'div':
                     return ['btn'];
+                default:
+                    switch (subType?.toLowerCase()) {
+                        case 'delete':
+                            return ['tag__close-btn'];
+                    }
             }
             break;
         case 'column':
             switch (subType?.toLowerCase()) {
                 case 'multiple':
-                    return ['columns'];
+                    return ['rows'];
                 default:
-                    return ['column'];
+                    return [];
             }
         case 'content':
             return [];
@@ -319,8 +325,6 @@ export const getDefaultStyleClass = (type: string, element: string | undefined =
                 default:
                     return [getStylePrefix(subType) + 'input'];
             }
-        case 'delete':
-            return [];
         case 'divider':
             switch (subType?.toLowerCase()) {
                 case 'vertical':
@@ -424,7 +428,13 @@ export const getDefaultStyleClass = (type: string, element: string | undefined =
         case 'table':
             return [];
         case 'tag':
-            return ['tag'];
+            switch (subType) {
+                case 'multiple':
+                    return ['tag-container'];
+                case 'single':
+                default:
+                    return ['tag'];
+            }
         case 'title':
             return [];
         case 'tooltip':
@@ -511,12 +521,13 @@ export const getStylePrefix = (type: string|undefined) => {
  * Get aria-label for type specified
  * @param type
  * @param subType
+ * @param element
  */
 export const getDefaultAdditionalAttributes = (
-    type?: string, subType?: string
-): Array<{[key: string]: string|number|boolean}> => {
+    type?: string, element?: string, subType?: string
+): Map<keyof HTMLAttributes<HTMLElement>, string> => {
     if (type !== undefined) {
         // Nothing to do at this moment
     }
-    return [];
+    return new Map();
 };

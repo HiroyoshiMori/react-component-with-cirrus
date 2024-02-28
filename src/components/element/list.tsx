@@ -1,11 +1,18 @@
 import React, {
     Fragment,
 } from "react";
-import {DdProps, DlItemProps, DtProps, LiProps, OlProps, ScriptProps, TemplateProps, TypeList} from "../@types";
+import {
+    DdProps,
+    DlItemProps,
+    DtProps, ElementBaseProps,
+    ListItemProps,
+    OlProps,
+    TypeList
+} from "../@types";
 import {convertDataSet, joinClasses} from "../common";
-import {getCssFramework} from "../index";
+import {getComponent, getCssFramework} from "../index";
 
-export const List = (props: TypeList) => {
+export const List = <T extends ElementBaseProps | string = string>(props: TypeList<T>) => {
     const {
         element: Tag = 'ul',
         items: _,
@@ -60,15 +67,17 @@ export const List = (props: TypeList) => {
                                 </Fragment>
                             );
                         } else {
-                            const itemList = items as (LiProps | ScriptProps | TemplateProps)[];
+                            const itemList = items as ListItemProps[];
                             return (
                                 <Fragment>
                                     {
-                                        Array.isArray(itemList) && itemList.length > 0 && itemList.map((item: LiProps|ScriptProps|TemplateProps, idx: number) => (
-                                            <Fragment key={idx}>
-                                                <ListItem {...item} />
-                                            </Fragment>
-                                        ))
+                                        Array.isArray(itemList) && itemList.length > 0 && itemList.map(
+                                            (item: ListItemProps, idx: number) => (
+                                                <Fragment key={idx}>
+                                                    <ListItem<T> {...item} />
+                                                </Fragment>
+                                            )
+                                        )
                                     }
                                 </Fragment>
                             );
@@ -80,7 +89,7 @@ export const List = (props: TypeList) => {
     );
 };
 
-export const ListItem = (props: LiProps|ScriptProps|TemplateProps) => {
+export const ListItem = <T extends ElementBaseProps | string = string>(props: ListItemProps<T>) => {
     const {
         element: ItemTag = 'li',
         children,
@@ -89,7 +98,10 @@ export const ListItem = (props: LiProps|ScriptProps|TemplateProps) => {
         datasets = new Map(),
         ...itemProps
     } = props;
+
+    // Initialize
     const datasetShown = convertDataSet(datasets);
+
     return (
         <Fragment>
             <ItemTag
@@ -98,7 +110,16 @@ export const ListItem = (props: LiProps|ScriptProps|TemplateProps) => {
                 {...attributes}
                 {...datasetShown}
             >
-                {children}
+                {
+                    children && (typeof children === 'object') && Object.hasOwn(children, 'element')
+                        ? function (items: T) {
+                            const Component = getComponent(items);
+                            // @ts-ignore
+                            return (<Component {...items} />);
+                        }(children as T) : (
+                            <Fragment>{children}</Fragment>
+                        )
+                }
             </ItemTag>
         </Fragment>
     );
