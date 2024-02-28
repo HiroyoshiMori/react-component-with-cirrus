@@ -1,6 +1,7 @@
-import {Fragment} from "react";
+import React, {
+    Fragment,
+} from "react";
 import {
-    Anchor,
     Container,
     Figure,
 } from "../../../../components";
@@ -30,19 +31,23 @@ export default {
                         element={'cite'}
                         inline={true}
                     >
-                        <Anchor
+                        <Container
+                            element={'a'}
+                            inline={true}
                             href={'https://en.wiktionary.org/wiki/%E7%82%BA%E3%81%9B%E3%81%B0%E6%88%90%E3%82%8B'}
                             target={'cite-window'}
-                        >Waka</Anchor>,
+                        >Waka</Container>,
                         a genre of Japanese poetry,
                     </Container>
                     read by&nbsp;
-                    <Anchor
+                    <Container
+                        element={'a'}
+                        inline={true}
                         href={'https://en.wikipedia.org/wiki/Uesugi_Harunori'}
                         target={'cite-window'}
                     >
                         Youzan Uesugi
-                    </Anchor>
+                    </Container>
                 </Figure>
             </Fragment>
         ),

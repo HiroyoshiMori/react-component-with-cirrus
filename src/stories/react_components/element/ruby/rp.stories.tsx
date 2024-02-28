@@ -35,7 +35,7 @@ export default {
             </Fragment>
         ),
     ],
-    argTyps: {
+    argTypes: {
         element: {
             control: 'none',
             description: 'Switcher for <code>Rp</code> component to render &lt;rp&gt;',

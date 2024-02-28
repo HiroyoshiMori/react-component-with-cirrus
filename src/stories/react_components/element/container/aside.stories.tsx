@@ -120,7 +120,7 @@ export default {
 };
 // Default aside property
 const DefaultAsideProps = {
-    element: 'aisde',
+    element: 'aside',
     inline: false,
 };
 

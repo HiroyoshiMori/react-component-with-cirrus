@@ -90,7 +90,7 @@ export default {
                     summary: 'boolean',
                 },
                 defaultValue: {
-                    summary: 'undeinfed',
+                    summary: 'undefined',
                 },
             },
         },

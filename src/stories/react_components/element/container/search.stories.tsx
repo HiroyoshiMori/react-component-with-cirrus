@@ -10,7 +10,7 @@ import {deIndent} from "../../../../utils";
  * The &lt;search&gt; HTML element is a container representing the parts of the document or application
  * with form controls or other content related to performing a search or filtering operation. The
  * &lt;search&gt; element semantically identifies the purpose of the element's contents as having search or
- * filtering capabilities. The search or filtering functionality can be for the webiste or application, the
+ * filtering capabilities. The search or filtering functionality can be for the website or application, the
  * current web page or document, or the entire internet or subsection thereof.
  *
  * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search

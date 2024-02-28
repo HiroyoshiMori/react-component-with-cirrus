@@ -4,6 +4,7 @@ import {
     Input,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
+import React from "react";
 
 /**
  * &lt;input&gt; elements of type <code>range</code> let the user specify a numeric value which must be no less than a
@@ -167,19 +168,6 @@ export default {
                 },
             },
         },
-        onChange: {
-            action: 'changed',
-            description: 'Function called when value is changed',
-            table: {
-                type: {
-                    summary: 'function',
-                    detail: '(e: React.ChangeEvent<HTMLInputElement>) => void',
-                },
-                defaultValue: {
-                    summary: 'undefined',
-                },
-            },
-        },
         classes: {
             control: 'object',
             description: 'Style classes',
@@ -238,10 +226,7 @@ export const Default = {
     render: (args: any) => <Input
         type={'range'}
         defaultValue={''}
-        onChange={(e) => {
-            console.debug('value is: ' + e.target.value);
-            action('range changed');
-        }}
+        onChange={action('range changed')}
         {...args}
     />,
 };

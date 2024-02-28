@@ -6,7 +6,7 @@ import {deIndent, linkInStoryBook} from "../../../../utils";
 /**
  * The &lt;dl&gt; HTML element represents a description list. The element encloses a list of groups of
  * terms (specified using the &lt;dt&gt; element) and descriptions (provided by &lt;dd&gt; elements).
- * Common uses for this element are to implement a lossary or to display metadata (a list of key-value
+ * Common uses for this element are to implement a glossary or to display metadata (a list of key-value
  * pairs).
  */
 export default {

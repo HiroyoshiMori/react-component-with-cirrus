@@ -83,19 +83,6 @@ export default {
                 },
             },
         },
-        onClick: {
-            action: 'clicked',
-            description: 'Function to be called when button is clicked',
-            table: {
-                type: {
-                    summary: 'function',
-                    detail: '(e: React.MouseEvent<HTMLButtonElement>) => void',
-                },
-                defaultValue: {
-                    summary: 'undefined',
-                },
-            },
-        },
         classes: {
             control: 'object',
             description: 'Style classes',

@@ -1,8 +1,8 @@
 import {
-    Anchor,
+    Container,
     TARGETS,
-} from "../../../components";
-import {deIndent} from "../../../utils";
+} from "../../../../components";
+import {deIndent} from "../../../../utils";
 import {action} from "@storybook/addon-actions";
 
 /**
@@ -14,8 +14,8 @@ import {action} from "@storybook/addon-actions";
  * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
  */
 export default {
-    title: 'React Component/Element/Anchor',
-    component: Anchor,
+    title: 'React Component/Element/Container/Inline/Anchor',
+    component: Container,
     tags: ['autodocs'],
     parameters: {
         componentSubtitle: 'The Anchor element',
@@ -23,13 +23,25 @@ export default {
     argTypes: {
         element: {
             control: 'none',
-            description: 'Switcher for <code>Anchor</code> component to render &lt;a&gt;',
+            description: 'Switcher for <code>Container</code> component to render &lt;a&gt;',
             table: {
                 type: {
                     summary: '"a"',
                 },
                 defaultValue: {
                     summary: 'undefined',
+                },
+            },
+        },
+        inline: {
+            control: 'none',
+            description: 'Indicate inline-level element',
+            type: {
+                required: true,
+            },
+            table: {
+                type: {
+                    summary: 'true',
                 },
             },
         },
@@ -52,7 +64,7 @@ export default {
                 type: {
                     summary: 'string',
                     detail: deIndent(`
-                            URL scheme supported by browswers:
+                            URL scheme supported by browsers:
                             - Sections of a page with document fragments
                             - Specific text portions with text fragments
                             - Pieces of media files with media fragments
@@ -61,18 +73,6 @@ export default {
                             - SMS text messages with sms: URLs
                             - While web browsers may not support other URL schemes, websites can with registerProtocolHandler()
                         `),
-                },
-                defaultValue: {
-                    summary: 'undefined',
-                },
-            },
-        },
-        onClick: {
-            action: 'clicked',
-            description: 'Function which is called when user clicked',
-            table: {
-                type: {
-                    summary: '(e: React.MouseEvent<HTMLAnchorElement>) => void',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -247,17 +247,18 @@ export default {
 // Default anchor
 const DefaultAnchor = {
     element: 'a',
+    inline: true,
     href: '#',
 };
 
 /** Default Anchor */
 export const Default = {
-    render: (args: any) => <Anchor
+    render: (args: any) => <Container
         {...DefaultAnchor}
         {...args}
     >
         Anchor Text
-    </Anchor>,
+    </Container>,
 };
 /** Anchor with ping */
 export const AnchorWithPing = {

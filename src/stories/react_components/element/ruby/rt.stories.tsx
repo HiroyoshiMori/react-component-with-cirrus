@@ -6,7 +6,7 @@ import {deIndent, linkInStoryBook} from "../../../../utils";
 
 /**
  * The &lt;rt&gt; element specifies the ruby text component of a ruby annotation, which is used to
- * provide pronunciation, transiation, or transliteration information for East Asian typography.
+ * provide pronunciation, translation, or transliteration information for East Asian typography.
  * The &lt;rt&gt; element must always be contained within a &lt;ruby&gt; element.
  *
  * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt

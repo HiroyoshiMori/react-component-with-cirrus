@@ -8,7 +8,7 @@ import {deIndent} from "../../../../utils";
  * <ul>
  *     <li>
  *         &lt;input&gt; elements of <code>type="date"</code><br />
- *         Create input fields that let the user enter a date, either with a textbox that validates the input
+ *         Create input fields that let the user enter a date, either with a text box that validates the input
  *         or a special date picker interface.<br />
  *         <br />
  *         The resulting value includes the year, month, and day, but not the time. The time and datetime-local
@@ -101,19 +101,6 @@ export default {
             table: {
                 type: {
                     summary: 'string',
-                },
-                defaultValue: {
-                    summary: 'undefined',
-                },
-            },
-        },
-        onChange: {
-            action: 'changed',
-            description: 'Function called when value is changed',
-            table: {
-                type: {
-                    summary: 'function',
-                    detail: '(e: React.ChangeEvent<HTMLInputElement>) => void',
                 },
                 defaultValue: {
                     summary: 'undefined',

@@ -129,16 +129,6 @@ export default {
                 },
             },
         },
-        onClick: {
-            action: 'clicked',
-            description: 'Function called when clicked',
-            table: {
-                type: {
-                    summary: 'function',
-                    detail: '(e: React.MouseEvent<HTMLInputElement>) => void',
-                },
-            },
-        },
         classes: {
             control: 'object',
             description: 'Style classes',

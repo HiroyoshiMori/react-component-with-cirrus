@@ -81,16 +81,6 @@ export default {
                 },
             },
         },
-        onClick: {
-            action: 'clicked',
-            description: 'Function called when clicked',
-            table: {
-                type: {
-                    summary: 'function',
-                    detail: '(e: React.MouseEvent<HTMLInputElement>) => void',
-                },
-            },
-        },
         width: {
             control: {type: 'number', min: 1},
             description: 'Specifies the width at which to draw the image, in CSS pixels',

@@ -140,7 +140,7 @@ export const RubyAnnotationWithStyleClasses = {
     },
 };
 /** Ruby annotation with additional attributes */
-export const RubyAnnotationWithAdditionalAttribytes = {
+export const RubyAnnotationWithAdditionalAttributes = {
     ...Default,
     args: {
         attributes: {

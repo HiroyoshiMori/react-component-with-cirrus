@@ -66,19 +66,6 @@ export default {
                 },
             },
         },
-        onChange: {
-            action: 'changed',
-            description: 'Function called when value is changed',
-            table: {
-                type: {
-                    summary: 'function',
-                    detail: '(e: React.ChangeEvent<HTMLInputElement>) => void',
-                },
-                defaultValue: {
-                    summary: 'undefined',
-                },
-            },
-        },
         autoComplete: {
             control: 'select',
             options: ['Default'].concat(AUTOCOMPLETES),
@@ -294,7 +281,7 @@ export const EmailWithMultiple = {
     },
 };
 /** Email with pattern */
-export const EmailWtihPattern = {
+export const EmailWithPattern = {
     ...Default,
     args: {
         pattern: '.+@sciprtlab\\.tokyo',

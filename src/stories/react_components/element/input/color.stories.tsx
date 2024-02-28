@@ -110,19 +110,6 @@ export default {
                 },
             },
         },
-        onChange: {
-            action: 'changed',
-            summary: 'Function called when value is changed',
-            table: {
-                type: {
-                    summary: 'function',
-                    detail: '(e: React.ChangeEvent<HTMLInputElement>) => void',
-                },
-                defaultValue: {
-                    summary: 'undefined',
-                },
-            },
-        },
         classes: {
             control: 'object',
             description: 'Style classes',
@@ -216,7 +203,7 @@ export const ColorWithAdditionalAttributes = {
     args: {
         attributes: {
             'aria-label': 'Input Color Label',
-            'aria-placeholder': 'Input Color Placehodler',
+            'aria-placeholder': 'Input Color Placeholder',
         },
     },
 };

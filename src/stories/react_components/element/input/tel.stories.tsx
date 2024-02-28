@@ -193,19 +193,6 @@ export default {
                 },
             },
         },
-        onChange: {
-            action: 'changed',
-            description: 'Function called when value is changed',
-            table: {
-                type: {
-                    summary: 'function',
-                    detail: '(e: React.ChangeEvent<HTMLInputElement>) => void',
-                },
-                defaultValue: {
-                    summary: 'undefined',
-                },
-            },
-        },
         classes: {
             control: 'object',
             description: 'Style classes',

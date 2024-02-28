@@ -2,7 +2,6 @@ import {
     Container,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
-import {HTMLAttributes} from "react";
 
 /**
  * The &lt;b&gt; HTML element is used to draw the reader's attention to the element's contents, which are

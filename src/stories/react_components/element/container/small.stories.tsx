@@ -158,7 +158,7 @@ export const SmallWithAdditionalAttributes = {
     args: {
         attributes: {
             'aria-label': 'Small Label',
-            'aria-placeho.der': 'Small Placeholder',
+            'aria-placeholder': 'Small Placeholder',
         },
     },
 };

@@ -6,7 +6,7 @@ import {
 import {deIndent, linkInStoryBook} from "../../../../utils";
 
 /**
- * The &lt;ul&gt; HTML element represents an unordered list of items, typically rendered as bulleteed list.
+ * The &lt;ul&gt; HTML element represents an unordered list of items, typically rendered as bulleted list.
  *
  * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul
  */

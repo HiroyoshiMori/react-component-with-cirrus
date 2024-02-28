@@ -85,18 +85,6 @@ export default{
                 },
             },
         },
-        onClick: {
-            action: 'clicked',
-            description: 'Function which is called when user clicked',
-            table: {
-                type: {
-                    summary: '(e: React.MouseEvent<HTMLButtonElement>) => void',
-                },
-                defaultValue: {
-                    summary: 'undefined',
-                },
-            },
-        },
         type: {
             control: 'select',
             options: ['Default', 'submit', 'reset', 'button'],
@@ -304,7 +292,7 @@ export default{
 export const Default = {
     render: (args: any) => <Button
         element='button'
-        onClick={action('clicked')}
+        onClick={action('button clicked')}
         {...args}
     >
         This is button Label
