@@ -4,7 +4,7 @@ import {
     LiHTMLAttributes,
     ReactNode,
 } from "react";
-import {CommonComponentProps} from "./index";
+import {CommonComponentProps, TypeAlignment} from "./index";
 import {
     AProps, ArticleProps, AsideProps,
     ButtonProps, ButtonsProps,
@@ -20,16 +20,26 @@ import {
 // -------------------------------------------------------------------
 // Type definitions of common properties for components for bulma
 // -------------------------------------------------------------------
+// list of alternative separators for breadcrumb
+export const ALTERNATIVE_SEPARATORS = [
+    'arrow', 'bullet', 'dot', 'succeeds',
+];
+/** Type of alternative separators */
+export type TypeAlternativeSeparators = typeof ALTERNATIVE_SEPARATORS[number];
+
 /** Type definitions of properties for breadcrumb */
 export type BreadcrumbProps = {
     component?: 'breadcrumb';
     element?: 'nav';
     items: BreadcrumbItemProps | BreadcrumbItemProps[];
+    commonClassesInItems?: string[];
     children?: ReactNode;
+    alignment?: TypeAlignment;
+    separators?: TypeAlternativeSeparators;
 } & CommonComponentProps<NavProps, HTMLAttributes<HTMLElement>>;
 /** Type definitions of properties for breadcrumb item */
 export type BreadcrumbItemProps = {
-    component?: 'breadcrumb',
+    component?: 'breadcrumb-item',
     element?: 'a';
     children?: ReactNode;
     icon?: IconsProps;

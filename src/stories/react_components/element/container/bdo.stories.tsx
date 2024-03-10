@@ -143,13 +143,13 @@ const DefaultBdoProps = {
 /** Default bidirectional text */
 export const Default = {
     render: (args: any) => <Fragment>
-        <Paragraph>
+        <Paragraph element={'p'}>
             UNIX Timestamp starts from <br />
             <Container
                 {...DefaultBdoProps}
                 {...args}
             >
-                <Paragraph>January 1st, 2000 00:00:00</Paragraph>
+                <Paragraph element={'p'}>January 1st, 2000 00:00:00</Paragraph>
             </Container>
         </Paragraph>
     </Fragment>,

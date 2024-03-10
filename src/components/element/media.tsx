@@ -177,6 +177,7 @@ export const Media = (props: TypeMedia) => {
                                             <Fragment key={idx}>
                                                 <Source
                                                     {...source}
+                                                    element={'source'}
                                                 />
                                             </Fragment>
                                         );

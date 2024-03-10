@@ -1,4 +1,4 @@
-import {Delete} from "../../../frameworks/bulma";
+import {Delete} from "../../../../frameworks/bulma";
 
 export default {
     component: Delete,

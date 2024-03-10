@@ -1,6 +1,4 @@
-import React, {
-    Fragment,
-} from "react";
+import React from "react";
 import {
     getComponent,
     TypeButton,
@@ -28,7 +26,7 @@ export const LayoutButton = (props: TypeButton) => {
             'button', element
         )
     );
-    const Tag = getComponent(props);
+    const Tag = getComponent<TypeButton>(props);
 
     // @ts-ignore
     return (<Tag {...restProps} element={element}>{children}</Tag>);

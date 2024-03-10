@@ -137,7 +137,7 @@ export default {
 /** Default definition */
 export const Default = {
     render: (args: any) => <Fragment>
-        <Paragraph>
+        <Paragraph element={'p'}>
             A <Container
             element={'dfn'}
             {...args}

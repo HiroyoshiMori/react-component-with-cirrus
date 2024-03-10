@@ -1,6 +1,6 @@
-import {Navbar} from "../../../frameworks/bulma";
+import {Navbar} from "../../../../frameworks/bulma";
 // @ts-ignore
-import ExamplePicture from '../../assets/assets.png';
+import ExamplePicture from '../../../assets/assets.png';
 
 export default {
     component: Navbar,

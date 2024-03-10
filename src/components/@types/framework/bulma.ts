@@ -25,7 +25,7 @@ export const COLORS = [
     'white', 'black', 'light', 'dark',
     'primary', 'link', 'info', 'success', 'warning', 'danger',
     'black-bis', 'black-ter', 'grey-darker', 'grey-dark',
-    'grey', 'grey-light', 'grey-ligher', 'white-ter', 'white-bis',
+    'grey', 'grey-light', 'grey-lighter', 'white-ter', 'white-bis',
     'primary-light', 'link-light', 'info-light', 'success-light',
     'warning-light', 'danger-light', 'primary-dark', 'link-dark',
     'info-dark', 'success-dark', 'warning-dark', 'danger-dark',
@@ -261,6 +261,16 @@ export const getDefaultStyleClass = (
                 default:
                     return ['breadcrumb'];
             }
+        case 'breadcrumb-item':
+            switch (element.toLowerCase()) {
+                case 'icon':
+                    switch (subType?.toLowerCase()) {
+                        case 'span':
+                            return ['icon', 'is-small'];
+                    }
+                    break;
+            }
+            break;
         case 'button':
             switch (subType?.toLowerCase()) {
                 case 'delete':
@@ -308,18 +318,6 @@ export const getDefaultStyleClass = (
             return ['column'];
         case 'content':
             return ['content'];
-        case 'checkbox':
-        case 'radio':
-            switch (element.toLowerCase()) {
-                case 'container':
-                    return ['control'];
-                case 'footnote':
-                    return ['help'];
-                case 'label':
-                    return [type.toLowerCase()];
-                default:
-                    return [type.toLowerCase()];
-            }
         case 'delete':
             return ['delete'];
         case 'divider':
@@ -359,6 +357,105 @@ export const getDefaultStyleClass = (
             return ['is-grouped'];
         case 'figure':
             return ['fig'];
+        case 'form':
+            switch (element.toLowerCase()) {
+                case 'input':
+                    switch (subType?.toLowerCase()) {
+                        case 'checkbox':
+                            return ['checkbox'];
+                        case 'radio':
+                            return ['radio'];
+                        default:
+                            return ['input'];
+                    }
+                case 'textarea':
+                    return ['textarea'];
+            }
+            break;
+        case 'form-field':
+            switch (element.toLowerCase()) {
+                case 'label':
+                    return ['label'];
+                default:
+                    switch (subType?.toLowerCase()) {
+                        case 'is-grouped':
+                            return ['is-grouped'];
+                        case 'is-grouped-multiline':
+                            return ['is-grouped-multiline'];
+                        case 'has-addons':
+                            return ['has-addons'];
+                        default:
+                            return ['field'];
+                    }
+            }
+        case 'form-control':
+            switch (element.toLowerCase()) {
+                case 'icons':
+                    switch (subType?.toLowerCase()) {
+                        case 'left':
+                            return ['has-icons-left'];
+                        case 'right':
+                            return ['has-icons-right'];
+                    }
+                    break;
+                case 'span':
+                    switch (subType?.toLowerCase()) {
+                        case 'left':
+                            return ['icon', 'is-left'];
+                        case 'right':
+                            return ['icon', 'is-right'];
+                    }
+                    break;
+                default:
+                    switch (subType?.toLowerCase()) {
+                        case 'is-expanded':
+                            return ['is-expanded'];
+                        default:
+                            return ['control'];
+                    }
+            }
+            break;
+        case 'form-file':
+            switch (element.toLowerCase()) {
+                case 'label':
+                    return ['file-label'];
+                case 'input':
+                    return ['file-input'];
+                case 'span':
+                    switch (subType?.toLowerCase()) {
+                        case 'cta':
+                            return ['file-cta'];
+                        case 'icon':
+                            return ['file-icon'];
+                        case 'label':
+                            return ['file-label'];
+                        case 'filename':
+                            return ['file-name'];
+                    }
+                    break;
+                default:
+                    switch (subType?.toLowerCase()) {
+                        case 'has-filename':
+                            return ['has-name'];
+                        case 'is-boxed':
+                            return ['is-boxed'];
+                        case 'is-expanded':
+                            return ['is-fullwidth'];
+                        default:
+                            return ['file'];
+                    }
+            }
+            break;
+        case 'form-select':
+            switch (element.toLowerCase()) {
+                default:
+                    switch (subType?.toLowerCase()) {
+                        case 'icon':
+                            return ['icon', 'is-left'];
+                        default:
+                            return ['select'];
+                    }
+            }
         case 'heading':
             const results = [];
             switch (element.toLowerCase()) {
@@ -389,6 +486,18 @@ export const getDefaultStyleClass = (
             switch (element.toLowerCase()) {
                 default:
                     return ['image'];
+            }
+        case 'labelled-checkbox':
+        case 'labelled-radio':
+            switch (element.toLowerCase()) {
+                case 'container':
+                    return ['control'];
+                case 'footnote':
+                    return ['help'];
+                case 'label':
+                    return subType ? [subType.toLowerCase()] : [];
+                default:
+                    return subType ? [subType.toLowerCase()] : [];
             }
         case 'list':
             switch (element.toLowerCase()) {
@@ -574,7 +683,7 @@ export const getDefaultStyleClass = (
             return ['panel-tabs'];
         case 'panel-tab-item':
             switch (subType?.toLowerCase()) {
-                case 'active':
+                case 'is-active':
                     return ['is-active'];
             }
             break;
@@ -603,7 +712,7 @@ export const getDefaultStyleClass = (
             switch (element.toLowerCase()) {
                 case 'li':
                     switch (subType?.toLowerCase()) {
-                        case 'active':
+                        case 'is-active':
                             return ['is-active'];
                     }
                     break;

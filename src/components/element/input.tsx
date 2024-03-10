@@ -1,106 +1,104 @@
 import React, {
     Fragment,
 } from "react";
+import _ from 'lodash';
 import {
-    InputButtonProps,
-    InputCheckboxProps,
-    InputColorProps,
-    InputDateProps,
-    InputEmailProps,
-    InputFileProps,
-    InputHiddenProps,
-    InputImageProps,
-    InputNumberProps,
-    InputPasswordProps,
-    InputRadioProps,
-    InputRangeProps,
-    InputSearchProps,
-    InputSubmitProps,
-    InputTelProps,
-    InputTextProps,
-    InputUrlProps,
     InputProps,
 } from "../@types";
-import {convertDataSet, joinClasses} from "../common";
+import {convertDataSet, initialize, joinClasses} from "../common";
 import {generateId} from "../../utils";
 import {DataList} from "./datalist";
+import {getCssFramework} from "../index";
 
 export const Input = (props: InputProps) => {
     const {
-        element: _,
-        classes = [],
-        attributes = {},
         datasets = new Map(),
-        ...restProps
+        element = 'input',
+        noDefaultClass = false,
+        ...itemProps
     } = props;
 
     // Initialize
-    let itemProps = switchComponent(restProps);
+    const classes = initialize(
+        props['classes'], [], !noDefaultClass ? getCssFramework().getDefaultStyleClass(
+            'form', props['element'], props['type']
+        ) : []
+    );
+    const attributes = initialize(
+        props['attributes'], {}, getCssFramework().getDefaultAdditionalAttributes(
+            'form', props['element']
+        )
+    );
+
     const datasetShown = convertDataSet(datasets);
     let datalistOptions;
-    if (Object.hasOwn(itemProps, 'datalist') && Array.isArray(itemProps.datalist)) {
-        datalistOptions = itemProps.datalist.map((val: string) => ({
+    if (Object.hasOwn(itemProps, 'datalist') && Array.isArray((itemProps as any).datalist)) {
+        datalistOptions = (itemProps as any).datalist.map((val: string) => ({
             element: 'option',
             value: val,
         }));
-        delete itemProps.datalist;
-        itemProps.list = itemProps.list ?? generateId();
+        (itemProps as any).datalist = undefined;
+        (itemProps as any).list = (itemProps as any).list ?? generateId();
     }
-    if (Object.hasOwn(itemProps, 'step') && typeof itemProps.step === 'number') {
-        if (itemProps.step < 1) {
-            delete itemProps.step;
+    if (Object.hasOwn(itemProps, 'step')) {
+        if (typeof (itemProps as any).step === 'number') {
+            if ((itemProps as any).step < 1) {
+                (itemProps as any).step = undefined;
+            }
+        } else {
+            (itemProps as any).step = undefined;
         }
     }
     if (Object.hasOwn(itemProps, 'maxLength')) {
-        if (typeof itemProps.maxLength === 'number') {
-            if (itemProps.maxLength < 0) {
-                delete itemProps.maxLength;
+        if (typeof (itemProps as any).maxLength === 'number') {
+            if ((itemProps as any).maxLength < 0) {
+                (itemProps as any).maxLength = undefined;
             }
         } else {
-            delete itemProps.maxLength;
+            (itemProps as any).maxLength = undefined;
         }
     }
     if (Object.hasOwn(itemProps, 'minLength')) {
-        if (typeof itemProps.minLength === 'number') {
-            if (itemProps.minLength < 0) {
-                delete itemProps.minLength;
+        if (typeof (itemProps as any).minLength === 'number') {
+            if ((itemProps as any).minLength < 0) {
+                (itemProps as any).minLength = undefined;
             }
         } else {
-            delete itemProps.minLength;
+            (itemProps as any).minLength = undefined;
         }
     }
     if (Object.hasOwn(itemProps, 'size')) {
-        if (typeof itemProps.size === 'number') {
-            if (itemProps.size < 1) {
-                delete itemProps.size;
+        if (typeof (itemProps as any).size === 'number') {
+            if ((itemProps as any).size < 1) {
+                (itemProps as any).size = undefined;
             }
         } else {
-            delete itemProps.size;
+            (itemProps as any).size = undefined;
         }
     }
     if (Object.hasOwn(itemProps, 'width')) {
-        if (typeof itemProps.width === 'number') {
-            if (itemProps.width < 1) {
-                delete itemProps.width;
+        if (typeof (itemProps as any).width === 'number') {
+            if ((itemProps as any).width < 1) {
+                (itemProps as any).width = undefined;
             }
         } else {
-            delete itemProps.width;
+            (itemProps as any).width = undefined;
         }
     }
     if (Object.hasOwn(itemProps, 'height')) {
-        if (typeof itemProps.height === 'number') {
-            if (itemProps.height < 1) {
-                delete itemProps.height;
+        if (typeof (itemProps as any)["height"] === 'number') {
+            if ((itemProps as any).height < 1) {
+                (itemProps as any).height = undefined;
             }
         } else {
-            delete itemProps.height;
+            (itemProps as any).height = undefined;
         }
     }
 
     return (
         <Fragment>
             <input
-                {...itemProps}
+                {...(_.omit(itemProps, ['classes', 'attributes']))}
                 className={joinClasses(classes)}
                 {...attributes}
                 {...datasetShown}
@@ -108,69 +106,12 @@ export const Input = (props: InputProps) => {
             {
                 datalistOptions && (
                     <DataList
-                        id={itemProps.list}
+                        element={'datalist'}
+                        id={(itemProps as any).list}
                         options={datalistOptions}
                     />
                 )
             }
         </Fragment>
     );
-};
-
-const switchComponent = (props: InputProps) => {
-    let itemProps: any;
-    switch (props['type']) {
-        case 'checkbox':
-            itemProps = props as InputCheckboxProps;
-            break;
-        case 'radio':
-            itemProps = props as InputRadioProps;
-            break;
-        case 'button':
-            itemProps = props as InputButtonProps;
-            break;
-        case 'image':
-            itemProps = props as InputImageProps;
-            break;
-        case 'submit':
-            itemProps = props as InputSubmitProps;
-            break;
-        case 'file':
-            itemProps = props as InputFileProps;
-            break;
-        case 'date': case 'datetime-local': case 'month': case 'time': case 'week':
-            itemProps = props as InputDateProps;
-            break;
-        case 'color':
-            itemProps = props as InputColorProps;
-            break;
-        case 'email':
-            itemProps = props as InputEmailProps;
-            break;
-        case 'hidden':
-            itemProps = props as InputHiddenProps;
-            break;
-        case 'number':
-            itemProps = props as InputNumberProps;
-            break;
-        case 'password':
-            itemProps = props as InputPasswordProps;
-            break;
-        case 'range':
-            itemProps = props as InputRangeProps;
-            break;
-        case 'search':
-            itemProps = props as InputSearchProps;
-            break;
-        case 'tel':
-            itemProps = props as InputTelProps;
-            break;
-        case 'url':
-            itemProps = props as InputUrlProps;
-            break;
-        default:  // case 'text':
-            itemProps = props as InputTextProps;
-    }
-
-    return itemProps;
 };

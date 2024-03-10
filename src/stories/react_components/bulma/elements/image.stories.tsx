@@ -1,6 +1,6 @@
-import {Image} from "../../../frameworks/bulma";
+import {Image} from "../../../../frameworks/bulma";
 // @ts-ignore
-import ExampleImage from '../../assets/file_example_PNG_500kB.png';
+import ExampleImage from '../../../assets/file_example_PNG_500kB.png';
 
 export default {
     component: Image,

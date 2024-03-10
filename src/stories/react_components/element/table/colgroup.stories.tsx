@@ -1,6 +1,6 @@
 import {Fragment} from "react";
 import {
-    ColGroup,
+    ColGroup, ColProps,
 } from "../../../../components";
 import {deIndent, linkInStoryBook} from "../../../../utils";
 
@@ -163,9 +163,9 @@ export const Default = {
 /** Colgroup with span */
 export const ColGroupWithSpan = {
     render: () => <Fragment>
-        <ColGroup cols={[{}]} />
-        <ColGroup span={2} cols={[{}, {}]} />
-        <ColGroup cols={[{}]} />
+        <ColGroup element={'colgroup'} cols={[{element: 'col'} as ColProps]} />
+        <ColGroup element={'colgroup'} span={2} cols={[{element: 'col'} as ColProps, {element: 'col'} as ColProps]} />
+        <ColGroup element={'colgroup'} cols={[{element: 'col'} as ColProps]} />
     </Fragment>,
 };
 /** Colgroup with style classes */

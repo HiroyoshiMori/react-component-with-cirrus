@@ -1,4 +1,4 @@
-import {Title} from "../../../frameworks/bulma";
+import {Title} from "../../../../frameworks/bulma";
 
 export default {
     component: Title,

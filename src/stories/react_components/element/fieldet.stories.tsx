@@ -181,10 +181,10 @@ export const Default = {
             {...args}
         >
             <RadioGroup items={[
-                {children: 'Radio 1', radio: {type: 'radio', name: 'radio_group', value: 'radio1'}},
-                {children: 'Radio 2', radio: {type: 'radio', name: 'radio_group', value: 'radio2'}},
-                {children: 'Radio 3', radio: {type: 'radio', name: 'radio_group', value: 'radio3'}},
-                {children: 'Radio 4', radio: {type: 'radio', name: 'radio_group', value: 'radio4'}},
+                {element: 'label', children: 'Radio 1', radio: {element: 'input', type: 'radio', name: 'radio_group', value: 'radio1'}},
+                {element: 'label', children: 'Radio 2', radio: {element: 'input', type: 'radio', name: 'radio_group', value: 'radio2'}},
+                {element: 'label', children: 'Radio 3', radio: {element: 'input', type: 'radio', name: 'radio_group', value: 'radio3'}},
+                {element: 'label', children: 'Radio 4', radio: {element: 'input', type: 'radio', name: 'radio_group', value: 'radio4'}},
             ]} />
         </Fieldset>
     </Fragment>

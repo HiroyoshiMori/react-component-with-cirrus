@@ -1,23 +1,29 @@
-import {Box} from "../../../frameworks/bulma";
-import {deIndent, linkInStoryBook} from "../../../utils";
+import {Columns} from "../../../../frameworks/bulma";
+import {deIndent, linkInStoryBook} from "../../../../utils";
 
 /**
- * The <b>box</b> element is a simple container with a white background, some padding, and a box shadow.
+ * Building a <b>columns layout</b> with Bulma is very simple:
+ * <ol>
+ *     <li>Add a <code>column</code> container</li>
+ *     <li>Add as many <code>column</code> elements as you want
+ * </ol>
+ *
+ * Each column will have an <strong>equal width</strong>, no matter the number of columns.
  */
 export default {
-    title: 'React Component/CSS Framework/Bulma/Layout/Box',
-    component: Box,
+    title: 'React Component/CSS Framework/Bulma/Columns',
+    component: Columns,
     tags: ['autodocs'],
     parameters: {
-        componentSubtitle: 'A white <code>box</code> to contain other elements',
+        componentSubtitle: 'A simple way to build responsive columns',
     },
     argTypes: {
         component: {
             control: 'none',
-            description: 'Switcher for <code>Box</code> component to render &lt;box&gt;',
+            description: 'Switcher for <code>Columns</code> component to render &lt;columns&gt;',
             table: {
                 type: {
-                    summary: '"block"',
+                    summary: '"columns"',
                 },
             },
             defaultValue: {
@@ -26,35 +32,35 @@ export default {
         },
         element: {
             control: 'none',
-            description: 'Switcher for <code>Box</code> component to render with &lt;div&gt; or &lt;form&gt;',
+            description: 'Switcher for <code>Columns</code> component to render with &lt;div&gt;',
             table: {
                 type: {
-                    summary: '"div"|"form"',
-                },
-                defaultValue: {
-                    summary: 'undefined',
-                    detail: 'When undefined, treated as "div"'
-                },
-            },
-        },
-        id: {
-            control: 'text',
-            description: 'ID for element',
-            table: {
-                type: {
-                    summary: 'string',
+                    summary: '"div"',
                 },
                 defaultValue: {
                     summary: 'undefined',
                 },
             },
         },
-        children: {
-            control: 'text',
-            description: 'Content of this element',
+        columns: {
+            control: 'object',
+            type: {
+                required: true,
+            },
+            // TODO: Add link to ColumnProps when created storybook for Column
+            description: 'A list of column included',
             table: {
                 type: {
-                    summary: 'ReactNode',
+                    summary: 'ColumnProps | ColumnProps[]',
+                },
+            },
+        },
+        commonClassesInChild: {
+            control: 'object',
+            description: 'Common style classes for div element in child columns',
+            table: {
+                type: {
+                    summary: 'string[]',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -64,18 +70,15 @@ export default {
         additionalProps: {
             control: 'object',
             description: deIndent(`
-                            Additional properties for div/form<br />
+                            Additional properties for div<br />
                             👉 See:&nbsp;
                         `)
                 + linkInStoryBook(
                     'DivProps', 'React Component/Element/Container/Div'
-                ) + ' / '
-                + linkInStoryBook(
-                    'FormProps', 'React Component/Element/Form'
                 ),
             table: {
                 type: {
-                    summary: 'DivProps|FormProps',
+                    summary: 'DivProps',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -100,7 +103,7 @@ export default {
             description: 'Additional attributes',
             table: {
                 type: {
-                    summary: 'HTMLAttributes<HTMLDivElement> | FormHTMLAttributes<HTMLFormElement>',
+                    summary: 'HTMLAttributes<HTMLDivElement>',
                     detail: deIndent(`
                             e.g.,
                             { 'aria-label': 'This is Label' }
@@ -133,15 +136,37 @@ export default {
                 },
             },
         },
-
     },
 };
-/** Default box */
-export const Default = {
-    render: (args: any) => <Box
-        component={'box'}
+/** Default columns with single column */
+export const DefaultWithSingleColumn = {
+    render: (args: any) => <Columns
+        component={'columns'}
+        columns={{
+            component: 'column',
+            children: 'Column 1',
+        }}
         {...args}
-    >
-        This text is within a box.
-    </Box>,
+    />,
 };
+/** Default columns */
+export const DefaultMultiColunns = {
+    render: (args: any) => <Columns
+        component={'columns'}
+        columns={[
+            {component: 'column', children: 'Column 1'},
+            {component: 'column', children: 'Column 2'},
+            {component: 'column', children: 'Column 3'},
+            {component: 'column', children: 'Column 4'},
+        ]}
+        {...args}
+    />,
+};
+/** Columns with common style classes */
+export const ColumnsWithCommonStyleClasses = {
+    ...DefaultMultiColunns,
+    args: {
+        commonClassesInChild: ['test-class1'],
+    },
+};
+

@@ -4,15 +4,15 @@ import React, {
 import {
     DdProps,
     DlItemProps,
-    DtProps, ElementBaseProps,
+    DtProps,
     ListItemProps,
-    OlProps,
+    OlProps, TypeContainer,
     TypeList
 } from "../@types";
 import {convertDataSet, joinClasses} from "../common";
 import {getComponent, getCssFramework} from "../index";
 
-export const List = <T extends ElementBaseProps | string = string>(props: TypeList<T>) => {
+export const List = <T extends TypeContainer | string = string>(props: TypeList<T>) => {
     const {
         element: Tag = 'ul',
         items: _,
@@ -89,7 +89,7 @@ export const List = <T extends ElementBaseProps | string = string>(props: TypeLi
     );
 };
 
-export const ListItem = <T extends ElementBaseProps | string = string>(props: ListItemProps<T>) => {
+export const ListItem = <T extends TypeContainer | string = string>(props: ListItemProps<T>) => {
     const {
         element: ItemTag = 'li',
         children,

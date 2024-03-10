@@ -29,6 +29,11 @@ After installation, you can import components into your project using this snipp
 ```typescript
 import * as CustomComponents from '@hiroyoshi-mori/react-component';
 ```
+To use components for Bulma,
+```typescript
+import * as CustomComponents from '@hiroyoshi-mori/react-component/bulma';
+```
+
 
 ## Browser Support
 

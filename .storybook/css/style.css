@@ -2,3 +2,7 @@
 .sbdocs-expandable > span {
     white-space: break-spaces;
 }
+.language-jsx > .tag {
+    padding-left: 0;
+    padding-right: 0;
+}

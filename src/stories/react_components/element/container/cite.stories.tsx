@@ -23,7 +23,7 @@ export default {
     decorators: [
         (Story: any) => (
             <Fragment>
-                <Figure>
+                <Figure element={'figure'}>
                     <Container
                         element={'blockquote'}
                     >

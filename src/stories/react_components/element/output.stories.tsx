@@ -27,8 +27,8 @@ export default {
                     const result = document.getElementById('result') as HTMLOutputElement;
                     result.value = (parseInt(a.value) + parseInt(b.value)).toString();
                 }}>
-                    <Input type={'number'} id={'a'} defaultValue={50}/>
-                    + <Input type={'number'} id={'b'} defaultValue={100}/>
+                    <Input element={'input'} type={'number'} id={'a'} defaultValue={50}/>
+                    + <Input element={'input'} type={'number'} id={'b'} defaultValue={100}/>
                     = <Story/>
                 </form>
             </Fragment>

@@ -1,4 +1,4 @@
-import {Menu} from "../../../frameworks/bulma";
+import {Menu} from "../../../../frameworks/bulma";
 
 export default {
     component: Menu,

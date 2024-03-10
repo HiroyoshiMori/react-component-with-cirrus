@@ -1,4 +1,4 @@
-import {Message} from "../../../frameworks/bulma";
+import {Message} from "../../../../frameworks/bulma";
 
 export default {
     component: Message,

@@ -1,4 +1,4 @@
-import {Tabs} from "../../../frameworks/bulma";
+import {Tabs} from "../../../../frameworks/bulma";
 
 export default {
     component: Tabs,

@@ -25,6 +25,7 @@ export default {
         (Story: any) => (
             <Fragment>
                 <Label
+                    element={'label'}
                     htmlFor={'checkbox'}
                 >
                     <Story />

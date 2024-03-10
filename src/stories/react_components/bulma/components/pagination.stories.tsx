@@ -1,4 +1,4 @@
-import {Pagination} from "../../../frameworks/bulma";
+import {Pagination} from "../../../../frameworks/bulma";
 
 export default {
     component: Pagination,

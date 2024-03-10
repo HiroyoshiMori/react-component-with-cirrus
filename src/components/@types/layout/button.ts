@@ -11,7 +11,7 @@ import {
 
 /** Type definition of property for button(by <a>) */
 export type AButtonProps = ElementCommonProps<HTMLAnchorElement, AnchorHTMLAttributes<HTMLAnchorElement>> & {
-    element?: 'a';
+    element: 'a';
     name?: string;
     children: ReactNode;
     colorType?: ButtonColorTypes;
@@ -25,7 +25,7 @@ export type AButtonProps = ElementCommonProps<HTMLAnchorElement, AnchorHTMLAttri
 });
 /** Type definition of property for button(by <div>) */
 export type DivButtonProps = ElementCommonProps<HTMLDivElement, HTMLAttributes<HTMLDivElement>> & {
-    element?: 'div';
+    element: 'div';
     name?: string;
     children: ReactNode;
     onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;

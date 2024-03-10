@@ -1,26 +1,23 @@
-import {Columns} from "../../../frameworks/bulma";
-import {deIndent, linkInStoryBook} from "../../../utils";
+import {Block} from "../../../../frameworks/bulma";
+import {deIndent, linkInStoryBook} from "../../../../utils";
 
 /**
- * Building a <b>columns layout</b> with Bulma is very simple:
- * <ol>
- *     <li>Add a <code>column</code> container</li>
- *     <li>Add as many <code>column</code> elements as you want
- * </ol>
+ * The <code>block</code> element is a simple <b>spacer tool</b>. It allows <b>sibling</b> HTML elements to
+ * have a consistent margin between them.
  *
- * Each column will have an <strong>equal width</strong>, no matter the number of columns.
+ * See: https://bulma.io/documentation/elements/block/
  */
 export default {
-    title: 'React Component/CSS Framework/Bulma/Layout/Columns',
-    component: Columns,
+    title: 'React Component/CSS Framework/Bulma/Elements/Block',
+    component: Block,
     tags: ['autodocs'],
     parameters: {
-        componentSubtitle: 'A simple way to build <code>responsive columns</code>',
+        componentSubtitle: 'Bulma\'s most basic spacer <code>block</code>',
     },
     argTypes: {
         component: {
             control: 'none',
-            description: 'Switcher for <code>Columns</code> component to render &lt;columns&gt;',
+            description: 'Switcher for <code>Block</code> component to render &lt;block&gt;',
             table: {
                 type: {
                     summary: '"block"',
@@ -32,7 +29,7 @@ export default {
         },
         element: {
             control: 'none',
-            description: 'Switcher for <code>Columns</code> component to render with &lt;div&gt;',
+            description: 'Switcher for <code>Block</code> component to render with &lt;div&gt;',
             table: {
                 type: {
                     summary: '"div"',
@@ -54,25 +51,12 @@ export default {
                 },
             },
         },
-        columns: {
-            control: 'object',
-            type: {
-                required: true,
-            },
-            // TODO: Add link to ColumnProps when created storybook for Column
-            description: 'A list of column included',
+        children: {
+            control: 'text',
+            description: 'Content of this element',
             table: {
                 type: {
-                    summary: 'ColumnProps | ColumnProps[]',
-                },
-            },
-        },
-        commonClassesInChild: {
-            control: 'object',
-            description: 'Common style classes for child columns',
-            table: {
-                type: {
-                    summary: 'string[]',
+                    summary: 'ReactNode',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -85,9 +69,9 @@ export default {
                             Additional properties for div<br />
                             👉 See:&nbsp;
                         `)
-                + linkInStoryBook(
-                    'DivProps', 'React Component/Element/Container/Div'
-                ),
+                        + linkInStoryBook(
+                            'DivProps', 'React Component/Element/Container/Div'
+                        ),
             table: {
                 type: {
                     summary: 'DivProps',
@@ -150,16 +134,12 @@ export default {
         },
     },
 };
-/** Default columns */
+/** Default block */
 export const Default = {
-    render: (args: any) => <Columns
-        component={'columns'}
-        columns={[
-            {component: 'column', children: 'Column 1'},
-            {component: 'column', children: 'Column 2'},
-            {component: 'column', children: 'Column 3'},
-            {component: 'column', children: 'Column 4'},
-        ]}
+    render: (args: any) => <Block
+        component={'block'}
         {...args}
-    />
-}
+    >
+        This text is within a block.
+    </Block>,
+};

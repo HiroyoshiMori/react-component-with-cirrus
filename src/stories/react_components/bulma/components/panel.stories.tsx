@@ -1,4 +1,4 @@
-import {Panel} from "../../../frameworks/bulma";
+import {Panel} from "../../../../frameworks/bulma";
 import {icon} from "@fortawesome/fontawesome-svg-core/import.macro";
 
 export default {

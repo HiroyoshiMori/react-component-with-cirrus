@@ -127,14 +127,14 @@ const DefaultAsideProps = {
 /** Default aside */
 export const Default = {
     render: (args: any) => <Fragment>
-        <Paragraph>This is paragraph which is written before aside contents.</Paragraph>
+        <Paragraph element={'p'}>This is paragraph which is written before aside contents.</Paragraph>
         <Container
             {...DefaultAsideProps}
             {...args}
         >
             This is aside content.
         </Container>
-        <Paragraph>This is paragraph which is written after aside contents.</Paragraph>
+        <Paragraph element={'p'}>This is paragraph which is written after aside contents.</Paragraph>
     </Fragment>,
 };
 /** Aside with style classes */

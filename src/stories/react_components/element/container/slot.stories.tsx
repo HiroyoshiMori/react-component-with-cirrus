@@ -25,11 +25,11 @@ export default {
     decorators: [
         (Story: any) => (
             <Fragment>
-                <Details summary={{
+                <Details element={'details'} summary={{
                     element: 'summary',
                     children: (
                         <Fragment>
-                            <Code>
+                            <Code element={'code'}>
                                 &lt;<Story />&gt;
                             </Code>
                             <Container
@@ -41,12 +41,12 @@ export default {
                         </Fragment>
                     )
                 }}>
-                    <Container>
-                        <Heading level={4}>
+                    <Container element={'div'}>
+                        <Heading element={'heading'} level={4}>
                             Attributes
                         </Heading>
                         <slot name={'attributes'}>
-                            <Paragraph>None</Paragraph>
+                            <Paragraph element={'p'}>None</Paragraph>
                         </slot>
                     </Container>
                 </Details>

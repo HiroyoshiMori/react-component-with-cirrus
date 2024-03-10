@@ -25,7 +25,7 @@ export default {
     decorators: [
         (Story: any) => (
             <Fragment>
-                <Figure>
+                <Figure element={'figure'}>
                     <Story />
                     <Container
                         element={'cite'}

@@ -133,13 +133,13 @@ export const Default = {
         {...DefaultArticleProps}
         {...args}
     >
-        <Heading level={1}>Example contents</Heading>
+        <Heading element={'heading'} level={1}>Example contents</Heading>
         <Container
             element='article'
             inline={false}
         >
-            <Heading level={2}>Example title</Heading>
-            <Paragraph>Example 1</Paragraph>
+            <Heading element={'heading'} level={2}>Example title</Heading>
+            <Paragraph element={'p'}>Example 1</Paragraph>
         </Container>
     </Container>,
 };

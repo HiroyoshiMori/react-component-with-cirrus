@@ -118,9 +118,9 @@ export const Default = {
         element={'search'}
         {...args}
     >
-        <Form action={"#"}>
-            <Input type={'search'} />
-            <Button type={'submit'}>Search</Button>
+        <Form element={'form'} action={"#"}>
+            <Input element={'input'} type={'search'} />
+            <Button element={'button'} type={'submit'}>Search</Button>
         </Form>
     </Container>,
 };

@@ -1,23 +1,20 @@
-import {Block} from "../../../frameworks/bulma";
-import {deIndent, linkInStoryBook} from "../../../utils";
+import {Box} from "../../../../frameworks/bulma";
+import {deIndent, linkInStoryBook} from "../../../../utils";
 
 /**
- * The <code>block</code> element is a simple <b>spacer tool</b>. It allows <b>sibling</b> HTML elements to
- * have a consistent margin between them.
- *
- * See: https://bulma.io/documentation/elements/block/
+ * The <b>box</b> element is a simple container with a white background, some padding, and a box shadow.
  */
 export default {
-    title: 'React Component/CSS Framework/Bulma/Layout/Block',
-    component: Block,
+    title: 'React Component/CSS Framework/Bulma/Elements/Box',
+    component: Box,
     tags: ['autodocs'],
     parameters: {
-        componentSubtitle: 'Bulma\'s most basic spacer <code>block</code>',
+        componentSubtitle: 'A white <code>box</code> to contain other elements',
     },
     argTypes: {
         component: {
             control: 'none',
-            description: 'Switcher for <code>Block</code> component to render &lt;block&gt;',
+            description: 'Switcher for <code>Box</code> component to render &lt;box&gt;',
             table: {
                 type: {
                     summary: '"block"',
@@ -29,13 +26,14 @@ export default {
         },
         element: {
             control: 'none',
-            description: 'Switcher for <code>Block</code> component to render with &lt;div&gt;',
+            description: 'Switcher for <code>Box</code> component to render with &lt;div&gt; or &lt;form&gt;',
             table: {
                 type: {
-                    summary: '"div"',
+                    summary: '"div"|"form"',
                 },
                 defaultValue: {
                     summary: 'undefined',
+                    detail: 'When undefined, treated as "div"'
                 },
             },
         },
@@ -66,15 +64,18 @@ export default {
         additionalProps: {
             control: 'object',
             description: deIndent(`
-                            Additional properties for div<br />
+                            Additional properties for div/form<br />
                             👉 See:&nbsp;
                         `)
-                        + linkInStoryBook(
-                            'DivProps', 'React Component/Element/Container/Div'
-                        ),
+                + linkInStoryBook(
+                    'DivProps', 'React Component/Element/Container/Div'
+                ) + ' / '
+                + linkInStoryBook(
+                    'FormProps', 'React Component/Element/Form'
+                ),
             table: {
                 type: {
-                    summary: 'DivProps',
+                    summary: 'DivProps|FormProps',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -99,7 +100,7 @@ export default {
             description: 'Additional attributes',
             table: {
                 type: {
-                    summary: 'HTMLAttributes<HTMLDivElement>',
+                    summary: 'HTMLAttributes<HTMLDivElement> | FormHTMLAttributes<HTMLFormElement>',
                     detail: deIndent(`
                             e.g.,
                             { 'aria-label': 'This is Label' }
@@ -132,14 +133,15 @@ export default {
                 },
             },
         },
+
     },
 };
-/** Default block */
+/** Default box */
 export const Default = {
-    render: (args: any) => <Block
-        component={'block'}
+    render: (args: any) => <Box
+        component={'box'}
         {...args}
     >
-        This text is within a block.
-    </Block>,
+        This text is within a box.
+    </Box>,
 };

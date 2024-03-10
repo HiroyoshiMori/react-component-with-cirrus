@@ -3,7 +3,7 @@ import React, {
 } from "react";
 import {
     PanelBlockAProps,
-    PanelBlockDivProps, PanelBlockLabelledCheckBoxProps,
+    PanelBlockDivProps,
     PanelBlockProps,
     PanelContentProps,
     PanelHeadingProps,
@@ -274,7 +274,7 @@ export const PanelTabItem = (props: PanelTabItemProps) => {
     );
     if (isActive) {
         const isActiveClasses = getCssFramework().getDefaultStyleClass(
-            component, element, 'active'
+            component, element, 'is-active'
         );
         isActiveClasses.forEach((itemClass) => {
             if (restProps['classes'] && !restProps['classes'].includes(itemClass)) {

@@ -10,7 +10,7 @@ import {
     ModalProps
 } from "../@types";
 import {
-    Button,
+    Button, ButtonProps,
     Container,
     Delete,
     getCssFramework,
@@ -154,7 +154,7 @@ export const ModalCardHead = (props: ModalCardHeadProps) => {
         component = 'modal-card-header',
         element = 'div',
         title,
-        close = {},
+        close = {} as Omit<ButtonProps, 'children'>,
         ...restProps
     } = props;
 

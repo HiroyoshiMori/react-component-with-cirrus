@@ -51,8 +51,14 @@ import {
     FormMethodTypes, InputModeTypes, LinkAsTypes, LoadingTypes,
     PreloadTypes, SandboxTypes,
     TargetTypes,
-    TextWrapTypes,
+    TextWrapTypes, TypeContainer,
 } from "../index";
+
+/**
+ * Helper type
+ * @see https://stackoverflow.com/questions/57528740/how-to-make-some-fields-in-object-required
+ */
+export type RequiredFields<T, K extends keyof T> = T & Required<Pick<T, K>>;
 
 /** Type definition of property for a (in anchor component) */
 export type AProps = InlineCommonProps<HTMLAnchorElement, AnchorHTMLAttributes<HTMLAnchorElement>> & {
@@ -78,7 +84,7 @@ export type AddressProps = BlockCommonProps<HTMLElement, HTMLAttributes<HTMLElem
 };
 /** TYpe definition of property for area (in area component) */
 export type AreaProps = ElementCommonProps<HTMLAreaElement, AreaHTMLAttributes<HTMLAreaElement>> & {
-    element?: 'area';
+    element: 'area';
     alt: string;
     coords?: ([number, number][]) | [number, number, number];
     href?: string;
@@ -128,11 +134,11 @@ export type BlockQuoteProps = BlockCommonProps<HTMLQuoteElement, BlockquoteHTMLA
 };
 /** Type definition of property for line break (in break component) */
 export type BrProps = ElementCommonProps<HTMLBRElement, HTMLAttributes<HTMLBRElement>> & {
-    element?: 'br';
+    element: 'br';
 };
 /** Type definition of property for button(by <button>) (in button component) */
 export type ButtonProps = ElementCommonProps<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>> & {
-    element?: 'button';
+    element: 'button';
     name?: string;
     children?: ReactNode;
     type?: 'submit'|'reset'|'button';
@@ -149,14 +155,14 @@ export type ButtonProps = ElementCommonProps<HTMLButtonElement, ButtonHTMLAttrib
 };
 /** Type definition of property for canvas (in canvas component) */
 export type CanvasProps = ElementCommonProps<HTMLCanvasElement, CanvasHTMLAttributes<HTMLCanvasElement>> & {
-    element?: 'canvas';
+    element: 'canvas';
     children?: ReactNode;
     width?: number;
     height?: number;
 };
 /** Type definition of property for caption (used in table) */
 export type CaptionProps = ElementCommonProps<HTMLTableCaptionElement, HTMLAttributes<HTMLTableCaptionElement>> & {
-    element?: 'caption';
+    element: 'caption';
     children?: ReactNode;
 };
 /** Type definition of property for cite (in container component) */
@@ -166,7 +172,7 @@ export type CiteProps = InlineCommonProps<HTMLElement, HTMLAttributes<HTMLElemen
 };
 /** Type definition of property for code (in code component) */
 export type CodeProps = ElementCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 'code';
+    element: 'code';
     children?: ReactNode;
     "data-lang"?: string;
     dark?: boolean;
@@ -174,12 +180,12 @@ export type CodeProps = ElementCommonProps<HTMLElement, HTMLAttributes<HTMLEleme
 };
 /** Type definition of property for col (used in table) */
 export type ColProps = ElementCommonProps<HTMLTableColElement, ColHTMLAttributes<HTMLTableColElement>> & {
-    element?: 'col';
+    element: 'col';
     span?: number;
 };
 /** Type definition of property for colgroup (used in table) */
 export type ColGroupProps = ElementCommonProps<HTMLTableColElement, ColgroupHTMLAttributes<HTMLTableColElement>> & {
-    element?: 'colgroup';
+    element: 'colgroup';
     span?: number;
     cols?: ColProps[];
 };
@@ -191,13 +197,13 @@ export type DataProps = InlineCommonProps<HTMLDataElement, DataHTMLAttributes<HT
 }
 /** Type definition of property for datalist (in datalist component) */
 export type DataListProps = ElementCommonProps<HTMLDataListElement, HTMLAttributes<HTMLDataListElement>> & {
-    element?: 'datalist';
+    element: 'datalist';
     children?: ReactNode;
     options?: OptionProps[];
 };
 /** Type definition of property for dd (used in dl) */
 export type DdProps = ElementCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 'dd';
+    element: 'dd';
     children?: ReactNode;
 }
 /** Type definition of property for del (in container component) */
@@ -206,7 +212,7 @@ export type DelProps = InsDelProps & {
 };
 /** Type definition of property for details (in details component) */
 export type DetailsProps = ElementCommonProps<HTMLDetailsElement, DetailsHTMLAttributes<HTMLDetailsElement>> & {
-    element?: 'details';
+    element: 'details';
     children?: ReactNode;
     open?: boolean;
     summary: SummaryProps;
@@ -217,23 +223,23 @@ export type DfnProps = AbbrDfnProps & {
 };
 /** Type definition of property for dialog (in dialog component) */
 export type DialogProps = ElementCommonProps<HTMLDialogElement, DialogHTMLAttributes<HTMLDialogElement>> & {
-    element?: 'dialog';
+    element: 'dialog';
     children?: ReactNode;
     open?: boolean;
 }
 /** Type definition of property for div (in container component) */
 export type DivProps = BlockCommonProps<HTMLElement, HTMLAttributes<HTMLDivElement>> & {
-    element?: 'div';
-    children?: ReactNode;
+    element: 'div';
+    children?: ReactNode | TypeContainer;
 }
 /** Type definition of property for dl (in list component) */
 export type DlProps = ElementCommonProps<HTMLDListElement, HTMLAttributes<HTMLDListElement>> & {
-    element?: 'dl';
+    element: 'dl';
     items?: DlItemProps[];
 };
 /** Type definition of property for dt (used in dl) */
 export type DtProps = ElementCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 'dt';
+    element: 'dt';
     children?: ReactNode;
 }
 /** Type definition of property for em (in container component) */
@@ -252,7 +258,7 @@ export type EmbedProps = MediaCommonProps<HTMLEmbedElement, EmbedHTMLAttributes<
 }
 /** Type definition of property for fieldset (in fieldset component) */
 export type FieldsetProps = ElementCommonProps<HTMLFieldSetElement, FieldsetHTMLAttributes<HTMLFieldSetElement>> & {
-    element?: 'fieldset';
+    element: 'fieldset';
     caption?: LegendProps;
     children?: ReactNode;
     disabled?: boolean;
@@ -261,12 +267,12 @@ export type FieldsetProps = ElementCommonProps<HTMLFieldSetElement, FieldsetHTML
 };
 /** Type definition of property for figcaption (used in figure) */
 export type FigcaptionProps = ElementCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 'figcaption';
+    element: 'figcaption';
     children?: ReactNode;
 };
 /** Type definition of property for figure (in figure component) */
 export type FigureProps = ElementCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 'figure';
+    element: 'figure';
     children?: ReactNode;
     caption?: FigcaptionProps;
     captionPosition?: 'first'|'last';
@@ -278,7 +284,7 @@ export type FooterProps = BlockCommonProps<HTMLElement, HTMLAttributes<HTMLEleme
 };
 /** Type definition of property for form (in form component) */
 export type FormProps = ElementCommonProps<HTMLFormElement, FormHTMLAttributes<HTMLFormElement>> & {
-    element?: 'form';
+    element: 'form';
     name?: string;
     action?: string;
     method?: FormMethodTypes;
@@ -293,7 +299,7 @@ export type FormProps = ElementCommonProps<HTMLFormElement, FormHTMLAttributes<H
 };
 /** Type definition of property for h1-h6 (in heading component) */
 export type HeadingProps = ElementCommonProps<HTMLHeadingElement, HTMLAttributes<HTMLHeadingElement>> & {
-    element?: 'h1'|'h2'|'h3'|'h4'|'h5'|'h6'|'heading';
+    element: 'h1'|'h2'|'h3'|'h4'|'h5'|'h6'|'heading';
     level: number;
     children?: ReactNode;
 };
@@ -304,7 +310,7 @@ export type HeaderProps = BlockCommonProps<HTMLElement, HTMLAttributes<HTMLEleme
 };
 /** Type definition of property for hgroup (in heading group component) */
 export type HgroupProps = ElementCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 'hgroup' | 'heading-group';
+    element: 'hgroup' | 'heading-group';
     heading: HeadingProps;
     paragraphs: PProps[];
 };
@@ -319,7 +325,7 @@ export type IProps = InlineCommonProps<HTMLElement, HTMLAttributes<HTMLElement>>
 };
 /** Type definition of property for iframe (in iframe component) */
 export type IframeProps = ElementCommonProps<HTMLIFrameElement, IframeHTMLAttributes<HTMLIFrameElement>> & {
-    element?: 'iframe';
+    element: 'iframe';
     title: string;
     src?: string;
     width?: number;
@@ -378,7 +384,7 @@ export type KbdProps = InlineCommonProps<HTMLElement, HTMLAttributes<HTMLElement
 };
 /** Type definition of property for label (in label component) */
 export type LabelProps = ElementCommonProps<HTMLLabelElement, LabelHTMLAttributes<HTMLLabelElement>> & {
-    element?: 'label';
+    element: 'label';
     children?: ReactNode;
     htmlFor?: string;
 };
@@ -388,14 +394,14 @@ export type LegendProps = BlockCommonProps<HTMLLegendElement, HTMLAttributes<HTM
     children?: ReactNode;
 };
 /** Type definition of property for li (used in menu/ol/ul) */
-export type LiProps<T extends ElementBaseProps | string = string> = ElementCommonProps<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>> & {
-    element?: 'li';
+export type LiProps<T extends TypeContainer | string = string> = ElementCommonProps<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>> & {
+    element: 'li';
     children?: T | ReactNode;
     value?: number;
 };
 /** Type definition of property for link with itemprop attribute (in link component) */
 export type LinkProps = ElementCommonProps<HTMLLinkElement, LinkHTMLAttributes<HTMLLinkElement>> & {
-    element?: 'link';
+    element: 'link';
     itemProp: true;
     rel?: string;
     type?: string;
@@ -419,7 +425,7 @@ export type MainProps = BlockCommonProps<HTMLElement, HTMLAttributes<HTMLElement
 };
 /** Type definition of property for map (in maps container, due to conflict with Map()) */
 export type ImageMapProps = ElementCommonProps<HTMLMapElement, MapHTMLAttributes<HTMLMapElement>> & {
-    element?: 'map';
+    element: 'map';
     name: string;
     children?: ReactNode;
     areas?: AreaProps[];
@@ -430,13 +436,13 @@ export type MarkProps = InlineCommonProps<HTMLElement, HTMLAttributes<HTMLElemen
     children?: ReactNode;
 };
 /** Type definition of property for menu (in list component) */
-export type MenuProps<T extends ElementBaseProps | string = string> = ElementCommonProps<HTMLMenuElement, MenuHTMLAttributes<HTMLMenuElement>> & {
+export type MenuProps<T extends TypeContainer | string = string> = ElementCommonProps<HTMLMenuElement, MenuHTMLAttributes<HTMLMenuElement>> & {
     element: 'menu';
     items?: LiProps<T>[];
 };
 /** Type definition of property for meta with itemprop attribute (in meta component) */
 export type MetaProps = ElementCommonProps<HTMLMetaElement, MetaHTMLAttributes<HTMLMetaElement>> & {
-    element?: 'meta';
+    element: 'meta';
     itemProp: true;
     charSet?: string;
     content?: string;
@@ -478,7 +484,7 @@ export type ObjectProps = MediaCommonProps<HTMLObjectElement, ObjectHTMLAttribut
     useMap?: string;
 };
 /** Type definition of property for ol (in list component) */
-export type OlProps<T extends ElementBaseProps | string = string> = ElementCommonProps<HTMLOListElement, OlHTMLAttributes<HTMLOListElement>> & {
+export type OlProps<T extends TypeContainer | string = string> = ElementCommonProps<HTMLOListElement, OlHTMLAttributes<HTMLOListElement>> & {
     element: 'ol';
     items?: ListItemProps<T>[];
     reversed?: boolean;
@@ -487,7 +493,7 @@ export type OlProps<T extends ElementBaseProps | string = string> = ElementCommo
 };
 /** Type definition of property for optgroup (used in select) */
 export type OptGroupProps = ElementCommonProps<HTMLOptGroupElement, OptgroupHTMLAttributes<HTMLOptGroupElement>> & {
-    element?: 'optgroup';
+    element: 'optgroup';
     is: 'optgroup';
     label: string;
     options: OptionProps[];
@@ -495,7 +501,7 @@ export type OptGroupProps = ElementCommonProps<HTMLOptGroupElement, OptgroupHTML
 };
 /** Type definition of property for option (used in datalist/select) */
 export type OptionProps = ElementCommonProps<HTMLOptionElement, OptionHTMLAttributes<HTMLOptionElement>> & {
-    element?: 'option';
+    element: 'option';
     name?: string;
     children: string;
     value?: string;
@@ -504,16 +510,16 @@ export type OptionProps = ElementCommonProps<HTMLOptionElement, OptionHTMLAttrib
 };
 /** Type definition of property for output (in output component) */
 export type OutputProps = ElementCommonProps<HTMLOutputElement, OutputHTMLAttributes<HTMLOutputElement>> & {
-    element?: 'output';
+    element: 'output';
     children?: ReactNode;
     htmlFor?: string[];
     form?: string;
     name?: string;
 };
 /** Type definition of property for p (in paragraph component) */
-export type PProps = ElementCommonProps<HTMLParagraphElement, HTMLAttributes<HTMLParagraphElement>> & {
-    element?: 'p' | 'paragraph';
-    children?: ReactNode;
+export type PProps = BlockCommonProps<HTMLParagraphElement, HTMLAttributes<HTMLParagraphElement>> & {
+    element: 'p' | 'paragraph';
+    children?: ReactNode | TypeContainer;
 };
 /** Type definition of property for picture (in media component) */
 export type PictureProps = MediaCommonProps<HTMLPictureElement, HTMLAttributes<HTMLPictureElement>> & {
@@ -523,12 +529,12 @@ export type PictureProps = MediaCommonProps<HTMLPictureElement, HTMLAttributes<H
 };
 /** Type definition of property for pre (in container component) */
 export type PreProps = BlockCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 'pre';
+    element: 'pre';
     children?: ReactNode;
 };
 /** Type definition of property for progress (in progress component) */
 export type ProgressProps = ElementCommonProps<HTMLProgressElement, ProgressHTMLAttributes<HTMLProgressElement>> & {
-    element?: 'progress';
+    element: 'progress';
     children?: ReactNode;
     value?: number;
     max: number;
@@ -541,12 +547,12 @@ export type QProps = InlineCommonProps<HTMLQuoteElement, HTMLAttributes<HTMLQuot
 };
 /** Type definition of property for ruby fallback parenthesis (used in ruby) */
 export type RpProps = ElementCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 'rp';
+    element: 'rp';
     children?: string;
 };
 /** Type definition for property of each character in ruby (used in ruby) */
 export type RtProps = ElementCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 'rt';
+    element: 'rt';
     label: string;
     children?: string;
     useRp?: boolean;
@@ -555,17 +561,17 @@ export type RtProps = ElementCommonProps<HTMLElement, HTMLAttributes<HTMLElement
 };
 /** Type definition of property for ruby (in ruby component) */
 export type RubyProps = ElementCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 'ruby';
+    element: 'ruby';
     items: RtProps[];
 };
 /** Type definition of property for s (in container component) */
 export type SProps = InlineCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 's';
+    element: 's';
     children?: ReactNode;
 };
 /** Type definition of property for samp (in container component) */
 export type SampProps = InlineCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 'samp';
+    element: 'samp';
     children?: ReactNode;
 };
 /** Type definition of property for script (in script component) */
@@ -584,17 +590,17 @@ export type ScriptProps = ElementCommonProps<HTMLScriptElement, ScriptHTMLAttrib
 };
 /** Type definition of property for search (in container component) */
 export type SearchProps = BlockCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 'search';
+    element: 'search';
     children?: ReactNode;
 };
 /** Type definition of property for section (in container component) */
 export type SectionProps = BlockCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 'section';
+    element: 'section';
     children?: ReactNode;
 };
 /** Type definition of property for select (in select component) */
 export type SelectProps = ElementCommonProps<HTMLSelectElement, SelectHTMLAttributes<HTMLSelectElement>> & {
-    element?: 'select';
+    element: 'select';
     name?: string;
     options?: (OptGroupProps|OptionProps|HrProps)[];
     selectedValue?: string;
@@ -607,17 +613,17 @@ export type SelectProps = ElementCommonProps<HTMLSelectElement, SelectHTMLAttrib
 };
 /** Type definition of property for slot (in container component) */
 export type SlotProps = BlockCommonProps<HTMLSlotElement, SlotHTMLAttributes<HTMLSlotElement>> & {
-    element?: 'slot';
+    element: 'slot';
     children?: ReactNode;
 };
 /** Type definition of property for small (in container component) */
 export type SmallProps = InlineCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 'small';
+    element: 'small';
     children?: ReactNode;
 };
 /** Type definition of property for source (used in media) */
 export type SourceProps = {
-    element?: 'source';
+    element: 'source';
 } & (SourceSrcProps | SourceSrcsetProps);
 /** Type definition of property for span (in container component) */
 export type SpanProps = InlineCommonProps<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>> & {
@@ -626,12 +632,12 @@ export type SpanProps = InlineCommonProps<HTMLSpanElement, HTMLAttributes<HTMLSp
 };
 /** Type definition of property for strong (in container component) */
 export type StrongProps = InlineCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 'strong';
+    element: 'strong';
     children?: ReactNode;
 };
 /** Type definition of property for style with scoped attribute */
 export type StyleProps = ElementCommonProps<HTMLStyleElement, StyleHTMLAttributes<HTMLStyleElement>> & {
-    element?: 'style';
+    element: 'style';
     scoped: true;
     children?: string;
     mediaQuery?: string[];
@@ -640,23 +646,23 @@ export type StyleProps = ElementCommonProps<HTMLStyleElement, StyleHTMLAttribute
 };
 /** Type definition of property for sub (in container component) */
 export type SubProps = InlineCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 'sub';
+    element: 'sub';
     children?: ReactNode;
 };
 /** Type definition of property for summary (used in details / in container component) */
 export type SummaryProps = BlockCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 'summary';
+    element: 'summary';
     children?: ReactNode;
 };
 /** Type definition of property for sup (in container component) */
 export type SupProps = InlineCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 'sup';
+    element: 'sup';
     children?: ReactNode;
 };
 // TODO: make stories for SVG element
 /** Type definition of property for svg (in svg component) */
 export type SvgProps = ElementCommonProps<HTMLOrSVGElement, SVGAttributes<HTMLOrSVGElement>> & {
-    element?: 'svg';
+    element: 'svg';
     children?: ReactNode;
     height?: number|`${number}%`;
     preserveAspectRatio?: `${'none'|'xMinYMin'|'xMidYMin'|'xMaxYMin'|'xMinYMid'|'xMidYMid'|'xMaxYMid'|'xMinYMax'|'xMidYMax'|'xMaxYMax'} ${'meet'|'slice'}`;
@@ -667,7 +673,7 @@ export type SvgProps = ElementCommonProps<HTMLOrSVGElement, SVGAttributes<HTMLOr
 };
 /** Type definition of property for table (in table component) */
 export type TableProps = ElementCommonProps<HTMLTableElement, TableHTMLAttributes<HTMLTableElement>> & {
-    element?: 'table';
+    element: 'table';
     caption?: CaptionProps;
     colgroup?: ColGroupProps[];
     thead?: TheadProps;
@@ -676,12 +682,12 @@ export type TableProps = ElementCommonProps<HTMLTableElement, TableHTMLAttribute
 };
 /** Type definition of property for tbody (used in table) */
 export type TbodyProps = ElementCommonProps<HTMLTableSectionElement, HTMLAttributes<HTMLTableSectionElement>> & {
-    element?: 'tbody';
+    element: 'tbody';
     rows?: TrProps[];
 };
 /** Type definition of property for td (used in table) */
 export type TdProps = TableCellProps & {
-    element?: 'td';
+    element: 'td';
 };
 /** Type definition of property for template (in container component) */
 export type TemplateProps<T extends ElementBaseProps | string = string> = BlockCommonProps<HTMLTemplateElement, HTMLAttributes<HTMLTemplateElement>> & {
@@ -691,7 +697,7 @@ export type TemplateProps<T extends ElementBaseProps | string = string> = BlockC
 };
 /** Type definition of property for textarea (in textarea component) */
 export type TextareaProps = ElementCommonProps<HTMLTextAreaElement, TextareaHTMLAttributes<HTMLTextAreaElement>> & {
-    element?: 'textarea';
+    element: 'textarea';
     name?: string;
     defaultValue?: string;
     cols?: number;
@@ -727,7 +733,7 @@ export type TheadProps = ElementCommonProps<HTMLTableSectionElement, HTMLAttribu
 }
 /** Type definition of property for tr only includes th (used in table) */
 export type TheadRowProps = ElementCommonProps<HTMLTableRowElement, HTMLAttributes<HTMLTableRowElement>> & {
-    element?: 'tr';
+    element: 'tr';
     cells: ThProps[];
 };
 /** Type definition of property for time (in container component) */
@@ -738,12 +744,12 @@ export type TimeProps = InlineCommonProps<HTMLTimeElement, TimeHTMLAttributes<HT
 };
 /** Type definition of property for tr (used in table) */
 export type TrProps = ElementCommonProps<HTMLTableRowElement, HTMLAttributes<HTMLTableRowElement>> & {
-    element?: 'tr';
+    element: 'tr';
     cells: (TdProps | ThProps)[];
 };
 /** Type definition of property for track (used in audio/video) */
 export type TrackProps = BlockCommonProps<HTMLTrackElement, TrackHTMLAttributes<HTMLTrackElement>> & {
-    element?: 'track';
+    element: 'track';
     src: string;
     default?: boolean;
     kind?: 'subtitles' | 'captions' | 'descriptions' | 'chapters' | 'metadata';
@@ -752,17 +758,17 @@ export type TrackProps = BlockCommonProps<HTMLTrackElement, TrackHTMLAttributes<
 };
 /** Type definition of property for u (in container component) */
 export type UProps = InlineCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 'u';
+    element: 'u';
     children?: ReactNode;
 };
 /** Type definition of property for ul (in list component) */
-export type UlProps<T extends ElementBaseProps | string = string> = ElementCommonProps<HTMLUListElement, HTMLAttributes<HTMLUListElement>> & {
-    element?: 'ul';
+export type UlProps<T extends TypeContainer | string = string> = ElementCommonProps<HTMLUListElement, HTMLAttributes<HTMLUListElement>> & {
+    element: 'ul';
     items?: ListItemProps<T>[];
 };
 /** Type definition of property for var (in container component) */
 export type VarProps = InlineCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
-    element?: 'var';
+    element: 'var';
     children?: ReactNode;
 };
 /** Type definition of property for video (in media component) */
@@ -829,7 +835,7 @@ type InlineCommonProps<T extends HTMLElement, U extends HTMLAttributes<T>> = Con
 };
 /** Type definition of property for common input */
 export type InputCommonProps = ElementCommonProps<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>> & {
-    element?: 'input';
+    element: 'input';
     name?: string;
     value?: string;
     disabled?: boolean;
@@ -900,7 +906,7 @@ export type DlItemProps = [
     DtProps|DtProps[], DdProps|DdProps[],
 ];
 /** Type definition of property for ul items */
-export type ListItemProps<T extends ElementBaseProps | string = string> = LiProps<T>
+export type ListItemProps<T extends TypeContainer | string = string> = LiProps<T>
     | TemplateProps<T>;
 
 

@@ -25,12 +25,15 @@ export default {
         (Story: any) => (
             <Fragment>
                 <Figure
+                    element={'figure'}
                     caption={{
+                        element: 'figcaption',
                         children: 'Area is placed at upper left quarter'
                     }}
                     captionPosition={'last'}
                 >
                     <ImageMap
+                        element={'map'}
                         name={'area_test'}
                     >
                         <Story />

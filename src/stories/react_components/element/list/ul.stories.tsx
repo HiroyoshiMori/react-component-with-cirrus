@@ -20,6 +20,7 @@ export default {
     decorators: [
         (Story: any) => (
             <Container
+                element={'div'}
                 classes={getCssFramework().getDefaultStyleClass('content')}
             >
                 <Story />

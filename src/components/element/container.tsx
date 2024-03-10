@@ -2,16 +2,16 @@ import React, {
     Fragment,
 } from "react";
 import {
-    AProps,
-    MeterProps,
-    TypeContainer,
+    AProps, DivProps,
+    MeterProps, TypeBlockContainer,
+    TypeContainer, TypeInlineContainer,
 } from "../@types";
 import {convertDataSet, joinClasses} from "../common";
 
-export const Container = (props: TypeContainer) => {
+export const Container = <T extends (TypeInlineContainer | TypeBlockContainer) = DivProps>(props: T) => {
     const {
         element,
-        inline,
+        inline = false,
         children,
         classes = [],
         attributes = {},

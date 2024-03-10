@@ -21,8 +21,9 @@ export default {
         (Story: any) => (
             <fieldset>
                 <Story />
-                <Label>
+                <Label element={'label'}>
                     <Input
+                        element={'input'}
                         type={'radio'}
                     />
                     Sample radio

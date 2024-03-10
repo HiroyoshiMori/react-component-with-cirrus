@@ -29,13 +29,13 @@ export const LabelledRadio = (props: LabelledRadioProps) => {
     const labelClasses = initialize(
         labelProps?.classes, [],
         !noDefaultClass ? getCssFramework().getDefaultStyleClass(
-            'radio', 'label', 'form'
+            'labelled-radio', 'label', 'radio'
         ) : []
     );
     const inputClasses = initialize(
         radioProps?.classes, [],
         !noDefaultClass ? getCssFramework().getDefaultStyleClass(
-            'radio', 'input', 'form'
+            'labelled-radio', 'input', 'radio'
         ) : []
     );
     const checked = currentValue
@@ -56,7 +56,7 @@ export const LabelledRadio = (props: LabelledRadioProps) => {
                     checked={checked}
                     classes={inputClasses}
                 />
-                {children}
+                {typeof children === 'string' ? <Fragment>&nbsp;{children}</Fragment> : children}
             </Label>
         </Fragment>
     );

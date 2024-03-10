@@ -8,7 +8,7 @@ import {
     DropdownProps,
     DropdownTriggerProps
 } from "../@types";
-import {Break, Button, Container, getCssFramework, Icons, initialize} from "../index";
+import {Break, Button, ButtonProps, Container, getCssFramework, Icons, initialize} from "../index";
 import {icon} from "@fortawesome/fontawesome-svg-core/import.macro";
 import {generateId} from "../../../utils";
 
@@ -66,7 +66,7 @@ export const DropdownTrigger = (props: DropdownTriggerProps) => {
         component = 'dropdown-trigger',
         element = 'div',
         menuId,
-        button = {},
+        button = {} as Omit<ButtonProps, 'children'>,
         title,
         additionalProps = {},
         ...restProps

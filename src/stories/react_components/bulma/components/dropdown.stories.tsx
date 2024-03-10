@@ -1,4 +1,4 @@
-import {Dropdown} from "../../../frameworks/bulma";
+import {Dropdown} from "../../../../frameworks/bulma";
 import React from "react";
 
 export default {

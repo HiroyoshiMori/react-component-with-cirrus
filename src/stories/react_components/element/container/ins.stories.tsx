@@ -151,16 +151,16 @@ const DefaultInsProps = {
 /** Default inserted text */
 export const Default = {
     render: (args: any) => <Fragment>
-        <Paragraph>
+        <Paragraph element={'p'}>
             UNIX Timestamp starts from <br />
             <del>
-                <Paragraph>January 1st, 2000 00:00:00</Paragraph>
+                <Paragraph element={'p'}>January 1st, 2000 00:00:00</Paragraph>
             </del>
             <Container
                 {...DefaultInsProps}
                 {...args}
             >
-                <Paragraph>January 1st, 1970 00:00:00</Paragraph>
+                <Paragraph element={'p'}>January 1st, 1970 00:00:00</Paragraph>
             </Container>
         </Paragraph>
     </Fragment>,

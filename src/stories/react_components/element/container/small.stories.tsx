@@ -23,11 +23,11 @@ export default {
     decorators: [
         (Story: any) => (
             <Fragment>
-                <Paragraph>
+                <Paragraph element={'p'}>
                     This is test component.
                 </Paragraph>
                 <Break element={'hr'} />
-                <Paragraph>
+                <Paragraph element={'p'}>
                     <Story />
                 </Paragraph>
             </Fragment>

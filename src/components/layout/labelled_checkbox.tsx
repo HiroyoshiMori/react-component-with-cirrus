@@ -29,13 +29,13 @@ export const LabelledCheckbox = (props: LabelledCheckboxProps) => {
     const labelClasses = initialize(
         labelProps?.classes, [],
         !noDefaultClass ? getCssFramework().getDefaultStyleClass(
-            'checkbox', 'label', 'form'
+            'labelled-checkbox', 'label', 'checkbox'
         ) : []
     );
     const inputClasses = initialize(
         checkboxProps?.classes, [],
         !noDefaultClass ? getCssFramework().getDefaultStyleClass(
-            'checkbox', 'input', 'form'
+            'labelled-checkbox', 'input', 'checkbox'
         ) : []
     );
     const checked = currentValues
@@ -56,7 +56,7 @@ export const LabelledCheckbox = (props: LabelledCheckboxProps) => {
                     checked={checked}
                     classes={inputClasses}
                 />
-                {children}
+                {typeof children === 'string' ? <Fragment>&nbsp;{children}</Fragment> : children}
             </Label>
         </Fragment>
     );

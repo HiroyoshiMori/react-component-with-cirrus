@@ -1,5 +1,5 @@
 import React, {
-    Fragment, LiHTMLAttributes,
+    Fragment,
 } from "react";
 import {TabItemProps, TabsProps} from "../@types";
 import {AProps, Container, getCssFramework, initialize, LiProps, List} from "../index";
@@ -48,7 +48,7 @@ export const Tabs = (props: TabsProps) => {
         );
         if (isActive) {
             const isActiveClasses = getCssFramework().getDefaultStyleClass(
-                component, 'li', 'active'
+                component, 'li', 'is-active'
             );
             isActiveClasses.forEach((itemClass: string) => {
                 if (Array.isArray(liClasses) && !liClasses.includes(itemClass)) {
@@ -89,6 +89,7 @@ export const Tabs = (props: TabsProps) => {
                 {
                     tabs && tabs.length > 0 ? (
                         <List
+                            element={'ul'}
                             items={listItems}
                         />
                     ) : <Fragment />

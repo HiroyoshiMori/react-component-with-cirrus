@@ -1,4 +1,4 @@
-import {Tags} from "../../../frameworks/bulma";
+import {Tags} from "../../../../frameworks/bulma";
 
 export default {
     component: Tags,

@@ -1,4 +1,4 @@
-import {Modal} from "../../../frameworks/bulma";
+import {Modal} from "../../../../frameworks/bulma";
 
 export default {
     component: Modal,

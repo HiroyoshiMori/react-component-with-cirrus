@@ -22,9 +22,10 @@ export default {
     decorators: [
         (Story: any) => (
             <Fragment>
-                <Label htmlFor={'input-id'}>
+                <Label element={'label'} htmlFor={'input-id'}>
                     Choose a option:
                     <Input
+                        element={'input'}
                         id={'input-id'}
                         type={'text'}
                         list={'data-list'}
