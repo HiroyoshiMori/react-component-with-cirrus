@@ -1,4 +1,4 @@
-import React, {
+import {
     Fragment,
 } from "react";
 import {COLORS, ELEMENT_SIZES, ELEMENT_STATES, FormSelectProps} from "../@types";

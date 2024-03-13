@@ -1,4 +1,4 @@
-import React, {
+import {
     Fragment,
 } from "react";
 import {sprintf} from "sprintf-js";

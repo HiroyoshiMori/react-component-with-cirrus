@@ -29,49 +29,24 @@ import {
     DivButtonProps,
 } from "../layout";
 import {
-    Area,
     Break,
     Button,
-    Canvas,
-    Caption,
     Code,
-    Col,
-    ColGroup,
     Container,
     DataList,
     Details,
     Dialog,
-    DItem,
-    Fieldset,
-    FigCaption,
     Figure,
-    Form,
     Heading,
     HeadingGroup,
-    Iframe,
-    ImageMap,
     Input,
     Label,
-    Link,
     List,
-    ListItem,
-    Media,
-    Meta,
-    OptGroup,
-    Option,
-    Output,
     Paragraph,
-    Progress,
-    Rp,
-    Rt,
     Ruby,
-    Script,
     Select,
-    Source,
-    Style,
-    Svg,
-    Table, TableCell, TableRow,
-    Tbody, Textarea, THeadFoot
+    Table,
+    Textarea,
 } from "../../element";
 
 export * from './html_element';
@@ -139,7 +114,12 @@ export type TypeMedia = AudioProps
     | PictureProps
     | VideoProps;
 
-export const getComponent = <T extends ElementBaseProps | unknown = unknown>(obj: T) => {
+/**
+ * Assume element from property "element" and return React Component
+ * [note] only supported some elements because of this function uses lots of memory.
+ * @param obj Object to assume element
+ */
+export const getElement = <T extends ElementBaseProps | unknown = unknown>(obj: T) => {
     if (obj !== null && (typeof obj === 'object')) {
         const element = Object.hasOwn(obj, 'element') ? (obj as any).element : undefined;
         if (element !== undefined) {
@@ -188,35 +168,35 @@ export const getComponent = <T extends ElementBaseProps | unknown = unknown>(obj
                 case 'u':
                 case 'var':
                     return Container;
-                case 'area':
-                    return Area;
-                case 'audio':
-                case 'embed':
-                case 'img':
-                case 'object':
-                case 'picture':
-                case 'video':
-                    return Media;
+                // case 'area':
+                //     return Area;
+                // case 'audio':
+                // case 'embed':
+                // case 'img':
+                // case 'object':
+                // case 'picture':
+                // case 'video':
+                //     return Media;
                 case 'br':
                 case 'hr':
                 case 'wbr':
                     return Break;
                 case 'button':
                     return Button;
-                case 'canvas':
-                    return Canvas;
-                case 'caption':
-                    return Caption;
+                // case 'canvas':
+                //     return Canvas;
+                // case 'caption':
+                //     return Caption;
                 case 'code':
                     return Code;
-                case 'col':
-                    return Col;
-                case 'colgroup':
-                    return ColGroup;
+                // case 'col':
+                //     return Col;
+                // case 'colgroup':
+                //     return ColGroup;
                 case 'datalist':
                     return DataList;
-                case 'dd':
-                    return DItem;
+                // case 'dd':
+                //     return DItem;
                 case 'details':
                     return Details;
                 case 'dialog':
@@ -226,16 +206,16 @@ export const getComponent = <T extends ElementBaseProps | unknown = unknown>(obj
                 case 'ol':
                 case 'ul':
                     return List;
-                case 'dt':
-                    return DItem;
-                case 'fieldset':
-                    return Fieldset;
-                case 'figcaption':
-                    return FigCaption;
+                // case 'dt':
+                //     return DItem;
+                // case 'fieldset':
+                //     return Fieldset;
+                // case 'figcaption':
+                //     return FigCaption;
                 case 'figure':
                     return Figure;
-                case 'form':
-                    return Form;
+                // case 'form':
+                //     return Form;
                 case 'h1':
                 case 'h2':
                 case 'h3':
@@ -247,62 +227,62 @@ export const getComponent = <T extends ElementBaseProps | unknown = unknown>(obj
                 case 'hgroup':
                 case 'heading-group':
                     return HeadingGroup;
-                case 'iframe':
-                    return Iframe;
+                // case 'iframe':
+                //     return Iframe;
                 case 'input':
                     return Input;
                 case 'label':
                     return Label;
-                case 'li':
-                    return ListItem;
-                case 'link':
-                    return Link;
-                case 'map':
-                    return ImageMap;
-                case 'meta':
-                    return Meta;
-                case 'optgroup':
-                    return OptGroup;
-                case 'option':
-                    return Option;
-                case 'output':
-                    return Output;
+                // case 'li':
+                //     return ListItem;
+                // case 'link':
+                //     return Link;
+                // case 'map':
+                //     return ImageMap;
+                // case 'meta':
+                //     return Meta;
+                // case 'optgroup':
+                //     return OptGroup;
+                // case 'option':
+                //     return Option;
+                // case 'output':
+                //     return Output;
                 case 'p':
                 case 'paragraph':
                     return Paragraph;
-                case 'progress':
-                    return Progress;
-                case 'rp':
-                    return Rp;
-                case 'rt':
-                    return Rt;
+                // case 'progress':
+                //     return Progress;
+                // case 'rp':
+                //     return Rp;
+                // case 'rt':
+                //     return Rt;
                 case 'ruby':
                     return Ruby;
-                case 'script':
-                    return Script;
+                // case 'script':
+                //     return Script;
                 case 'select':
                     return Select;
-                case 'source':
-                    return Source;
-                case 'style':
-                    return Style;
-                case 'svg':
-                    return Svg;
+                // case 'source':
+                //     return Source;
+                // case 'style':
+                //     return Style;
+                // case 'svg':
+                //     return Svg;
                 case 'table':
                     return Table;
-                case 'tbody':
-                    return Tbody;
-                case 'td':
-                    return TableCell;
+                // case 'tbody':
+                //     return Tbody;
+                // case 'td':
+                //     return TableCell;
                 case 'textarea':
                     return Textarea;
-                case 'tfoot':
-                case 'thead':
-                    return THeadFoot;
-                case 'th':
-                    return TableCell;
-                case 'tr':
-                    return TableRow;
+                // case 'tfoot':
+                // case 'thead':
+                //     return THeadFoot;
+                // case 'th':
+                //     return TableCell;
+                // case 'tr':
+                //     return TableRow;
             }
         }
     }

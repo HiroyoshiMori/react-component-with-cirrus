@@ -1,4 +1,4 @@
-import React, {
+import {
     Fragment,
 } from "react";
 import {
@@ -11,6 +11,7 @@ import {initialize} from "../common";
 
 export const LabelledRadio = (props: LabelledRadioProps) => {
     const {
+        component = 'labelled-radio',
         children,
         radio: radioProps,
         currentValue,

@@ -8,6 +8,7 @@ import {
 
 /** Type definition of property for labelled radio */
 export type LabelledRadioProps = LabelProps & {
+    component?: 'labelled-radio',
     radio: InputRadioProps,
     currentValue?: string | number | boolean;
 };

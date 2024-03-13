@@ -1,4 +1,4 @@
-import React, {
+import {
     Fragment,
 } from "react";
 import {
@@ -10,7 +10,7 @@ import {
     TypeList
 } from "../@types";
 import {convertDataSet, joinClasses} from "../common";
-import {getComponent, getCssFramework} from "../index";
+import {getElement, getCssFramework} from "../index";
 
 export const List = <T extends TypeContainer | string = string>(props: TypeList<T>) => {
     const {
@@ -113,7 +113,7 @@ export const ListItem = <T extends TypeContainer | string = string>(props: ListI
                 {
                     children && (typeof children === 'object') && Object.hasOwn(children, 'element')
                         ? function (items: T) {
-                            const Component = getComponent(items);
+                            const Component = getElement(items);
                             // @ts-ignore
                             return (<Component {...items} />);
                         }(children as T) : (

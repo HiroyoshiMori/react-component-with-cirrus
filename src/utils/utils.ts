@@ -175,33 +175,21 @@ export function mergeDatasets(
 }
 
 /**
- * Remove indent in string given especially heardoc
+ * Make string in CamelCase
  * @param str
- * @see: https://tex2e.github.io/blog/javascript/dedent
+ * @param firstLowerCase
+ * @see https://gist.github.com/rytis-simplex/bd9bf105aae157a3c0804e181fac0609
  */
-export function deIndent(str: string): string {
-    function scan(str: string, regex: RegExp) {
-        if (!regex.global) throw new Error("regex must have 'global' flag set");
-        let m, result = [];
-        while ((m = regex.exec(str))) {
-            m.shift();
-            result.push(m);
-        }
-        return result;
-    }
-
-    str = str.trim();
-    const margin = Math.min.apply(
-        null, (
-            Array.prototype.concat.apply(
-                [], scan(str, /^( +)/gm)
-            ).map((line: string) => line.length)
+export const toCamelCase = (str: string, firstLowerCase = true): string =>
+    str
+        .split(/(?=(?:(?<![A-Z])[A-Z])|(?:(?<!\d)\d))|[-_]/)
+        .map(
+            ([first, ...rest], index) =>
+                (firstLowerCase && index === 0
+                    ? first.toLowerCase()
+                    : first.toUpperCase()) + rest.join("").toLowerCase()
         )
-    );
+        .join("");
 
-    return str
-        .replace(new RegExp(`^ {${margin}}`, 'gm'), '')
-        .replace(/^\n/, '');
-}
 
 export * from './helper';

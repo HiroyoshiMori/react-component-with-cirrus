@@ -1,10 +1,10 @@
-import React, {
+import {
     Fragment,
 } from "react";
 import {
     AProps, DivProps,
     MeterProps, TypeBlockContainer,
-    TypeContainer, TypeInlineContainer,
+    TypeInlineContainer,
 } from "../@types";
 import {convertDataSet, joinClasses} from "../common";
 

@@ -1,10 +1,10 @@
-import React, {
+import {
     Fragment,
 } from "react";
 import {
     ALIGNMENTS,
-    Container, ELEMENT_SIZES, ElementBaseProps,
-    getComponent,
+    Container, ELEMENT_SIZES,
+    getElement,
     getCssFramework,
     Icons,
     initialize,
@@ -202,9 +202,7 @@ export const FormControl = (props: FormControlProps) => {
     return (<Container {...restProps}>
         {
             children && (typeof children === 'object') && Object.hasOwn(children, 'element')
-                ? function <T extends ElementBaseProps>(items: T) {
-                    console.debug('elementSize:');
-                    console.debug(elementSize);
+                ? function (items: any) {
                     if (elementSize) {
                         const pattern = '^is-(' + ELEMENT_SIZES.join('|') + ')$'
                         if (items['classes'] === undefined) {
@@ -214,7 +212,7 @@ export const FormControl = (props: FormControlProps) => {
                             items['classes'].push('is-' + elementSize);
                         }
                     }
-                    const Component = getComponent(items);
+                    const Component = getElement(items);
                     // @ts-ignore
                     return (<Component {...items} />);
                 }(children) : (

@@ -1,6 +1,5 @@
-import React from "react";
 import {
-    getComponent,
+    getElement,
     TypeButton,
 } from "../@types";
 import {
@@ -26,7 +25,7 @@ export const LayoutButton = (props: TypeButton) => {
             'button', element
         )
     );
-    const Tag = getComponent<TypeButton>(props);
+    const Tag = getElement<TypeButton>(props);
 
     // @ts-ignore
     return (<Tag {...restProps} element={element}>{children}</Tag>);

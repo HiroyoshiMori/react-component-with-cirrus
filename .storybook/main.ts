@@ -40,5 +40,14 @@ const config: StorybookConfig = {
       }
     </style>
  `,
+  // webpackFinal: (config) => {
+  //   config.plugins.forEach(plugin => {
+  //     if('ForkTsCheckerWebpackPlugin' === plugin.constructor.name){
+  //       plugin.memoryLimit = 8192;
+  //     }
+  //   });
+  //
+  //   return config;
+  // },
 };
 export default config;

@@ -1,4 +1,4 @@
-import React, {
+import {
     Fragment, HTMLAttributes,
 } from "react";
 import {icon} from "@fortawesome/fontawesome-svg-core/import.macro";
@@ -103,7 +103,7 @@ export const FormFile = (props: FormFileProps) => {
             component, element, 'has-filename'
         );
         hasNameClasses.forEach((itemClass: string) => {
-            if (!restProps['classes'].includes(itemClass)) {
+            if (restProps['classes'] && !restProps['classes'].includes(itemClass)) {
                 restProps['classes'].push(itemClass);
             }
         });
@@ -123,7 +123,7 @@ export const FormFile = (props: FormFileProps) => {
             component, element, 'is-boxed'
         );
         isBoxedClasses.forEach((itemClass: string) => {
-            if (!restProps['classes'].includes(itemClass)) {
+            if (restProps['classes'] && !restProps['classes'].includes(itemClass)) {
                 restProps['classes'].push(itemClass);
             }
         });
@@ -133,7 +133,7 @@ export const FormFile = (props: FormFileProps) => {
             component, element, 'is-expanded'
         );
         isExpandedClasses.forEach((itemClass: string) => {
-            if (!restProps['classes'].includes(itemClass)) {
+            if (restProps['classes'] && !restProps['classes'].includes(itemClass)) {
                 restProps['classes'].push(itemClass);
             }
         });

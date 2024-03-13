@@ -1,4 +1,4 @@
-import React, {
+import {
     Fragment, HTMLAttributes,
 } from "react";
 import {CardFooterProps, CardHeaderProps, CardImageProps, CardProps} from "../@types";

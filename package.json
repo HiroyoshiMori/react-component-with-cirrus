@@ -1,6 +1,6 @@
 {
   "name": "@hiroyoshi-mori/react-components",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": {
     "name": "Hiroyoshi Mori",
     "email": "mori@scriptlab.tokyo"
@@ -8,16 +8,17 @@
   "type": "module",
   "files": [
     "package.json",
-    "index.ts",
+    "dist",
     "src",
     "README.md",
     "LICENSE"
   ],
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "tsc --watch",
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "prebuild": "npm run clean",
+    "clean": "rimraf dist",
     "jest": "npx jest",
     "test-storybook": "test-storybook",
     "storybook": "storybook dev -p 6006",
@@ -66,6 +67,7 @@
     "nth-check": "^2.1.1",
     "postcss": "^8.4.33",
     "prop-types": "^15.8.1",
+    "rimraf": "^5.0.5",
     "storybook": "^7.6.17",
     "storybook-addon-deep-controls": "^0.3.1",
     "ts-jest": "^29.1.1",
