@@ -2,14 +2,13 @@ import {
     Fragment,
 } from "react";
 import {TagProps, TagsProps} from "../@types";
-import {AProps, Container, getCssFramework, initialize, SpanProps} from "../index";
+import {Container, getCssFramework, initialize} from "../index";
 
 export const Tags = (props: TagsProps) => {
     const {
         component = 'tags',
         element = 'div',
         tags: tagData = [],
-        additionalProps = {},
         commonClassesInChild = [],
         ...restProps
     } = props;
@@ -32,7 +31,6 @@ export const Tags = (props: TagsProps) => {
         <Fragment>
             <Container
                 {...restProps}
-                {...additionalProps}
                 element={element}
             >
                 {
@@ -67,16 +65,6 @@ export const Tag = (props: TagProps) => {
     } = props;
 
     // Initialize and set default class if not exists
-    const additionalProps = (() => {
-        switch (element.toLowerCase()) {
-            case 'a':
-                return restProps.additionalProps as AProps;
-            default:
-                return restProps.additionalProps as SpanProps;
-        }
-    })();
-    if (Object.hasOwn(restProps, 'additionalProps')) delete restProps.additionalProps;
-
     restProps['classes'] = initialize(
         props['classes'], [], getCssFramework().getDefaultStyleClass(
             component, 'tag'
@@ -92,7 +80,6 @@ export const Tag = (props: TagProps) => {
         <Fragment>
             <Container
                 {...restProps}
-                {...additionalProps}
                 element={element}
             >
                 {children}

@@ -1,5 +1,4 @@
-import {FormControl, FormSelect} from "../../../../frameworks/bulma";
-import {icon} from "@fortawesome/fontawesome-svg-core/import.macro";
+import {FormSelect} from "../../../../frameworks/bulma";
 
 export default {
     component: FormSelect,

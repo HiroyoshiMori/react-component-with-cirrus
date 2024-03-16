@@ -11,7 +11,6 @@ import {convertDataSet, joinClasses} from "../common";
 export const Container = <T extends (TypeInlineContainer | TypeBlockContainer) = DivProps>(props: T) => {
     const {
         element,
-        inline = false,
         children,
         classes = [],
         attributes = {},
@@ -22,11 +21,7 @@ export const Container = <T extends (TypeInlineContainer | TypeBlockContainer) =
     let Tag: any;
     const additionalProps = restProps !== undefined
         ? {...restProps} : {};
-    if (inline) {
-        Tag = props.element ?? 'span';
-    } else {
-        Tag = props.element ?? 'div';
-    }
+    Tag = props.element ?? 'div';
     let min: number = 0, max: number = 1, low: number|undefined, high: number|undefined;
     if (Object.hasOwn(additionalProps, 'min')) {
         min = (additionalProps as MeterProps).min ?? 0;

@@ -30,18 +30,6 @@ export default {
                 },
             },
         },
-        inline: {
-            control: 'none',
-            type: {
-                require: true,
-            },
-            description: 'Switcher for <code>Container</code> component to render inline element',
-            table: {
-                type: {
-                    summary: 'true',
-                },
-            },
-        },
         id: {
             control: 'text',
             description: 'ID for element',
@@ -133,7 +121,6 @@ export const Default = {
     render: (args: any) => <Fragment>
         <Container
             element={'data'}
-            inline={true}
             value={2.5}
             {...args}
         >1 inch</Container>

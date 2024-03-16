@@ -1,5 +1,4 @@
 import {
-    AnchorHTMLAttributes,
     HTMLAttributes,
     LiHTMLAttributes,
     ReactNode,
@@ -30,81 +29,82 @@ export type TypeAlternativeSeparators = typeof ALTERNATIVE_SEPARATORS[number];
 /** Type definitions of properties for breadcrumb */
 export type BreadcrumbProps = {
     component?: 'breadcrumb';
-    element?: 'nav';
+    element: 'nav';
     items: BreadcrumbItemProps | BreadcrumbItemProps[];
     commonClassesInItems?: string[];
     children?: ReactNode;
     alignment?: TypeAlignment;
     separators?: TypeAlternativeSeparators;
-} & CommonComponentProps<NavProps, HTMLAttributes<HTMLElement>>;
+} & CommonComponentProps<NavProps>;
 /** Type definitions of properties for breadcrumb item */
 export type BreadcrumbItemProps = {
     component?: 'breadcrumb-item',
-    element?: 'a';
+    element: 'a';
     children?: ReactNode;
     icon?: IconsProps;
-} & CommonComponentProps<AProps, AnchorHTMLAttributes<HTMLAnchorElement>>;
+} & CommonComponentProps<AProps>;
 
 /** Type definitions of properties for card */
 export type CardProps = {
     component?: 'card';
-    element?: 'div';
+    element: 'article';
     header?: CardHeaderProps;
     image?: CardImageProps;
     content?: ReactNode;
     footer?: CardFooterProps;
-} & CommonComponentProps<DivProps, HTMLAttributes<HTMLDivElement>>;
+} & CommonComponentProps<ArticleProps>;
 /** Type definitions of properties for card-header */
 export type CardHeaderProps = {
     component?: 'card-header';
-    element?: 'div';
+    element: 'header';
     title?: PProps;
     button?: Omit<ButtonProps, 'children'>;
-} & CommonComponentProps<HeaderProps, HTMLAttributes<HTMLHeadingElement>>;
+} & CommonComponentProps<HeaderProps>;
 /** Type definitions of properties for card-image */
 export type CardImageProps = {
     component?: 'card-image';
-    element?: 'div';
+    element: 'div';
     image: ImgProps;
-} & CommonComponentProps<DivProps, HTMLAttributes<HTMLElement>>;
+} & CommonComponentProps<DivProps>;
 /** Type definitions of properties for card-footer */
 export type CardFooterProps = {
     component?: 'card-footer';
-    element?: 'div';
+    element: 'footer';
     items: (AProps | PProps) | (AProps | PProps)[];
-    children?: ReactNode;
-} & CommonComponentProps<DivProps, HTMLAttributes<HTMLDivElement>>;
+} & CommonComponentProps<Omit<FooterProps, 'children'>>;
 
 /** Type definitions of properties for dropdown */
 export type DropdownProps = {
     component?: 'dropdown';
-    element?: 'div';
+    element: 'div';
     trigger: DropdownTriggerProps;
     menus: DropdownMenuProps;
-} & CommonComponentProps<DivProps, HTMLAttributes<HTMLDivElement>>;
+    isUp?: boolean;
+} & CommonComponentProps<DivProps>;
 /** Type definitions of properties for dropdown-trigger */
 export type DropdownTriggerProps = {
     component?: 'dropdown-trigger';
-    element?: 'div';
+    element: 'div';
     menuId?: string;
     button?: Omit<ButtonProps, 'children'>;
     title: SpanProps;
     icons?: IconsProps;
-} & CommonComponentProps<DivProps, HTMLAttributes<HTMLDivElement>>;
+    isUp?: boolean;
+} & CommonComponentProps<DivProps>;
 /** Type definitions of properties for dropdown-menu */
 export type DropdownMenuProps = {
     component?: 'dropdown-menu';
-    element?: 'div';
+    element: 'div';
     content: DropdownContentProps;
-} & CommonComponentProps<DivProps, HTMLAttributes<HTMLDivElement>>;
+} & CommonComponentProps<DivProps>;
 /** Type definitions of properties for dropdown-content */
 export type DropdownContentProps = {
     component?: 'dropdown-content';
-    element?: 'div';
+    element: 'div';
     items: DropdownItemProps
         | (DropdownItemProps | DropdownDividerProps)[];
     children?: ReactNode;
-} & CommonComponentProps<DivProps, HTMLAttributes<HTMLDivElement>>;
+} & CommonComponentProps<DivProps>;
 /** Type definitions of properties for dropdown-item */
 export type DropdownItemProps = {
     component?: 'dropdown-item';
@@ -120,7 +120,7 @@ export type MenusProps = {
     component?: 'menu';
     element?: 'aside';
     items: MenusLabelListProps | MenusLabelListProps[];
-} & CommonComponentProps<AsideProps, HTMLAttributes<HTMLAnchorElement>>;
+} & CommonComponentProps<AsideProps>;
 /** Type definitions of properties for menu-label & menu-list */
 export type MenusLabelListProps = {
     label: MenusLabelProps;

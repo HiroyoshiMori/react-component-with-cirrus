@@ -3,15 +3,18 @@ import {deIndent, linkInStoryBook} from "../../../../utils";
 
 /**
  * Building a <b>columns layout</b> with Bulma is very simple:
+ *
  * <ol>
  *     <li>Add a <code>column</code> container</li>
- *     <li>Add as many <code>column</code> elements as you want
+ *     <li>Add as many <code>column</code> elements as you want</li>
  * </ol>
  *
  * Each column will have an <strong>equal width</strong>, no matter the number of columns.
+ *
+ * See: https://bulma.io/documentation/columns/basics/
  */
 export default {
-    title: 'React Component/CSS Framework/Bulma/Columns',
+    title: 'React Component/CSS Framework/Bulma/Columns/Columns',
     component: Columns,
     tags: ['autodocs'],
     parameters: {
@@ -20,25 +23,31 @@ export default {
     argTypes: {
         component: {
             control: 'none',
-            description: 'Switcher for <code>Columns</code> component to render &lt;columns&gt;',
+            description: 'Switcher for <code>Columns</code> component to render this component',
             table: {
                 type: {
                     summary: '"columns"',
                 },
-            },
-            defaultValue: {
-                summary: 'undefined',
+                defaultValue: {
+                    summary: 'undefined',
+                },
             },
         },
         element: {
             control: 'none',
-            description: 'Switcher for <code>Columns</code> component to render with &lt;div&gt;',
+            type: {
+                required: true,
+            },
+            description: deIndent(`
+                            Element type which is extended for this component
+                            👉 See:&nbsp;
+                        `)
+                + linkInStoryBook(
+                    'DivProps', 'React Component/Element/Container/Block/Div'
+                ),
             table: {
                 type: {
                     summary: '"div"',
-                },
-                defaultValue: {
-                    summary: 'undefined',
                 },
             },
         },
@@ -48,7 +57,13 @@ export default {
                 required: true,
             },
             // TODO: Add link to ColumnProps when created storybook for Column
-            description: 'A list of column included',
+            description: deIndent(
+                        `A list of column included<br />
+                            👉 See:&nbsp;
+                        `)
+                        + linkInStoryBook(
+                            'ColumnProps', 'React Component/CSS Framework/Bulma/Columns/Column'
+                        ),
             table: {
                 type: {
                     summary: 'ColumnProps | ColumnProps[]',
@@ -57,82 +72,13 @@ export default {
         },
         commonClassesInChild: {
             control: 'object',
-            description: 'Common style classes for div element in child columns',
+            description: 'Common style classes for child <code>Column</code> elements',
             table: {
                 type: {
                     summary: 'string[]',
                 },
                 defaultValue: {
                     summary: 'undefined',
-                },
-            },
-        },
-        additionalProps: {
-            control: 'object',
-            description: deIndent(`
-                            Additional properties for div<br />
-                            👉 See:&nbsp;
-                        `)
-                + linkInStoryBook(
-                    'DivProps', 'React Component/Element/Container/Div'
-                ),
-            table: {
-                type: {
-                    summary: 'DivProps',
-                },
-                defaultValue: {
-                    summary: 'undefined',
-                },
-            },
-        },
-        classes: {
-            control: 'object',
-            description: 'Style classes',
-            table: {
-                type: {
-                    summary: 'string[]',
-                },
-                defaultValue: {
-                    summary: 'undefined',
-                    detail: 'When undefined, treated as []',
-                },
-            },
-        },
-        attributes: {
-            control: 'object',
-            description: 'Additional attributes',
-            table: {
-                type: {
-                    summary: 'HTMLAttributes<HTMLDivElement>',
-                    detail: deIndent(`
-                            e.g.,
-                            { 'aria-label': 'This is Label' }
-                        `),
-                },
-                defaultValue: {
-                    summary: 'undefined',
-                    detail: 'When undefined, treated as {}',
-                },
-            },
-        },
-        datasets: {
-            control: 'object',
-            description: 'Datasets. "data-" is added at the beginning of all keys',
-            table: {
-                type: {
-                    summary: 'Map<string, string>',
-                    detail: deIndent(`
-                            e.g.,
-                            new Map([
-                                ['id', 'this-is-id'],
-                                ['name', 'This is Name'],
-                            ]);
-                            => data-id="this-is-id" data-name="This is Name"
-                        `),
-                },
-                defaultValue: {
-                    summary: 'undefined',
-                    detail: 'When undefined, treated as new Map()'
                 },
             },
         },

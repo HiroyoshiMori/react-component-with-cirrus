@@ -33,18 +33,6 @@ export default {
                 },
             },
         },
-        inline: {
-            control: 'none',
-            description: 'Indicate inline-level element',
-            type: {
-                required: true,
-            },
-            table: {
-                type: {
-                    summary: 'true',
-                },
-            },
-        },
         id: {
             control: 'text',
             description: 'ID for element',
@@ -247,7 +235,6 @@ export default {
 // Default anchor
 const DefaultAnchor = {
     element: 'a',
-    inline: true,
     href: '#',
 };
 

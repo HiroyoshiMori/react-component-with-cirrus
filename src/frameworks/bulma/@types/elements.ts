@@ -1,8 +1,4 @@
 import React, {
-    AnchorHTMLAttributes,
-    ButtonHTMLAttributes,
-    FormHTMLAttributes,
-    HTMLAttributes,
     ReactNode,
 } from "react";
 import {CommonComponentProps} from "./index";
@@ -25,7 +21,7 @@ export type BlockProps = {
     component?: 'block',
     element?: 'div';
     children: ReactNode;
-} & CommonComponentProps<DivProps, HTMLAttributes<HTMLDivElement>>;
+} & CommonComponentProps<DivProps>;
 
 /** Typ definition of properties for box */
 export type BoxProps = (
@@ -33,28 +29,28 @@ export type BoxProps = (
         component?: 'box';
         element?: 'div';
         children: ReactNode;
-    } & CommonComponentProps<DivProps, HTMLAttributes<HTMLDivElement>>
-    ) | (
+    } & CommonComponentProps<DivProps>
+) | (
     {
         component?: 'box';
         element?: 'form';
         children: ReactNode;
-    } & CommonComponentProps<FormProps, FormHTMLAttributes<HTMLFormElement>>
-    );
+    } & CommonComponentProps<FormProps>
+);
 
 /** Type definition of properties for content */
 export type ContentProps = {
     component?: 'content';
     element?: 'div';
     children?: ReactNode;
-} & CommonComponentProps<DivProps, HTMLAttributes<HTMLDivElement>>;
+} & CommonComponentProps<DivProps>;
 
 /** Type definition of properties for delete button */
 export type DeleteButtonProps = {
     component?: 'delete',
     element?: 'button',
     onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-} & CommonComponentProps<ButtonProps, ButtonHTMLAttributes<HTMLButtonElement>>;
+} & CommonComponentProps<ButtonProps>;
 
 /** Type definition of properties for image */
 export type ImageProps = {
@@ -62,7 +58,7 @@ export type ImageProps = {
     element?: 'figure';
     image?: ImgProps;
     children?: ReactNode;
-} & CommonComponentProps<FigureProps, HTMLAttributes<HTMLElement>>;
+} & CommonComponentProps<FigureProps>;
 
 /** Type definition of properties for notification */
 export type NotificationProps = {
@@ -70,7 +66,7 @@ export type NotificationProps = {
     element?: 'div';
     children?: ReactNode;
     onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-} & CommonComponentProps<DivProps, HTMLAttributes<HTMLDivElement>>;
+} & CommonComponentProps<DivProps>;
 
 /** Type definitions of properties for tag */
 export type TagProps = {
@@ -80,19 +76,19 @@ export type TagProps = {
 export type TagSpanProps = {
     element: 'span';
     children: ReactNode;
-} & CommonComponentProps<SpanProps, HTMLAttributes<HTMLSpanElement>>;
+} & CommonComponentProps<SpanProps>;
 /** Type definitions of properties for tag with a */
 export type TagAProps = {
     element: 'a';
     children: ReactNode;
-} & CommonComponentProps<AProps, AnchorHTMLAttributes<HTMLAnchorElement>>;
+} & CommonComponentProps<AProps>;
 /** Type definitions of properties for tags */
 export type TagsProps = {
     component?: 'tags';
     element?: 'div';
     tags: TagProps | TagProps[];
     commonClassesInChild?: string[];
-} & CommonComponentProps<DivProps, HTMLAttributes<HTMLDivElement>>;
+} & CommonComponentProps<DivProps>;
 
 /** Type definitions of properties for title */
 export type TitleProps = {
@@ -101,13 +97,15 @@ export type TitleProps = {
 } & (TitleHeadingProps | TitleParagraphProps);
 /** Type definitions of properties for title with h1-h6 */
 export type TitleHeadingProps = {
+    component?: 'title-heading';
     element?: 'h1'|'h2'|'h3'|'h4'|'h5'|'h6'|'heading';
     level?: number;
     children?: ReactNode;
-} & CommonComponentProps<HeadingProps, HTMLAttributes<HTMLHeadingElement>>;
+} & CommonComponentProps<HeadingProps>;
 /** Type definitions of properties for title with p */
 export type TitleParagraphProps = {
+    component?: 'title-paragraph';
     element?: 'p'|'paragraph';
     level?: number;
     children?: ReactNode;
-} & CommonComponentProps<PProps, HTMLAttributes<HTMLParagraphElement>>;
+} & CommonComponentProps<PProps>;

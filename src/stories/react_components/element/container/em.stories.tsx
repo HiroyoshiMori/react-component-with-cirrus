@@ -30,18 +30,6 @@ export default {
                 },
             },
         },
-        inline: {
-            control: 'none',
-            type: {
-                require: true,
-            },
-            description: 'Switcher for <code>Container</code> component to render inline element',
-            table: {
-                type: {
-                    summary: 'true',
-                },
-            },
-        },
         id: {
             control: 'text',
             description: 'ID for element',
@@ -124,7 +112,6 @@ export const Default = {
     render: (args: any) => <Fragment>
         UNIX timestamp start from <Container
             element={'em'}
-            inline={true}
             {...args}
         >1970-01-01 00:00:00</Container>
     </Fragment>,

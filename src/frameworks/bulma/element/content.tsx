@@ -9,7 +9,6 @@ export const Content = (props: ContentProps) => {
         component = 'content',
         element = 'div',
         children,
-        additionalProps = {},
         ...restProps
     } = props;
 
@@ -29,7 +28,6 @@ export const Content = (props: ContentProps) => {
         <Fragment>
             <Container
                 {...restProps}
-                {...additionalProps}
                 element={element}
             >
                 {children}

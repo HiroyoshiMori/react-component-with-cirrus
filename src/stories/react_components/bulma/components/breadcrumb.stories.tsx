@@ -4,7 +4,7 @@ import {
     Breadcrumb,
 } from "../../../../frameworks/bulma";
 import {icon} from "@fortawesome/fontawesome-svg-core/import.macro";
-import {deIndent} from "../../../../utils";
+import {deIndent, linkInStoryBook} from "../../../../utils";
 
 /**
  * The Bulma <b>breadcrumb</b> is a simple navigation component that only requires a <code>breadcrumb</code> container
@@ -26,7 +26,7 @@ export default {
     argTypes: {
         component: {
             control: 'none',
-            description: 'Switcher for <code>Breadcrumb</code> component to render &lt;breadcrumb&gt;',
+            description: 'Switcher for <code>Breadcrumb</code> component to render this component',
             table: {
                 type: {
                     summary: '"breadcrumb"',
@@ -41,7 +41,13 @@ export default {
             type: {
                 required: true,
             },
-            description: 'Element type which is used for this component',
+            description: deIndent(`
+                            Element type which is extended for this component
+                            👉 See:&nbsp;
+                        `)
+                + linkInStoryBook(
+                    'NavProps', 'React Component/Element/Container/Block/Nav'
+                ),
             table: {
                 type: {
                     summary: '"nav"',
@@ -58,7 +64,7 @@ export default {
                 type: {
                     summary: 'BreadcrumbItemProps | BreadcrumbItemProps[]',
                     detail: deIndent(`
-                                BreadcrumbItemProps = {
+                                {
                                     component?: 'breadcrumb-item',
                                     element?: 'a',
                                     children?: ReactNode,
@@ -66,7 +72,7 @@ export default {
                                     classes?: string[],
                                     attributes?: AnchorHTMLAttributes<HTMLAnchorElement>,
                                     datasets?: Map<string, string>,
-                                }
+                                } as BreadcrumbItemProps<br />
                                 👉 See: IconsProps in "React Component/Element/Icons"
                             `),
                 },
@@ -122,54 +128,6 @@ export default {
             table: {
                 type: {
                     summary: '"' + ALTERNATIVE_SEPARATORS.join('"|"') + '"',
-                },
-            },
-        },
-        classes: {
-            control: 'object',
-            description: 'Style classes for apex element of this component',
-            table: {
-                type: {
-                    summary: 'string[]',
-                },
-                defaultValue: {
-                    summary: 'undefined',
-                },
-            },
-        },
-        attributes: {
-            control: 'object',
-            description: 'Additional attributes for apex element of this component',
-            table: {
-                type: {
-                    summary: 'HTMLAttributes<HTMLElement>',
-                    detail: deIndent(`
-                            e.g.,
-                            { 'aria-label': 'This is Label' }
-                        `),
-                },
-                defaultValue: {
-                    summary: 'undefined',
-                },
-            },
-        },
-        datasets: {
-            control: 'object',
-            description: 'Datasets for apex element of this component. "data-" is added at the beginning of all keys',
-            table: {
-                type: {
-                    summary: 'Map<string, string>',
-                    detail: deIndent(`
-                            e.g.,
-                            new Map([
-                                ['id', 'this-is-id'],
-                                ['name', 'This is Name'],
-                            ]);
-                            => data-id="this-is-id" data-name="This is Name"
-                        `),
-                },
-                defaultValue: {
-                    summary: 'undefined',
                 },
             },
         },

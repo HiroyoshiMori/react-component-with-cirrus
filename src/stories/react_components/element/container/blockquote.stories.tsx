@@ -1,4 +1,4 @@
-import React, {
+import {
     Fragment,
 } from "react";
 import {
@@ -29,11 +29,9 @@ export default {
                     <Story />
                     <Container
                         element={'cite'}
-                        inline={true}
                     >
                         <Container
                             element={'a'}
-                            inline={true}
                             href={'https://en.wiktionary.org/wiki/%E7%82%BA%E3%81%9B%E3%81%B0%E6%88%90%E3%82%8B'}
                             target={'cite-window'}
                         >Waka</Container>,
@@ -42,7 +40,6 @@ export default {
                     read by&nbsp;
                     <Container
                         element={'a'}
-                        inline={true}
                         href={'https://en.wikipedia.org/wiki/Uesugi_Harunori'}
                         target={'cite-window'}
                     >
@@ -145,7 +142,6 @@ export default {
 // Default blockquote
 const DefaultBlockQuote = {
     element: 'blockquote',
-    inline: false,
 };
 /** Default blockquote */
 export const Default = {

@@ -30,13 +30,13 @@ export const LabelledRadio = (props: LabelledRadioProps) => {
     const labelClasses = initialize(
         labelProps?.classes, [],
         !noDefaultClass ? getCssFramework().getDefaultStyleClass(
-            'labelled-radio', 'label', 'radio'
+            component, 'label', 'radio'
         ) : []
     );
     const inputClasses = initialize(
         radioProps?.classes, [],
         !noDefaultClass ? getCssFramework().getDefaultStyleClass(
-            'labelled-radio', 'input', 'radio'
+            component, 'input', 'radio'
         ) : []
     );
     const checked = currentValue

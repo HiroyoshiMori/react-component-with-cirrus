@@ -31,10 +31,10 @@ export const FormFile = (props: FormFileProps) => {
 
     // Initialize and set default class if not exists
     const labelProps: LabelProps = {element: 'label'} as LabelProps;
-    const labelSpanProps: SpanProps = {element: 'span', inline: true} as SpanProps;
-    const ctaSpanProps: SpanProps = {element: 'span', inline: true} as SpanProps;
-    const iconSpanProps: SpanProps = {element: 'span', inline: true} as SpanProps;
-    const filenameSpanProps: SpanProps = {element: 'span', inline: true} as SpanProps;
+    const labelSpanProps: SpanProps = {element: 'span'} as SpanProps;
+    const ctaSpanProps: SpanProps = {element: 'span'} as SpanProps;
+    const iconSpanProps: SpanProps = {element: 'span'} as SpanProps;
+    const filenameSpanProps: SpanProps = {element: 'span'} as SpanProps;
 
     restProps['classes'] = initialize(
         props['classes'], [], getCssFramework().getDefaultStyleClass(

@@ -128,7 +128,6 @@ export const Pagination = (props: PaginationProps) => {
             element: 'li',
             children: {
                 element: 'a',
-                inline: true,
                 href: link ? sprintf(link, 1) : undefined,
                 children: 1,
                 classes: itemClasses,
@@ -145,7 +144,6 @@ export const Pagination = (props: PaginationProps) => {
                 element: 'li',
                 children: {
                     element: 'span',
-                    inline: true,
                     children: ellipsis,
                     classes: ellipsisClasses,
                     attributes: ellipsisAttributes
@@ -161,7 +159,6 @@ export const Pagination = (props: PaginationProps) => {
             element: 'li',
             children: {
                 element: 'a',
-                inline: true,
                 href: link ? sprintf(link, currentPage - 1) : undefined,
                 children: currentPage - 1,
                 classes: itemClasses,
@@ -185,7 +182,6 @@ export const Pagination = (props: PaginationProps) => {
         element: 'li',
         children: {
             element: 'span',
-            inline: true,
             children: currentPage,
             classes: itemClasses.concat(currentClasses),
             attributes: currentAttributes,
@@ -201,7 +197,6 @@ export const Pagination = (props: PaginationProps) => {
             element: 'li',
             children: {
                 element: 'a',
-                inline: true,
                 href: link ? sprintf(link, currentPage + 1) : undefined,
                 children: currentPage + 1,
                 classes: itemClasses,
@@ -222,7 +217,6 @@ export const Pagination = (props: PaginationProps) => {
                 element: 'li',
                 children: {
                     element: 'span',
-                    inline: true,
                     children: ellipsis,
                     classes: ellipsisClasses,
                     attributes: ellipsisAttributes
@@ -233,7 +227,6 @@ export const Pagination = (props: PaginationProps) => {
             element: 'li',
             children: {
                 element: 'a',
-                inline: true,
                 href: link ? sprintf(link, maxPage) : undefined,
                 children: maxPage,
                 classes: itemClasses,

@@ -29,18 +29,6 @@ export default {
                 },
             },
         },
-        inline: {
-            control: 'boolean',
-            description: 'Indicate inline-level element',
-            type: {
-                required: true,
-            },
-            table: {
-                type: {
-                    summary: 'true',
-                },
-            },
-        },
         id: {
             control: 'text',
             description: 'ID for element',
@@ -133,7 +121,6 @@ export default {
 // Default quote property
 const DefaultQuoteProps = {
     element: 'q',
-    inline: true,
 };
 
 /** Default quote */

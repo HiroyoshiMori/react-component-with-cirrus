@@ -168,8 +168,8 @@ export const PaginationWithPrevNextWith10PagesCurrent1 = {
     args: {
         total: 100,
         hasPrevNext: true,
-        prevLabel: {element: 'a', inline: true, children: 'Prev'},
-        nextLabel: {element: 'a', inline: true, children: 'Next'},
+        prevLabel: {element: 'a', children: 'Prev'},
+        nextLabel: {element: 'a', children: 'Next'},
     },
 };
 /** Pagination with prev/next with 10 pages and current 2 */
@@ -179,8 +179,8 @@ export const PaginationWithPrevNextWith10PagesCurrent2 = {
         currentPage: 2,
         total: 100,
         hasPrevNext: true,
-        prevLabel: {element: 'a', inline: true, children: 'Prev'},
-        nextLabel: {element: 'a', inline: true, children: 'Next'},
+        prevLabel: {element: 'a', children: 'Prev'},
+        nextLabel: {element: 'a', children: 'Next'},
     },
 };
 /** Pagination with prev/next with 10 pages and current 9 */
@@ -190,8 +190,8 @@ export const PaginationWithPrevNextWith10PagesCurrent9 = {
         currentPage: 9,
         total: 100,
         hasPrevNext: true,
-        prevLabel: {element: 'a', inline: true, children: 'Prev'},
-        nextLabel: {element: 'a', inline: true, children: 'Next'},
+        prevLabel: {element: 'a', children: 'Prev'},
+        nextLabel: {element: 'a', children: 'Next'},
     },
 };
 /** Pagination with prev/next with 10 pages and current 10 */
@@ -201,7 +201,7 @@ export const PaginationWithPrevNextWith10PagesCurrent10 = {
         currentPage: 10,
         total: 100,
         hasPrevNext: true,
-        prevLabel: {element: 'a', inline: true, children: 'Prev'},
-        nextLabel: {element: 'a', inline: true, children: 'Next'},
+        prevLabel: {element: 'a', children: 'Prev'},
+        nextLabel: {element: 'a', children: 'Next'},
     },
 };

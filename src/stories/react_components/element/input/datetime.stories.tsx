@@ -5,51 +5,41 @@ import {
 import {deIndent} from "../../../../utils";
 
 /**
- * <ul>
- *     <li>
- *         &lt;input&gt; elements of <code>type="date"</code><br />
- *         Create input fields that let the user enter a date, either with a text box that validates the input
- *         or a special date picker interface.<br />
- *         <br />
- *         The resulting value includes the year, month, and day, but not the time. The time and datetime-local
- *         input types support time and date+time input.<br />
- *         <br />
- *         See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date
- *     </li>
- *     <li>
- *         &lt;input&gt; elements of <code>type="datetime-local"</code><br />
- *         Create input controls that let the user easily enter both a date and a time, including the year,
- *         month, and day as well as the time in hours and minutes.<br />
- *         <br />
- *         See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local
- *     </li>
- *     <li>
- *         &lt;input&gt; element of <code>type="month"</code><br />
- *         Create input fields that let the user enter a month and year allowing a month and year to be
- *         easily entered. The value is a string whose value is in the format "YYYY-MM", where YYYY is the
- *         four-digit year and MM is the month number.<br />
- *         <br />
- *         See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/month
- *     </li>
- *     <li>
- *         &lt;input&gt; element of <code>type="time"</code><br />
- *         Create input fields designed to let the user easily enter a time (hours and minutes, and optionally
- *         seconds).<br />
- *         <br />
- *         The control's user interface varies from browser to browser; see Browser compatibility for further
- *         details. In unsupported browsers, the control degrades gracefully to &lt;input type="text"&gt;.<br />
- *         <br />
- *         See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time
- *     </li>
- *     <li>
- *         &lt;input&gt; element of <code>type="week"</code><br />
- *         Create input fields allowing easy entry of a year plus the ISO 8601 week number during that year
- *         (i.e., week 1 to 52 or 53).<br />
- *         <br />
- *         See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/week<br />
- *         See: https://en.wikipedia.org/wiki/ISO_8601#Week_dates
- *     </li>
- * </ul>
+ * - &lt;input&gt; elements of <code>type="date"</code><br />
+ *   Create input fields that let the user enter a date, either with a text box that validates the input
+ *   or a special date picker interface.<br />
+ *   The resulting value includes the year, month, and day, but not the time. The time and datetime-local
+ *   input types support time and date+time input.<br />
+ *
+ *   See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date
+ *
+ * - &lt;input&gt; elements of <code>type="datetime-local"</code><br />
+ *   Create input controls that let the user easily enter both a date and a time, including the year,
+ *   month, and day as well as the time in hours and minutes.<br />
+ *
+ *   See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local
+ *
+ * - &lt;input&gt; element of <code>type="month"</code><br />
+ *   Create input fields that let the user enter a month and year allowing a month and year to be
+ *   easily entered. The value is a string whose value is in the format "YYYY-MM", where YYYY is the
+ *   four-digit year and MM is the month number.<br />
+ *
+ *   See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/month
+ *
+ * - &lt;input&gt; element of <code>type="time"</code><br />
+ *   Create input fields designed to let the user easily enter a time (hours and minutes, and optionally
+ *   seconds).<br />
+ *   The control's user interface varies from browser to browser; see Browser compatibility for further
+ *   details. In unsupported browsers, the control degrades gracefully to &lt;input type="text"&gt;.<br />
+ *
+ *   See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time
+ *
+ * - &lt;input&gt; element of <code>type="week"</code><br />
+ *   Create input fields allowing easy entry of a year plus the ISO 8601 week number during that year
+ *   (i.e., week 1 to 52 or 53).<br />
+ *
+ *   See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/week<br />
+ *   See: https://en.wikipedia.org/wiki/ISO_8601#Week_dates
  */
 export default {
     title: 'React Component/Element/Input/Date&Time',

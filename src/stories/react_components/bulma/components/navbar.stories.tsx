@@ -15,7 +15,6 @@ const defaultNavbar = {
         start: {
             component: 'navbar-item',
             element: 'a',
-            inline: true,
             children: 'Menu 1',
         },
     },
@@ -35,10 +34,10 @@ export const NavbarWithMultiMenusInStart = {
         menu: {
             ...defaultNavbar.menu,
             start: [
-                {element: 'a', inline: true, children: 'Menu 1'},
-                {element: 'a', inline: true, children: 'Menu 2'},
-                {element: 'a', inline: true, children: 'Menu 3'},
-                {element: 'a', inline: true, children: 'Menu 4'},
+                {element: 'a', children: 'Menu 1'},
+                {element: 'a', children: 'Menu 2'},
+                {element: 'a', children: 'Menu 3'},
+                {element: 'a', children: 'Menu 4'},
             ],
         },
     },
@@ -50,16 +49,16 @@ export const NavbarWithMultiMenusInStartAndEnd = {
         menu: {
             ...defaultNavbar.menu,
             start: [
-                {element: 'a', inline: true, children: 'Menu 1-1'},
-                {element: 'a', inline: true, children: 'Menu 1-2'},
-                {element: 'a', inline: true, children: 'Menu 1-3'},
-                {element: 'a', inline: true, children: 'Menu 1-4'},
+                {element: 'a', children: 'Menu 1-1'},
+                {element: 'a', children: 'Menu 1-2'},
+                {element: 'a', children: 'Menu 1-3'},
+                {element: 'a', children: 'Menu 1-4'},
             ],
             end: [
-                {element: 'a', inline: true, children: 'Menu 2-1'},
-                {element: 'a', inline: true, children: 'Menu 2-2'},
-                {element: 'a', inline: true, children: 'Menu 2-3'},
-                {element: 'a', inline: true, children: 'Menu 2-4'},
+                {element: 'a', children: 'Menu 2-1'},
+                {element: 'a', children: 'Menu 2-2'},
+                {element: 'a', children: 'Menu 2-3'},
+                {element: 'a', children: 'Menu 2-4'},
             ],
         },
     },
@@ -84,16 +83,16 @@ export const NavbarWithBrandAndMultiMenusInStartAndEnd = {
         menu: {
             ...defaultNavbar.menu,
             start: [
-                {element: 'a', inline: true, children: 'Menu 1-1'},
-                {element: 'a', inline: true, children: 'Menu 1-2'},
-                {element: 'a', inline: true, children: 'Menu 1-3'},
-                {element: 'a', inline: true, children: 'Menu 1-4'},
+                {element: 'a', children: 'Menu 1-1'},
+                {element: 'a', children: 'Menu 1-2'},
+                {element: 'a', children: 'Menu 1-3'},
+                {element: 'a', children: 'Menu 1-4'},
             ],
             end: [
-                {element: 'a', inline: true, children: 'Menu 2-1'},
-                {element: 'a', inline: true, children: 'Menu 2-2'},
-                {element: 'a', inline: true, children: 'Menu 2-3'},
-                {element: 'a', inline: true, children: 'Menu 2-4'},
+                {element: 'a', children: 'Menu 2-1'},
+                {element: 'a', children: 'Menu 2-2'},
+                {element: 'a', children: 'Menu 2-3'},
+                {element: 'a', children: 'Menu 2-4'},
             ],
         },
     },
@@ -105,10 +104,10 @@ export const NavbarWithMultiMenusInStartAndButtonsInEnd = {
         menu: {
             ...defaultNavbar.menu,
             start: [
-                {element: 'a', inline: true, children: 'Menu 1-1'},
-                {element: 'a', inline: true, children: 'Menu 1-2'},
-                {element: 'a', inline: true, children: 'Menu 1-3'},
-                {element: 'a', inline: true, children: 'Menu 1-4'},
+                {element: 'a', children: 'Menu 1-2'},
+                {element: 'a', children: 'Menu 1-3'},
+                {element: 'a', children: 'Menu 1-4'},
+                {element: 'a', children: 'Menu 1-1'},
             ],
             end: {
                 element: 'div',

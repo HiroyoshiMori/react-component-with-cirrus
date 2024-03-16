@@ -28,18 +28,6 @@ export default {
                 },
             },
         },
-        inline: {
-            control: 'boolean',
-            description: 'Indicate inline-level element',
-            type: {
-                required: true,
-            },
-            table: {
-                type: {
-                    summary: 'false',
-                },
-            },
-        },
         id: {
             control: 'text',
             description: 'ID for element',
@@ -120,7 +108,6 @@ export default {
 // Default header property
 const DefaultHeaderProps = {
     element: 'header',
-    inline: false,
 };
 
 /** Default header */

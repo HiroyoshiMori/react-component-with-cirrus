@@ -8,7 +8,6 @@ export const Delete = (props: DeleteButtonProps) => {
     const {
         component = 'delete',
         element = 'button',
-        additionalProps = {},
         ...restProps
     } = props;
 
@@ -28,7 +27,6 @@ export const Delete = (props: DeleteButtonProps) => {
         <Fragment>
             <Button
                 {...restProps}
-                {...additionalProps}
                 element={element}
                 noDefaultClass={true}
             />

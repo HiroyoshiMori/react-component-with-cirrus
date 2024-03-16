@@ -9,7 +9,6 @@ export const Block = (props: BlockProps) => {
         component = 'block',
         element = 'div',
         children,
-        additionalProps = {},
         ...restProps
     } = props;
 
@@ -29,7 +28,6 @@ export const Block = (props: BlockProps) => {
         <Fragment>
             <Container
                 {...restProps}
-                {...additionalProps}
                 element={element}
             >
                 {children}

@@ -2,7 +2,7 @@ import {
     Fragment,
 } from "react";
 import {TitleProps} from "../@types";
-import {getCssFramework, Heading, HeadingProps, initialize, Paragraph, PProps} from "../index";
+import {getCssFramework, Heading, initialize, Paragraph} from "../index";
 import {ArrayRegexIncludes} from "../../../utils";
 
 export const Title = (props: TitleProps) => {
@@ -12,7 +12,6 @@ export const Title = (props: TitleProps) => {
         children,
         isSub = false,
         level = 3,
-        additionalProps,
         ...restProps
     } = props;
 
@@ -40,7 +39,6 @@ export const Title = (props: TitleProps) => {
                 (element === 'p' || element === 'paragraph') ? (
                     <Paragraph
                         {...restProps}
-                        {...additionalProps as PProps}
                         element={element}
                     >
                         {children}
@@ -48,7 +46,6 @@ export const Title = (props: TitleProps) => {
                 ) : (
                     <Heading
                         {...restProps}
-                        {...additionalProps as HeadingProps}
                         element={element}
                         level={level}
                     >

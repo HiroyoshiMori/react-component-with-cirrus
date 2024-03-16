@@ -21,7 +21,6 @@ export const Breadcrumb = (props: BreadcrumbProps) => {
         children,
         alignment,
         separators,
-        additionalProps = {},
         ...restProps
     } = props;
 
@@ -66,7 +65,6 @@ export const Breadcrumb = (props: BreadcrumbProps) => {
         <Fragment>
             <Container
                 {...restProps}
-                {...additionalProps}
                 element={element}
             >
                 <List
@@ -85,7 +83,6 @@ const buildBreadcrumbItem = (props: BreadcrumbItemProps, idx: number, total: num
         element = 'li',
         children,
         icon,
-        additionalProps = {},
         ...itemProps
     } = props;
 
@@ -102,7 +99,6 @@ const buildBreadcrumbItem = (props: BreadcrumbItemProps, idx: number, total: num
     );
     let spanProps = {
         element: 'span',
-        inline: true,
     } as SpanProps;
     if (icon) {
         spanProps['classes'] = initialize(
@@ -126,9 +122,7 @@ const buildBreadcrumbItem = (props: BreadcrumbItemProps, idx: number, total: num
     return {
         element: 'li',
         children: <Container
-            {...additionalProps}
             element={'a'}
-            inline={true}
         >
             {
                 icon ? (

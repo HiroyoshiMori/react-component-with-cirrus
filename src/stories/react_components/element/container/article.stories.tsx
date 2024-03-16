@@ -32,18 +32,6 @@ export default {
                 },
             },
         },
-        inline: {
-            control: 'boolean',
-            description: 'Indicate inline-level element',
-            type: {
-                required: true,
-            },
-            table: {
-                type: {
-                    summary: 'false',
-                },
-            },
-        },
         id: {
             control: 'text',
             description: 'ID for element',
@@ -124,7 +112,6 @@ export default {
 // Default article property
 const DefaultArticleProps = {
     element: 'article',
-    inline: false,
 };
 
 /** Default article contents */
@@ -136,7 +123,6 @@ export const Default = {
         <Heading element={'heading'} level={1}>Example contents</Heading>
         <Container
             element='article'
-            inline={false}
         >
             <Heading element={'heading'} level={2}>Example title</Heading>
             <Paragraph element={'p'}>Example 1</Paragraph>

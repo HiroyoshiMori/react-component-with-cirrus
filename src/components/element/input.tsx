@@ -21,12 +21,12 @@ export const Input = (props: InputProps) => {
     // Initialize
     const classes = initialize(
         props['classes'], [], !noDefaultClass ? getCssFramework().getDefaultStyleClass(
-            'form', props['element'], props['type']
+            'form', element, props['type']
         ) : []
     );
     const attributes = initialize(
         props['attributes'], {}, getCssFramework().getDefaultAdditionalAttributes(
-            'form', props['element']
+            'form', element
         )
     );
 

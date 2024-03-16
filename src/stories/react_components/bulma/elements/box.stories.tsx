@@ -1,15 +1,17 @@
 import {Box} from "../../../../frameworks/bulma";
-import {deIndent, linkInStoryBook} from "../../../../utils";
+import {deIndent} from "../../../../utils";
 
 /**
  * The <b>box</b> element is a simple container with a white background, some padding, and a box shadow.
+ *
+ * See: https://bulma.io/documentation/elements/box/
  */
 export default {
     title: 'React Component/CSS Framework/Bulma/Elements/Box',
     component: Box,
     tags: ['autodocs'],
     parameters: {
-        componentSubtitle: 'A white <code>box</code> to contain other elements',
+        componentSubtitle: 'A white box to contain other elements',
     },
     argTypes: {
         component: {
@@ -55,27 +57,6 @@ export default {
             table: {
                 type: {
                     summary: 'ReactNode',
-                },
-                defaultValue: {
-                    summary: 'undefined',
-                },
-            },
-        },
-        additionalProps: {
-            control: 'object',
-            description: deIndent(`
-                            Additional properties for div/form<br />
-                            👉 See:&nbsp;
-                        `)
-                + linkInStoryBook(
-                    'DivProps', 'React Component/Element/Container/Div'
-                ) + ' / '
-                + linkInStoryBook(
-                    'FormProps', 'React Component/Element/Form'
-                ),
-            table: {
-                type: {
-                    summary: 'DivProps|FormProps',
                 },
                 defaultValue: {
                     summary: 'undefined',

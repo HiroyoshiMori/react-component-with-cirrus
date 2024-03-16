@@ -1,9 +1,10 @@
 import {
+    CommonComponentProps,
     DivProps,
     IconsProps, InputFileProps,
     LabelProps,
     PProps,
-    RequiredFields, SelectProps, TypeAlignment, TypeColors,
+    SelectProps, TypeAlignment, TypeColors,
     TypeElementSize, TypeElementState,
 } from "../index";
 
@@ -11,8 +12,9 @@ import {
 // Type definitions of common properties for form for bulma
 // -------------------------------------------------------------------
 /** Type definitions of properties for form field */
-export type FormFieldProps = Omit<DivProps, 'children'> & {
+export type FormFieldProps = {
     component?: 'form-field';
+    element: 'div';
     isGrouped?: boolean;
     groupedMultiline?: boolean;
     hasAddon?: boolean;
@@ -20,7 +22,7 @@ export type FormFieldProps = Omit<DivProps, 'children'> & {
     label?: LabelProps;
     elementSize?: TypeElementSize;
     items: FormControlProps | FormControlProps[];
-};
+} & CommonComponentProps<Omit<DivProps, 'children'>>;
 /** TYpe definitions of properties for form control */
 export type FormControlProps = FormControlItemProps & {
     component?: 'form-control';
@@ -30,11 +32,12 @@ export type FormControlProps = FormControlItemProps & {
     isExpanded?: boolean;
 };
 /** Type definitions of properties for item for form control */
-export type FormControlItemProps = RequiredFields<DivProps, 'element'> | RequiredFields<PProps, 'element'>;
+export type FormControlItemProps = DivProps | PProps;
 
 /** Type definitions of properties for select */
-export type FormSelectProps = RequiredFields<DivProps, 'element'> & {
+export type FormSelectProps = {
     component?: 'form-select';
+    element: 'div';
     select: SelectProps;
     elementSize?: TypeElementSize;
     elementState?: TypeElementState;
@@ -42,10 +45,10 @@ export type FormSelectProps = RequiredFields<DivProps, 'element'> & {
     selectedValue?: string;
     multiple?: boolean;
     size?: number;
-};
+} & CommonComponentProps<DivProps>;
 
 /** Type definitions of properties for file */
-export type FormFileProps = RequiredFields<DivProps, 'element'> & {
+export type FormFileProps = {
     component?: 'form-file',
     label: string;
     file: InputFileProps;
@@ -54,4 +57,4 @@ export type FormFileProps = RequiredFields<DivProps, 'element'> & {
     isExpanded?: boolean;
     fileName?: string;
     elementColor?: TypeColors;
-};
+} & CommonComponentProps<DivProps>;

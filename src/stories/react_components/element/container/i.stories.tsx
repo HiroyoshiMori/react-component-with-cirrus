@@ -32,18 +32,6 @@ export default {
                 },
             },
         },
-        inline: {
-            control: 'none',
-            type: {
-                require: true,
-            },
-            description: 'Switcher for <code>Container</code> component to render inline element',
-            table: {
-                type: {
-                    summary: 'true',
-                },
-            },
-        },
         id: {
             control: 'text',
             description: 'ID for element',
@@ -125,7 +113,6 @@ export const Default = {
     render: (args: any) => <Fragment>
         I think it's good to have <Container
             element={'i'}
-            inline={true}
             {...args}
         >
             variable which show milli-seconds from 1st of the year.

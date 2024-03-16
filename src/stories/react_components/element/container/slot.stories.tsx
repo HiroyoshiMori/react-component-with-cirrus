@@ -34,7 +34,6 @@ export default {
                             </Code>
                             <Container
                                 element={'span'}
-                                inline={true}
                             >
                                 <slot name={'description'}>NEED DESCRIPTION</slot>
                             </Container>

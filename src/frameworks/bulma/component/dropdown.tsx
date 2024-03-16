@@ -8,7 +8,7 @@ import {
     DropdownProps,
     DropdownTriggerProps
 } from "../@types";
-import {Break, Button, ButtonProps, Container, getCssFramework, Icons, initialize} from "../index";
+import {Break, Button, ButtonProps, Container, getCssFramework, Icons, IconsProps, initialize} from "../index";
 import {icon} from "@fortawesome/fontawesome-svg-core/import.macro";
 import {generateId} from "../../../utils";
 
@@ -18,6 +18,7 @@ export const Dropdown = (props: DropdownProps) => {
         element = 'div',
         trigger,
         menus,
+        isUp = false,
         ...restProps
     } = props;
 
@@ -32,6 +33,16 @@ export const Dropdown = (props: DropdownProps) => {
             component, element
         )
     );
+    if (isUp) {
+        const isUpClasses = getCssFramework().getDefaultStyleClass(
+            component, element, 'is-up'
+        );
+        isUpClasses.forEach((itemClass: string) => {
+            if (restProps['classes'] && !restProps['classes'].includes(itemClass)) {
+                restProps['classes'].push(itemClass)
+            }
+        });
+    }
 
     if (menus.id === undefined) {
         menus.id = trigger.menuId ?? generateId();
@@ -48,6 +59,7 @@ export const Dropdown = (props: DropdownProps) => {
                         {...trigger}
                         component={'dropdown-trigger'}
                         menuId={menus.id}
+                        isUp={isUp}
                     /> : <Fragment/>
                 }
                 {
@@ -68,7 +80,8 @@ export const DropdownTrigger = (props: DropdownTriggerProps) => {
         menuId,
         button = {} as Omit<ButtonProps, 'children'>,
         title,
-        additionalProps = {},
+        icons = {} as IconsProps,
+        isUp,
         ...restProps
     } = props;
 
@@ -141,11 +154,11 @@ export const DropdownTrigger = (props: DropdownTriggerProps) => {
         )
     );
 
-    const icons = props['icons']
-        ? props['icons'] : {
-            icon: icon({name: 'angle-down'}),
-        };
-    if (Object.hasOwn(restProps, 'icons')) delete restProps.icons;
+    if (Object.keys(icons).length === 0) {
+        icons.icon = !isUp
+            ? icon({name: 'angle-down'})
+            : icon({name: 'angle-up'});
+    }
 
     const iconsAttributes = initialize(
         {} as HTMLAttributes<SVGSVGElement>, {},
@@ -161,7 +174,6 @@ export const DropdownTrigger = (props: DropdownTriggerProps) => {
         <Fragment>
             <Container
                 {...restProps}
-                {...additionalProps}
                 element={element}
             >
                 <Button
@@ -173,11 +185,9 @@ export const DropdownTrigger = (props: DropdownTriggerProps) => {
                     <Container
                         {...title}
                         element={'span'}
-                        inline={true}
                     />
                     <Container
                         element={'span'}
-                        inline={true}
                         classes={spanClasses}
                         attributes={spanAttributes}
                     >
@@ -197,7 +207,6 @@ export const DropdownMenu = (props: DropdownMenuProps) => {
         component = 'dropdown-menu',
         element = 'div',
         content,
-        additionalProps = {},
         ...restProps
     } = props;
 
@@ -217,7 +226,6 @@ export const DropdownMenu = (props: DropdownMenuProps) => {
         <Fragment>
             <Container
                 {...restProps}
-                {...additionalProps}
                 element={element}
             >
                 <DropdownContent
@@ -235,7 +243,6 @@ export const DropdownContent = (props: DropdownContentProps) => {
         element = 'div',
         items: itemData = [],
         children,
-        additionalProps = {},
         ...restProps
     } = props;
 
@@ -257,7 +264,6 @@ export const DropdownContent = (props: DropdownContentProps) => {
         <Fragment>
             <Container
                 {...restProps}
-                {...additionalProps}
                 element={element}
             >
                 {

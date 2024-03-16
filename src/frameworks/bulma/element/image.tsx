@@ -10,7 +10,6 @@ export const Image = (props: ImageProps) => {
         element = 'figure',
         image,
         children,
-        additionalProps = {},
         ...restProps
     } = props;
 
@@ -30,7 +29,6 @@ export const Image = (props: ImageProps) => {
         <Fragment>
             <Figure
                 {...restProps}
-                {...additionalProps}
                 element={element}
             >
                 {

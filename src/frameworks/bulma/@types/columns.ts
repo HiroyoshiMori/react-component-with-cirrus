@@ -1,7 +1,3 @@
-import {
-    HTMLAttributes,
-    ReactNode,
-} from "react";
 import {CommonComponentProps} from "./index";
 import {DivProps} from "../index";
 
@@ -11,14 +7,13 @@ import {DivProps} from "../index";
 /** Type definition of properties for column layout */
 export type ColumnProps = {
     component?: 'column',
-    element?: 'div';
-    children?: ReactNode,
-} & CommonComponentProps<DivProps, HTMLAttributes<HTMLDivElement>>;
+    element: 'div';
+} & CommonComponentProps<DivProps>;
 /** Type definition of properties for columns layout */
 export type ColumnsProps = {
     component?: 'columns';
-    element?: 'div',
+    element: 'div',
     columns: ColumnProps | ColumnProps[];
     commonClassesInChild?: string[];
-} & CommonComponentProps<DivProps, HTMLAttributes<HTMLDivElement>>;
+} & CommonComponentProps<DivProps>;
 

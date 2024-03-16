@@ -29,18 +29,6 @@ export default {
                 },
             },
         },
-        inline: {
-            control: 'boolean',
-            description: 'Indicate inline-level element',
-            type: {
-                required: true,
-            },
-            table: {
-                type: {
-                    summary: 'false',
-                },
-            },
-        },
         id: {
             control: 'text',
             description: 'ID for element',
@@ -121,7 +109,6 @@ export default {
 // Default division property
 const DefaultDivProps = {
     element: 'div',
-    inline: false,
 };
 
 /** Default content division */

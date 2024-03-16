@@ -6,3 +6,6 @@
     padding-left: 0;
     padding-right: 0;
 }
+.sbdocs.sbdocs-content div > ul li code {
+    color: #da1039;
+}

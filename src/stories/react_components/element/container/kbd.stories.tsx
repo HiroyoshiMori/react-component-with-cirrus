@@ -32,18 +32,6 @@ export default {
                 },
             },
         },
-        inline: {
-            control: 'none',
-            type: {
-                require: true,
-            },
-            description: 'Switcher for <code>Container</code> component to render inline element',
-            table: {
-                type: {
-                    summary: 'true',
-                },
-            },
-        },
         id: {
             control: 'text',
             description: 'ID for element',
@@ -126,7 +114,6 @@ export const Default = {
     render: (args: any) => <Fragment>
         Please press <Container
             element={'kbd'}
-            inline={true}
             {...args}
         >Ctrl</Container>.
     </Fragment>,

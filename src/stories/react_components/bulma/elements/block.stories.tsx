@@ -1,5 +1,5 @@
 import {Block} from "../../../../frameworks/bulma";
-import {deIndent, linkInStoryBook} from "../../../../utils";
+import {deIndent} from "../../../../utils";
 
 /**
  * The <code>block</code> element is a simple <b>spacer tool</b>. It allows <b>sibling</b> HTML elements to
@@ -12,7 +12,7 @@ export default {
     component: Block,
     tags: ['autodocs'],
     parameters: {
-        componentSubtitle: 'Bulma\'s most basic spacer <code>block</code>',
+        componentSubtitle: 'Bulma\'s most basic spacer block',
     },
     argTypes: {
         component: {
@@ -57,24 +57,6 @@ export default {
             table: {
                 type: {
                     summary: 'ReactNode',
-                },
-                defaultValue: {
-                    summary: 'undefined',
-                },
-            },
-        },
-        additionalProps: {
-            control: 'object',
-            description: deIndent(`
-                            Additional properties for div<br />
-                            👉 See:&nbsp;
-                        `)
-                        + linkInStoryBook(
-                            'DivProps', 'React Component/Element/Container/Div'
-                        ),
-            table: {
-                type: {
-                    summary: 'DivProps',
                 },
                 defaultValue: {
                     summary: 'undefined',

@@ -173,10 +173,10 @@ export type CiteProps = InlineCommonProps<HTMLElement, HTMLAttributes<HTMLElemen
 /** Type definition of property for code (in code component) */
 export type CodeProps = ElementCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
     element: 'code';
+    inline?: boolean;
     children?: ReactNode;
     "data-lang"?: string;
     dark?: boolean;
-    inline?: boolean;
 };
 /** Type definition of property for col (used in table) */
 export type ColProps = ElementCommonProps<HTMLTableColElement, ColHTMLAttributes<HTMLTableColElement>> & {
@@ -794,12 +794,10 @@ export type WbrProps = ElementCommonProps<HTMLBRElement, HTMLAttributes<HTMLBREl
 // -------------------------------------------------------------------
 export type ElementBaseProps = {
     element: string;
+    id?: string;
 }
 /** Type definition of common property for element */
-export type ElementCommonProps<T extends HTMLElement|HTMLOrSVGElement, U extends HTMLAttributes<T>> = {
-    id?: string;
-    lang?: string;
-    popover?: 'auto'|'manual';
+export type ElementCommonProps<T extends HTMLElement|HTMLOrSVGElement, U extends HTMLAttributes<T>> = ElementBaseProps & {
     noDefaultClass?: boolean;
     classes?: string[];
     attributes?: U;
@@ -827,11 +825,9 @@ export type AudioVideoCommonProps<T extends HTMLElement, U extends HTMLAttribute
 };
 /** Common Type definition of property for several block containers */
 type BlockCommonProps<T extends HTMLElement, U extends HTMLAttributes<T>> = ContainerCommonProps<T, U> & {
-    inline?: false;
 };
 /** Common Type definition of property for several inline containers */
 type InlineCommonProps<T extends HTMLElement, U extends HTMLAttributes<T>> = ContainerCommonProps<T, U> & {
-    inline: true;
 };
 /** Type definition of property for common input */
 export type InputCommonProps = ElementCommonProps<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>> & {

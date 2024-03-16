@@ -29,18 +29,6 @@ export default {
                 },
             },
         },
-        inline: {
-            control: 'boolean',
-            description: 'Indicate inline-level element',
-            type: {
-                required: true,
-            },
-            table: {
-                type: {
-                    summary: 'true',
-                },
-            },
-        },
         id: {
             control: 'text',
             description: 'ID for element',
@@ -145,7 +133,6 @@ export default {
 // Default inserted text property
 const DefaultInsProps = {
     element: 'ins',
-    inline: true,
 };
 
 /** Default inserted text */

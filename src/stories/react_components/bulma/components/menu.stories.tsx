@@ -15,7 +15,6 @@ export const Default = {
                     items: {
                         label: {
                             element: 'a',
-                            inline: true,
                             children: 'Menu 1-1',
                         },
                     },
@@ -27,13 +26,11 @@ export const Default = {
                     items: [{
                         label: {
                             element: 'a',
-                            inline: true,
                             children: 'Menu 2-1',
                         },
                     }, {
                         label: {
                             element: 'a',
-                            inline: true,
                             children: 'Menu 2-2',
                         },
                     }],
@@ -54,7 +51,6 @@ export const MenuWithSubMenu = {
                     items: {
                         label: {
                             element: 'a',
-                            inline: true,
                             children: 'Menu 1-1',
                         },
                         subLevel: {

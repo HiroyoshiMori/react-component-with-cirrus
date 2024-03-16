@@ -25,7 +25,6 @@ export const Card = (props: CardProps) => {
         image,
         content,
         footer,
-        additionalProps = {},
         ...restProps
     } = props;
 
@@ -56,7 +55,6 @@ export const Card = (props: CardProps) => {
         <Fragment>
             <Container
                 {...restProps}
-                {...additionalProps}
                 element={'div'}
             >
                 {
@@ -87,10 +85,9 @@ export const Card = (props: CardProps) => {
 export const CardHeader = (props: CardHeaderProps) => {
     const {
         component = 'card-header',
-        element = 'div',
-        title,
-        button,
-        additionalProps = {},
+        element = 'header',
+        title = {} as PProps,
+        button = {} as Omit<ButtonProps, 'children'>,
         ...restProps
     } = props;
 
@@ -101,16 +98,14 @@ export const CardHeader = (props: CardHeaderProps) => {
         )
     );
     restProps['attributes'] = initialize(
-        props['attributes'], {}, getCssFramework().getDefaultAdditionalAttributes(
-            component, element
-        )
+        props['attributes'] as HTMLAttributes<HTMLHeadingElement>, {},
+        getCssFramework().getDefaultAdditionalAttributes(component, element)
     );
 
     return (
         <Fragment>
             <Container
                 {...restProps}
-                {...additionalProps}
                 element={element}
             >
                 { title ? <CardHeaderTitle {...title} /> : <Fragment /> }
@@ -195,7 +190,6 @@ export const CardHeaderButton = (props: Omit<ButtonProps, 'children'>) => {
             >
                 <Container
                     element={'span'}
-                    inline={true}
                     classes={spanClasses}
                     attributes={spanAttributes}
                 >
@@ -214,7 +208,6 @@ export const CardImage = (props: CardImageProps) => {
         component = 'card-image',
         element = 'div',
         image,
-        additionalProps = {},
         ...restProps
     } = props;
 
@@ -245,7 +238,6 @@ export const CardImage = (props: CardImageProps) => {
         <Fragment>
             <Container
                 {...restProps}
-                {...additionalProps}
                 element={element}
             >
                 <Figure
@@ -268,8 +260,6 @@ export const CardFooter = (props: CardFooterProps) => {
         component = 'card-footer',
         element = 'div',
         items = [],
-        children,
-        additionalProps = {},
         ...restProps
     } = props;
 
@@ -291,10 +281,8 @@ export const CardFooter = (props: CardFooterProps) => {
         <Fragment>
             <Container
                 {...restProps}
-                {...additionalProps}
                 element={element}
             >
-                {children}
                 {
                     footerItems && footerItems.length > 0 && footerItems.map((item: AProps | PProps, idx: number) => (
                         <CardFooterItem key={idx} {...item} />
@@ -338,7 +326,6 @@ export const CardFooterItem = (props: AProps | PProps) => {
                     <Container
                         {...(restProps as AProps)}
                         element={'a'}
-                        inline={true}
                     >
                         {children}
                     </Container>

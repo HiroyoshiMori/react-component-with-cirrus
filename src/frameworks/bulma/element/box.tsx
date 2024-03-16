@@ -3,14 +3,13 @@ import {
     Fragment, HTMLAttributes,
 } from "react";
 import {BoxProps} from "../@types";
-import {Container, DivProps, Form, FormProps, getCssFramework, initialize} from "../index";
+import {Container, Form, getCssFramework, initialize} from "../index";
 
 export const Box = (props: BoxProps) => {
     const {
         component = 'box',
         element = 'div',
         children,
-        additionalProps = {},
         ...restProps
     } = props;
 
@@ -34,7 +33,6 @@ export const Box = (props: BoxProps) => {
                     <Fragment>
                         <Form
                             {...restProps}
-                            {...(additionalProps as FormProps)}
                             element={'form'}
                             attributes={restProps['attributes'] as FormHTMLAttributes<HTMLFormElement>}
                         >
@@ -45,7 +43,6 @@ export const Box = (props: BoxProps) => {
                     <Fragment>
                         <Container
                             {...restProps}
-                            {...(additionalProps as DivProps)}
                             element={'div'}
                             attributes={restProps['attributes'] as HTMLAttributes<HTMLDivElement>}
                         >

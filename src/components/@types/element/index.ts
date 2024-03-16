@@ -288,3 +288,41 @@ export const getElement = <T extends ElementBaseProps | unknown = unknown>(obj: 
     }
     return Fragment;
 };
+
+/**
+ * Identify element is inline or not
+ * @param element
+ */
+export const isInline = (element: string) => {
+    switch (element.toLowerCase()) {
+        case 'span':
+        case 'a':
+        case 'abbr':
+        case 'b':
+        case 'bdi':
+        case 'bdo':
+        case 'cite':
+        case 'data':
+        case 'del':
+        case 'dfn':
+        case 'em':
+        case 'i':
+        case 'ins':
+        case 'kbd':
+        case 'mark':
+        case 'meter':
+        case 'q':
+        case 's':
+        case 'samp':
+        case 'slot':
+        case 'small':
+        case 'strong':
+        case 'sub':
+        case 'sup':
+        case 'time':
+        case 'u':
+        case 'var':
+            return true;
+    }
+    return false;
+};

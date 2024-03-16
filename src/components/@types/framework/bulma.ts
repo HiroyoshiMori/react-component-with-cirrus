@@ -326,6 +326,8 @@ export const getDefaultStyleClass = (
             switch (subType?.toLowerCase()) {
                 case 'is-active':
                     return ['is-active'];
+                case 'is-up':
+                    return ['is-up'];
                 default:
                     return ['dropdown'];
             }

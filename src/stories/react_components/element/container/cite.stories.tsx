@@ -1,4 +1,4 @@
-import React, {
+import {
     Fragment,
 } from "react";
 import {
@@ -35,7 +35,6 @@ export default {
                     read by&nbsp;
                     <Container
                         element={'a'}
-                        inline={true}
                         href={'https://en.wikipedia.org/wiki/Uesugi_Harunori'}
                         target={'cite-window'}
                     >
@@ -55,18 +54,6 @@ export default {
                 },
                 defaultValue: {
                     summary: 'undefined',
-                },
-            },
-        },
-        inline: {
-            control: 'none',
-            type: {
-                require: true,
-            },
-            description: 'Switcher for <code>Container</code> component to render inline element',
-            table: {
-                type: {
-                    summary: 'true',
                 },
             },
         },
@@ -150,7 +137,6 @@ export default {
 // Default cite
 const DefaultCite = {
     element: 'cite',
-    inline: true,
 };
 
 /** Default cite */
@@ -161,7 +147,6 @@ export const Default = {
     >
         <Container
             element={'a'}
-            inline={true}
             href={'https://en.wiktionary.org/wiki/%E7%82%BA%E3%81%9B%E3%81%B0%E6%88%90%E3%82%8B'}
             target={'cite-window'}
         >Waka</Container>,

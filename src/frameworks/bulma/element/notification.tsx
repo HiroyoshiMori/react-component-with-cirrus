@@ -12,7 +12,6 @@ export const Notification = (props: NotificationProps) => {
         element = 'div',
         id = generateId(),
         children,
-        additionalProps = {},
         ...restProps
     } = props;
 
@@ -43,11 +42,11 @@ export const Notification = (props: NotificationProps) => {
         <Fragment>
             <Container
                 {...restProps}
-                {...additionalProps}
                 element={element}
                 id={id}
             >
                 <Delete
+                    element={"button"}
                     onClick={onClick}
                 />
                 {children}

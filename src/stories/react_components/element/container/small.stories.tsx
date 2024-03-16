@@ -46,18 +46,6 @@ export default {
                 },
             },
         },
-        inline: {
-            control: 'none',
-            type: {
-                require: true,
-            },
-            description: 'Switcher for <code>Container</code> component to render inline element',
-            table: {
-                type: {
-                    summary: 'true',
-                },
-            },
-        },
         id: {
             control: 'text',
             description: 'ID for element',
@@ -139,7 +127,6 @@ export default {
 export const Default = {
     render: (args: any) => <Container
         element={'small'}
-        inline={true}
         {...args}
     >
         The small content is here.

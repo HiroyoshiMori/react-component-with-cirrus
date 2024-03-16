@@ -129,7 +129,6 @@ export const NavbarBrand = (props: NavbarBrandProps) => {
                     item ? function() {
                         const {
                             element = 'a',
-                            inline: _,
                             children,
                             ...itemProps
                         } = item;
@@ -148,7 +147,6 @@ export const NavbarBrand = (props: NavbarBrandProps) => {
                                 <Container
                                     {...itemProps}
                                     element={element}
-                                    inline={true}
                                 >
                                     <Media {...children} />
                                 </Container>
@@ -178,9 +176,9 @@ export const NavbarBrand = (props: NavbarBrandProps) => {
                                     {...burgerProps}
                                     element={element}
                                 >
-                                    <Container element={'span'} inline={true} aria-hidden={'true'} />
-                                    <Container element={'span'} inline={true} aria-hidden={'true'} />
-                                    <Container element={'span'} inline={true} aria-hidden={'true'} />
+                                    <Container element={'span'} aria-hidden={'true'} />
+                                    <Container element={'span'} aria-hidden={'true'} />
+                                    <Container element={'span'} aria-hidden={'true'} />
                                 </Button>
                             </Fragment>
                         );

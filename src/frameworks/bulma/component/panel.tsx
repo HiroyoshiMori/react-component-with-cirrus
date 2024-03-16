@@ -164,7 +164,6 @@ export const PanelBlock = (props: PanelBlockProps) => {
                     Object.hasOwn(restProps, 'icon') && (restProps as PanelBlockAProps)['icon'] !== undefined ? (
                         <Container
                             element={'span'}
-                            inline={true}
                             classes={spanClasses}
                         >
                             <Icons {...restProps.icon as IconsProps} />
@@ -191,7 +190,6 @@ export const PanelBlock = (props: PanelBlockProps) => {
                     <Fragment>
                         <Container
                             {...(restProps as AProps)}
-                            inline={true}
                         >
                             {children}
                         </Container>

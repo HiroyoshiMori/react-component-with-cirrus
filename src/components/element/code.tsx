@@ -12,7 +12,7 @@ export const Code = (props: CodeProps) => {
         children,
         "data-lang": dataLang,
         dark,
-        inline,
+        inline = false,
         classes = [],
         attributes = {},
         datasets = new Map(),

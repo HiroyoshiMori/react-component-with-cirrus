@@ -1,7 +1,7 @@
 import {
     Paragraph,
-} from "../../../components";
-import {deIndent} from "../../../utils";
+} from "../../../../components";
+import {deIndent} from "../../../../utils";
 
 /**
  * The &lt;p&gt; HTML element represents a paragraph.
@@ -10,7 +10,7 @@ import {deIndent} from "../../../utils";
  * grouping of related content, such as images or form fields
  */
 export default {
-    title: 'React Component/Element/Paragraph/Paragraph',
+    title: 'React Component/Element/Container/Block/Paragraph',
     component: Paragraph,
     tags: ['autodocs'],
     parameters: {

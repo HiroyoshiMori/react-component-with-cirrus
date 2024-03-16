@@ -9,7 +9,6 @@ export const Menu = (props: MenusProps) => {
         component = 'menu',
         element = 'aside',
         items = [],
-        additionalProps = {},
         ...restProps
     } = props;
 
@@ -31,7 +30,6 @@ export const Menu = (props: MenusProps) => {
         <Fragment>
             <Container
                 {...restProps}
-                {...additionalProps}
                 element={element}
             >
                 {

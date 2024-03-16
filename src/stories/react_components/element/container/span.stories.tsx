@@ -31,18 +31,6 @@ export default {
                 },
             },
         },
-        inline: {
-            control: 'boolean',
-            description: 'Indicate inline-level element',
-            type: {
-                required: true,
-            },
-            table: {
-                type: {
-                    summary: 'true',
-                },
-            },
-        },
         id: {
             control: 'text',
             description: 'ID for element',
@@ -123,7 +111,6 @@ export default {
 // Default span property
 const DefaultSpanProps = {
     element: 'span',
-    inline: true,
 };
 
 /** Default content span */

@@ -150,7 +150,7 @@ export const FormControl = (props: FormControlProps) => {
         });
     }
 
-    let leftSpan: SpanProps = {element: 'span', inline: true} as SpanProps;
+    let leftSpan: SpanProps = {element: 'span'} as SpanProps;
     if (leftIcon) {
         const leftIconClasses = getCssFramework().getDefaultStyleClass(
             component, 'icons', 'left'
@@ -167,7 +167,7 @@ export const FormControl = (props: FormControlProps) => {
             )
         );
     }
-    let rightSpan: SpanProps = {element: 'span', inline: true} as SpanProps;
+    let rightSpan: SpanProps = {element: 'span'} as SpanProps;
     if (rightIcon) {
         const rightIconClasses = getCssFramework().getDefaultStyleClass(
             component, 'icons', 'right'
