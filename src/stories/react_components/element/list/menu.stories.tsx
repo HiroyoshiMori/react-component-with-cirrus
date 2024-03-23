@@ -1,5 +1,5 @@
 import {
-    Container,
+    Container, DivProps,
     getCssFramework,
     List,
 } from "../../../../components";
@@ -21,7 +21,7 @@ export default {
     },
     decorators: [
         (Story: any) => (
-            <Container
+            <Container<DivProps>
                 element={'div'}
                 classes={getCssFramework().getDefaultStyleClass('content')}
             >

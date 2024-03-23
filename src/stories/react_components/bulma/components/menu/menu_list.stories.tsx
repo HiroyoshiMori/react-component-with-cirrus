@@ -1,5 +1,5 @@
 import {Fragment} from "react";
-import {Container, MenuList} from "../../../../../frameworks/bulma";
+import {AsideProps, Container, MenuList, Paragraph} from "../../../../../frameworks/bulma";
 import {deIndent, linkInStoryBook} from "../../../../../utils";
 
 export default {
@@ -12,16 +12,16 @@ export default {
     decorators: [
         (Story: any) => (
             <Fragment>
-                <Container
+                <Container<AsideProps>
                     element={'aside'}
                     classes={['menu']}
                 >
-                    <Container
+                    <Paragraph
                         element={'p'}
                         classes={['menu-label']}
                     >
                         This sentence is within menu-label
-                    </Container>
+                    </Paragraph>
                     <Story />
                 </Container>
             </Fragment>

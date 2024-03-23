@@ -1,5 +1,5 @@
 import {Fragment} from "react";
-import {Container, MessageHeader} from "../../../../../frameworks/bulma";
+import {Container, DivProps, MessageHeader} from "../../../../../frameworks/bulma";
 import {deIndent, linkInStoryBook} from "../../../../../utils";
 
 export default {
@@ -12,12 +12,12 @@ export default {
     decorators: [
         (Story: any) => (
             <Fragment>
-                <Container
+                <Container<DivProps>
                     element={'div'}
                     classes={['message']}
                 >
                     <Story />
-                    <Container
+                    <Container<DivProps>
                         element={'div'}
                         classes={['message-body']}
                     >

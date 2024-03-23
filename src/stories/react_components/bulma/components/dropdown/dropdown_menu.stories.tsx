@@ -1,4 +1,4 @@
-import {Container, DropdownMenu, DropdownTrigger} from "../../../../../frameworks/bulma";
+import {Container, DivProps, DropdownMenu, DropdownTrigger} from "../../../../../frameworks/bulma";
 import {Fragment} from "react";
 import {deIndent, linkInStoryBook} from "../../../../../utils";
 
@@ -11,7 +11,7 @@ export default {
     },
     decorators: [
         (Story: any) => <Fragment>
-            <Container
+            <Container<DivProps>
                 element={'div'}
                 classes={['dropdown']}
             >

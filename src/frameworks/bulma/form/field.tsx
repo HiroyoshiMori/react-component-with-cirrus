@@ -9,7 +9,7 @@ import {
     Icons,
     initialize,
     Label,
-    SpanProps
+    SpanProps, DivProps
 } from "../index";
 import {FormControlProps, FormFieldProps} from "../@types";
 import {ArrayRegexIncludes} from "../../../utils";
@@ -98,7 +98,7 @@ export const FormField = (props: FormFieldProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >
@@ -199,7 +199,7 @@ export const FormControl = (props: FormControlProps) => {
     }
 
     // @ts-ignore
-    return (<Container {...restProps}>
+    return (<Container<DivProps|PProps> {...restProps}>
         {
             children && (typeof children === 'object') && Object.hasOwn(children, 'element')
                 ? function (items: any) {
@@ -219,7 +219,7 @@ export const FormControl = (props: FormControlProps) => {
                     <Fragment>{children}</Fragment>
                 )
         }
-        { leftIcon && leftSpan.children ? <Container {...leftSpan} /> : <Fragment /> }
-        { rightIcon && rightSpan.children ? <Container {...rightSpan} /> : <Fragment /> }
+        { leftIcon && leftSpan.children ? <Container<SpanProps> {...leftSpan} /> : <Fragment /> }
+        { rightIcon && rightSpan.children ? <Container<SpanProps> {...rightSpan} /> : <Fragment /> }
     </Container>);
 };

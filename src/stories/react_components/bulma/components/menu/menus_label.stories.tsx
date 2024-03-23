@@ -1,4 +1,4 @@
-import {Container, List, MenuLabel} from "../../../../../frameworks/bulma";
+import {AsideProps, Container, List, MenuLabel} from "../../../../../frameworks/bulma";
 import {Fragment} from "react";
 import {deIndent, linkInStoryBook} from "../../../../../utils";
 
@@ -12,7 +12,7 @@ export default {
     decorators: [
         (Story: any) => (
             <Fragment>
-                <Container
+                <Container<AsideProps>
                     element={'aside'}
                     classes={['menu']}
                 >

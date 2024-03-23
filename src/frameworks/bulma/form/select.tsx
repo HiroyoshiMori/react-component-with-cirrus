@@ -2,7 +2,7 @@ import {
     Fragment,
 } from "react";
 import {COLORS, ELEMENT_SIZES, ELEMENT_STATES, FormSelectProps} from "../@types";
-import {Container, getCssFramework, initialize, Select} from "../index";
+import {Container, DivProps, getCssFramework, initialize, Select} from "../index";
 import {ArrayRegexIncludes} from "../../../utils";
 
 export const FormSelect = (props: FormSelectProps) => {
@@ -61,7 +61,7 @@ export const FormSelect = (props: FormSelectProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >

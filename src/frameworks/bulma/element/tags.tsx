@@ -2,7 +2,7 @@ import {
     Fragment,
 } from "react";
 import {TagProps, TagsProps} from "../@types";
-import {Container, DivProps, getCssFramework, initialize} from "../index";
+import {AProps, Container, DivProps, getCssFramework, initialize, SpanProps} from "../index";
 
 export const Tags = (props: TagsProps) => {
     const {
@@ -78,7 +78,7 @@ export const Tag = (props: TagProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<AProps|SpanProps>
                 {...restProps}
                 element={element}
             >

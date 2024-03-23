@@ -122,7 +122,7 @@ export const Default = {
         {...args}
     >
         <Heading element={'heading'} level={1}>Example contents</Heading>
-        <Container
+        <Container<ArticleProps>
             element='article'
         >
             <Heading element={'heading'} level={2}>Example title</Heading>

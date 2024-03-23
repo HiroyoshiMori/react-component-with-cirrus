@@ -2,7 +2,7 @@ import {
     Fragment,
 } from "react";
 import {MenusLabelListProps, MenusLabelProps, MenusListItemProps, MenusListProps, MenusProps} from "../@types";
-import {Container, getCssFramework, initialize, LiProps, List, Paragraph} from "../index";
+import {AProps, AsideProps, Container, getCssFramework, initialize, LiProps, List, Paragraph} from "../index";
 
 export const Menu = (props: MenusProps) => {
     const {
@@ -28,7 +28,7 @@ export const Menu = (props: MenusProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<AsideProps>
                 {...restProps}
                 element={element}
             >
@@ -100,7 +100,7 @@ export const MenuList = (props: MenusListProps) => {
         return {
             element: 'li',
             children: <Fragment>
-                <Container {...item.label} />
+                <Container<AProps> {...item.label} />
                 {
                     item.subLevel && <List
                         {...item.subLevel}

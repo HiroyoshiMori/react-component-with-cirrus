@@ -1,5 +1,5 @@
 import {Fragment} from "react";
-import {Column, Container} from "../../../../frameworks/bulma";
+import {Column, Container, DivProps} from "../../../../frameworks/bulma";
 import {deIndent, linkInStoryBook} from "../../../../utils";
 
 /**
@@ -14,9 +14,9 @@ export default {
     },
     decorators: [
         (Story: any) => <Fragment>
-            <Container
+            <Container<DivProps>
                 element={'div'}
-                className={'columns'}
+                classes={['columns']}
             >
                 <Story />
             </Container>

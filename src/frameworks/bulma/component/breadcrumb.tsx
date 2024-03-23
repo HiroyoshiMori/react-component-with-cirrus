@@ -3,6 +3,7 @@ import {
 } from "react";
 import {ALIGNMENTS, ALTERNATIVE_SEPARATORS, BreadcrumbItemProps, BreadcrumbProps} from "../@types";
 import {
+    AProps,
     Container,
     getCssFramework,
     Icons,
@@ -121,7 +122,7 @@ const buildBreadcrumbItem = (props: BreadcrumbItemProps, idx: number, total: num
 
     return {
         element: 'li',
-        children: <Container
+        children: <Container<AProps>
             element={'a'}
         >
             {

@@ -2,7 +2,7 @@ import {
     Fragment,
 } from "react";
 import {TabItemProps, TabsProps} from "../@types";
-import {AProps, Container, getCssFramework, initialize, LiProps, List} from "../index";
+import {AProps, Container, DivProps, getCssFramework, initialize, LiProps, List} from "../index";
 
 export const Tabs = (props: TabsProps) => {
     const {
@@ -82,7 +82,7 @@ export const Tabs = (props: TabsProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >

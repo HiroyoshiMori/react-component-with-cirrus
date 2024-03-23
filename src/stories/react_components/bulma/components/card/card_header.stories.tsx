@@ -1,4 +1,4 @@
-import {CardHeader, Container} from "../../../../../frameworks/bulma";
+import {ArticleProps, CardHeader, Container, DivProps} from "../../../../../frameworks/bulma";
 import {Fragment} from "react";
 import {deIndent, linkInStoryBook} from "../../../../../utils";
 
@@ -12,12 +12,12 @@ export default {
     decorators: [
         (Story: any) => (
             <Fragment>
-                <Container
+                <Container<ArticleProps>
                     element={'article'}
                     classes={['card']}
                 >
                     <Story />
-                    <Container
+                    <Container<DivProps>
                         element={'div'}
                         classes={['card-content']}
                     >

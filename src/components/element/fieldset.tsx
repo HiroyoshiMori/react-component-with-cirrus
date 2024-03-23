@@ -1,7 +1,7 @@
 import {
     Fragment,
 } from "react";
-import {FieldsetProps} from "../@types";
+import {FieldsetProps, LegendProps} from "../@types";
 import {convertDataSet, joinClasses} from "../common";
 import {Container} from "./container";
 
@@ -29,7 +29,7 @@ export const Fieldset = (props: FieldsetProps) => {
             >
                 {
                     caption && (
-                        <Container
+                        <Container<LegendProps>
                             {...caption}
                             element={'legend'}
                         />

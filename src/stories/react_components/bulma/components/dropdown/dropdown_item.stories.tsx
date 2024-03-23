@@ -1,5 +1,5 @@
 import {Fragment} from "react";
-import {Container, DropdownItem, DropdownTrigger} from "../../../../../frameworks/bulma";
+import {Container, DivProps, DropdownItem, DropdownTrigger} from "../../../../../frameworks/bulma";
 import {deIndent, linkInStoryBook} from "../../../../../utils";
 
 export default {
@@ -11,7 +11,7 @@ export default {
     },
     decorators: [
         (Story: any) => <Fragment>
-            <Container
+            <Container<DivProps>
                 element={'div'}
                 classes={['dropdown']}
             >
@@ -24,7 +24,7 @@ export default {
                     element={'div'}
                     classes={['dropdown-menu']}
                 >
-                    <Container
+                    <Container<DivProps>
                         element={'div'}
                         classes={['dropdown-content']}
                     >

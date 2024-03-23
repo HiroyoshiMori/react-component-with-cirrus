@@ -2,7 +2,7 @@ import {
     Fragment,
 } from "react";
 import {
-    DetailsProps,
+    DetailsProps, SummaryProps,
 } from "../@types";
 import {
     convertDataSet,
@@ -35,7 +35,7 @@ export const Details = (props: DetailsProps) => {
                 {...datasetShown}
             >
                 { summary && (
-                    <Container
+                    <Container<SummaryProps>
                         {...summary}
                         element={'summary'}
                     />

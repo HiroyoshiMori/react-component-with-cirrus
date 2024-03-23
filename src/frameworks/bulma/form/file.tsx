@@ -4,7 +4,7 @@ import {
 import {icon} from "@fortawesome/fontawesome-svg-core/import.macro";
 import {COLORS, FormFileProps} from "../@types";
 import {
-    Container,
+    Container, DivProps,
     getCssFramework, Icons,
     IconsProps,
     initialize,
@@ -147,7 +147,7 @@ export const FormFile = (props: FormFileProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >
@@ -158,15 +158,15 @@ export const FormFile = (props: FormFileProps) => {
                         {...file}
                         noDefaultClass={true}
                     />
-                    <Container
+                    <Container<SpanProps>
                         {...ctaSpanProps}
                     >
                         {
                             uploadIcon
-                                ? <Container {...iconSpanProps} ><Icons {...uploadIcon} /></Container>
+                                ? <Container<SpanProps> {...iconSpanProps} ><Icons {...uploadIcon} /></Container>
                                 : <Fragment />
                         }
-                        <Container
+                        <Container<SpanProps>
                             {...labelSpanProps}
                         >
                             {label}
@@ -174,7 +174,7 @@ export const FormFile = (props: FormFileProps) => {
                     </Container>
                     {
                         fileName ? (
-                            <Container {...filenameSpanProps} >{fileName}</Container>
+                            <Container<SpanProps> {...filenameSpanProps} >{fileName}</Container>
                         ) : <Fragment />
                     }
                 </Label>

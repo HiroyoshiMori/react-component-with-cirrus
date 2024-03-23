@@ -17,7 +17,7 @@ import {
     Icons, IconsProps,
     initialize,
     LabelledCheckbox, LabelledCheckboxProps,
-    Paragraph,
+    Paragraph, SpanProps,
 } from "../index";
 
 export const Panel = (props: PanelProps) => {
@@ -162,7 +162,7 @@ export const PanelBlock = (props: PanelBlockProps) => {
             <Fragment>
                 {
                     Object.hasOwn(restProps, 'icon') && (restProps as PanelBlockAProps)['icon'] !== undefined ? (
-                        <Container
+                        <Container<SpanProps>
                             element={'span'}
                             classes={spanClasses}
                         >
@@ -188,7 +188,7 @@ export const PanelBlock = (props: PanelBlockProps) => {
                     </Fragment>
                 ) : restProps['element'] === 'a' ? (
                     <Fragment>
-                        <Container
+                        <Container<AProps>
                             {...(restProps as AProps)}
                         >
                             {children}
@@ -196,7 +196,7 @@ export const PanelBlock = (props: PanelBlockProps) => {
                     </Fragment>
                 ) : (
                     <Fragment>
-                        <Container
+                        <Container<DivProps>
                             {...(restProps as DivProps)}
                         >
                             {children}
@@ -283,7 +283,7 @@ export const PanelTabItem = (props: PanelTabItemProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<AProps>
                 {...restProps}
                 element={element}
             >

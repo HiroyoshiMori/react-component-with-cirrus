@@ -2,7 +2,7 @@ import React, {
     Fragment,
 } from "react";
 import {MessageBodyProps, MessageHeaderProps, MessageProps} from "../@types";
-import {Button, Container, getCssFramework, initialize, Paragraph} from "../index";
+import {ArticleProps, Button, Container, DivProps, getCssFramework, initialize, Paragraph} from "../index";
 import {generateId} from "../../../utils";
 
 export const Message = (props: MessageProps) => {
@@ -38,7 +38,7 @@ export const Message = (props: MessageProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<ArticleProps>
                 {...restProps}
                 element={element}
                 noDefaultClass={true}
@@ -103,7 +103,7 @@ export const MessageHeader = (props: MessageHeaderProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >
@@ -146,7 +146,7 @@ export const MessageBody = (props: MessageBodyProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
                 noDefaultClass={true}
