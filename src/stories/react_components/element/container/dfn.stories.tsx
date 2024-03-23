@@ -1,6 +1,6 @@
 import {Fragment} from "react";
 import {
-    Container,
+    Container, DfnProps,
     Paragraph,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
@@ -20,6 +20,15 @@ export default {
     parameters: {
         componentSubtitle: 'The Definition element',
     },
+    decorators: [
+        (Story: any) => (
+            <Fragment>
+                <Paragraph element={'p'}>
+                    A <Story /> is a date and time representation widely used in computing.
+                </Paragraph>
+            </Fragment>
+        ),
+    ],
     argTypes: {
         element: {
             control: 'none',
@@ -124,14 +133,10 @@ export default {
 };
 /** Default definition */
 export const Default = {
-    render: (args: any) => <Fragment>
-        <Paragraph element={'p'}>
-            A <Container
-            element={'dfn'}
-            {...args}
-        >UNIX TIMESTAMP</Container> is a date and time representation widely used in computing.
-        </Paragraph>
-    </Fragment>
+    render: (args: any) => <Container<DfnProps>
+        element={'dfn'}
+        {...args}
+    >UNIX TIMESTAMP</Container>,
 };
 /** Definition with style classes */
 export const DefinitionWithStyleClasses = {

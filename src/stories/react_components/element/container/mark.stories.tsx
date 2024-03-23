@@ -1,6 +1,6 @@
 import {Fragment} from "react";
 import {
-    Container,
+    Container, MarkProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -116,7 +116,7 @@ export default {
 };
 /** Default mark */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<MarkProps>
         element={'mark'}
         {...args}
     >

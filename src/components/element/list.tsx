@@ -1,6 +1,4 @@
-import {
-    Fragment,
-} from "react";
+import {Fragment} from "react";
 import {
     DdProps,
     DlItemProps,
@@ -17,6 +15,7 @@ export const List = <T extends TypeContainer | string = string>(props: TypeList<
         element: Tag = 'ul',
         items: _,
         noDefaultClass = false,
+        commonClassesInItem = [] as string[],
         classes = [],
         attributes = {},
         datasets = new Map(),
@@ -56,13 +55,34 @@ export const List = <T extends TypeContainer | string = string>(props: TypeList<
                             return (
                                 <Fragment>
                                     {
-                                        Array.isArray(itemList) && itemList.length > 0 && itemList.map((item: DlItemProps, idx: number) => {
-                                            return (
-                                                <Fragment key={idx}>
-                                                    <DlItemList {...item} />
-                                                </Fragment>
-                                            );
-                                        })
+                                        Array.isArray(itemList) && itemList.length > 0 && itemList.map(
+                                            (item: DlItemProps, idx: number) => {
+                                                const dtItems = Array.isArray(item[0])
+                                                    ? item[0] : [item[0]];
+                                                const ddItems = Array.isArray(item[1])
+                                                    ? item[1] : [item[1]];
+                                                dtItems.forEach((dtItem: DtProps, idx: number) => {
+                                                    dtItems[idx].classes = Array.isArray(commonClassesInItem)
+                                                        ? Array.isArray(dtItem.classes)
+                                                            ? commonClassesInItem.concat(dtItem.classes)
+                                                            : commonClassesInItem
+                                                        : dtItem.classes;
+                                                });
+                                                ddItems.forEach((ddItem: DdProps, idx: number) => {
+                                                    ddItems[idx].classes = Array.isArray(commonClassesInItem)
+                                                        ? Array.isArray(ddItem.classes)
+                                                            ? commonClassesInItem.concat(ddItem.classes)
+                                                            : commonClassesInItem
+                                                        : ddItem.classes;
+                                                });
+
+                                                return (
+                                                    <Fragment key={idx}>
+                                                        <DlItemList {...[dtItems, ddItems]} />
+                                                    </Fragment>
+                                                );
+                                            }
+                                        )
                                     }
                                 </Fragment>
                             );
@@ -72,11 +92,18 @@ export const List = <T extends TypeContainer | string = string>(props: TypeList<
                                 <Fragment>
                                     {
                                         Array.isArray(itemList) && itemList.length > 0 && itemList.map(
-                                            (item: ListItemProps, idx: number) => (
-                                                <Fragment key={idx}>
-                                                    <ListItem<T> {...item} />
-                                                </Fragment>
-                                            )
+                                            (item: ListItemProps, idx: number) => {
+                                                item.classes = Array.isArray(commonClassesInItem)
+                                                    ? Array.isArray(item.classes)
+                                                        ? commonClassesInItem.concat(item.classes)
+                                                        : commonClassesInItem
+                                                    : item.classes;
+                                                return (
+                                                    <Fragment key={idx}>
+                                                        <ListItem<T> {...item} />
+                                                    </Fragment>
+                                                );
+                                            }
                                         )
                                     }
                                 </Fragment>

@@ -1,6 +1,6 @@
 import {Fragment} from "react";
 import {
-    Break,
+    Break, WbrProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -90,7 +90,7 @@ export default {
 };
 /** Default line break opportunity */
 export const Default = {
-    render: (args: any) => <Break
+    render: (args: any) => <Break<WbrProps>
         element={'wbr'}
         {...args}
     />,

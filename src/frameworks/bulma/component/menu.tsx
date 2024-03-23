@@ -89,6 +89,7 @@ export const MenuList = (props: MenusListProps) => {
         component = 'menu-list',
         element = 'ul',
         items: itemData = [],
+        commonClassesInItem = [],
         ...restProps
     } = props;
 
@@ -106,7 +107,8 @@ export const MenuList = (props: MenusListProps) => {
                         noDefaultClass={true}
                     />
                 }
-            </Fragment>
+            </Fragment>,
+            classes: commonClassesInItem,
         } as LiProps;
     }) : [];
     restProps['classes'] = initialize(
@@ -123,6 +125,7 @@ export const MenuList = (props: MenusListProps) => {
     return (
         <Fragment>
             <List
+                {...restProps}
                 element={element}
                 items={menus}
                 noDefaultClass={true}

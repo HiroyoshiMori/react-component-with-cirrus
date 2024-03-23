@@ -65,7 +65,7 @@ export const Select = (props: SelectProps) => {
                             const item = itemProps as HrProps;
                             return (
                                 <Fragment>
-                                    <Break
+                                    <Break<HrProps>
                                         {...item}
                                         element={'hr'}
                                         classes={classes}

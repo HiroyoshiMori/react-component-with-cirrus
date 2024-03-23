@@ -3,7 +3,7 @@ import {
     Fragment, HTMLAttributes,
 } from "react";
 import {PaginationProps} from "../@types";
-import {AProps, Container, getCssFramework, initialize, LiProps, List, SpanProps} from "../index";
+import {AProps, Container, DivProps, getCssFramework, initialize, LiProps, List, SpanProps} from "../index";
 import {sprintf} from "sprintf-js";
 
 export const Pagination = (props: PaginationProps) => {
@@ -241,7 +241,7 @@ export const Pagination = (props: PaginationProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 element={element}
                 {...restProps}
             >
@@ -250,7 +250,7 @@ export const Pagination = (props: PaginationProps) => {
                         <Fragment>
                             {
                                 prevLabel ? (
-                                    <Container
+                                    <Container<SpanProps|AProps>
                                         {...prevLabel}
                                     >
                                         {prevLabel.children ?? 'Previous'}
@@ -259,7 +259,11 @@ export const Pagination = (props: PaginationProps) => {
                             }
                             {
                                 nextLabel ? (
-                                    <Container {...nextLabel}>{nextLabel.children ?? 'Next'}</Container>
+                                    <Container<SpanProps|AProps>
+                                        {...nextLabel}
+                                    >
+                                        {nextLabel.children ?? 'Next'}
+                                    </Container>
                                 ): <Fragment />
                             }
                         </Fragment>

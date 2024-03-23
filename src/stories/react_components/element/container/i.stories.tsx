@@ -1,6 +1,6 @@
 import {Fragment} from "react";
 import {
-    Container,
+    Container, IProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -19,6 +19,13 @@ export default {
     parameters: {
         componentSubtitle: 'The Idiomatic element',
     },
+    decorators: [
+        (Story: any) => (
+            <Fragment>
+                I think it's good to have <Story />.
+            </Fragment>
+        ),
+    ],
     argTypes: {
         element: {
             control: 'none',
@@ -110,14 +117,12 @@ export default {
     },
 };
 export const Default = {
-    render: (args: any) => <Fragment>
-        I think it's good to have <Container
-            element={'i'}
-            {...args}
-        >
-            variable which show milli-seconds from 1st of the year.
-        </Container>
-    </Fragment>,
+    render: (args: any) => <Container<IProps>
+        element={'i'}
+        {...args}
+    >
+        variable which show milli-seconds from 1st of the year
+    </Container>,
 };
 /** Idiomatic with style classes */
 export const IdiomaticWithStyleClasses = {

@@ -1,4 +1,5 @@
 import {
+    ArticleProps,
     Container,
     Heading,
     Paragraph,
@@ -116,7 +117,7 @@ const DefaultArticleProps = {
 
 /** Default article contents */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<ArticleProps>
         {...DefaultArticleProps}
         {...args}
     >

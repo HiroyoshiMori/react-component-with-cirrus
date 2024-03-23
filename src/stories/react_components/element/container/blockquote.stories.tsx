@@ -2,6 +2,8 @@ import {
     Fragment,
 } from "react";
 import {
+    AProps, BlockQuoteProps,
+    CiteProps,
     Container,
     Figure,
 } from "../../../../components";
@@ -27,10 +29,10 @@ export default {
             <Fragment>
                 <Figure element={'figure'}>
                     <Story />
-                    <Container
+                    <Container<CiteProps>
                         element={'cite'}
                     >
-                        <Container
+                        <Container<AProps>
                             element={'a'}
                             href={'https://en.wiktionary.org/wiki/%E7%82%BA%E3%81%9B%E3%81%B0%E6%88%90%E3%82%8B'}
                             target={'cite-window'}
@@ -38,7 +40,7 @@ export default {
                         a genre of Japanese poetry,
                     </Container>
                     read by&nbsp;
-                    <Container
+                    <Container<AProps>
                         element={'a'}
                         href={'https://en.wikipedia.org/wiki/Uesugi_Harunori'}
                         target={'cite-window'}
@@ -145,7 +147,7 @@ const DefaultBlockQuote = {
 };
 /** Default blockquote */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<BlockQuoteProps>
         {...DefaultBlockQuote}
         {...args}
     >

@@ -8,7 +8,7 @@ import {
     Icons,
     initialize,
     LiProps,
-    List, SpanProps,
+    List, NavProps, SpanProps,
 } from "../index";
 import {ArrayRegexIncludes} from "../../../utils";
 
@@ -63,7 +63,7 @@ export const Breadcrumb = (props: BreadcrumbProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<NavProps>
                 {...restProps}
                 element={element}
             >
@@ -126,7 +126,7 @@ const buildBreadcrumbItem = (props: BreadcrumbItemProps, idx: number, total: num
         >
             {
                 icon ? (
-                    <Container
+                    <Container<SpanProps>
                         {...spanProps}
                     >
                         <Icons {...icon} />

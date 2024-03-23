@@ -236,6 +236,7 @@ export type DivProps = BlockCommonProps<HTMLElement, HTMLAttributes<HTMLDivEleme
 export type DlProps = ElementCommonProps<HTMLDListElement, HTMLAttributes<HTMLDListElement>> & {
     element: 'dl';
     items?: DlItemProps[];
+    commonClassesInItem?: string[],
 };
 /** Type definition of property for dt (used in dl) */
 export type DtProps = ElementCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {
@@ -439,6 +440,7 @@ export type MarkProps = InlineCommonProps<HTMLElement, HTMLAttributes<HTMLElemen
 export type MenuProps<T extends TypeContainer | string = string> = ElementCommonProps<HTMLMenuElement, MenuHTMLAttributes<HTMLMenuElement>> & {
     element: 'menu';
     items?: LiProps<T>[];
+    commonClassesInItem?: string[],
 };
 /** Type definition of property for meta with itemprop attribute (in meta component) */
 export type MetaProps = ElementCommonProps<HTMLMetaElement, MetaHTMLAttributes<HTMLMetaElement>> & {
@@ -490,6 +492,7 @@ export type OlProps<T extends TypeContainer | string = string> = ElementCommonPr
     reversed?: boolean;
     start?: number;
     type?: 'a' | 'A' | 'i' | 'I' | '1';
+    commonClassesInItem?: string[],
 };
 /** Type definition of property for optgroup (used in select) */
 export type OptGroupProps = ElementCommonProps<HTMLOptGroupElement, OptgroupHTMLAttributes<HTMLOptGroupElement>> & {
@@ -765,6 +768,7 @@ export type UProps = InlineCommonProps<HTMLElement, HTMLAttributes<HTMLElement>>
 export type UlProps<T extends TypeContainer | string = string> = ElementCommonProps<HTMLUListElement, HTMLAttributes<HTMLUListElement>> & {
     element: 'ul';
     items?: ListItemProps<T>[];
+    commonClassesInItem?: string[],
 };
 /** Type definition of property for var (in container component) */
 export type VarProps = InlineCommonProps<HTMLElement, HTMLAttributes<HTMLElement>> & {

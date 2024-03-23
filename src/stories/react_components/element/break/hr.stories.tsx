@@ -1,6 +1,6 @@
 import {Fragment} from "react";
 import {
-    Break,
+    Break, HrProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -91,7 +91,7 @@ export default {
 };
 /** Default thematic break */
 export const Default = {
-    render: (args: any) => <Break
+    render: (args: any) => <Break<HrProps>
         element={'hr'}
         {...args}
     />,

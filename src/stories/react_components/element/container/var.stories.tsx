@@ -1,4 +1,4 @@
-import {Container} from "../../../../components";
+import {Container, VarProps} from "../../../../components";
 import {Fragment} from "react";
 import {deIndent} from "../../../../utils";
 
@@ -115,7 +115,7 @@ export default {
 };
 /** Default variable */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<VarProps>
         element={'var'}
         {...args}
     >

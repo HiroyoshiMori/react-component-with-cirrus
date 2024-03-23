@@ -1,5 +1,6 @@
 import {Fragment} from "react";
 import {
+    AbbrProps,
     Container,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
@@ -124,7 +125,7 @@ const DefaultAbbrProps = {
 /** Default abbreviation */
 export const Default = {
     render: (args: any) => <Fragment>
-        <Container
+        <Container<AbbrProps>
             {...DefaultAbbrProps}
             {...args}
         >

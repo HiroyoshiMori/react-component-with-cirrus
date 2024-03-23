@@ -1,4 +1,4 @@
-import {Container} from "../../../../components";
+import {Container, SubProps} from "../../../../components";
 import {Fragment} from "react";
 import {deIndent} from "../../../../utils";
 
@@ -114,7 +114,7 @@ export default {
 };
 /** Default Subscript */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<SubProps>
         element={'sub'}
         {...args}
     >

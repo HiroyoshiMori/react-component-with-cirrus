@@ -1,5 +1,6 @@
 import {Fragment} from "react";
 import {
+    BdoProps,
     Container,
     Paragraph,
 } from "../../../../components";
@@ -16,6 +17,16 @@ export default {
     parameters: {
         componentSubtitle: 'The Bidirectional Text Override element',
     },
+    decorators: [
+        (Story: any) => (
+            <Fragment>
+                <Paragraph element={'p'}>
+                    UNIX Timestamp starts from <br />
+                    <Story />
+                </Paragraph>
+            </Fragment>
+        ),
+    ],
     argTypes: {
         element: {
             control: 'none',
@@ -129,17 +140,12 @@ const DefaultBdoProps = {
 
 /** Default bidirectional text */
 export const Default = {
-    render: (args: any) => <Fragment>
-        <Paragraph element={'p'}>
-            UNIX Timestamp starts from <br />
-            <Container
-                {...DefaultBdoProps}
-                {...args}
-            >
-                <Paragraph element={'p'}>January 1st, 2000 00:00:00</Paragraph>
-            </Container>
-        </Paragraph>
-    </Fragment>,
+    render: (args: any) => <Container<BdoProps>
+        {...DefaultBdoProps}
+        {...args}
+    >
+        <Paragraph element={'p'}>January 1st, 2000 00:00:00</Paragraph>
+    </Container>,
 };
 /** Bidirectional text with cite and datetime attributes */
 export const BdoWithCiteAndDateTimeAttributes = {

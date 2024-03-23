@@ -12,10 +12,10 @@ import {
 import {
     Button, ButtonProps,
     Container,
-    Delete,
+    Delete, DivProps, FooterProps,
     getCssFramework,
     initialize,
-    Paragraph,
+    Paragraph, SectionProps,
 } from "../index";
 
 export const Modal = (props: ModalProps) => {
@@ -41,11 +41,11 @@ export const Modal = (props: ModalProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >
-                <Container
+                <Container<DivProps>
                     element={'div'}
                     classes={['modal-background']}
                 />
@@ -102,7 +102,7 @@ export const ModalContent = (props: ModalContentProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >
@@ -137,7 +137,7 @@ export const ModalCard = (props: ModalCardProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >
@@ -196,7 +196,7 @@ export const ModalCardHead = (props: ModalCardHeadProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >
@@ -233,7 +233,7 @@ export const ModalCardBody = (props: ModalCardBodyProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<SectionProps>
                 {...restProps}
                 element={element}
             >
@@ -313,7 +313,7 @@ export const ModalCardFoot = (props: ModalCardFootProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<FooterProps>
                 {...restProps}
                 element={element}
             >

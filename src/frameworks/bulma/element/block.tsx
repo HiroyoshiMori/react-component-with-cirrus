@@ -2,7 +2,7 @@ import {
     Fragment,
 } from "react";
 import {BlockProps} from "../@types";
-import {Container, getCssFramework, initialize} from "../index";
+import {Container, DivProps, getCssFramework, initialize} from "../index";
 
 export const Block = (props: BlockProps) => {
     const {
@@ -26,7 +26,7 @@ export const Block = (props: BlockProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >

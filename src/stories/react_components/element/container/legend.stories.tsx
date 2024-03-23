@@ -1,7 +1,7 @@
 import {
     Container,
     Input,
-    Label,
+    Label, LegendProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -123,7 +123,7 @@ export default {
 };
 /** Default legend */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<LegendProps>
         element={'legend'}
         {...args}
     >

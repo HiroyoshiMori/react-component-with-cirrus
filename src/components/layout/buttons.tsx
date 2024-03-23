@@ -1,7 +1,7 @@
 import {
     Fragment,
 } from "react";
-import {ButtonsProps, TypeButton} from "../@types";
+import {ButtonsProps, DivProps, TypeButton} from "../@types";
 import {Container, getCssFramework, initialize, LayoutButton} from "../index";
 
 export const Buttons = (props: ButtonsProps) => {
@@ -27,7 +27,7 @@ export const Buttons = (props: ButtonsProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >

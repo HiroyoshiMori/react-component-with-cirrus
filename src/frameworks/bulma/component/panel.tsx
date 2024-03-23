@@ -45,7 +45,7 @@ export const Panel = (props: PanelProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >

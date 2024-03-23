@@ -1,8 +1,8 @@
 import {Fragment} from "react";
 import {
     Break,
-    Container,
-    Paragraph,
+    Container, HrProps,
+    Paragraph, SmallProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -26,7 +26,7 @@ export default {
                 <Paragraph element={'p'}>
                     This is test component.
                 </Paragraph>
-                <Break element={'hr'} />
+                <Break<HrProps> element={'hr'} />
                 <Paragraph element={'p'}>
                     <Story />
                 </Paragraph>
@@ -125,7 +125,7 @@ export default {
 };
 /** Default small */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<SmallProps>
         element={'small'}
         {...args}
     >

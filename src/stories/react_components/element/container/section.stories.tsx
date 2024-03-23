@@ -1,5 +1,5 @@
 import {
-    Container,
+    Container, SectionProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -112,7 +112,7 @@ const DefaultSectionProps = {
 
 /** Default section */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<SectionProps>
         {...DefaultSectionProps}
         {...args}
     >

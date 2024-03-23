@@ -1,5 +1,6 @@
 import {Fragment} from "react";
 import {
+    AsideProps,
     Container,
     Paragraph,
 } from "../../../../components";
@@ -16,6 +17,15 @@ export default {
     parameters: {
         componentSubtitle: 'The Aside element',
     },
+    decorators: [
+        (Story: any) => (
+            <Fragment>
+                <Paragraph element={'p'}>This is paragraph which is written before aside contents.</Paragraph>
+                <Story />
+                <Paragraph element={'p'}>This is paragraph which is written after aside contents.</Paragraph>
+            </Fragment>
+        ),
+    ],
     argTypes: {
         element: {
             control: 'none',
@@ -113,16 +123,12 @@ const DefaultAsideProps = {
 
 /** Default aside */
 export const Default = {
-    render: (args: any) => <Fragment>
-        <Paragraph element={'p'}>This is paragraph which is written before aside contents.</Paragraph>
-        <Container
-            {...DefaultAsideProps}
-            {...args}
-        >
-            This is aside content.
-        </Container>
-        <Paragraph element={'p'}>This is paragraph which is written after aside contents.</Paragraph>
-    </Fragment>,
+    render: (args: any) => <Container<AsideProps>
+        {...DefaultAsideProps}
+        {...args}
+    >
+        This is aside content.
+    </Container>,
 };
 /** Aside with style classes */
 export const AsideWithStyleClasses = {

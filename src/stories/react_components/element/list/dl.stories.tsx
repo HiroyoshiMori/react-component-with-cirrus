@@ -65,6 +65,69 @@ export default {
                 },
             },
         },
+        commonClassesInItem: {
+            control: 'object',
+            description: 'Common style classes for child items',
+            table: {
+                type: {
+                    summary: 'string[]',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        classes: {
+            control: 'object',
+            description: 'Style classes',
+            table: {
+                type: {
+                    summary: 'string[]',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as []',
+                },
+            },
+        },
+        attributes: {
+            control: 'object',
+            description: 'Additional attributes',
+            table: {
+                type: {
+                    summary: 'HTMLAttributes<HTMLDListElement>',
+                    detail: deIndent(`
+                            e.g.,
+                            { 'aria-label': 'This is Label' }
+                        `),
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as {}',
+                },
+            },
+        },
+        datasets: {
+            control: 'object',
+            description: 'Datasets. "data-" is added at the beginning of all keys',
+            table: {
+                type: {
+                    summary: 'Map<string, string>',
+                    detail: deIndent(`
+                            e.g.,
+                            new Map([
+                                ['id', 'this-is-id'],
+                                ['name', 'This is Name'],
+                            ]);
+                            => data-id="this-is-id" data-name="This is Name"
+                        `),
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                    detail: 'When undefined, treated as new Map()'
+                },
+            },
+        },
     },
 };
 /** Default description list */
@@ -79,6 +142,13 @@ export const Default = {
         ]}
         {...args}
     />,
+};
+/** Description list with common style classes for child */
+export const DescriptionListWithCommonStyleClasses = {
+    ...Default,
+    args: {
+        commonClassesInItem: ['test-common-1'],
+    },
 };
 /** Description list with style classes */
 export const DescriptionListWithStyleClasses = {

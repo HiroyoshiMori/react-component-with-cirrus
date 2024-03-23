@@ -2,7 +2,7 @@ import {
     Button,
     Container,
     Form,
-    Input,
+    Input, SearchProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -114,7 +114,7 @@ export default {
 };
 /** Default search */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<SearchProps>
         element={'search'}
         {...args}
     >

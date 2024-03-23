@@ -2,9 +2,9 @@ import {Fragment} from "react";
 import {
     Code,
     Container,
-    Details,
+    Details, DivProps,
     Heading,
-    Paragraph,
+    Paragraph, SlotProps, SpanProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -32,7 +32,7 @@ export default {
                             <Code element={'code'}>
                                 &lt;<Story />&gt;
                             </Code>
-                            <Container
+                            <Container<SpanProps>
                                 element={'span'}
                             >
                                 <slot name={'description'}>NEED DESCRIPTION</slot>
@@ -40,7 +40,7 @@ export default {
                         </Fragment>
                     )
                 }}>
-                    <Container element={'div'}>
+                    <Container<DivProps> element={'div'}>
                         <Heading element={'heading'} level={4}>
                             Attributes
                         </Heading>
@@ -144,7 +144,7 @@ export default {
 };
 /** Default slot */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<SlotProps>
         element={'slot'}
         {...args}
     >

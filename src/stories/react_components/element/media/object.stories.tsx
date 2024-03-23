@@ -1,5 +1,5 @@
 import {
-    Media,
+    Media, ObjectProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 // @ts-ignore
@@ -185,7 +185,7 @@ const DefaultObject = {
 
 /** Default object */
 export const Default = {
-    render: (args: any) => <Media
+    render: (args: any) => <Media<ObjectProps>
         {...DefaultObject}
         {...args}
     />,

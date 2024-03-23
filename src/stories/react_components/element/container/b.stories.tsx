@@ -1,4 +1,5 @@
 import {
+    BProps,
     Container,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
@@ -116,7 +117,7 @@ const DefaultBold = {
 
 /** Default bold */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<BProps>
         {...DefaultBold}
         {...args}
     >

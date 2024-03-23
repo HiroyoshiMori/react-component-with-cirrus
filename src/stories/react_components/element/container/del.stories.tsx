@@ -1,6 +1,6 @@
 import {Fragment} from "react";
 import {
-    Container,
+    Container, DelProps,
     Paragraph,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
@@ -18,6 +18,19 @@ export default {
     parameters: {
         componentSubtitle: 'The Deleted Text element',
     },
+    decorators: [
+        (Story: any) => (
+            <Fragment>
+                <Paragraph element={'p'}>
+                    UNIX Timestamp starts from <br />
+                    <Story />
+                    <ins>
+                        <Paragraph element={'p'}>January 1st, 1970 00:00:00</Paragraph>
+                    </ins>
+                </Paragraph>
+            </Fragment>
+        ),
+    ],
     argTypes: {
         element: {
             control: 'none',
@@ -139,20 +152,12 @@ const DefaultDelProps = {
 
 /** Default deleted text */
 export const Default = {
-    render: (args: any) => <Fragment>
-        <Paragraph element={'p'}>
-            UNIX Timestamp starts from <br />
-            <Container
-                {...DefaultDelProps}
-                {...args}
-            >
-                <Paragraph element={'p'}>January 1st, 2000 00:00:00</Paragraph>
-            </Container>
-            <ins>
-                <Paragraph element={'p'}>January 1st, 1970 00:00:00</Paragraph>
-            </ins>
-        </Paragraph>
-    </Fragment>,
+    render: (args: any) => <Container<DelProps>
+        {...DefaultDelProps}
+        {...args}
+    >
+        <Paragraph element={'p'}>January 1st, 2000 00:00:00</Paragraph>
+    </Container>,
 };
 /** Deleted text with cite and datetime attributes */
 export const DelWithCiteAndDateTimeAttributes = {

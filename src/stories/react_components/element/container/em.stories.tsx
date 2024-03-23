@@ -1,6 +1,6 @@
 import {Fragment} from "react";
 import {
-    Container,
+    Container, EmProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -17,6 +17,13 @@ export default {
     parameters: {
         componentSubtitle: 'The Emphasis element',
     },
+    decorators: [
+        (Story: any) => (
+            <Fragment>
+                UNIX timestamp start from <Story />.
+            </Fragment>
+        ),
+    ],
     argTypes: {
         element: {
             control: 'none',
@@ -109,12 +116,10 @@ export default {
 };
 /** Default Emphasis */
 export const Default = {
-    render: (args: any) => <Fragment>
-        UNIX timestamp start from <Container
-            element={'em'}
-            {...args}
-        >1970-01-01 00:00:00</Container>
-    </Fragment>,
+    render: (args: any) => <Container<EmProps>
+        element={'em'}
+        {...args}
+    >1970-01-01 00:00:00</Container>,
 };
 /** Emphasis with style classes */
 export const EmphasisWithStyleClasses = {

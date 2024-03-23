@@ -1,4 +1,5 @@
 import {
+    AProps,
     Container,
     TARGETS,
 } from "../../../../components";
@@ -240,7 +241,7 @@ const DefaultAnchor = {
 
 /** Default Anchor */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<AProps>
         {...DefaultAnchor}
         {...args}
     >

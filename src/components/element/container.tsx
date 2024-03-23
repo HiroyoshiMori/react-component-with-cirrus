@@ -2,13 +2,12 @@ import {
     Fragment,
 } from "react";
 import {
-    AProps, DivProps,
-    MeterProps, TypeBlockContainer,
-    TypeInlineContainer,
+    AProps,
+    MeterProps, TypeContainer,
 } from "../@types";
 import {convertDataSet, joinClasses} from "../common";
 
-export const Container = <T extends (TypeInlineContainer | TypeBlockContainer) = DivProps>(props: T) => {
+export const Container = <T extends (TypeContainer) = TypeContainer>(props: T) => {
     const {
         element,
         children,

@@ -1,5 +1,5 @@
 import {Fragment} from "react";
-import {Container} from "../../../../components";
+import {Container, StrongProps} from "../../../../components";
 import {deIndent} from "../../../../utils";
 
 /**
@@ -114,7 +114,7 @@ export default {
 };
 /** Default strong */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<StrongProps>
         element={'strong'}
         {...args}
     >

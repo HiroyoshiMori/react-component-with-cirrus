@@ -1,6 +1,6 @@
 import {Fragment} from "react";
 import {
-    Container,
+    Container, NoScriptProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -118,7 +118,7 @@ export default {
 };
 /** Default noscript */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<NoScriptProps>
         element={'noscript'}
         {...args}
     >

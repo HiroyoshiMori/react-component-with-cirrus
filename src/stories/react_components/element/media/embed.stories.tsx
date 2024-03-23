@@ -1,4 +1,5 @@
 import {
+    EmbedProps,
     Media,
 } from "../../../../components";
 // @ts-ignore
@@ -170,7 +171,7 @@ const DefaultEmbed = {
 };
 /** Default embed */
 export const Default = {
-    render: (args: any) => <Media
+    render: (args: any) => <Media<EmbedProps>
         {...DefaultEmbed}
         {...args}
     />,

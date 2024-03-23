@@ -1,4 +1,5 @@
 import {
+    BdiProps,
     Container,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
@@ -114,7 +115,7 @@ const DefaultBdi = {
 
 /** Default bdi */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<BdiProps>
         {...DefaultBdi}
         {...args}
     >

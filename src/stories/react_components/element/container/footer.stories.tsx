@@ -1,5 +1,5 @@
 import {
-    Container,
+    Container, FooterProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -112,7 +112,7 @@ const DefaultFooterProps = {
 
 /** Default footer */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<FooterProps>
         {...DefaultFooterProps}
         {...args}
     >

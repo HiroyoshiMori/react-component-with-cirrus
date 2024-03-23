@@ -1,6 +1,6 @@
 import {Fragment} from "react";
 import {
-    Container,
+    Container, KbdProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -108,15 +108,20 @@ export default {
             },
         },
     },
+    decorators: [
+        (Story: any) => (
+            <Fragment>
+                Please press <Story />.
+            </Fragment>
+        ),
+    ],
 };
 /** Default Keyboard Input */
 export const Default = {
-    render: (args: any) => <Fragment>
-        Please press <Container
-            element={'kbd'}
-            {...args}
-        >Ctrl</Container>.
-    </Fragment>,
+    render: (args: any) => <Container<KbdProps>
+        element={'kbd'}
+        {...args}
+    >Ctrl</Container>,
 };
 /** Keyboard input with style classes */
 export const KeyboardWithStyleClasses = {

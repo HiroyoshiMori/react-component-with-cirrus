@@ -1,5 +1,4 @@
 import {
-    HTMLAttributes,
     LiHTMLAttributes,
     ReactNode,
 } from "react";
@@ -7,7 +6,7 @@ import {CommonComponentProps, TypeAlignment} from "./index";
 import {
     AProps, ArticleProps, AsideProps,
     ButtonProps, ButtonsProps,
-    DivProps, ElementCommonProps, FooterProps,
+    DivProps, FooterProps,
     HeaderProps, HrProps,
     IconsProps,
     ImgProps, LabelledCheckboxProps,
@@ -103,17 +102,16 @@ export type DropdownContentProps = {
     element: 'div';
     items: DropdownItemProps
         | (DropdownItemProps | DropdownDividerProps)[];
-    children?: ReactNode;
-} & CommonComponentProps<DivProps>;
+} & CommonComponentProps<Omit<DivProps, 'children'>>;
 /** Type definitions of properties for dropdown-item */
 export type DropdownItemProps = {
     component?: 'dropdown-item';
     isActive?: boolean;
-} & (AProps | DivProps);
+} & CommonComponentProps<(AProps | DivProps)>;
 /** Type definitions of properties for dropdown-divider */
 export type DropdownDividerProps = {
     component: 'dropdown-divider';
-} & HrProps;
+} & CommonComponentProps<HrProps>;
 
 /** Type definitions of properties for menu */
 export type MenusProps = {
@@ -127,15 +125,15 @@ export type MenusLabelListProps = {
     list: MenusListProps;
 }
 /** Type definitions of properties for menu-label */
-export type MenusLabelProps = PProps & {
+export type MenusLabelProps = {
     component?: 'menu-label';
-};
+} & CommonComponentProps<PProps>;
 /** Type definitions of properties for menu-list */
-export type MenusListProps = ElementCommonProps<HTMLUListElement, HTMLAttributes<HTMLUListElement>> & {
+export type MenusListProps = {
     component?: 'menu-list';
-    element?: 'ul';
     items: MenusListItemProps | MenusListItemProps[];
-};
+    commonClassesInItem?: string[];
+} & CommonComponentProps<Omit<UlProps, 'items'>>;
 /** Type definitions of properties for items of menu-list */
 export type MenusListItemProps = {
     component?: 'menu-item';
@@ -144,59 +142,67 @@ export type MenusListItemProps = {
 };
 
 /** Type definitions of properties for message */
-export type MessageProps = Omit<ArticleProps, 'children'> & {
+export type MessageProps = {
     component?: 'message';
-    header: MessageHeaderProps;
+    element: 'article';
+    header?: MessageHeaderProps;
     body: MessageBodyProps;
-};
+} & CommonComponentProps<Omit<ArticleProps, 'children'>>;
 /** Type definitions of properties for message-header */
-export type MessageHeaderProps = Omit<DivProps, 'children'> & {
+export type MessageHeaderProps = {
     component?: 'message-header';
-    element?: 'div';
+    element: 'div';
     label: PProps;
     close: Omit<ButtonProps, 'children'>;
-};
+} & CommonComponentProps<Omit<DivProps, 'children'>>;
 /** Type definitions of properties for message-body */
-export type MessageBodyProps = DivProps & {
+export type MessageBodyProps = {
     component?: 'message-body';
-};
+    element: 'div';
+} & CommonComponentProps<DivProps>;
 
 /** Type definitions of properties for modal */
-export type ModalProps = Omit<DivProps, 'children'> & {
+export type ModalProps = {
     component?: 'modal';
-} & ({
+    element: 'div';
+} & CommonComponentProps<Omit<DivProps, 'children'>> & ({
     content: ModalContentProps; card?: never;
 } | {
     content?: never; card: ModalCardProps
 });
 /** Type definitions of properties for modal-content */
-export type ModalContentProps = DivProps & {
+export type ModalContentProps = {
     component?: 'modal-content';
+    element: 'div';
     close: Omit<ButtonProps, 'children'>;
-};
+} & CommonComponentProps<DivProps>;
 /** Type definitions of properties for modal-card */
-export type ModalCardProps = Omit<DivProps, 'children'> & {
+export type ModalCardProps = {
     component?: 'modal-card';
+    element: 'div';
     head: ModalCardHeadProps;
     body: ModalCardBodyProps;
     foot?: ModalCardFootProps;
-};
+} & CommonComponentProps<Omit<DivProps, 'children'>>;
 /** Type definitions of properties for modal-card-head */
-export type ModalCardHeadProps = Omit<DivProps, 'children'> & {
+export type ModalCardHeadProps = {
     component?: 'modal-card-header';
+    element: 'div';
     title: PProps;
     close?: Omit<ButtonProps, 'children'>;
-};
+} & CommonComponentProps<Omit<DivProps, 'children'>>;
 /** Type definitions of properties for modal-card-body */
-export type ModalCardBodyProps = SectionProps & {
+export type ModalCardBodyProps = {
     component?: 'modal-card-body';
-};
+    element: 'section';
+} & CommonComponentProps<SectionProps>;
 /** Type definitions of properties for modal-card-foot */
-export type ModalCardFootProps = Omit<FooterProps, 'children'> & {
+export type ModalCardFootProps = {
     component?: 'modal-card-footer';
+    element: 'footer';
     ok?: ButtonProps & {children: ReactNode;};
     cancel?: ButtonProps & {children: ReactNode;};
-};
+} & CommonComponentProps<Omit<FooterProps, 'children'>>;
 
 /** Type definitions of properties for navbar */
 export type NavbarProps = Omit<NavProps, 'children'> & {

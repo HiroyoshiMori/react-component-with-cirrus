@@ -1,5 +1,5 @@
 import {
-    Container,
+    Container, SpanProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -115,7 +115,7 @@ const DefaultSpanProps = {
 
 /** Default content span */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<SpanProps>
         {...DefaultSpanProps}
         {...args}
     >

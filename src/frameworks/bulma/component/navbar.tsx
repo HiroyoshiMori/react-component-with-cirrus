@@ -16,11 +16,11 @@ import {
     Button,
     Buttons,
     ButtonsProps,
-    Container,
+    Container, DivProps,
     getCssFramework,
     HrProps,
     initialize,
-    Media
+    Media, NavProps, SpanProps
 } from "../index";
 import {generateId} from "../../../utils";
 
@@ -56,7 +56,7 @@ export const Navbar = (props: NavbarProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<NavProps>
                 {...restProps}
                 element={element}
             >
@@ -121,7 +121,7 @@ export const NavbarBrand = (props: NavbarBrandProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >
@@ -144,7 +144,7 @@ export const NavbarBrand = (props: NavbarBrandProps) => {
                         );
                         return (
                             <Fragment>
-                                <Container
+                                <Container<AProps>
                                     {...itemProps}
                                     element={element}
                                 >
@@ -176,9 +176,9 @@ export const NavbarBrand = (props: NavbarBrandProps) => {
                                     {...burgerProps}
                                     element={element}
                                 >
-                                    <Container element={'span'} aria-hidden={'true'} />
-                                    <Container element={'span'} aria-hidden={'true'} />
-                                    <Container element={'span'} aria-hidden={'true'} />
+                                    <Container<SpanProps> element={'span'} aria-hidden={'true'} />
+                                    <Container<SpanProps> element={'span'} aria-hidden={'true'} />
+                                    <Container<SpanProps> element={'span'} aria-hidden={'true'} />
                                 </Button>
                             </Fragment>
                         );
@@ -234,13 +234,13 @@ export const NavbarMenu = (props: NavbarMenuProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >
                 {
                     start ? (
-                        <Container
+                        <Container<DivProps>
                             element={'div'}
                             classes={startClasses}
                             attributes={startAttributes}
@@ -251,7 +251,7 @@ export const NavbarMenu = (props: NavbarMenuProps) => {
                 }
                 {
                     end ? (
-                        <Container
+                        <Container<DivProps>
                             element={'div'}
                             classes={endClasses}
                             attributes={endAttributes}
@@ -306,7 +306,7 @@ export const NavbarItem = (props: NavbarItemProps) => {
                 ) : restProps.element === 'div' ? (
                     <Buttons {...restProps as ButtonsProps} />
                 ) : (
-                    <Container
+                    <Container<AProps>
                         {...restProps as AProps}
                     >
                         {(restProps as AProps).children}
@@ -320,7 +320,7 @@ export const NavbarItem = (props: NavbarItemProps) => {
 export const NavbarItemDropdown = (props: NavbarDropdownProps) => {
     const {
         component = 'navbar-item',
-        element,
+        element = 'div',
         hasDropdown: _,
         label,
         items = [],
@@ -363,14 +363,14 @@ export const NavbarItemDropdown = (props: NavbarDropdownProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >
-                <Container {...label}></Container>
+                <Container<AProps> {...label}></Container>
                 {
                     dropdowns && dropdowns.length > 0 ? (
-                        <Container
+                        <Container<DivProps>
                             element={'div'}
                             classes={dropdownClasses}
                             attributes={dropdownAttributes}
@@ -395,13 +395,13 @@ export const NavbarItemDropdown = (props: NavbarDropdownProps) => {
                                         <Fragment key={idx}>
                                             {
                                                 element === 'hr' ? (
-                                                    <Break
+                                                    <Break<HrProps>
                                                         {...item as HrProps}
                                                         classes={itemProps['classes']}
                                                         attributes={itemProps['attributes'] as HTMLAttributes<HTMLHRElement>}
                                                     />
                                                 ) : (
-                                                    <Container
+                                                    <Container<AProps>
                                                         {...item as AProps}
                                                         classes={itemProps['classes']}
                                                         attributes={itemProps['attributes'] as AnchorHTMLAttributes<HTMLAnchorElement>}

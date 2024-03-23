@@ -2,6 +2,7 @@ import {
     Fragment,
 } from "react";
 import type {
+    DivProps,
     RadioGroupProps,
 } from "../@types";
 import {
@@ -33,7 +34,7 @@ export const RadioGroup = (props: RadioGroupProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={'div'}
                 id={id}

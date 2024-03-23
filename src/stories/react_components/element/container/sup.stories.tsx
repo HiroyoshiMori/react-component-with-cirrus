@@ -1,4 +1,4 @@
-import {Container} from "../../../../components";
+import {Container, SupProps} from "../../../../components";
 import {Fragment} from "react";
 import {deIndent} from "../../../../utils";
 
@@ -114,7 +114,7 @@ export default {
 };
 /** Default superscript */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<SupProps>
         element={'sup'}
         {...args}
     >

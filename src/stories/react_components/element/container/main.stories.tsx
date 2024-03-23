@@ -1,5 +1,5 @@
 import {
-    Container,
+    Container, MainProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -112,7 +112,7 @@ const DefaultMainProps = {
 
 /** Default main */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<MainProps>
         {...DefaultMainProps}
         {...args}
     >

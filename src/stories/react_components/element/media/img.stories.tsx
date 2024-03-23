@@ -1,8 +1,7 @@
-import React from "react";
 import {
     CROSS_ORIGINS,
     DECODINGS,
-    FETCH_POLICIES,
+    FETCH_POLICIES, ImgProps,
     LOADINGS,
     Media,
 } from "../../../../components";
@@ -334,14 +333,13 @@ const imgSrcSetSizesProps = {
         defaultSize: 800,
     },
 };
-console.debug('viewport: ' + Math.max(document.documentElement.clientWidth, window.innerWidth || 0));
 
 // ---------------------------------------------------------------------------
 // Stories
 // ---------------------------------------------------------------------------
 /** Default Image */
 export const DefaultImage = {
-    render: (args: any) => <Media
+    render: (args: any) => <Media<ImgProps>
         {...imgDefaultProps}
         {...args}
     />,

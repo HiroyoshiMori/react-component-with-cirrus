@@ -3,15 +3,16 @@ import {
 } from "react";
 import {sprintf} from "sprintf-js";
 import {
-    ImageSrcSetProps,
+    ImageSrcSetProps, ImgProps,
     SourceSrcProps,
-    SourceSrcsetProps,
+    SourceSrcsetProps, TrackProps,
     TypeMedia,
 } from "../@types";
 import {Source} from "./source";
 import {convertDataSet, joinClasses} from "../common";
+import {Container} from "./container";
 
-export const Media = (props: TypeMedia) => {
+export const Media = <T extends TypeMedia = TypeMedia>(props: T) => {
     const {
         element,
         classes = [],
@@ -54,7 +55,7 @@ export const Media = (props: TypeMedia) => {
                         attributes = {},
                         datasets = new Map(),
                         ...imgProps
-                    } = props;
+                    } = props as ImgProps;
                     const datasetShown = convertDataSet(datasets);
                     let sizes: string | undefined = '';
                     let srcSet: string | undefined = '';
@@ -149,26 +150,13 @@ export const Media = (props: TypeMedia) => {
                             {...datasetShown}
                         >
                             {
-                                track && function () {
-                                    const {
-                                        element: _,
-                                        classes = [],
-                                        attributes = {},
-                                        datasets = new Map(),
-                                        ...trackProps
-                                    } = track;
-                                    const datasetShown = convertDataSet(datasets);
-                                    return (
-                                        <Fragment>
-                                            <track
-                                                {...trackProps}
-                                                className={joinClasses(classes)}
-                                                {...attributes}
-                                                {...datasetShown}
-                                            />
-                                        </Fragment>
-                                    );
-                                }()
+                                track && track.element === 'track' ? (
+                                    <Fragment>
+                                        <Container<TrackProps>
+                                            {...track}
+                                        />
+                                    </Fragment>
+                                ) : <Fragment />
                             }
                             {
                                 Array.isArray(sources) && sources.length > 0 && sources.map(

@@ -125,6 +125,18 @@ export default {
                 },
             },
         },
+        commonClassesInItem: {
+            control: 'object',
+            description: 'Common style classes for child items',
+            table: {
+                type: {
+                    summary: 'string[]',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
         classes: {
             control: 'object',
             description: 'Style classes',
@@ -228,6 +240,19 @@ export const OrderedListWithType = {
         type: 'a',
     },
 };
+/** Ordered list with common style classes for child items */
+export const OrderedListWithCommonStyleClasses = {
+    ...Default,
+    args: {
+        items: [
+            {element: 'li', children: 'List item 1'},
+            {element: 'li', children: 'List item 2'},
+            {element: 'li', children: 'List item 3'},
+            {element: 'li', children: 'List item 4'},
+        ],
+        commonClassesInItem: ['test-common-1'],
+    }
+}
 /** Ordered list with style classes */
 export const OrderedListWithStyleClasses = {
     ...Default,

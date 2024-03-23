@@ -1,6 +1,5 @@
-import React from "react";
 import {
-    Media,
+    Media, PictureProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 // @ts-ignore
@@ -165,7 +164,7 @@ const pictureProps = {
 
 /** Default picture */
 export const DefaultPicture = {
-    render: (args: any) => <Media
+    render: (args: any) => <Media<PictureProps>
         {...pictureProps}
         {...args}
     />,

@@ -1,8 +1,96 @@
 import {Modal} from "../../../../frameworks/bulma";
+import {deIndent, linkInStoryBook} from "../../../../utils";
 
+/**
+ * The modal structure is very simple:
+ *
+ * - <code>modal</code>: The main container
+ *   - <code>modal-background</code>: A transparent overlay that can act as a click target to close the modal
+ *   - <code>modal-content</code>: A horizontally and vertically centered container, within a maximum width of 640px,
+ *     in which you can include any content
+ *   - <code>modal-close</code>: A simple cross located in the top right corner
+ *
+ *   See: https://bulma.io/documentation/components/modal/
+ */
 export default {
+    title: 'React Component/CSS Framework/Bulma/Component/Modal',
     component: Modal,
     tags: ['autodocs'],
+    parameters: {
+        componentSubtitle: 'A classic modal overlay, in which you can include any content you want',
+    },
+    argTypes: {
+        component: {
+            control: 'none',
+            description: 'Switcher for <code>Modal</code> component to render this component',
+            table: {
+                type: {
+                    summary: '"modal"',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        element: {
+            control: 'none',
+            type: {
+                required: true,
+            },
+            description: deIndent(`
+                            Element type which is extended for this component<br />
+                            👉 See:&nbsp;
+                        `)
+                        + linkInStoryBook(
+                        'Omit<DivProps, "children">', 'React Component/Element/Container/Block/Div'
+                        ),
+            table: {
+                type: {
+                    summary: '"div"',
+                },
+            },
+        },
+        content: {
+            control: 'object',
+            if: {arg: 'card', exists: false},
+            type: {
+                required: true,
+            },
+            description: deIndent(`
+                            Content of modal<br />
+                            👉 See:&nbsp;
+                        `)
+                        + linkInStoryBook(
+                        'ModalContentProps',
+                        'React Component/Css Framework/Bulma/Component/Modal/ModalContent'
+                        ),
+            table: {
+                type: {
+                    summary: 'ModalContentProps',
+                },
+            },
+        },
+        card: {
+            control: 'object',
+            if: {arg: 'content', exists: false},
+            type: {
+                required: true,
+            },
+            description: deIndent(`
+                            Card content of modal<br />
+                            👉 See:&nbsp;
+                        `)
+                        + linkInStoryBook(
+                        'ModalCardProps',
+                        'React Component/Css Framework/Bulma/Component/Modal/ModalCard'
+                        ),
+            table: {
+                type: {
+                    summary: 'ModalCardProps',
+                },
+            },
+        },
+    },
 };
 // Default Modal Card
 const defaultModalCard = {

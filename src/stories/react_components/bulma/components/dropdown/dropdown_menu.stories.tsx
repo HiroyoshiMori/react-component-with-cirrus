@@ -60,7 +60,14 @@ export default {
             type: {
                 required: true,
             },
-            description: 'Content of this dropdown menu',
+            description: deIndent(`
+                            Content of this dropdown menu<br />
+                            👉 See:&nbsp;
+                        `)
+                        + linkInStoryBook(
+                        'DropdownContentProps',
+                        'React Component/Css Framework/Bulma/Component/Dropdown/DropdownContent'
+                        ),
             table: {
                 type: {
                     summary: 'DropdownContent',

@@ -49,7 +49,7 @@ export default {
                             👉 See:&nbsp;
                         `)
                         + linkInStoryBook(
-                            'ArticleProps', 'React Component/Element/Container/Block/Div'
+                            'ArticleProps', 'React Component/Element/Container/Block/Article'
                         ),
             table: {
                 type: {

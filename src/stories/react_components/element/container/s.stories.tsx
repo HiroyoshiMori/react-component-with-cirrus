@@ -1,5 +1,5 @@
 import {
-    Container,
+    Container, SProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -109,7 +109,7 @@ export default {
 };
 /** Default strikethrough */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<SProps>
         element={'s'}
         {...args}
     >

@@ -1,4 +1,5 @@
 import {
+    AddressProps,
     Container,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
@@ -111,7 +112,7 @@ const DefaultAddressProps = {
 
 /** Default contact address */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<AddressProps>
         {...DefaultAddressProps}
         {...args}
     >

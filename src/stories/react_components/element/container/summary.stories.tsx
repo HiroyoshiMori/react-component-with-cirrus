@@ -1,6 +1,6 @@
 import {Fragment} from "react";
 import {
-    Container,
+    Container, SummaryProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -16,6 +16,16 @@ export default {
     parameters: {
         componentSubtitle: 'The Disclosure Summary element',
     },
+    decorators: [
+        (Story: any) => (
+            <Fragment>
+                <details>
+                    <Story />
+                    This is details content.
+                </details>
+            </Fragment>
+        ),
+    ],
     argTypes: {
         element: {
             control: 'none',
@@ -113,17 +123,12 @@ const DefaultSummaryProps = {
 
 /** Default summary */
 export const Default = {
-    render: (args: any) => <Fragment>
-        <details>
-            <Container
-                {...DefaultSummaryProps}
-                {...args}
-            >
-                This is summary.
-            </Container>
-            This is details content.
-        </details>
-    </Fragment>,
+    render: (args: any) => <Container<SummaryProps>
+        {...DefaultSummaryProps}
+        {...args}
+    >
+        This is summary.
+    </Container>,
 };
 /** Summary with style classes */
 export const SummaryWithStyleClasses = {

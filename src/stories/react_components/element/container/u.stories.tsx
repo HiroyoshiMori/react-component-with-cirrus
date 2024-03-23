@@ -1,4 +1,4 @@
-import {Container} from "../../../../components";
+import {Container, UProps} from "../../../../components";
 import {deIndent} from "../../../../utils";
 
 /**
@@ -107,7 +107,7 @@ export default {
 };
 /** Default underline */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<UProps>
         element={'u'}
         {...args}
     >

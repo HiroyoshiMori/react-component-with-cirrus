@@ -4,7 +4,7 @@ import {
 import {NotificationProps} from "../@types";
 import {generateId} from "../../../utils";
 import {Delete} from "./delete";
-import {Container, getCssFramework, initialize} from "../../../components";
+import {Container, DivProps, getCssFramework, initialize} from "../../../components";
 
 export const Notification = (props: NotificationProps) => {
     const {
@@ -40,7 +40,7 @@ export const Notification = (props: NotificationProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
                 id={id}

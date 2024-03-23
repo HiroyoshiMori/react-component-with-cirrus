@@ -2,6 +2,8 @@ import {
     Fragment,
 } from "react";
 import {
+    AProps,
+    BlockQuoteProps, CiteProps,
     Container,
     Figure,
 } from "../../../../components";
@@ -24,7 +26,7 @@ export default {
         (Story: any) => (
             <Fragment>
                 <Figure element={'figure'}>
-                    <Container
+                    <Container<BlockQuoteProps>
                         element={'blockquote'}
                     >
                         為せば成る　為さねば成らぬ　何事も　成らぬは人の為さぬなりけり<br />
@@ -33,7 +35,7 @@ export default {
                     </Container>
                     <Story />
                     read by&nbsp;
-                    <Container
+                    <Container<AProps>
                         element={'a'}
                         href={'https://en.wikipedia.org/wiki/Uesugi_Harunori'}
                         target={'cite-window'}
@@ -141,11 +143,11 @@ const DefaultCite = {
 
 /** Default cite */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<CiteProps>
         {...DefaultCite}
         {...args}
     >
-        <Container
+        <Container<AProps>
             element={'a'}
             href={'https://en.wiktionary.org/wiki/%E7%82%BA%E3%81%9B%E3%81%B0%E6%88%90%E3%82%8B'}
             target={'cite-window'}

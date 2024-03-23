@@ -1,5 +1,5 @@
 import {
-    Container,
+    Container, PreProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -113,7 +113,7 @@ const DefaultPreProps = {
 
 /** Default preformatted text */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<PreProps>
         {...DefaultPreProps}
         {...args}
     >

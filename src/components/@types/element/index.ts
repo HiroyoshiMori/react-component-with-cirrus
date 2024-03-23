@@ -19,7 +19,7 @@ import {
     QProps,
     SampProps, SearchProps, SectionProps, SlotProps, SmallProps, SpanProps, SProps, StrongProps,
     SubProps, SummaryProps, SupProps,
-    TemplateProps, TimeProps,
+    TemplateProps, TimeProps, TrackProps,
     UlProps, UProps,
     VarProps, VideoProps,
     WbrProps,
@@ -75,6 +75,7 @@ export type TypeBlockContainer = DivProps
     | SearchProps
     | SectionProps
     | SummaryProps
+    | TrackProps
     | TemplateProps;
 /** Type definition of property for inline containers */
 export type TypeInlineContainer = SpanProps

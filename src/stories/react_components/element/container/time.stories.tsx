@@ -1,6 +1,6 @@
 import {Fragment} from "react";
 import {
-    Container,
+    Container, TimeProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -16,6 +16,13 @@ export default {
     parameters: {
         componentSubtitle: 'The (Date) Time element',
     },
+    decorators: [
+        (Story: any) => (
+            <Fragment>
+                UNIX Timestamp starts from <Story />
+            </Fragment>
+        ),
+    ],
     argTypes: {
         element: {
             control: 'none',
@@ -125,14 +132,12 @@ const DefaultTimeProps = {
 
 /** Default time */
 export const Default = {
-    render: (args: any) => <Fragment>
-        UNIX Timestamp starts from <Container
-            {...DefaultTimeProps}
-            {...args}
-        >
-            January 1st, 1970 00:00:00
-        </Container>
-    </Fragment>,
+    render: (args: any) => <Container<TimeProps>
+        {...DefaultTimeProps}
+        {...args}
+    >
+        January 1st, 1970 00:00:00
+    </Container>,
 };
 /** Time with datetime attribute */
 export const TimeWithDateTimeAttribute = {

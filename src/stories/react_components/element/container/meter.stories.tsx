@@ -1,6 +1,6 @@
 import {Fragment} from "react";
 import {
-    Container,
+    Container, MeterProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -200,7 +200,7 @@ export default {
 };
 /** Default meter */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<MeterProps>
         element={'meter'}
         {...args}
     >

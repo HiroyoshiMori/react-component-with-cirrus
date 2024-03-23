@@ -1,5 +1,5 @@
 import {
-    Container,
+    Container, HeaderProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -112,7 +112,7 @@ const DefaultHeaderProps = {
 
 /** Default header */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<HeaderProps>
         {...DefaultHeaderProps}
         {...args}
     >

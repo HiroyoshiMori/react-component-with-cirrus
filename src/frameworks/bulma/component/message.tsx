@@ -26,7 +26,7 @@ export const Message = (props: MessageProps) => {
         )
     );
 
-    if (header.close.onClick === undefined) {
+    if (header && header.close.onClick === undefined) {
         restProps.id = restProps.id ?? generateId();
         header.close.onClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
             const el = document.getElementById(restProps.id as string);
@@ -43,7 +43,7 @@ export const Message = (props: MessageProps) => {
                 element={element}
                 noDefaultClass={true}
             >
-                <MessageHeader {...header} />
+                { header ? <MessageHeader {...header} /> : <Fragment /> }
                 <MessageBody {...body} />
             </Container>
         </Fragment>
@@ -92,6 +92,14 @@ export const MessageHeader = (props: MessageHeaderProps) => {
             component, 'delete',
         )
     );
+    if (close.onClick === undefined) {
+        close.onClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+            const el = e.currentTarget;
+            if (el && el.parentElement && el.parentElement.parentElement) {
+                el.parentElement.parentElement.hidden = true;
+            }
+        };
+    }
 
     return (
         <Fragment>

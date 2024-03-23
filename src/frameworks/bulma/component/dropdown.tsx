@@ -8,7 +8,18 @@ import {
     DropdownProps,
     DropdownTriggerProps
 } from "../@types";
-import {Break, Button, ButtonProps, Container, getCssFramework, Icons, IconsProps, initialize} from "../index";
+import {
+    AProps,
+    Break,
+    Button,
+    ButtonProps,
+    Container,
+    DivProps,
+    getCssFramework, HrProps,
+    Icons,
+    IconsProps,
+    initialize, SpanProps
+} from "../index";
 import {icon} from "@fortawesome/fontawesome-svg-core/import.macro";
 import {generateId} from "../../../utils";
 
@@ -50,7 +61,7 @@ export const Dropdown = (props: DropdownProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >
@@ -172,7 +183,7 @@ export const DropdownTrigger = (props: DropdownTriggerProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >
@@ -182,11 +193,11 @@ export const DropdownTrigger = (props: DropdownTriggerProps) => {
                     classes={buttonClasses}
                     attributes={buttonAttributes}
                 >
-                    <Container
+                    <Container<SpanProps>
                         {...title}
                         element={'span'}
                     />
-                    <Container
+                    <Container<SpanProps>
                         element={'span'}
                         classes={spanClasses}
                         attributes={spanAttributes}
@@ -224,7 +235,7 @@ export const DropdownMenu = (props: DropdownMenuProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >
@@ -242,7 +253,6 @@ export const DropdownContent = (props: DropdownContentProps) => {
         component = 'dropdown-content',
         element = 'div',
         items: itemData = [],
-        children,
         ...restProps
     } = props;
 
@@ -262,7 +272,7 @@ export const DropdownContent = (props: DropdownContentProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >
@@ -330,7 +340,7 @@ export const DropdownItem = (props: DropdownItemProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<AProps|DivProps>
                 {...restProps}
             >
                 {children}
@@ -360,7 +370,7 @@ export const DropdownDivider = (props: DropdownDividerProps) => {
 
     return (
         <Fragment>
-            <Break
+            <Break<HrProps>
                 {...restProps}
                 element={element}
             />

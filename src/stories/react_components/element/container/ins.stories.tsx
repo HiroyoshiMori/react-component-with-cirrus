@@ -1,6 +1,6 @@
 import {Fragment} from "react";
 import {
-    Container,
+    Container, InsProps,
     Paragraph,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
@@ -16,6 +16,19 @@ export default {
     parameters: {
         componentSubtitle: 'The Inserted Text element',
     },
+    decorators: [
+        (Story: any) => (
+            <Fragment>
+                <Paragraph element={'p'}>
+                    UNIX Timestamp starts from <br />
+                    <del>
+                        <Paragraph element={'p'}>January 1st, 2000 00:00:00</Paragraph>
+                    </del>
+                    <Story />
+                </Paragraph>
+            </Fragment>
+        ),
+    ],
     argTypes: {
         element: {
             control: 'none',
@@ -137,20 +150,12 @@ const DefaultInsProps = {
 
 /** Default inserted text */
 export const Default = {
-    render: (args: any) => <Fragment>
-        <Paragraph element={'p'}>
-            UNIX Timestamp starts from <br />
-            <del>
-                <Paragraph element={'p'}>January 1st, 2000 00:00:00</Paragraph>
-            </del>
-            <Container
-                {...DefaultInsProps}
-                {...args}
-            >
-                <Paragraph element={'p'}>January 1st, 1970 00:00:00</Paragraph>
-            </Container>
-        </Paragraph>
-    </Fragment>,
+    render: (args: any) => <Container<InsProps>
+        {...DefaultInsProps}
+        {...args}
+    >
+        <Paragraph element={'p'}>January 1st, 1970 00:00:00</Paragraph>
+    </Container>,
 };
 /** Inserted text with cite and datetime attributes */
 export const InsWithCiteAndDateTimeAttributes = {

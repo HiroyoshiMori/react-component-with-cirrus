@@ -3,7 +3,7 @@ import {
 } from "react";
 import {ColumnProps, ColumnsProps} from "../@types";
 // @ts-ignore
-import {Container, getCssFramework, initialize} from "../index";
+import {Container, DivProps, getCssFramework, initialize} from "../index";
 
 export const Columns = (props: ColumnsProps) => {
     const {
@@ -30,7 +30,7 @@ export const Columns = (props: ColumnsProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >
@@ -79,7 +79,7 @@ export const Column = (props: ColumnProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >

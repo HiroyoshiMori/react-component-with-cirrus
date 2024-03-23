@@ -1,6 +1,6 @@
 import {Fragment} from "react";
 import {
-    Container,
+    Container, DataProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -119,7 +119,7 @@ export default {
 /** Default data */
 export const Default = {
     render: (args: any) => <Fragment>
-        <Container
+        <Container<DataProps>
             element={'data'}
             value={2.5}
             {...args}

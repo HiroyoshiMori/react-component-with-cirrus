@@ -1,5 +1,5 @@
 import {
-    Container,
+    Container, NavProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -113,7 +113,7 @@ const DefaultNavProps = {
 // TODO: Later use Menu component to render menus in Nav
 /** Default navigation */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<NavProps>
         {...DefaultNavProps}
         {...args}
     >

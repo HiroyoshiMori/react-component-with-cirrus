@@ -2,11 +2,12 @@ import {
     Fragment,
 } from "react";
 import {
+    BrProps,
     TypeBreak,
 } from "../@types";
 import {convertDataSet, joinClasses} from "../common";
 
-export const Break = (props: TypeBreak) => {
+export const Break = <T extends TypeBreak = BrProps>(props: T) => {
     const {
         element = 'br',
         classes = [],

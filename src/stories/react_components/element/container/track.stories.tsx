@@ -1,5 +1,5 @@
 import {Fragment} from "react";
-import {Container} from "../../../../components";
+import {Container, TrackProps} from "../../../../components";
 import {deIndent} from "../../../../utils";
 
 /**
@@ -175,7 +175,7 @@ export default {
 };
 /** Default track */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<TrackProps>
         element={'track'}
         src={'/assets/test.vtt'}
         {...args}

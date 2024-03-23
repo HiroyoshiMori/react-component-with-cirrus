@@ -6,14 +6,14 @@ import {
     AProps,
     Button,
     ButtonProps,
-    Container,
-    Figure,
-    getCssFramework,
+    Container, DivProps,
+    Figure, FooterProps,
+    getCssFramework, HeaderProps,
     Icons,
     initialize,
     Media,
     Paragraph,
-    PProps
+    PProps, SpanProps
 } from "../index";
 import {icon} from "@fortawesome/fontawesome-svg-core/import.macro";
 
@@ -53,7 +53,7 @@ export const Card = (props: CardProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={'div'}
             >
@@ -64,7 +64,7 @@ export const Card = (props: CardProps) => {
                     /> : <Fragment />
                 }
                 { image ? <CardImage {...image} component={'card-image'} /> : <Fragment />}
-                <Container
+                <Container<DivProps>
                     element={'div'}
                     classes={contentClasses}
                     attributes={contentAttributes}
@@ -104,7 +104,7 @@ export const CardHeader = (props: CardHeaderProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<HeaderProps>
                 {...restProps}
                 element={element}
             >
@@ -188,7 +188,7 @@ export const CardHeaderButton = (props: Omit<ButtonProps, 'children'>) => {
                 element={element}
                 noDefaultClass={true}
             >
-                <Container
+                <Container<SpanProps>
                     element={'span'}
                     classes={spanClasses}
                     attributes={spanAttributes}
@@ -236,7 +236,7 @@ export const CardImage = (props: CardImageProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={element}
             >
@@ -258,7 +258,7 @@ export const CardImage = (props: CardImageProps) => {
 export const CardFooter = (props: CardFooterProps) => {
     const {
         component = 'card-footer',
-        element = 'div',
+        element = 'footer',
         items = [],
         ...restProps
     } = props;
@@ -279,7 +279,7 @@ export const CardFooter = (props: CardFooterProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<FooterProps>
                 {...restProps}
                 element={element}
             >
@@ -323,7 +323,7 @@ export const CardFooterItem = (props: AProps | PProps) => {
                         {children}
                     </Paragraph>
                 ) : (
-                    <Container
+                    <Container<AProps>
                         {...(restProps as AProps)}
                         element={'a'}
                     >

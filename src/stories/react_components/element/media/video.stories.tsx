@@ -2,7 +2,7 @@ import {
     CONTROLS_LIST,
     CROSS_ORIGINS,
     Media,
-    PRELOADS,
+    PRELOADS, VideoProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 // @ts-ignore
@@ -335,7 +335,7 @@ export const VideoWithWidthAndHeight = {
 };
 /** Video with children node */
 export const VideoWithChildren = {
-    render: (args: any) => <Media
+    render: (args: any) => <Media<VideoProps>
         {...DefaultVideo}
         {...args}
     >

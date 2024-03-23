@@ -1,5 +1,5 @@
 import {Fragment} from "react";
-import {Container} from "../../../../components";
+import {Container, TemplateProps} from "../../../../components";
 import {deIndent} from "../../../../utils";
 
 /**
@@ -117,7 +117,7 @@ export default {
 };
 /** Default template */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<TemplateProps>
         element={'template'}
         {...args}
     >

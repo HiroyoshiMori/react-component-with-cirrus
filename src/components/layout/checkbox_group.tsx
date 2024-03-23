@@ -3,7 +3,7 @@ import {
 } from "react";
 import {
     getCssFramework,
-    CheckboxGroupProps,
+    CheckboxGroupProps, DivProps,
 } from "../index";
 import {generateId} from "../../utils";
 import {initialize} from "../common";
@@ -31,7 +31,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
 
     return (
         <Fragment>
-            <Container
+            <Container<DivProps>
                 {...restProps}
                 element={'div'}
                 id={id}

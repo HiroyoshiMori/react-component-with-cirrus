@@ -1,4 +1,5 @@
 import {
+    AudioProps,
     CONTROLS_LIST,
     CROSS_ORIGINS,
     Media,
@@ -280,14 +281,14 @@ const DefaultAudio = {
  * With special tricks for style attributes
  */
 export const Default = {
-    render: (args: any) => <Media
+    render: (args: any) => <Media<AudioProps>
         {...DefaultAudio}
         {...args}
     />,
 };
 /** Audio with children */
 export const AudioWithChildren = {
-    render: (args: any) => <Media
+    render: (args: any) => <Media<AudioProps>
         {...DefaultAudio}
         {...args}
     >

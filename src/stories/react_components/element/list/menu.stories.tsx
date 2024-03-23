@@ -72,6 +72,18 @@ export default {
                 },
             },
         },
+        commonClassesInItem: {
+            control: 'object',
+            description: 'Common style classes for child items',
+            table: {
+                type: {
+                    summary: 'string[]',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
         classes: {
             control: 'object',
             description: 'Style classes',
@@ -148,6 +160,19 @@ export const MenuWithMultipleItems = {
         ]
     }
 }
+/** Menu with common style classes for child items */
+export const MenuWithCommonStyleClasses = {
+    ...Default,
+    args: {
+        items: [
+            {element: 'li', children: 'Menu item 1'},
+            {element: 'li', children: 'Menu item 2'},
+            {element: 'li', children: 'Menu item 3'},
+            {element: 'li', children: 'Menu item 4'},
+        ],
+        commonClassesInItem: ['test-common-1'],
+    },
+};
 /** Menu with style classes */
 export const MenuWithStyleClasses = {
     ...Default,

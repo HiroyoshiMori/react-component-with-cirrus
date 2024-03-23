@@ -1,5 +1,5 @@
 import {
-    Container,
+    Container, DivProps,
 } from "../../../../components";
 import {deIndent} from "../../../../utils";
 
@@ -113,7 +113,7 @@ const DefaultDivProps = {
 
 /** Default content division */
 export const Default = {
-    render: (args: any) => <Container
+    render: (args: any) => <Container<DivProps>
         {...DefaultDivProps}
         {...args}
     >
