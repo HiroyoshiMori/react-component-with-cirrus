@@ -40,11 +40,23 @@ export default {
                             👉 See:&nbsp;
                         `)
                         + linkInStoryBook(
-                        'Omit<DivProps, "children">', 'React Component/Element/Container/Block/Div'
+                        'Article', 'React Component/Element/Container/Block/Article'
                         ),
             table: {
                 type: {
-                    summary: '"div"',
+                    summary: '"article"',
+                },
+            },
+        },
+        children: {
+            control: 'text',
+            description: 'Content of this message',
+            table: {
+                type: {
+                    summary: 'ReactNode',
+                },
+                defaultValue: {
+                    summary: 'undefined',
                 },
             },
         },
@@ -74,6 +86,7 @@ export default {
             },
             description: deIndent(`
                             Message part<br />
+                            Property "children" will be override by children of this component.<br />
                             👉 See:&nbsp;
                         `)
                         + linkInStoryBook(
@@ -101,8 +114,9 @@ export const Default = {
         }}
         body={{
             component: 'message-body',
-            children: 'This is message body within Message component',
         }}
         {...args}
-    />,
+    >
+        This is message body within Message component
+    </Message>,
 };

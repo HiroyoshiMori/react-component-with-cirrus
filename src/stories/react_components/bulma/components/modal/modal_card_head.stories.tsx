@@ -1,27 +1,36 @@
 import {Fragment} from "react";
-import {Container, DivProps, MessageHeader} from "../../../../../frameworks/bulma";
+import {Container, DivProps, ModalCardBody, ModalCardHead} from "../../../../../frameworks/bulma";
 import {deIndent, linkInStoryBook} from "../../../../../utils";
 
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Message/MessageHeader',
-    component: MessageHeader,
+    title: 'React Component/CSS Framework/Bulma/Component/Modal/ModalCardHead',
+    component: ModalCardHead,
     tags: ['autodocs'],
     parameters: {
-        componentSubtitle: 'The opitional message-header that can hold a title and a delete element',
+        componentSubtitle: 'A head of more classical modal.',
     },
     decorators: [
         (Story: any) => (
             <Fragment>
                 <Container<DivProps>
                     element={'div'}
-                    classes={['message']}
+                    classes={['modal', 'is-active']}
                 >
-                    <Story />
                     <Container<DivProps>
                         element={'div'}
-                        classes={['message-body']}
+                        classes={['modal-background']}
+                    />
+                    <Container<DivProps>
+                        element={'div'}
+                        classes={['modal-card']}
                     >
-                        This sentence is within message body.
+                        <Story />
+                        <ModalCardBody
+                            component={'modal-card-body'}
+                            element={'section'}
+                        >
+                            This is sentence within modal card body.
+                        </ModalCardBody>
                     </Container>
                 </Container>
             </Fragment>
@@ -30,10 +39,10 @@ export default {
     argTypes: {
         component: {
             control: 'none',
-            description: 'Switcher for <code>MessageHeader</code> component to render this component',
+            description: 'Switcher for <code>ModalCardHead</code> component to render this component',
             table: {
                 type: {
-                    summary: '"message-header"',
+                    summary: '"modal-card-head"',
                 },
                 defaultValue: {
                     summary: 'undefined',
@@ -50,7 +59,7 @@ export default {
                             👉 See:&nbsp;
                         `)
                         + linkInStoryBook(
-                        'DivProps', 'React Component/Element/Container/Block/Div'
+                        'Omit<DivProps, "children">', 'React Component/Element/Container/Block/Div'
                         ),
             table: {
                 type: {
@@ -58,17 +67,17 @@ export default {
                 },
             },
         },
-        label: {
+        title: {
             control: 'object',
             type: {
                 require: true,
             },
             description: deIndent(`
-                            Title of message component<br />
+                            Title of more classical modal.<br />
                             👉 See:&nbsp;
                         `)
                         + linkInStoryBook(
-                        'PProps', 'React Component/Element/Container/Block/Paragraph'
+                        'PProps', 'React Component/Element/Container/Block/P'
                         ),
             table: {
                 type: {
@@ -78,35 +87,32 @@ export default {
         },
         close: {
             control: 'object',
-            type: {
-                require: true,
-            },
             description: deIndent(`
-                            Delete element of message component<br />
+                            Property of close button for more classical modal<br />
                             👉 See:&nbsp;
                         `)
                         + linkInStoryBook(
-                        'Omit<ButtonProps, "children">', 'React Component/Element/Container/Block/Div'
+                        'ButtonProps', 'React Component/Element/Button'
                         ),
             table: {
                 type: {
                     summary: 'Omit<ButtonProps, "children">',
                 },
+                defaultValue: {
+                    summary: 'undefined',
+                },
             },
         },
     },
 };
-/** Default message header */
+/** Default modal head */
 export const Default = {
-    render: (args: any) => <MessageHeader
-        compnent={'message-header'}
+    render: (args: any) => <ModalCardHead
+        component={'modal-card-head'}
         element={'div'}
-        label={{
+        title={{
             element: 'p',
-            children: 'This sentence is within message header',
-        }}
-        close={{
-            element: 'button',
+            children: 'This is sentence within modal card head.'
         }}
         {...args}
     />,

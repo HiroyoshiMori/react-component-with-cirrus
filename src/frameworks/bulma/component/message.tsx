@@ -11,6 +11,7 @@ export const Message = (props: MessageProps) => {
         element = 'article',
         header,
         body,
+        children,
         ...restProps
     } = props;
 
@@ -44,7 +45,10 @@ export const Message = (props: MessageProps) => {
                 noDefaultClass={true}
             >
                 { header ? <MessageHeader {...header} /> : <Fragment /> }
-                <MessageBody {...body} />
+                { children
+                    ? <MessageBody {...body}>{children}</MessageBody>
+                    : <MessageBody {...body} />
+                }
             </Container>
         </Fragment>
     );

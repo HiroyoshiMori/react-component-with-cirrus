@@ -27,13 +27,13 @@ export type BlockProps = {
 export type BoxProps = (
     {
         component?: 'box';
-        element?: 'div';
+        element: 'div';
         children: ReactNode;
     } & CommonComponentProps<DivProps>
 ) | (
     {
         component?: 'box';
-        element?: 'form';
+        element: 'form';
         children: ReactNode;
     } & CommonComponentProps<FormProps>
 );
@@ -41,21 +41,21 @@ export type BoxProps = (
 /** Type definition of properties for content */
 export type ContentProps = {
     component?: 'content';
-    element?: 'div';
+    element: 'div';
     children?: ReactNode;
 } & CommonComponentProps<DivProps>;
 
 /** Type definition of properties for delete button */
 export type DeleteButtonProps = {
     component?: 'delete',
-    element?: 'button',
+    element: 'button',
     onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 } & CommonComponentProps<ButtonProps>;
 
 /** Type definition of properties for image */
 export type ImageProps = {
     component?: 'image';
-    element?: 'figure';
+    element: 'figure';
     image?: ImgProps;
     children?: ReactNode;
 } & CommonComponentProps<FigureProps>;
@@ -63,7 +63,7 @@ export type ImageProps = {
 /** Type definition of properties for notification */
 export type NotificationProps = {
     component?: 'notification';
-    element?: 'div';
+    element: 'div';
     children?: ReactNode;
     onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 } & CommonComponentProps<DivProps>;
@@ -85,7 +85,7 @@ export type TagAProps = {
 /** Type definitions of properties for tags */
 export type TagsProps = {
     component?: 'tags';
-    element?: 'div';
+    element: 'div';
     tags: TagProps | TagProps[];
     commonClassesInChild?: string[];
 } & CommonComponentProps<DivProps>;
@@ -98,14 +98,14 @@ export type TitleProps = {
 /** Type definitions of properties for title with h1-h6 */
 export type TitleHeadingProps = {
     component?: 'title-heading';
-    element?: 'h1'|'h2'|'h3'|'h4'|'h5'|'h6'|'heading';
+    element: 'h1'|'h2'|'h3'|'h4'|'h5'|'h6'|'heading';
     level?: number;
     children?: ReactNode;
 } & CommonComponentProps<HeadingProps>;
 /** Type definitions of properties for title with p */
 export type TitleParagraphProps = {
     component?: 'title-paragraph';
-    element?: 'p'|'paragraph';
+    element: 'p'|'paragraph';
     level?: number;
     children?: ReactNode;
 } & CommonComponentProps<PProps>;

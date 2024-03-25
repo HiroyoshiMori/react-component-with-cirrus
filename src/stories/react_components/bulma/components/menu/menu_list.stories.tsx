@@ -49,9 +49,9 @@ export default {
                             Element type which is extended for this component<br />
                             👉 See:&nbsp;
                         `)
-                + linkInStoryBook(
-                    'Omit<UlProps, "items">', 'React Component/Element/List/Ul'
-                ),
+                        + linkInStoryBook(
+                        'Omit<UlProps, "items">', 'React Component/Element/List/Ul'
+                        ),
             table: {
                 type: {
                     summary: '"ul"',

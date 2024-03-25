@@ -1,4 +1,4 @@
-import {Modal} from "../../../../frameworks/bulma";
+import {Box, Modal} from "../../../../frameworks/bulma";
 import {deIndent, linkInStoryBook} from "../../../../utils";
 
 /**
@@ -50,6 +50,18 @@ export default {
                 },
             },
         },
+        children: {
+            control: 'text',
+            description: 'Content body for this component',
+            table: {
+                type: {
+                    summary: 'ReactNode',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
         content: {
             control: 'object',
             if: {arg: 'card', exists: false},
@@ -57,7 +69,8 @@ export default {
                 required: true,
             },
             description: deIndent(`
-                            Content of modal<br />
+                            Content of modal.<br />
+                            Property "children" will be override by children of this component.<br />
                             👉 See:&nbsp;
                         `)
                         + linkInStoryBook(
@@ -97,14 +110,13 @@ const defaultModalCard = {
     component: 'modal',
     card: {
         head: {
-            component: 'modal-card-header',
+            component: 'modal-card-head',
             title: {
                 children: 'This is title with Modal Card',
             },
         },
         body: {
             component: 'modal-card-body',
-            children: 'This is content within Modal Card',
         },
     },
 };
@@ -114,21 +126,23 @@ export const Default = {
         component={'modal'}
         content={{
             component: 'modal-content',
-            children: 'This is content within Modal Content',
-            close: {
-                element: 'button',
-            },
-            classes: ['has-background-white'],
+            element: 'div',
         }}
         {...args}
-    />,
+    >
+        <Box element={'div'}>
+            This is content within Modal Content
+        </Box>
+    </Modal>,
 };
 /** Default Modal with card */
 export const DefaultModalCard = {
     render: (args: any) => <Modal
         {...defaultModalCard}
         {...args}
-    />,
+    >
+        This is content within Modal Card
+    </Modal>,
 };
 /** Modal with card with footer */
 export const ModalCardWithFooter = {
@@ -137,7 +151,7 @@ export const ModalCardWithFooter = {
         card: {
             ...defaultModalCard.card,
             foot: {
-                component: 'modal-card-footer',
+                component: 'modal-card-foot',
                 ok: {
                     children: 'OK',
                 },

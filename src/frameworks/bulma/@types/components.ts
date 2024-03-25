@@ -147,7 +147,7 @@ export type MessageProps = {
     element: 'article';
     header?: MessageHeaderProps;
     body: MessageBodyProps;
-} & CommonComponentProps<Omit<ArticleProps, 'children'>>;
+} & CommonComponentProps<ArticleProps>;
 /** Type definitions of properties for message-header */
 export type MessageHeaderProps = {
     component?: 'message-header';
@@ -165,16 +165,19 @@ export type MessageBodyProps = {
 export type ModalProps = {
     component?: 'modal';
     element: 'div';
+    children?: ReactNode;
 } & CommonComponentProps<Omit<DivProps, 'children'>> & ({
-    content: ModalContentProps; card?: never;
+    content: ModalContentProps;
+    card?: never;
 } | {
-    content?: never; card: ModalCardProps
+    content?: never;
+    card: ModalCardProps
 });
 /** Type definitions of properties for modal-content */
 export type ModalContentProps = {
     component?: 'modal-content';
     element: 'div';
-    close: Omit<ButtonProps, 'children'>;
+    close?: Omit<ButtonProps, 'children'>;
 } & CommonComponentProps<DivProps>;
 /** Type definitions of properties for modal-card */
 export type ModalCardProps = {
@@ -183,10 +186,11 @@ export type ModalCardProps = {
     head: ModalCardHeadProps;
     body: ModalCardBodyProps;
     foot?: ModalCardFootProps;
-} & CommonComponentProps<Omit<DivProps, 'children'>>;
+    children?: ReactNode;
+} & CommonComponentProps<DivProps>;
 /** Type definitions of properties for modal-card-head */
 export type ModalCardHeadProps = {
-    component?: 'modal-card-header';
+    component?: 'modal-card-head';
     element: 'div';
     title: PProps;
     close?: Omit<ButtonProps, 'children'>;
@@ -195,52 +199,55 @@ export type ModalCardHeadProps = {
 export type ModalCardBodyProps = {
     component?: 'modal-card-body';
     element: 'section';
+    children?: ReactNode;
 } & CommonComponentProps<SectionProps>;
 /** Type definitions of properties for modal-card-foot */
 export type ModalCardFootProps = {
-    component?: 'modal-card-footer';
+    component?: 'modal-card-foot';
     element: 'footer';
     ok?: ButtonProps & {children: ReactNode;};
     cancel?: ButtonProps & {children: ReactNode;};
 } & CommonComponentProps<Omit<FooterProps, 'children'>>;
 
 /** Type definitions of properties for navbar */
-export type NavbarProps = Omit<NavProps, 'children'> & {
+export type NavbarProps = {
     component?: 'navbar';
+    element: 'nav';
     brand?: NavbarBrandProps;
     menu?: NavbarMenuProps;
-};
+} & CommonComponentProps<Omit<NavProps, 'children'>>;
 /** Type definitions of properties for navbar-brand */
-export type NavbarBrandProps = Omit<DivProps, 'children'> & {
+export type NavbarBrandProps = {
     component?: 'navbar-brand';
+    element: 'div';
     item?: Omit<AProps, 'children'> & {children: ImgProps};
     burger?: ButtonProps;
-};
+} & CommonComponentProps<Omit<DivProps, 'children'>>;
 /** Type definitions of properties for navbar-menu */
-export type NavbarMenuProps = Omit<DivProps, 'children'> & {
+export type NavbarMenuProps = {
     component?: 'navbar-menu';
+    element: 'div';
     start?: NavbarItemProps | NavbarItemProps[];
     end?: NavbarItemProps | NavbarItemProps[];
-};
+} & CommonComponentProps<Omit<DivProps, 'children'>>;
 /** Type definitions of properties for navbar-item */
 export type NavbarItemProps = {
     component?: 'navbar-item';
-} & (AProps | NavbarDropdownProps | ButtonsProps);
+} & CommonComponentProps<AProps | NavbarDropdownProps | ButtonsProps>;
 /** Type definitions of properties for navbar-dropdown */
-export type NavbarDropdownProps = Omit<DivProps, 'children'> & {
-    component?: 'navbar-item';
-    element: 'div',
+export type NavbarDropdownProps = {
     hasDropdown: true;
+    children?: never;
     label: AProps;
     items?: (AProps | NavbarDividerProps) | (AProps | NavbarDividerProps)[];
-};
+} & CommonComponentProps<Omit<DivProps, 'children'>>;
 /** Type definitions of properties for navbar-divider */
 export type NavbarDividerProps = HrProps;
 
 /** Type definitions of properties for pagination */
-export type PaginationProps = Omit<DivProps, 'children'> & {
+export type PaginationProps = {
     component?: 'pagination';
-    element?: 'div';
+    element: 'div';
     currentPage?: number;
     total?: number;
     link?: string;
@@ -249,64 +256,68 @@ export type PaginationProps = Omit<DivProps, 'children'> & {
     prevLabel?: AProps | SpanProps;
     nextLabel?: AProps | SpanProps;
     ellipsis?: string;
-};
+} & CommonComponentProps<Omit<DivProps, 'children'>>;
 
 /** Type definitions of properties for panel */
-export type PanelProps = Omit<DivProps, 'children'> & {
+export type PanelProps = {
     component?: 'panel';
-    element?: 'div';
+    element: 'div';
     heading?: PanelHeadingProps;
     contents?: (PanelBlockProps | PanelTabsProps) | (PanelBlockProps | PanelTabsProps)[];
-};
+} & CommonComponentProps<Omit<DivProps, 'children'>>;
 /** Type definitions of properties for panel-heading */
-export type PanelHeadingProps = PProps & {
+export type PanelHeadingProps = {
     component?: 'panel-heading';
-};
+    element: 'p';
+} & CommonComponentProps<PProps>;
 /** Type definitions of properties for panel content */
 export type PanelContentProps = {
     items: (PanelBlockProps | PanelTabsProps) | (PanelBlockProps | PanelTabsProps)[];
 };
 /** Type definitions of properties for panel-tabs */
-export type PanelTabsProps = Omit<PProps, 'children'> & {
+export type PanelTabsProps = {
     component?: 'panel-tabs';
-    element?: 'p';
+    element: 'p';
     items: PanelTabItemProps | PanelTabItemProps[];
-};
+} & CommonComponentProps<Omit<PProps, 'children'>>;
 /** Type definitions of properties for item of panel-tabs */
-export type PanelTabItemProps = AProps & {
+export type PanelTabItemProps = {
     component?: 'panel-tab-item';
+    element: 'a';
     isActive?: boolean;
-};
+} & CommonComponentProps<AProps>;
 /** Type definitions of properties for panel-block */
 export type PanelBlockProps = {
     component?: 'panel-block';
 } & (PanelBlockDivProps | PanelBlockAProps | PanelBlockLabelledCheckBoxProps);
 /** Type definitions of properties for panel-block with div */
-export type PanelBlockDivProps = DivProps & {
+export type PanelBlockDivProps = {
     element: 'div';
-};
+} & CommonComponentProps<DivProps>;
 /** Type definitions of properties for panel-block with a */
-export type PanelBlockAProps = Omit<AProps, 'children'> & {
+export type PanelBlockAProps = {
     element: 'a';
     label: ReactNode;
     icon?: IconsProps;
-};
+} & CommonComponentProps<Omit<AProps, 'children'>>;
 /** Type definitions of properties for panel-block with labelled checkbox */
 export type PanelBlockLabelledCheckBoxProps = LabelledCheckboxProps & {
     element: 'label';
 };
 
 /** Type definitions of properties for tabs */
-export type TabsProps = Omit<DivProps, 'children'> & {
+export type TabsProps = {
     component?: 'tabs';
+    element: 'div';
     items: TabItemProps | TabItemProps[];
     commonListItemClasses?: string[];
     commonListItemAttributes?: LiHTMLAttributes<HTMLLIElement>;
-};
+} & CommonComponentProps<Omit<DivProps, 'children'>>;
 /** Type definitions of properties for tab item */
-export type TabItemProps = AProps & {
+export type TabItemProps = {
     component?: 'tab-item';
+    element: 'a';
     isActive?: boolean;
     listItemCLasses?: string[];
     listItemAttributes?: LiHTMLAttributes<HTMLLIElement>;
-};
+} & CommonComponentProps<AProps>;

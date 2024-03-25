@@ -54,9 +54,9 @@ export default {
                             Element type which is extended for this component<br />
                             👉 See:&nbsp;
                         `)
-                + linkInStoryBook(
-                    'DivProps', 'React Component/Element/Container/Block/Div'
-                ),
+                        + linkInStoryBook(
+                        'Omit<DivProps, "children">', 'React Component/Element/Container/Block/Div'
+                        ),
             table: {
                 type: {
                     summary: '"div"',

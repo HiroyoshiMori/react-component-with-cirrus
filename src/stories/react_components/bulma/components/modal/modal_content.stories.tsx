@@ -1,5 +1,6 @@
-import {Box, Container, ModalContent} from "../../../../../frameworks/bulma";
 import {Fragment} from "react";
+import {Box, Container, ModalContent} from "../../../../../frameworks/bulma";
+import {deIndent, linkInStoryBook} from "../../../../../utils";
 
 export default {
     title: 'React Component/CSS Framework/Bulma/Component/Modal/ModalContent',
@@ -22,6 +23,56 @@ export default {
             </Fragment>
         ),
     ],
+    argTypes: {
+        component: {
+            control: 'none',
+            description: 'Switcher for <code>ModalContent</code> component to render this component',
+            table: {
+                type: {
+                    summary: '"modal-content"',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        element: {
+            control: 'none',
+            type: {
+                required: true,
+            },
+            description: deIndent(`
+                            Element type which is extended for this component<br />
+                            👉 See:&nbsp;
+                        `)
+                        + linkInStoryBook(
+                        'DivProps', 'React Component/Element/Container/Block/Div'
+                        ),
+            table: {
+                type: {
+                    summary: '"div"',
+                },
+            },
+        },
+        close: {
+            control: 'object',
+            description: deIndent(`
+                            Properties for close button which is located in the top right corner<br />
+                            👉 See:&nbsp;
+                        `)
+                        + linkInStoryBook(
+                        'Omit<ButtonProps, "children">', 'React Component/Element/Button'
+                        ),
+            table: {
+                type: {
+                    summary: 'Omit<ButtonProps, "children">',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+    },
 };
 /** Default modal content */
 export const Default = {

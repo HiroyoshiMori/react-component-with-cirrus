@@ -48,7 +48,11 @@ export default {
             },
         },
         element: {
-            control: 'none',
+            control: 'select',
+            options: ['Default', 'a', 'div'],
+            mapping: {
+                Default: undefined,
+            },
             type: {
                 required: true,
             },

@@ -58,7 +58,7 @@ export default {
                             👉 See:&nbsp;
                         `)
                         + linkInStoryBook(
-                        'FooterProps', 'React Component/Element/Container/Block/Footer'
+                        'Omit<FooterProps, "children">', 'React Component/Element/Container/Block/Footer'
                         ),
             table: {
                 type: {

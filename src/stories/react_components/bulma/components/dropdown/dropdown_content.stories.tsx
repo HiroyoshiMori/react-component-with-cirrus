@@ -52,7 +52,7 @@ export default {
                             👉 See:&nbsp;
                         `)
                         + linkInStoryBook(
-                        'DivProps', 'React Component/Element/Container/Block/Div'
+                        'Omit<DivProps, "children">', 'React Component/Element/Container/Block/Div'
                         ),
             table: {
                 type: {

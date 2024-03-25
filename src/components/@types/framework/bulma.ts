@@ -566,11 +566,11 @@ export const getDefaultStyleClass = (
             return ['modal-content'];
         case 'modal-card':
             return ['modal-card'];
-        case 'modal-card-header':
+        case 'modal-card-head':
             return ['modal-card-head'];
         case 'modal-card-body':
             return ['modal-card-body'];
-        case 'modal-card-footer':
+        case 'modal-card-foot':
             switch (element.toLowerCase()) {
                 case 'button':
                     switch (subType?.toLowerCase()) {
@@ -608,21 +608,24 @@ export const getDefaultStyleClass = (
             return ['navbar-dropdown'];
         case 'navbar-item':
             switch (element.toLowerCase()) {
+                case 'button':
+                    return ['navbar-item', 'button'];
                 case 'div':
                     switch (subType?.toLowerCase()) {
-                        case 'hasDropdown':
+                        case 'has-dropdown':
                             return ['navbar-item', 'has-dropdown', 'is-hoverable'];
-                    }
-                    break;
-                case 'hr':
-                    return ['navbar-divider'];
-                default:
-                    switch (subType?.toLowerCase()) {
-                        case 'label':
-                            return ['navbar-link'];
                         default:
                             return ['navbar-item'];
                     }
+                case 'hr':
+                    return ['navbar-divider'];
+                default:
+                    return ['navbar-item'];
+            }
+        case 'navbar-link':
+            switch (element.toLowerCase()) {
+                case 'a':
+                    return ['navbar-link'];
             }
             break;
         case 'navbar-menu':

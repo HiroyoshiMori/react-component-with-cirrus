@@ -23,6 +23,7 @@ export const Modal = (props: ModalProps) => {
         component = 'modal',
         element = 'div',
         content,
+        children,
         card,
         ...restProps
     } = props;
@@ -49,8 +50,13 @@ export const Modal = (props: ModalProps) => {
                     element={'div'}
                     classes={['modal-background']}
                 />
-                { content ? <ModalContent {...content}></ModalContent> : <Fragment /> }
-                { card ? <ModalCard {...card} />:<Fragment/>}
+                { content && children ? <ModalContent {...content}>{children}</ModalContent> : <Fragment /> }
+                { card
+                    ? children
+                        ? <ModalCard {...card}>{children}</ModalCard>
+                        : <ModalCard {...card} />
+                    :<Fragment/>
+                }
             </Container>
         </Fragment>
     );
@@ -61,7 +67,7 @@ export const ModalContent = (props: ModalContentProps) => {
         component = 'modal-content',
         element = 'div',
         children,
-        close,
+        close = {element: 'button'} as ButtonProps,
         ...restProps
     } = props;
 
@@ -120,6 +126,7 @@ export const ModalCard = (props: ModalCardProps) => {
         head,
         body,
         foot,
+        children,
         ...restProps
     } = props;
 
@@ -142,7 +149,10 @@ export const ModalCard = (props: ModalCardProps) => {
                 element={element}
             >
                 {head ? <ModalCardHead {...head} /> : <Fragment /> }
-                <ModalCardBody {...body} />
+                { children
+                    ? <ModalCardBody {...body}>{children}</ModalCardBody>
+                    : <ModalCardBody {...body} />
+                }
                 {foot ? <ModalCardFoot {...foot} /> : <Fragment /> }
             </Container>
         </Fragment>
@@ -151,7 +161,7 @@ export const ModalCard = (props: ModalCardProps) => {
 
 export const ModalCardHead = (props: ModalCardHeadProps) => {
     const {
-        component = 'modal-card-header',
+        component = 'modal-card-head',
         element = 'div',
         title,
         close = {} as Omit<ButtonProps, 'children'>,
@@ -267,6 +277,9 @@ export const ModalCardFoot = (props: ModalCardFootProps) => {
         'modal', element, 'is-active'
     );
     if (ok) {
+        if (ok.children === undefined) {
+            ok.children = 'OK';
+        }
         ok['classes'] = initialize(
             ok['classes'], [], getCssFramework().getDefaultStyleClass(
                 component, 'button', 'ok'
@@ -289,6 +302,9 @@ export const ModalCardFoot = (props: ModalCardFootProps) => {
         }
     }
     if (cancel) {
+        if (cancel.children === undefined) {
+            cancel.children = 'Cancel';
+        }
         cancel['classes'] = initialize(
             cancel['classes'], [], getCssFramework().getDefaultStyleClass(
                 component, 'button', 'cancel'

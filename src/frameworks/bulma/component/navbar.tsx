@@ -332,22 +332,22 @@ export const NavbarItemDropdown = (props: NavbarDropdownProps) => {
         ? items : [items];
     restProps['classes'] = initialize(
         props['classes'], [], getCssFramework().getDefaultStyleClass(
-            component, element, 'hasDropdown'
+            component, element, 'has-dropdown'
         )
     );
     restProps['attributes'] = initialize(
         props['attributes'], {}, getCssFramework().getDefaultAdditionalAttributes(
-            component, element, 'hasDropdown'
+            component, element, 'has-dropdown'
         )
     );
     label['classes'] = initialize(
         label['classes'], [], getCssFramework().getDefaultStyleClass(
-            component, element, 'label'
+            'navbar-link', 'a'
         )
     );
     label['attributes'] = initialize(
         label['attributes'], {}, getCssFramework().getDefaultAdditionalAttributes(
-            component, element, 'label'
+            'navbar-link', 'a'
         )
     );
     const dropdownClasses = initialize(
