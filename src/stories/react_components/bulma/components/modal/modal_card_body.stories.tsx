@@ -88,6 +88,7 @@ export const Default = {
     render: (args: any) => <ModalCardBody
         component={'modal-card-body'}
         element={'section'}
+        {...args}
     >
         This is sentence within modal card body.
     </ModalCardBody>,
