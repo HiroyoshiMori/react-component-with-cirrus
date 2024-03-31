@@ -20,7 +20,7 @@ import {deIndent, linkInStoryBook} from "../../../../utils";
  * See: https://bulma.io/documentation/components/card/
  */
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Card',
+    title: 'React Component/CSS Framework/Bulma/Components/Card',
     component: Card,
     tags: ['autodocs'],
     parameters: {
@@ -65,7 +65,7 @@ export default {
                         `)
                         + linkInStoryBook(
                         'CardHeaderProps',
-                        'React Component/Css Framework/Bulma/Component/Card/CardHeader'
+                        'React Component/Css Framework/Bulma/Components/Card/CardHeader'
                         ),
             table: {
                 type: {
@@ -84,7 +84,7 @@ export default {
                         `)
                         + linkInStoryBook(
                         'CardImageProps',
-                        'React Component/Css Framework/Bulma/Component/Card/CardImage'
+                        'React Component/Css Framework/Bulma/Components/Card/CardImage'
                         ),
             table: {
                 type: {
@@ -115,7 +115,7 @@ export default {
                         `)
                         + linkInStoryBook(
                         'CardFooterProps',
-                        'React Component/Css Framework/Bulma/Component/Card/CardFooter'
+                        'React Component/Css Framework/Bulma/Components/Card/CardFooter'
                         ),
             table: {
                 type: {

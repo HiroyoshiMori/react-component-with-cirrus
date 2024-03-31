@@ -1,6 +1,8 @@
 import {FormSelect} from "../../../../frameworks/bulma";
 
 export default {
+    title: 'React Component/CSS Framework/Bulma/Form/FormSelect',
+    // TODO: add argTypes
     component: FormSelect,
     tags: ['autodocs'],
 };

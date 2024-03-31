@@ -1,6 +1,8 @@
 import {Tags} from "../../../../frameworks/bulma";
 
 export default {
+    title: 'React Component/CSS Framework/Bulma/Elements/Tags',
+    // TODO: add argTypes
     component: Tags,
     tags: ['autodocs'],
 };

@@ -170,7 +170,7 @@ export const PanelBlock = (props: PanelBlockProps) => {
                         </Container>
                     ) : <Fragment />
                 }
-                { (restProps as PanelBlockAProps).label }
+                { (restProps as PanelBlockAProps).children }
             </Fragment>
         );
     } else if (restProps['element'] === 'div') {
@@ -271,6 +271,7 @@ export const PanelTabItem = (props: PanelTabItemProps) => {
         )
     );
     if (isActive) {
+        restProps['href'] = undefined;
         const isActiveClasses = getCssFramework().getDefaultStyleClass(
             component, element, 'is-active'
         );

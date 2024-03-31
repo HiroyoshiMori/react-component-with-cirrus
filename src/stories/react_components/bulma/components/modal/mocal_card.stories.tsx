@@ -3,7 +3,7 @@ import {Container, DivProps, ModalCard} from "../../../../../frameworks/bulma";
 import {deIndent, linkInStoryBook} from "../../../../../utils";
 
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Modal/ModalCard',
+    title: 'React Component/CSS Framework/Bulma/Components/Modal/ModalCard',
     component: ModalCard,
     tags: ['autodocs'],
     parameters: {
@@ -67,7 +67,7 @@ export default {
                         `)
                         + linkInStoryBook(
                         'ModalCardHeadProps',
-                        'React Component/Css Framework/Bulma/Component/Modal/ModalCardHead'
+                        'React Component/Css Framework/Bulma/Components/Modal/ModalCardHead'
                         ),
             table: {
                 type: {
@@ -86,7 +86,7 @@ export default {
                         `)
                         + linkInStoryBook(
                         'ModalCardBodyProps',
-                        'React Component/Css Framework/Bulma/Component/Modal/ModalCardBody'
+                        'React Component/Css Framework/Bulma/Components/Modal/ModalCardBody'
                         ),
             table: {
                 type: {
@@ -102,7 +102,7 @@ export default {
                         `)
                         + linkInStoryBook(
                         'ModalCardFootProps',
-                        'React Component/Css Framework/Bulma/Component/Modal/ModalCardFoot'
+                        'React Component/Css Framework/Bulma/Components/Modal/ModalCardFoot'
                         ),
             table: {
                 type: {

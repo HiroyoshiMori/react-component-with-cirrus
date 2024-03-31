@@ -1,6 +1,8 @@
 import {Tabs} from "../../../../frameworks/bulma";
 
 export default {
+    title: 'React Component/CSS Framework/Bulma/Components/Tabs',
+    // TODO: add argTypes
     component: Tabs,
     tags: ['autodocs'],
 };

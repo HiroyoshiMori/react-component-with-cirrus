@@ -3,7 +3,7 @@ import {Fragment} from "react";
 import {deIndent, linkInStoryBook} from "../../../../../utils";
 
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Card/CardHeader',
+    title: 'React Component/CSS Framework/Bulma/Components/Card/CardHeader',
     component: CardHeader,
     tags: ['autodocs'],
     parameters: {

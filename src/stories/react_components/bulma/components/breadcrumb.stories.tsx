@@ -17,7 +17,7 @@ import {deIndent, linkInStoryBook} from "../../../../utils";
  * See: https://bulma.io/documentation/components/breadcrumb/
  */
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Breadcrumb',
+    title: 'React Component/CSS Framework/Bulma/Components/Breadcrumb',
     component: Breadcrumb,
     tags: ['autodocs'],
     parameters: {

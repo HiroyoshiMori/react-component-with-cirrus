@@ -297,13 +297,12 @@ export type PanelBlockDivProps = {
 /** Type definitions of properties for panel-block with a */
 export type PanelBlockAProps = {
     element: 'a';
-    label: ReactNode;
     icon?: IconsProps;
-} & CommonComponentProps<Omit<AProps, 'children'>>;
+} & CommonComponentProps<AProps>;
 /** Type definitions of properties for panel-block with labelled checkbox */
-export type PanelBlockLabelledCheckBoxProps = LabelledCheckboxProps & {
+export type PanelBlockLabelledCheckBoxProps = {
     element: 'label';
-};
+} & LabelledCheckboxProps;
 
 /** Type definitions of properties for tabs */
 export type TabsProps = {

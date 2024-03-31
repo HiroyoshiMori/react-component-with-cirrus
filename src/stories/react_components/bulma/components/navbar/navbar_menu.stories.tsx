@@ -5,7 +5,7 @@ import ExampleImage from '../../../../assets/assets.png';
 import {deIndent, linkInStoryBook} from "../../../../../utils";
 
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Navbar/NavbarMenu',
+    title: 'React Component/CSS Framework/Bulma/Components/Navbar/NavbarMenu',
     component: NavbarMenu,
     tags: ['autodocs'],
     parameters: {
@@ -80,7 +80,7 @@ export default {
                         `)
                         + linkInStoryBook(
                         'NavbarItemProps',
-                        'React Component/Css Framework/Bulma/Component/Modal/NavbarItem'
+                        'React Component/Css Framework/Bulma/Components/Modal/NavbarItem'
                         ),
             table: {
                 type: {
@@ -99,7 +99,7 @@ export default {
                         `)
                         + linkInStoryBook(
                         'NavbarItemProps',
-                        'React Component/Css Framework/Bulma/Component/Modal/NavbarItem'
+                        'React Component/Css Framework/Bulma/Components/Modal/NavbarItem'
                         ),
             table: {
                 type: {

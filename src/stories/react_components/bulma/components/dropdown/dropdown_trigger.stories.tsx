@@ -4,7 +4,7 @@ import {Container} from "../../../../../components";
 import {deIndent, linkInStoryBook} from "../../../../../utils";
 
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Dropdown/DropdownTrigger',
+    title: 'React Component/CSS Framework/Bulma/Components/Dropdown/DropdownTrigger',
     component: DropdownTrigger,
     tags: ['autodocs'],
     parameters: {

@@ -3,7 +3,7 @@ import {Container, DivProps, ModalCardBody, ModalCardFoot, ModalCardHead} from "
 import {deIndent, linkInStoryBook} from "../../../../../utils";
 
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Modal/ModalCardFoot',
+    title: 'React Component/CSS Framework/Bulma/Components/Modal/ModalCardFoot',
     component: ModalCardFoot,
     tags: ['autodocs'],
     parameters: {

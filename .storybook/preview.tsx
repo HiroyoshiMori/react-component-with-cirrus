@@ -26,7 +26,9 @@ const preview: Preview = {
         { id: 'Cirrus-UI', srcPath: '/assets/cirrus-ui/cirrus-all.css' },  // ID and css path
         { id: 'Bulma', srcPath: '/assets/bulma/bulma.css' },
       ],
-    },  },
+      debug: true,
+    },
+  },
 };
 
 export default preview;

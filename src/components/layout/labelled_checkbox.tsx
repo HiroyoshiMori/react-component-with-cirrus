@@ -19,12 +19,14 @@ export const LabelledCheckbox = (props: LabelledCheckboxProps) => {
     } = props;
 
     // Initialize
-    if (checkboxProps?.id === undefined) {
-        checkboxProps.id = labelProps.htmlFor ?? generateId();
-        labelProps.htmlFor = checkboxProps.id;
-    }
-    if (checkboxProps?.value === undefined) {
-        checkboxProps.value = reactNodeToString(children);
+    if (checkboxProps) {
+        if (checkboxProps.id === undefined) {
+            checkboxProps.id = labelProps.htmlFor ?? generateId();
+            labelProps.htmlFor = checkboxProps.id;
+        }
+        if (checkboxProps?.value === undefined) {
+            checkboxProps.value = reactNodeToString(children);
+        }
     }
     const labelClasses = initialize(
         labelProps?.classes, [],

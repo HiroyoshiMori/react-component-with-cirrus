@@ -191,5 +191,17 @@ export const toCamelCase = (str: string, firstLowerCase = true): string =>
         )
         .join("");
 
+/**
+ * Get stacktrace for DEBUG
+ *
+ * @see https://jp-seemore.com/web/13505/#toc13
+ */
+export const checkCaller = () => {
+    try {
+        throw new Error('Check caller');
+    } catch (e: any) {
+        console.debug(e.stack);
+    }
+};
 
 export * from './helper';

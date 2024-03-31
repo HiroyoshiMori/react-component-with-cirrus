@@ -1,8 +1,171 @@
 import {Pagination} from "../../../../frameworks/bulma";
+import {deIndent, linkInStoryBook} from "../../../../utils";
 
+/**
+ * The pagination component consists of several elements:
+ *
+ * - <code>pagination-previous</code> and <code>pagination-next</code> for incremental navigation
+ * - <code>pagination-list</code> which displays page items:
+ *   - <code>pagination-link</code> for the page numbers
+ *   - <code>pagination-ellipsis</code> for range separators
+ *
+ * See: https://bulma.io/documentation/components/pagination/
+ */
 export default {
+    title: 'React Component/CSS Framework/Bulma/Components/Pagination',
     component: Pagination,
     tags: ['autodocs'],
+    parameters: {
+        componentSubtitle: 'A responsive, usable, and flexible pagination',
+    },
+    argTypes: {
+        component: {
+            control: 'none',
+            description: 'Switcher for <code>Pagination</code> component to render this component',
+            table: {
+                type: {
+                    summary: '"pagination"',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        element: {
+            control: 'select',
+            type: {
+                required: true,
+            },
+            description: deIndent(`
+                            Element type which is extended for this component<br />
+                            👉 See:&nbsp;
+                        `)
+                        + linkInStoryBook(
+                        'Omit<DivProps, "children">', 'React Component/Element/Container/Block/Div'
+                        ),
+            table: {
+                type: {
+                    summary: '"div"',
+                },
+            },
+        },
+        currentPage: {
+            control: {type: 'number', min: 1},
+            description: 'Current page for pagination',
+            table: {
+                type: {
+                    summary: 'number',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        total: {
+            control: {type: 'number', min: 0},
+            description: 'Total item number for pagenation',
+            table: {
+                type: {
+                    summary: 'number',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        link: {
+            control: 'text',
+            description: 'Link patter which is used by sprintf',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        itemInPage: {
+            control: {type: 'number', min: 1},
+            description: 'Number of items shown in a page',
+            table: {
+                type: {
+                    summary: 'number',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        hasPrevNext: {
+            control: 'boolean',
+            description: 'Indicate pagination has prev/next link',
+            table: {
+                type: {
+                    summary: 'boolean',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        prevLabel: {
+            control: 'object',
+            description: deIndent(`
+                            Properties for previous label<br />
+                            👉 See:&nbsp;
+                        `)
+                        + linkInStoryBook(
+                        'AProps', 'React Component/Element/Container/Inline/Anchor'
+                        )
+                        + ' / '
+                        + linkInStoryBook(
+                        'SpanProps', 'React Component/Element/Container/Inline/Span'
+                        ),
+            table: {
+                type: {
+                    summary: 'AProps | SpanProps',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        nextLabel: {
+            control: 'object',
+            description: deIndent(`
+                            Properties for next label<br />
+                            👉 See:&nbsp;
+                        `)
+                        + linkInStoryBook(
+                        'AProps', 'React Component/Element/Container/Inline/Anchor'
+                        )
+                        + ' / '
+                        + linkInStoryBook(
+                        'SpanProps', 'React Component/Element/Container/Inline/Span'
+                        ),
+            table: {
+                type: {
+                    summary: 'AProps | SpanProps',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+        ellipsis: {
+            control: 'text',
+            description: 'Character for ellipsis',
+            table: {
+                type: {
+                    summary: 'string',
+                },
+                defaultValue: {
+                    summary: 'undefined',
+                },
+            },
+        },
+    },
 };
 // Default pagination
 const defaultPagination = {

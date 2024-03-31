@@ -3,7 +3,7 @@ import {Container, DivProps, MessageHeader} from "../../../../../frameworks/bulm
 import {deIndent, linkInStoryBook} from "../../../../../utils";
 
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Message/MessageHeader',
+    title: 'React Component/CSS Framework/Bulma/Components/Message/MessageHeader',
     component: MessageHeader,
     tags: ['autodocs'],
     parameters: {

@@ -1,6 +1,8 @@
 import {Delete} from "../../../../frameworks/bulma";
 
 export default {
+    title: 'React Component/CSS Framework/Bulma/Elements/Delete',
+    // TODO: add argTypes
     component: Delete,
     tags: ['autodocs'],
 };

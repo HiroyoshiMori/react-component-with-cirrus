@@ -11,7 +11,7 @@ import {deIndent, linkInStoryBook} from "../../../../utils";
  *     - <code>dropdown-divider</code>: A horizontal line to separate dropdown items
  */
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Dropdown',
+    title: 'React Component/CSS Framework/Bulma/Components/Dropdown',
     component: Dropdown,
     tags: ['autodocs'],
     parameters: {
@@ -59,7 +59,7 @@ export default {
                         `)
                         + linkInStoryBook(
                             'DropdownTriggerProps',
-                            'React Component/CSS Framework/Bulma/Component/Dropdown/DropdownTrigger'
+                            'React Component/CSS Framework/Bulma/Components/Dropdown/DropdownTrigger'
                         ),
             table: {
                 type: {
@@ -78,7 +78,7 @@ export default {
                         `)
                         + linkInStoryBook(
                         'DropdownMenuProps',
-                        'React Component/Css Framework/Bulma/Component/Dropdown/DropdownMenu'
+                        'React Component/Css Framework/Bulma/Components/Dropdown/DropdownMenu'
                         ),
             table: {
                 type: {

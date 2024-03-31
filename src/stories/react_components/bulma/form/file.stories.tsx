@@ -1,6 +1,8 @@
 import {FormFile} from "../../../../frameworks/bulma";
 
 export default {
+    title: 'React Component/CSS Framework/Bulma/Form/FormFile',
+    // TODO: add argTypes
     component: FormFile,
     tags: ['autodocs'],
 };

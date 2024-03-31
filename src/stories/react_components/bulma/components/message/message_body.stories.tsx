@@ -3,7 +3,7 @@ import {Fragment} from "react";
 import {deIndent, linkInStoryBook} from "../../../../../utils";
 
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Message/MessageBody',
+    title: 'React Component/CSS Framework/Bulma/Components/Message/MessageBody',
     component: MessageBody,
     tags: ['autodocs'],
     parameters: {

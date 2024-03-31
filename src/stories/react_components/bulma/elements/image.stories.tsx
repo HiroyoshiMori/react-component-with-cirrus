@@ -3,6 +3,8 @@ import {Image} from "../../../../frameworks/bulma";
 import ExampleImage from '../../../assets/file_example_PNG_500kB.png';
 
 export default {
+    title: 'React Component/CSS Framework/Bulma/Elements/Image',
+    // TODO: add argTypes
     component: Image,
     tags: ['autodocs'],
 };

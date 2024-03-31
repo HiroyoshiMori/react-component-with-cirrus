@@ -11,7 +11,7 @@ import {deIndent, linkInStoryBook} from "../../../../utils";
  * See: https://bulma.io/documentation/components/message/
  */
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Message',
+    title: 'React Component/CSS Framework/Bulma/Components/Message',
     component: Message,
     tags: ['autodocs'],
     parameters: {
@@ -68,7 +68,7 @@ export default {
                         `)
                         + linkInStoryBook(
                         'MessageHeaderProps',
-                        'React Component/Css Framework/Bulma/Component/Message/MessageHeader'
+                        'React Component/Css Framework/Bulma/Components/Message/MessageHeader'
                         ),
             table: {
                 type: {
@@ -91,7 +91,7 @@ export default {
                         `)
                         + linkInStoryBook(
                         'MessageBodyProps',
-                        'React Component/Css Framework/Bulma/Component/Message/MessageBody'
+                        'React Component/Css Framework/Bulma/Components/Message/MessageBody'
                         ),
             table: {
                 type: {

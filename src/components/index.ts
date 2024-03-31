@@ -1,15 +1,25 @@
- import * as Dummy from './@types/framework/dummy';
-import * as Bulma from './@types/framework/bulma';
+import * as Dummy from './@types/framework/dummy';
+import * as Bulma from '../frameworks/bulma/@types/index';
 import * as CirrusUi from './@types/framework/cirrus-ui';
+import {checkCaller} from "../utils";
 
 let currentFramework: string|undefined;
-currentFramework = process.env.CSS_FRAMEWORK ?? currentFramework;
-export const setCssFramework = (name: string) => {
-    currentFramework = name;
-    process.env.CSS_FRAMEWORK = name;
+export const setCssFramework = (name: string | undefined) => {
+    if (currentFramework !== name) {
+        console.debug('currentFramework:' + currentFramework + ' -> ' + name);
+        checkCaller();
+        currentFramework = name;
+    }
 }
 export const getCssFramework = () => {
     let styleCss;
+    const meta = document.querySelector('meta[itemprop=css-framework-used]') as HTMLMetaElement;
+    if (meta) {
+        setCssFramework(
+            meta.content ?? undefined
+        );
+    }
+    console.debug('currentFramework:' + currentFramework);
     switch (currentFramework) {
         case 'Bulma':
             styleCss = Bulma; break;

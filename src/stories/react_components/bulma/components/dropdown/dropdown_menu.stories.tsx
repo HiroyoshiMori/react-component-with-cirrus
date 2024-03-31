@@ -3,7 +3,7 @@ import {Fragment} from "react";
 import {deIndent, linkInStoryBook} from "../../../../../utils";
 
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Dropdown/DropdownMenu',
+    title: 'React Component/CSS Framework/Bulma/Components/Dropdown/DropdownMenu',
     component: DropdownMenu,
     tags: ['autodocs'],
     parameters: {
@@ -66,7 +66,7 @@ export default {
                         `)
                         + linkInStoryBook(
                         'DropdownContentProps',
-                        'React Component/Css Framework/Bulma/Component/Dropdown/DropdownContent'
+                        'React Component/Css Framework/Bulma/Components/Dropdown/DropdownContent'
                         ),
             table: {
                 type: {

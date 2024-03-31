@@ -5,7 +5,7 @@ import ExampleImage from '../../../../assets/assets.png';
 import {deIndent, linkInStoryBook} from "../../../../../utils";
 
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Navbar/NavbarItem',
+    title: 'React Component/CSS Framework/Bulma/Components/Navbar/NavbarItem',
     component: NavbarItem,
     tags: ['autodocs'],
     parameters: {

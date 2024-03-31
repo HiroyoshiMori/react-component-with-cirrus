@@ -3,7 +3,7 @@ import {Fragment} from "react";
 import {deIndent, linkInStoryBook} from "../../../../../utils";
 
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Menu/MenuLabel',
+    title: 'React Component/CSS Framework/Bulma/Components/Menu/MenuLabel',
     component: MenuLabel,
     tags:['autodocs'],
     parameters: {

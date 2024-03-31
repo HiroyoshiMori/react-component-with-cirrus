@@ -3,7 +3,7 @@ import {Container, DivProps, DropdownDivider, DropdownItem, DropdownTrigger} fro
 import {deIndent, linkInStoryBook} from "../../../../../utils";
 
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Dropdown/DropdownDivider',
+    title: 'React Component/CSS Framework/Bulma/Components/Dropdown/DropdownDivider',
     component: DropdownDivider,
     tags: ['autodocs'],
     parameters: {

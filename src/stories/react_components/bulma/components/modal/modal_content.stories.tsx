@@ -3,7 +3,7 @@ import {Box, Container, ModalContent} from "../../../../../frameworks/bulma";
 import {deIndent, linkInStoryBook} from "../../../../../utils";
 
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Modal/ModalContent',
+    title: 'React Component/CSS Framework/Bulma/Components/Modal/ModalContent',
     component: ModalContent,
     tags: ['autodocs'],
     parameters: {

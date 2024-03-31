@@ -68,8 +68,9 @@ export default {
 export const Default = {
     render: (args: any) => <Column
         component={'column'}
-        children={'Column 1'}
         {...args}
-    />,
+    >
+        Column 1
+    </Column>,
 };
 

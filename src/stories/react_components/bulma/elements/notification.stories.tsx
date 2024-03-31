@@ -1,6 +1,8 @@
 import {Notification} from "../../../../frameworks/bulma";
 
 export default {
+    title: 'React Component/CSS Framework/Bulma/Elements/Notification',
+    // TODO: add argTypes
     component: Notification,
     tags: ['autodocs'],
 };

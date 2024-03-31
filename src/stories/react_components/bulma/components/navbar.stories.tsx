@@ -23,7 +23,7 @@ import {deIndent, linkInStoryBook} from "../../../../utils";
  * See: https://bulma.io/documentation/components/navbar/
  */
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Navbar',
+    title: 'React Component/CSS Framework/Bulma/Components/Navbar',
     component: Navbar,
     tags: ['autodocs'],
     parameters: {
@@ -69,7 +69,7 @@ export default {
                         `)
                         + linkInStoryBook(
                         'NavbarBrandProps',
-                        'React Component/Css Framework/Bulma/Component/Modal/NavbarBrand'
+                        'React Component/Css Framework/Bulma/Components/Modal/NavbarBrand'
                         ),
             table: {
                 type: {
@@ -88,7 +88,7 @@ export default {
                         `)
                         + linkInStoryBook(
                         'NavbarMenuProps',
-                        'React Component/Css Framework/Bulma/Component/Modal/NavbarMenu'
+                        'React Component/Css Framework/Bulma/Components/Modal/NavbarMenu'
                         ),
             table: {
                 type: {

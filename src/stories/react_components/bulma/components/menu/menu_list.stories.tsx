@@ -3,7 +3,7 @@ import {AsideProps, Container, MenuList, Paragraph} from "../../../../../framewo
 import {deIndent, linkInStoryBook} from "../../../../../utils";
 
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Menu/MenuList',
+    title: 'React Component/CSS Framework/Bulma/Components/Menu/MenuList',
     component: MenuList,
     tags: ['autodocs'],
     parameters: {

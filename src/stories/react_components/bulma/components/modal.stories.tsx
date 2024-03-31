@@ -13,7 +13,7 @@ import {deIndent, linkInStoryBook} from "../../../../utils";
  *   See: https://bulma.io/documentation/components/modal/
  */
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Modal',
+    title: 'React Component/CSS Framework/Bulma/Components/Modal',
     component: Modal,
     tags: ['autodocs'],
     parameters: {
@@ -75,7 +75,7 @@ export default {
                         `)
                         + linkInStoryBook(
                         'ModalContentProps',
-                        'React Component/Css Framework/Bulma/Component/Modal/ModalContent'
+                        'React Component/Css Framework/Bulma/Components/Modal/ModalContent'
                         ),
             table: {
                 type: {
@@ -95,7 +95,7 @@ export default {
                         `)
                         + linkInStoryBook(
                         'ModalCardProps',
-                        'React Component/Css Framework/Bulma/Component/Modal/ModalCard'
+                        'React Component/Css Framework/Bulma/Components/Modal/ModalCard'
                         ),
             table: {
                 type: {

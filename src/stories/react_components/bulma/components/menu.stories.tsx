@@ -11,7 +11,7 @@ import {deIndent, linkInStoryBook} from "../../../../utils";
  * See: https://bulma.io/documentation/components/menu/
  */
 export default {
-    title: 'React Component/CSS Framework/Bulma/Component/Menu',
+    title: 'React Component/CSS Framework/Bulma/Components/Menu',
     component: Menu,
     tags: ['autodocs'],
     parameters: {
@@ -57,12 +57,12 @@ export default {
                         `)
                         + linkInStoryBook(
                         'MenusLabelProps',
-                        'React Component/Css Framework/Bulma/Component/Menu/MenuLabel'
+                        'React Component/Css Framework/Bulma/Components/Menu/MenuLabel'
                         )
                         + ' / '
                         + linkInStoryBook(
                         'MenusListProps',
-                        'React Component/Css Framework/Bulma/Component/Menu/MenuList'
+                        'React Component/Css Framework/Bulma/Components/Menu/MenuList'
                         ),
             table: {
                 type: {
